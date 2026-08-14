@@ -8,7 +8,7 @@ Curated AltStore sources for IPA projects on GitHub. Some sources are generated 
 
 Unofficial AltStore source for [PiliPlus](https://github.com/bggRGjQaUbCoE/PiliPlus), a third-party BiliBili client built with Flutter.
 
-<a href="https://stikstore.app/altdirect/?url=https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/PiliPlus/apps.json" target="_blank">
+<a href="https://altdirect.app/?url=https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/PiliPlus/apps.json" target="_blank">
 <img src="https://github.com/CelloSerenity/altdirect/blob/main/assets/png/AltSource_Blue.png?raw=true" alt="Add AltSource" width="200">
 </a>
 
