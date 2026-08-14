@@ -2,7 +2,7 @@
   "name": "PiliPlus",
   "subtitle": "PiliPlus AltStore source by AltGallery & altgen",
   "description": "Auto-updated AltStore source for PiliPlus",
-  "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/main/PiliPlus/icon.png",
+  "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/PiliPlus/icon.png",
   "website": "https://github.com/bggRGjQaUbCoE/PiliPlus",
   "tintColor": "#00AEEF",
   "apps": [
@@ -12,11 +12,11 @@
       "developerName": "bggRGjQaUbCoE",
       "subtitle": "Latest PiliPlus release",
       "localizedDescription": "使用Flutter开发的BiliBili第三方客户端",
-      "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/main/PiliPlus/icon.png",
+      "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/PiliPlus/icon.png",
       "screenshots": [
-        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/main/PiliPlus/screenshots/home.png",
-        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/main/PiliPlus/screenshots/bangumi.png",
-        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/main/PiliPlus/screenshots/dynamic.png"
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/PiliPlus/screenshots/home.png",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/PiliPlus/screenshots/bangumi.png",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/PiliPlus/screenshots/dynamic.png"
       ],
       "tintColor": "#73b480",
       "versions": [
