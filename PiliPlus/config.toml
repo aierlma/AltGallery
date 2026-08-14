@@ -1,0 +1,47 @@
+# altgen config for the PiliPlus AltStore source.
+# Run: uvx altgen -c config.toml
+# Reproduces the original update_source.py output (130 versions).
+
+[github]
+repo = "bggRGjQaUbCoE/PiliPlus"
+# token: optional. Precedence: --token > GITHUB_TOKEN env > this value.
+
+[source]
+name = "PiliPlus"
+subtitle = "PiliPlus AltStore source by AltGallery & altgen"
+description = "Auto-updated AltStore source for PiliPlus"
+icon_url = "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/main/PiliPlus/icon.png"
+website = "https://github.com/bggRGjQaUbCoE/PiliPlus"
+tint_color = "#00AEEF"
+
+[app]
+name = "PiliPlus"
+bundle_identifier = "com.bggRGjQaUbCoE.PiliPlus"
+developer_name = "bggRGjQaUbCoE"
+subtitle = "Latest PiliPlus release"
+description = "使用Flutter开发的BiliBili第三方客户端"
+icon_url = "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/main/PiliPlus/icon.png"
+screenshots = [
+  "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/main/PiliPlus/screenshots/home.png",
+  "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/main/PiliPlus/screenshots/bangumi.png",
+  "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/main/PiliPlus/screenshots/dynamic.png",
+]
+tint_color = "#73b480"
+min_os_version = "14.0"
+
+[versions]
+strip_v_prefix = true
+include_prereleases = false
+# asset_pattern 是正则（非 glob）：.*\.ipa$ 匹配所有 ipa 资产
+# 兼容两种历史命名：PiliPlus_ios_*.ipa 与 ios-release-no-sign.ipa
+asset_pattern = ".*\\.ipa$"
+build_version_pattern = "\\+(\\d+)\\.ipa$"
+max_versions = 0
+
+[news]
+enabled = true
+title_template = "{name} {version}"
+max_entries = 0
+
+[output]
+path = "apps.json"
