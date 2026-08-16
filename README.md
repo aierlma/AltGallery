@@ -58,44 +58,27 @@ AltGallery/
 └── ...
 ```
 
-## Generating News Images
+## Updating Apps and News Images
 
-Set up the venv once (`update_news.sh` runs the renderer from `.venv/bin/python`):
+Run both scripts from the repo root:
+
+```bash
+./update.sh       # regenerate every app's apps.json from config.toml and merge into all-apps.json
+./update_news.sh  # re-render every app's images/news.png from its news.toml
+```
+
+Both scripts can be run from anywhere — paths resolve against the repo
+directory. Regenerated files are left uncommitted for you to review.
+
+`update.sh` runs `uvx altgen -c config.toml` in every `apps/<AppName>/` that has
+a `config.toml`, then merges the resulting sources into the repo-root
+`all-apps.json` via `uvx altgen merge -c assets/merge.toml`.
+
+`update_news.sh` renders each app's `images/news.png` from its `news.toml` using
+`templates/render_news.py`. It needs the Python venv (set up once):
 
 ```bash
 uv venv && uv pip install -r requirements.txt
 ```
 
-The same `news.png` is referenced by all news entries via `[news] image_url`,
-so it advertises a generic "NEW UPDATE" (no version number) — just the app
-icon, name, and a one-line tagline. The 4:3 image (1600x1200) is deliberately
-minimal so it stays readable on a landscape phone and two or more fit on one
-screen. Reuse the template for a new app:
-
-```bash
-python3 templates/render_news.py --out apps/<AppName>
-```
-
-All values come from `apps/<AppName>/news.toml` — `name`, `tagline`, and optional
-colors under `[colors]` (`tint`, `tint_alt`, `background`, `bg_mid`,
-`bg_dark`, `text_color`, `tagline_color`). Colors left unset are derived into
-a harmonious scheme: tint colors from `config.toml`, and the background
-defaults to a soft light shade of the app icon's dominant color. CLI flags
-(`--name`, `--tagline`, `--tint`, ...) override news.toml. Output is
-`apps/<AppName>/images/news.png` — the intermediate `news.svg` is created inside
-the app folder and removed afterwards, not committed. Requires `rsvg-convert`
-(librsvg) or falls back to macOS Quick Look.
-
-## Regenerating a Source
-
-```bash
-cd apps/<AppName>
-uvx altgen -c config.toml
-```
-
-Sources are updated automatically via GitHub Actions (workflow pending).
-
-## Roadmap
-
-- [ ] CI workflow to regenerate `apps.json` on a schedule
-- [ ] Display page listing all available apps
+It also requires `rsvg-convert` (librsvg) or falls back to macOS Quick Look.
