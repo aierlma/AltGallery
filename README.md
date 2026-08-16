@@ -23,6 +23,9 @@ A community-maintained iOS tweak that keeps Apollo for Reddit working after its 
 ### <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Kazumi/icon.png" alt="" width="24" align="center"> [Kazumi](https://github.com/Predidit/Kazumi)
 基于自定义规则的番剧采集APP，支持流媒体在线观看、弹幕与实时超分辨率。
 
+### <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Mangayomi/icon.png" alt="" width="24" align="center"> [Mangayomi](https://github.com/kodjodevf/mangayomi)
+Read manga, novels, and watch anime.
+
 ### <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/PiliPlus/icon.png" alt="" width="24" align="center"> [PiliPlus](https://github.com/bggRGjQaUbCoE/PiliPlus)
 使用Flutter开发的BiliBili第三方客户端。
 

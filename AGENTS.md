@@ -155,6 +155,7 @@ obvious single brand color, and the sample needs human confirmation.
 - `apps/Apollo-Reborn/` — source repo `Apollo-Reborn/Apollo-Reborn` (GLASS variant only, `asset_pattern = "-GLASS\\.ipa$"`), `apps.json` generated
 - `apps/Aidoku/` — source repo `Aidoku/Aidoku` (`asset_pattern = "Aidoku\\.ipa$"`), `apps.json` generated
 - `apps/Kazumi/` — source repo `Predidit/Kazumi` (`asset_pattern = "Kazumi_ios_.*\\.ipa$"`, iOS-only assets), `apps.json` generated
+- `apps/Mangayomi/` — source repo `kodjodevf/mangayomi` (`asset_pattern = "Mangayomi-.*-ios\\.ipa$"`, iOS-only assets), `apps.json` generated
 
 ## Adding a New App
 

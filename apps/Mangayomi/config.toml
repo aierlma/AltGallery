@@ -1,0 +1,45 @@
+# altgen config for the Mangayomi AltStore source.
+# Run: uvx altgen -c config.toml
+# Mangayomi: open-source Flutter manga/novel reader & anime player
+
+[github]
+repo = "kodjodevf/mangayomi"
+# token: optional. Precedence: --token > GITHUB_TOKEN env > this value.
+
+[source]
+name = "Mangayomi"
+subtitle = "Mangayomi AltStore source by AltGallery & altgen"
+description = "Auto-updated AltStore source for Mangayomi"
+icon_url = "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Mangayomi/icon.png"
+website = "https://github.com/kodjodevf/mangayomi"
+tint_color = "#EF4444"
+
+[app]
+name = "Mangayomi"
+bundle_identifier = "com.kodjodevf.mangayomi"
+developer_name = "Moustapha Kodjo Amadou"
+subtitle = "Read manga, novels, and watch anime"
+description = "Mangayomi is an open-source Flutter app for reading manga, novels, and watching anime across multiple platforms."
+icon_url = "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Mangayomi/icon.png"
+screenshots = [
+  "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Mangayomi/images/screenshot1.jpg",
+  "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Mangayomi/images/screenshot2.jpg",
+  "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Mangayomi/images/screenshot3.jpg",
+]
+tint_color = "#EF4444"
+
+[versions]
+strip_v_prefix = true
+include_prereleases = false
+# 每个 release 只含一个 iOS ipa：Mangayomi-v<version>-ios.ipa
+asset_pattern = "Mangayomi-.*-ios\\.ipa$"
+
+[news]
+enabled = true
+title_template = "{name} {version}"
+# shared promo image rendered by templates/render_news.py
+image_url = "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Mangayomi/images/news.png"
+max_entries = 0
+
+[output]
+path = "apps.json"

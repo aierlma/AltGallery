@@ -89,6 +89,30 @@
       "news": []
     },
     {
+      "name": "Mangayomi",
+      "bundleIdentifier": "com.kodjodevf.mangayomi",
+      "developerName": "Moustapha Kodjo Amadou",
+      "subtitle": "Read manga, novels, and watch anime",
+      "localizedDescription": "Mangayomi is an open-source Flutter app for reading manga, novels, and watching anime across multiple platforms.",
+      "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Mangayomi/icon.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Mangayomi/images/screenshot1.jpg",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Mangayomi/images/screenshot2.jpg",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Mangayomi/images/screenshot3.jpg"
+      ],
+      "tintColor": "#EF4444",
+      "versions": [
+        {
+          "version": "0.8.5",
+          "date": "2026-08-15",
+          "localizedDescription": "## What's Changed\r\n* hide warning when no mihon extension is installed by @NBA2K1 in https://github.com/kodjodevf/mangayomi/pull/845\r\n* fix Restoring Backup deletes all manga library entries #848 \r\n* some optimizations\r\n* remove orphaned obsolete extensions from list by @NBA2K1 in https://github.com/kodjodevf/mangayomi/pull/847\r\n* correct package names for rpm based distros by @NBA2K1 in https://github.com/kodjodevf/mangayomi/pull/844\r\n* Add AVIF support to Linux by @NBA2K1 in https://github.com/kodjodevf/mangayomi/pull/849\r\n* Re add isNsfw by @NBA2K1 in https://github.com/kodjodevf/mangayomi/pull/850\r\n* hide warning when no mihon extension is installed pt.2 by @NBA2K1 in https://github.com/kodjodevf/mangayomi/pull/851\r\n* Better performance in code editor by @NBA2K1 in https://github.com/kodjodevf/mangayomi/pull/852\r\n* fix: show a real error state when startup fails by @mrandhawa14 in https://github.com/kodjodevf/mangayomi/pull/853\r\n* feat: real error states, loading skeletons, and TV-ready recommendations and watch order by @mrandhawa14 in https://github.com/kodjodevf/mangayomi/pull/859\r\n* fix: make the TV layout testable and stop the scaled UI clipping on desktop by @mrandhawa14 in https://github.com/kodjodevf/mangayomi/pull/860\r\n* use different JVM for iOS by @Schnitzel5 in https://github.com/kodjodevf/mangayomi/pull/861\r\n* feat(ios): adopt the UIScene lifecycle by @mrandhawa14 in https://github.com/kodjodevf/mangayomi/pull/862\r\n* Add Edit Metadata button to local extensions by @NBA2K1 in https://github.com/kodjodevf/mangayomi/pull/863\r\n* feat(ios): dark and tinted app icon variants by @mrandhawa14 in https://github.com/kodjodevf/mangayomi/pull/865\r\n* fix: watch order timeline and global search results by @mrandhawa14 in https://github.com/kodjodevf/mangayomi/pull/864\r\n* fix: guard the native assets hook before reading code config by @mrandhawa14 in https://github.com/kodjodevf/mangayomi/pull/866\r\n\r\n\r\n**Full Changelog**: https://github.com/kodjodevf/mangayomi/compare/v0.8.4...v0.8.5",
+          "downloadURL": "https://github.com/kodjodevf/mangayomi/releases/download/v0.8.5/Mangayomi-v0.8.5-ios.ipa",
+          "size": 105131696
+        }
+      ],
+      "news": []
+    },
+    {
       "name": "PiliPlus",
       "bundleIdentifier": "com.example.PiliPlus",
       "developerName": "bggRGjQaUbCoE",
@@ -116,6 +140,17 @@
     }
   ],
   "news": [
+    {
+      "appID": "com.kodjodevf.mangayomi",
+      "title": "Mangayomi 0.8.5",
+      "identifier": "release-v0.8.5",
+      "caption": "Mangayomi 0.8.5 is available.",
+      "date": "2026-08-15T21:07:58Z",
+      "tintColor": "#EF4444",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Mangayomi/images/news.png",
+      "notify": true,
+      "url": "https://github.com/kodjodevf/mangayomi/releases/tag/v0.8.5"
+    },
     {
       "appID": "com.example.kazumi",
       "title": "Kazumi 2.2.8",
