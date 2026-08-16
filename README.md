@@ -23,6 +23,9 @@ A community-maintained iOS tweak that keeps Apollo for Reddit working after its 
 ### <a href="https://github.com/EhPanda-Team/EhPanda"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/EhPanda/icon.png" alt="EhPanda icon" width="24" align="top"> EhPanda</a>
 An unofficial E-Hentai App for iOS built with SwiftUI & TCA.
 
+### <a href="https://github.com/XITRIX/iTorrent"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/iTorrent/icon.png" alt="iTorrent icon" width="24" align="top"> iTorrent</a>
+Torrent client for iOS.
+
 ### <a href="https://github.com/Predidit/Kazumi"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Kazumi/icon.png" alt="Kazumi icon" width="24" align="top"> Kazumi</a>
 基于自定义规则的番剧采集APP，支持流媒体在线观看、弹幕与实时超分辨率。
 
