@@ -58,8 +58,9 @@ sections.
    ```bash
    python3 templates/render_news.py --out apps/<AppName>
    ```
-   Commits `apps/<AppName>/images/news.png` (1600x1200, 4:3). Requires
-   `rsvg-convert` (librsvg) or falls back to macOS Quick Look.
+   Renders `apps/<AppName>/images/news.png` (1600x1200, 4:3) into the working
+   tree (do not auto-commit). Requires `rsvg-convert` (librsvg) or falls back
+   to macOS Quick Look.
 
 6. **Generate `apps.json`** — **never hand-edit it**:
    ```bash
@@ -75,8 +76,9 @@ sections.
    ./update.sh
    ```
    Or run the merge explicitly with `uvx altgen merge -c assets/merge.toml
-   apps/*/apps.json`. Commit the updated `all-apps.json` (AGENTS.md →
-   [Merging into all-apps.json]).
+   apps/*/apps.json`. Do not auto-commit the updated `all-apps.json` — leave
+   it in the working tree for the user to review (AGENTS.md → [Merging into
+   all-apps.json]).
 
 8. **Update README** — add the app to **Available Apps**, icon inline before
    the name:
@@ -90,6 +92,6 @@ sections.
 ## Checklist
 - [ ] `apps/<AppName>/{config.toml, news.toml, icon.png, images/*, apps.json}` all present
 - [ ] `apps.json` regenerated after the last config change; never hand-edited
-- [ ] `all-apps.json` merged (via `./update.sh`) and committed
-- [ ] `images/news.png` committed
+- [ ] `all-apps.json` merged (via `./update.sh`); not auto-committed
+- [ ] `images/news.png` rendered; not auto-committed
 - [ ] README entry added, icon with `align="top"`

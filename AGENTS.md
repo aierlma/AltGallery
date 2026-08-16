@@ -61,9 +61,10 @@ config lives in `assets/merge.toml`: merge mode only reads `[source]` (root
 metadata: name, icon_url, tint_color) and `[output]` (`path = "../all-apps.json"`,
 resolved against the config's directory → repo root).
 
-**Rule: always run `./update.sh` (or the merge) and commit the updated
-`all-apps.json` whenever an app's `apps.json` changes (regenerated, new app
-added, app removed).**
+**Rule: always run `./update.sh` (or the merge) whenever an app's `apps.json`
+changes (regenerated, new app added, app removed). Do not auto-commit — leave
+the updated `all-apps.json` and other generated files in the working tree for
+the user to review and commit.**
 
 ## Generating News Images
 
@@ -79,9 +80,9 @@ app's image (from each app's `news.toml`: `name`, `tagline`, optional
 or a single app with `python3 templates/render_news.py --out apps/<AppName>`.
 Unset colors are auto-derived from `config.toml` tints and the icon's dominant
 color (needs the uv venv set up once: `uv venv && uv pip install -r
-requirements.txt`, plus `rsvg-convert` or macOS Quick Look). Commit the
-rendered `apps/<AppName>/images/news.png` — the URL in `config.toml`
-`[news] image_url` already points at it.
+requirements.txt`, plus `rsvg-convert` or macOS Quick Look). The rendered
+`apps/<AppName>/images/news.png` stays in the working tree — the URL in
+`config.toml` `[news] image_url` already points at it. Do not auto-commit it.
 
 ## Icon Color Sampling (macOS sips)
 
