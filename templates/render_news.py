@@ -61,17 +61,20 @@ except ModuleNotFoundError:  # pragma: no cover - Python < 3.11
 TEMPLATE = Path(__file__).resolve().parent / "news_update.template.svg"
 WIDTH, HEIGHT = 1600, 1200
 
-# Right column geometry from the template: text starts at x=640 and must
-# stay inside the 1600-wide canvas with ~100px of right margin.
-TEXT_X = 640
-RIGHT_MARGIN = 100
-MAX_TEXT_WIDTH = WIDTH - RIGHT_MARGIN - TEXT_X  # 860
-
-# Left column geometry, shared with the template. The name's cap top aligns
-# with the icon's top edge (y=343), and the description's bottom must stay
-# above the badge's bottom edge (857) — the description font is shrunk to
-# enforce this.
+# Left column geometry, shared with the template. The icon's left edge (x=150)
+# is the layout's side margin; the name's cap top aligns with the icon's top
+# edge (y=343), and the description's bottom must stay above the badge's
+# bottom edge (857) — the description font is shrunk to enforce this.
 ICON_X, ICON_Y, ICON_SIZE = 150, 343, 350
+
+# Right column geometry from the template: text starts at x=640 and must stay
+# inside the 1600-wide canvas with the same side margin as the icon's left
+# edge — so the text's right edge and the icon's left edge sit an equal
+# distance from the image borders. Short text stops earlier and leaves a
+# larger gap, but never a smaller one than the icon's.
+TEXT_X = 640
+RIGHT_MARGIN = ICON_X
+MAX_TEXT_WIDTH = WIDTH - RIGHT_MARGIN - TEXT_X  # 810
 BADGE_X, BADGE_Y, BADGE_W, BADGE_H = 125, 773, 400, 84
 BADGE_BOTTOM = BADGE_Y + BADGE_H  # 857
 GAP_DESC = 40  # gap between the app name and the description
