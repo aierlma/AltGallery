@@ -4,8 +4,7 @@
 
 Generate AltStore sources (`apps.json`) for IPA projects on GitHub, and provide a display page.
 
-- Generator: Python **altgen**, invoked via `uvx altgen`
-- Display page: **not implemented yet** (see TODO below)
+- Generator: Python **AltGen**, invoked via `uvx altgen`
 
 ## Reading JSON
 
@@ -32,20 +31,18 @@ Each folder's `apps.json` is an independent AltStore source.
 
 ## Generating apps.json
 
-Run inside the app's folder:
+`./update.sh` regenerates every app source and merges them into
+`all-apps.json`. For a single app:
 
 ```bash
-cd apps/<AppName>
-uvx altgen -c config.toml
+cd apps/<AppName> && uvx altgen -c config.toml   # note: config.toml, not config.json
 ```
 
-Note: the config filename is `config.toml` (not config.json).
+altgen reads the GitHub Releases API; if rate-limited or the repo is private,
+pass a token (`--token` > `GITHUB_TOKEN` env > `[github].token` in
+config.toml).
 
-altgen reads the GitHub Releases API. When rate-limited or accessing private repos, a token is required, with precedence: `--token` flag > `GITHUB_TOKEN` env var > `[github].token` in config.toml.
-(Note: the default `GITHUB_TOKEN` in CI only has access to the repo running the workflow; to fetch releases from another repo, use a PAT with public repo read permission.)
-
-**Rule: after ANY modification to a `config.toml`, always regenerate the
-app's `apps.json` with `uvx altgen -c config.toml` — never leave the two out
+**Rule: after ANY `config.toml` change, regenerate — never leave the two out
 of sync, and never hand-edit `apps.json`.**
 
 ## Merging into all-apps.json
@@ -70,90 +67,39 @@ added, app removed).**
 
 ## Generating News Images
 
-Each app has a shared `news.png` promo image referenced by all its news entries
-via `[news] image_url`. It advertises a generic "NEW UPDATE" (no version
-number) — just the app icon, name, and a one-line tagline — so it stays
-reusable across releases. Render it from the shared template:
+Each app has a shared `news.png` ("NEW UPDATE" — icon, name, tagline)
+referenced by all its news entries via `[news] image_url`. Re-render every
+app's image (from each app's `news.toml`: `name`, `tagline`, optional
+`[colors]`) with:
 
 ```bash
-python3 templates/render_news.py --out apps/<AppName>
+./update_news.sh
 ```
 
-To re-render every app's news image at once (each from its own `news.toml`),
-run `./update_news.sh` from anywhere.
-
-- All values come from `apps/<AppName>/news.toml` (`name`, `tagline`, and
-  optional `[colors]`); CLI flags (`--name`, `--tagline`, `--tint`,
-  `--tint-alt`, `--icon`) override their news.toml counterparts.
-- Unset colors are derived into a harmonious scheme:
-  - `tint`/`tint_alt` fall back to `[app]`/`[source]` `tint_color`
-  - `background` (plus optional `bg_mid`/`bg_dark` stops) defaults to a
-    **soft light shade of the app icon's dominant color** — see
-    [Icon Color Sampling (macOS sips)](#icon-color-sampling-macos-sips)
-    below; falls
-    back to a dark tint-derived base when the icon can't be read
-  - `text_color` defaults to white, black on light backgrounds (lightness
-    > 0.55); `tagline_color` derives from the background hue — both
-    adapt to light vs dark backgrounds automatically
-  - Pin any of them in `[colors]` to override, e.g. `apps/PiliPlus/news.toml`
-    pins the classic dark-blue look.
-- Output: `apps/<AppName>/images/news.png` (1600x1200, 4:3). The intermediate
-  `news.svg` is written inside the app folder (so the icon's relative href
-  resolves) and removed afterwards — only the PNG is committed.
-- Requires `rsvg-convert` (librsvg) or falls back to macOS Quick Look.
-- After rendering, commit `apps/<AppName>/images/news.png`; the URL in
-  `config.toml` `[news] image_url` already points at it.
+or a single app with `python3 templates/render_news.py --out apps/<AppName>`.
+Unset colors are auto-derived from `config.toml` tints and the icon's dominant
+color (needs the uv venv set up once: `uv venv && uv pip install -r
+requirements.txt`, plus `rsvg-convert` or macOS Quick Look). Commit the
+rendered `apps/<AppName>/images/news.png` — the URL in `config.toml`
+`[news] image_url` already points at it.
 
 ## Icon Color Sampling (macOS sips)
 
-**sips** is macOS's built-in image tool (always available, no dependencies).
-Use it whenever you need to inspect or convert images on this machine —
-Python's stdlib cannot decode PNG, so the pattern is: `sips` → BMP → parse
-with `struct`.
-
-**Pillow (PIL) alternative:** when you want to use PIL, run it with the uv
-venv's python — `.venv/bin/python` (not the system `python3`) — since
-`pillow` is only installed in the venv (see `requirements.txt`). Set the venv
-up once with `uv venv && uv pip install -r requirements.txt`, then e.g.
-`.venv/bin/python -c "from PIL import Image"`.
-
-Useful commands:
+Sampling a dominant color from an icon — for a new app's `tint_color`, or the
+news background derived by `render_news.py` — is already implemented in
+`templates/render_news.py` → `extract_icon_color()` (it handles the
+sips→BMP→`struct` parsing and all its pitfalls). Just call it:
 
 ```bash
-sips -g pixelWidth -g pixelHeight icon.png          # image dimensions
-sips -z 64 64 icon.png --out small.png              # resize (w h, preserves aspect)
-sips -s format bmp icon.png --out icon.bmp          # convert to BMP for parsing
-sips -s format jpeg -s formatOptions 80 in.png --out out.jpg   # format + quality
+PYTHONPATH=templates python3 -c \
+  "from render_news import extract_icon_color; from pathlib import Path; \
+   print(extract_icon_color(Path('apps/<AppName>/icon.png')))"
 ```
 
-**Sampling a dominant color from an image** (this is how `render_news.py`
-derives the light background, and how you should pick a `tint_color` for a
-new app's `config.toml`):
-
-1. Downscale to 64×64 and convert to BMP: `sips -s format bmp -z 64 64 icon.png --out /tmp/icon.bmp`
-2. Parse with Python `struct` — **BMP pitfalls (all hit before, cost real
-   debugging time)**:
-   - The BMP header's `height` field may be **negative (top-down)** — read
-     the sign at offset 22 and index rows with `y` directly when negative,
-     do NOT blindly flip with `h - 1 - y` (a flipped read makes text/badges
-     appear at the wrong y and looks like missing elements)
-   - Check `biBitCount` at offset 28: sips emits **24bpp (BGR)** or
-     **32bpp (BGRA)** — read `w * (bpp // 8)` bytes per row, and pixel
-     channels are BGR/A order, not RGB
-   - Skip transparent pixels (`alpha < 128` in 32bpp) and near-white /
-     near-black (transparency voids, glare, borders)
-3. Bucket pixels by color (e.g. `r//16*16`), then score buckets by
-   `pixel_count × (saturation − 0.15)`: light-colored designs (e.g.
-   Apollo-Reborn's pale icon) must not let their background color win over
-   their colorful elements. The top bucket is the "icon color".
-4. Use it directly, or derive a harmonious shade: light backgrounds keep the
-   hue and push lightness high (`l≈0.88`, `s≤0.35`); dark backgrounds keep
-   the hue with low lightness (`l≈0.09`).
-
-For `config.toml` colors: when a new app lacks an official tint, sample its
-icon (step 1-3) and use the result as `[app] tint_color` (brand color) —
-but eyeball the icon first: a multi-color or pale icon may not have an
-obvious single brand color, and the sample needs human confirmation.
+When a new app lacks an official tint, use the result as `[app] tint_color`
+(brand color) — but eyeball the icon first: a multi-color or pale icon may
+not have an obvious single brand color, so the sample needs human
+confirmation.
 
 ## Adding a New App
 
@@ -165,15 +111,3 @@ and README update. The reference sections below ([Icon Color Sampling
 Images](#generating-news-images), [Merging into
 all-apps.json](#merging-into-all-appsjson)) remain authoritative for the
 shared details.
-
-## Update Flow
-
-Automated via GitHub Actions CI (workflow file not created yet):
-
-- On a schedule or manual trigger, run `./update.sh` — it regenerates every app source and merges `all-apps.json` (see [Merging into all-apps.json](#merging-into-all-appsjson))
-- Commit the changes back to the repo
-
-## TODO
-
-- [ ] Create `.github/workflows/` update CI
-- [ ] Display page: render an app list from each folder's `apps.json` (tech stack undecided)

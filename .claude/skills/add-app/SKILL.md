@@ -43,12 +43,13 @@ sections.
      repo path.
 
 4. **Sample a tint color** (when the project has no official brand color):
-   `sips` → BMP → parse with Python `struct` (see AGENTS.md → [Icon Color
-   Sampling](#icon-color-sampling-macos-sips) for the exact steps).
-   ⚠️ BMP pitfalls: the header `height` may be **negative (top-down)**, and
-   `biBitCount` is 24 (BGR) or 32 (BGRA) — read `w * (bpp // 8)` bytes per
-   row and treat channels as BGR/A; skip transparent / near-white /
-   near-black pixels.
+   call the existing sampler in `templates/render_news.py` →
+   `extract_icon_color()` instead of re-implementing the sips/BMP pipeline
+   (see AGENTS.md → [Icon Color
+   Sampling](#icon-color-sampling-macos-sips)):
+   ```bash
+   PYTHONPATH=templates python3 -c "from render_news import extract_icon_color; from pathlib import Path; print(extract_icon_color(Path('apps/<AppName>/icon.png')))"
+   ```
    ⚠️ **Eyeball the result — human confirmation required.** Multi-color or
    pale icons may not have an obvious single brand color.
 
