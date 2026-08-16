@@ -149,16 +149,6 @@ icon (step 1-3) and use the result as `[app] tint_color` (brand color) —
 but eyeball the icon first: a multi-color or pale icon may not have an
 obvious single brand color, and the sample needs human confirmation.
 
-## Existing Apps
-
-- `apps/EhPanda/` — source repo `EhPanda-Team/EhPanda` (`asset_pattern = "EhPanda\\.ipa$"`, one ipa per release), `apps.json` generated
-- `apps/PiliPlus/` — source repo `bggRGjQaUbCoE/PiliPlus`, `apps.json` generated
-- `apps/Apollo-Reborn/` — source repo `Apollo-Reborn/Apollo-Reborn` (GLASS variant only, `asset_pattern = "-GLASS\\.ipa$"`), `apps.json` generated
-- `apps/Aidoku/` — source repo `Aidoku/Aidoku` (`asset_pattern = "Aidoku\\.ipa$"`), `apps.json` generated
-- `apps/Kazumi/` — source repo `Predidit/Kazumi` (`asset_pattern = "Kazumi_ios_.*\\.ipa$"`, iOS-only assets), `apps.json` generated
-- `apps/Mangayomi/` — source repo `kodjodevf/mangayomi` (`asset_pattern = "Mangayomi-.*-ios\\.ipa$"`, iOS-only assets), `apps.json` generated
-- `apps/TiebaPure/` — source repo `infinityf4p/TiebaPure-iOS` (`asset_pattern = "TiebaPure-v.*-unsigned\\.ipa$"`, iOS-only assets), `apps.json` generated
-
 ## Adding a New App
 
 1. Create the `apps/<AppName>/` folder
