@@ -6,9 +6,9 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
-# 1. Regenerate each <AppName>/apps.json from its config.toml
+# 1. Regenerate each apps/<AppName>/apps.json from its config.toml
 apps=()
-for app_dir in */; do
+for app_dir in apps/*/; do
   if [[ -f "$app_dir/config.toml" ]]; then
     name="${app_dir%/}"
     echo "==> Updating $name"

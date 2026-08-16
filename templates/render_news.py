@@ -23,8 +23,8 @@ the NEW UPDATE badge — so both columns share a vertical span and the promo
 stays readable on a landscape phone and several fit per screen.
 
 Usage:
-  render_news.py --out PiliPlus              # everything from PiliPlus/news.toml
-  render_news.py --out Apollo-Reborn \
+  render_news.py --out apps/PiliPlus           # everything from apps/PiliPlus/news.toml
+  render_news.py --out apps/Apollo-Reborn \
     --tagline "New tagline"                  # CLI overrides news.toml
 
 news.toml:
@@ -480,7 +480,7 @@ def main() -> None:
     ap.add_argument("--icon", default="icon.png", help="icon path, relative to --out dir")
     ap.add_argument("--tint", help="badge/glow accent color (default: config.toml [app] tint_color)")
     ap.add_argument("--tint-alt", help="secondary accent color (default: config.toml [source] tint_color)")
-    ap.add_argument("--out", required=True, help="output directory (the app folder, e.g. PiliPlus)")
+    ap.add_argument("--out", required=True, help="output directory (the app folder, e.g. apps/PiliPlus)")
     args = ap.parse_args()
 
     out = Path(args.out)

@@ -15,10 +15,10 @@ Only read the full file when you actually need the whole content.
 
 ## Directory Layout
 
-Each IPA gets its own folder, e.g. `PiliPlus/`:
+Each IPA gets its own folder under `apps/`, e.g. `apps/PiliPlus/`:
 
 ```
-<AppName>/
+apps/<AppName>/
 ├── config.toml      # altgen configuration file
 ├── news.toml        # news image config (name, tagline, optional colors)
 ├── icon.png         # app icon
@@ -35,7 +35,7 @@ Each folder's `apps.json` is an independent AltStore source.
 Run inside the app's folder:
 
 ```bash
-cd <AppName>
+cd apps/<AppName>
 uvx altgen -c config.toml
 ```
 
@@ -56,10 +56,10 @@ The whole flow — regenerate every source, then merge — is scripted in
 `./update.sh` (run from anywhere); prefer it over the individual commands.
 
 ```bash
-uvx altgen merge -c assets/merge.toml <AppName>/apps.json ...
+uvx altgen merge -c assets/merge.toml apps/<AppName>/apps.json ...
 ```
 
-Pass **every** `<AppName>/apps.json` in the repo as an input. The merge
+Pass **every** `apps/<AppName>/apps.json` in the repo as an input. The merge
 config lives in `assets/merge.toml`: merge mode only reads `[source]` (root
 metadata: name, icon_url, tint_color) and `[output]` (`path = "../all-apps.json"`,
 resolved against the config's directory → repo root).
@@ -76,13 +76,13 @@ number) — just the app icon, name, and a one-line tagline — so it stays
 reusable across releases. Render it from the shared template:
 
 ```bash
-python3 templates/render_news.py --out <AppName>
+python3 templates/render_news.py --out apps/<AppName>
 ```
 
 To re-render every app's news image at once (each from its own `news.toml`),
 run `./update_news.sh` from anywhere.
 
-- All values come from `<AppName>/news.toml` (`name`, `tagline`, and
+- All values come from `apps/<AppName>/news.toml` (`name`, `tagline`, and
   optional `[colors]`); CLI flags (`--name`, `--tagline`, `--tint`,
   `--tint-alt`, `--icon`) override their news.toml counterparts.
 - Unset colors are derived into a harmonious scheme:
@@ -95,14 +95,14 @@ run `./update_news.sh` from anywhere.
   - `text_color` defaults to white, black on light backgrounds (lightness
     > 0.55); `tagline_color` derives from the background hue — both
     adapt to light vs dark backgrounds automatically
-  - Pin any of them in `[colors]` to override, e.g. `PiliPlus/news.toml`
+  - Pin any of them in `[colors]` to override, e.g. `apps/PiliPlus/news.toml`
     pins the classic dark-blue look.
-- Output: `<AppName>/images/news.png` (1600x1200, 4:3). The intermediate
+- Output: `apps/<AppName>/images/news.png` (1600x1200, 4:3). The intermediate
   `news.svg` is written inside the app folder (so the icon's relative href
   resolves) and removed afterwards — only the PNG is committed.
 - Requires `rsvg-convert` (librsvg) or falls back to macOS Quick Look.
-- After rendering, commit `images/news.png`; the URL in `config.toml`
-  `[news] image_url` already points at it.
+- After rendering, commit `apps/<AppName>/images/news.png`; the URL in
+  `config.toml` `[news] image_url` already points at it.
 
 ## Icon Color Sampling (macOS sips)
 
@@ -151,25 +151,25 @@ obvious single brand color, and the sample needs human confirmation.
 
 ## Existing Apps
 
-- `PiliPlus/` — source repo `bggRGjQaUbCoE/PiliPlus`, `apps.json` generated
-- `Apollo-Reborn/` — source repo `Apollo-Reborn/Apollo-Reborn` (GLASS variant only, `asset_pattern = "-GLASS\\.ipa$"`), `apps.json` generated
-- `Aidoku/` — source repo `Aidoku/Aidoku` (`asset_pattern = "Aidoku\\.ipa$"`), `apps.json` generated
-- `Kazumi/` — source repo `Predidit/Kazumi` (`asset_pattern = "Kazumi_ios_.*\\.ipa$"`, iOS-only assets), `apps.json` generated
+- `apps/PiliPlus/` — source repo `bggRGjQaUbCoE/PiliPlus`, `apps.json` generated
+- `apps/Apollo-Reborn/` — source repo `Apollo-Reborn/Apollo-Reborn` (GLASS variant only, `asset_pattern = "-GLASS\\.ipa$"`), `apps.json` generated
+- `apps/Aidoku/` — source repo `Aidoku/Aidoku` (`asset_pattern = "Aidoku\\.ipa$"`), `apps.json` generated
+- `apps/Kazumi/` — source repo `Predidit/Kazumi` (`asset_pattern = "Kazumi_ios_.*\\.ipa$"`, iOS-only assets), `apps.json` generated
 
 ## Adding a New App
 
-1. Create the `<AppName>/` folder
-2. Write `config.toml` modeled on `PiliPlus/config.toml`:
+1. Create the `apps/<AppName>/` folder
+2. Write `config.toml` modeled on `apps/PiliPlus/config.toml`:
    - `[github]`: source repo owner/name
    - `[source]`: source-level info (name, icon_url, website, etc.)
    - `[app]`: app info (bundle_identifier, developer_name, icon_url, screenshots, etc.) — if the project has no official tint_color, sample one from the icon (see [Icon Color Sampling (macOS sips)](#icon-color-sampling-macos-sips))
    - `[versions]`: version matching rules. ⚠️ `asset_pattern` is a **regex**, not a glob — to match all ipa files use `".*\\.ipa$"`; writing `"*.ipa"` fails with `invalid regex`
    - `[output]`: `path = "apps.json"`
-3. Place icons and screenshots (screenshots go in `<AppName>/images/`)
-4. Write `news.toml` and render `images/news.png` (see [Generating News Images](#generating-news-images))
+3. Place icons and screenshots (screenshots go in `apps/<AppName>/images/`)
+4. Write `news.toml` and render `apps/<AppName>/images/news.png` (see [Generating News Images](#generating-news-images))
 5. Run the generation command above and commit the generated `apps.json`
 6. Re-run the merge (see [Merging into all-apps.json](#merging-into-all-appsjson)) so the new app is included in `all-apps.json`
-7. Add the app to the README's **Available Apps** section, with its icon inline before the name (same `raw.githubusercontent.com/bebound/AltGallery/master/<AppName>/icon.png` URL pattern as the existing entries)
+7. Add the app to the README's **Available Apps** section, with its icon inline before the name (same `raw.githubusercontent.com/bebound/AltGallery/master/apps/<AppName>/icon.png` URL pattern as the existing entries)
 
 ## Update Flow
 

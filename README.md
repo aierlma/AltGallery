@@ -14,16 +14,16 @@
 
 ## Available Apps
 
-### <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/Aidoku/icon.png" alt="" width="24" align="center"> [Aidoku](https://github.com/Aidoku/Aidoku)
+### <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Aidoku/icon.png" alt="" width="24" align="center"> [Aidoku](https://github.com/Aidoku/Aidoku)
 A free and open source manga reading application for iOS and iPadOS.
 
-### <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/Apollo-Reborn/icon.png" alt="" width="24" align="center"> [Apollo Reborn](https://github.com/Apollo-Reborn/Apollo-Reborn)
+### <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Apollo-Reborn/icon.png" alt="" width="24" align="center"> [Apollo Reborn](https://github.com/Apollo-Reborn/Apollo-Reborn)
 A community-maintained iOS tweak that keeps Apollo for Reddit working after its June 2023 shutdown.
 
-### <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/Kazumi/icon.png" alt="" width="24" align="center"> [Kazumi](https://github.com/Predidit/Kazumi)
+### <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Kazumi/icon.png" alt="" width="24" align="center"> [Kazumi](https://github.com/Predidit/Kazumi)
 基于自定义规则的番剧采集APP，支持流媒体在线观看、弹幕与实时超分辨率。
 
-### <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/PiliPlus/icon.png" alt="" width="24" align="center"> [PiliPlus](https://github.com/bggRGjQaUbCoE/PiliPlus)
+### <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/PiliPlus/icon.png" alt="" width="24" align="center"> [PiliPlus](https://github.com/bggRGjQaUbCoE/PiliPlus)
 使用Flutter开发的BiliBili第三方客户端。
 
 ## Project Layout
@@ -36,12 +36,13 @@ AltGallery/
 ├── templates/            # shared news-image template + renderer
 │   ├── news_update.template.svg
 │   └── render_news.py
-├── <AppName>/            # one folder per app
-│   ├── config.toml       # altgen configuration
-│   ├── news.toml         # news image config (name, tagline, optional colors)
-│   ├── icon.png          # resource files live here
-│   ├── images/           # screenshots + news.png promo image
-│   └── apps.json         # generated AltStore source
+├── apps/                 # one folder per app
+│   └── <AppName>/
+│       ├── config.toml   # altgen configuration
+│       ├── news.toml     # news image config (name, tagline, optional colors)
+│       ├── icon.png      # resource files live here
+│       ├── images/       # screenshots + news.png promo image
+│       └── apps.json     # generated AltStore source
 └── ...
 ```
 
@@ -60,23 +61,23 @@ minimal so it stays readable on a landscape phone and two or more fit on one
 screen. Reuse the template for a new app:
 
 ```bash
-python3 templates/render_news.py --out <AppName>
+python3 templates/render_news.py --out apps/<AppName>
 ```
 
-All values come from `<AppName>/news.toml` — `name`, `tagline`, and optional
+All values come from `apps/<AppName>/news.toml` — `name`, `tagline`, and optional
 colors under `[colors]` (`tint`, `tint_alt`, `background`, `bg_mid`,
 `bg_dark`, `text_color`, `tagline_color`). Colors left unset are derived into
 a harmonious scheme: tint colors from `config.toml`, and the background
 defaults to a soft light shade of the app icon's dominant color. CLI flags
 (`--name`, `--tagline`, `--tint`, ...) override news.toml. Output is
-`<AppName>/images/news.png` — the intermediate `news.svg` is created inside
+`apps/<AppName>/images/news.png` — the intermediate `news.svg` is created inside
 the app folder and removed afterwards, not committed. Requires `rsvg-convert`
 (librsvg) or falls back to macOS Quick Look.
 
 ## Regenerating a Source
 
 ```bash
-cd <AppName>
+cd apps/<AppName>
 uvx altgen -c config.toml
 ```
 

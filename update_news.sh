@@ -6,9 +6,9 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
-# 1. Regenerate each <AppName>/images/news.png from <AppName>/news.toml
+# 1. Regenerate each apps/<AppName>/images/news.png from apps/<AppName>/news.toml
 updated=()
-for app_dir in */; do
+for app_dir in apps/*/; do
   if [[ -f "$app_dir/news.toml" ]]; then
     name="${app_dir%/}"
     echo "==> Updating $name news.png"

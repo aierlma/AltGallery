@@ -1,11 +1,11 @@
 # altgen merge config for AltGallery.
-# Run: uvx altgen merge -c assets/merge.toml PiliPlus/apps.json
-# (append more <AppName>/apps.json inputs as they are generated)
+# Run: uvx altgen merge -c assets/merge.toml apps/PiliPlus/apps.json
+# (append more apps/<AppName>/apps.json inputs as they are generated)
 #
 # Merge mode only reads [source] (root source metadata) and [output];
 # the apps and news entries are extracted from the input apps.json files.
 # Build-mode tables ([github], [app], [versions], [news]) are rejected.
-# Root values also work as CLI flags, e.g. altgen merge --name ... PiliPlus/apps.json
+# Root values also work as CLI flags, e.g. altgen merge --name ... apps/PiliPlus/apps.json
 
 [source]
 name = "AltGallery"
