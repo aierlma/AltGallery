@@ -7,6 +7,31 @@
   "tintColor": "#3B82F6",
   "apps": [
     {
+      "name": "Aidoku",
+      "bundleIdentifier": "app.aidoku.Aidoku",
+      "developerName": "Skitty",
+      "subtitle": "Free and open source manga reader for iOS and iPadOS",
+      "localizedDescription": "A free and open source manga reading application for iOS and iPadOS.",
+      "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/Aidoku/icon.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/Aidoku/images/library.png",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/Aidoku/images/source.png",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/Aidoku/images/reader.png"
+      ],
+      "tintColor": "#FF375F",
+      "versions": [
+        {
+          "version": "0.8.4",
+          "date": "2026-07-03",
+          "localizedDescription": "- Fixes for iOS 27: fixed settings pages freezing the app, along with other minor visual issues.\r\n- Improved backup restore time: restores should now take seconds instead of minutes. (@Amqx)\r\n- Failed download page retrying: less chance of missing pages in downloaded chapters from sources with aggressive rate limits. (@pxseu)\r\n- New chapter notifications (experimental): when Aidoku refreshes in the background, notification(s) of new chapters should be sent if enabled. (@Zareix)\r\n- Various other bug fixes and small features: see [the website](<https://aidoku.app/release-notes/>) for a more complete list.",
+          "downloadURL": "https://github.com/Aidoku/Aidoku/releases/download/v0.8.4/Aidoku.ipa",
+          "size": 10136987,
+          "minOSVersion": "15.0"
+        }
+      ],
+      "news": []
+    },
+    {
       "name": "Apollo for Reddit - GLASS",
       "bundleIdentifier": "com.christianselig.Apollo",
       "developerName": "Christian Selig (& Apollo-Reborn contributors)",
@@ -84,6 +109,17 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/PiliPlus/images/news.png",
       "notify": true,
       "url": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/tag/2.1.0"
+    },
+    {
+      "appID": "app.aidoku.Aidoku",
+      "title": "Aidoku 0.8.4",
+      "identifier": "release-v0.8.4",
+      "caption": "Aidoku 0.8.4 is available.",
+      "date": "2026-07-03T05:27:41Z",
+      "tintColor": "#FF375F",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/Aidoku/images/news.png",
+      "notify": true,
+      "url": "https://github.com/Aidoku/Aidoku/releases/tag/v0.8.4"
     }
   ]
 }

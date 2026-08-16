@@ -153,6 +153,7 @@ obvious single brand color, and the sample needs human confirmation.
 
 - `PiliPlus/` — source repo `bggRGjQaUbCoE/PiliPlus`, `apps.json` generated
 - `Apollo-Reborn/` — source repo `Apollo-Reborn/Apollo-Reborn` (GLASS variant only, `asset_pattern = "-GLASS\\.ipa$"`), `apps.json` generated
+- `Aidoku/` — source repo `Aidoku/Aidoku` (`asset_pattern = "Aidoku\\.ipa$"`), `apps.json` generated
 
 ## Adding a New App
 
