@@ -14,19 +14,19 @@
 
 ## Available Apps
 
-### <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Aidoku/icon.png" alt="" width="24" align="center"> [Aidoku](https://github.com/Aidoku/Aidoku)
+### <a href="https://github.com/Aidoku/Aidoku"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Aidoku/icon.png" alt="Aidoku icon" width="24" align="top"> Aidoku</a>
 A free and open source manga reading application for iOS and iPadOS.
 
-### <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Apollo-Reborn/icon.png" alt="" width="24" align="center"> [Apollo Reborn](https://github.com/Apollo-Reborn/Apollo-Reborn)
+### <a href="https://github.com/Apollo-Reborn/Apollo-Reborn"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Apollo-Reborn/icon.png" alt="Apollo Reborn icon" width="24" align="top"> Apollo Reborn</a>
 A community-maintained iOS tweak that keeps Apollo for Reddit working after its June 2023 shutdown.
 
-### <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Kazumi/icon.png" alt="" width="24" align="center"> [Kazumi](https://github.com/Predidit/Kazumi)
+### <a href="https://github.com/Predidit/Kazumi"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Kazumi/icon.png" alt="Kazumi icon" width="24" align="top"> Kazumi</a>
 基于自定义规则的番剧采集APP，支持流媒体在线观看、弹幕与实时超分辨率。
 
-### <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Mangayomi/icon.png" alt="" width="24" align="center"> [Mangayomi](https://github.com/kodjodevf/mangayomi)
+### <a href="https://github.com/kodjodevf/mangayomi"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Mangayomi/icon.png" alt="Mangayomi icon" width="24" align="top"> Mangayomi</a>
 Read manga, novels, and watch anime.
 
-### <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/PiliPlus/icon.png" alt="" width="24" align="center"> [PiliPlus](https://github.com/bggRGjQaUbCoE/PiliPlus)
+### <a href="https://github.com/bggRGjQaUbCoE/PiliPlus"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/PiliPlus/icon.png" alt="PiliPlus icon" width="24" align="top"> PiliPlus</a>
 使用Flutter开发的BiliBili第三方客户端。
 
 ## Project Layout
