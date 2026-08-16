@@ -44,6 +44,12 @@ AltGallery/
 
 ## Generating News Images
 
+Set up the venv once (`update_news.sh` runs the renderer from `.venv/bin/python`):
+
+```bash
+uv venv && uv pip install -r requirements.txt
+```
+
 The same `news.png` is referenced by all news entries via `[news] image_url`,
 so it advertises a generic "NEW UPDATE" (no version number) — just the app
 icon, name, and a one-line tagline. The 4:3 image (1600x1200) is deliberately
