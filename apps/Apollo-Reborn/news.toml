@@ -9,8 +9,8 @@ tagline = "Community-maintained Apollo for Reddit"
 #   background  -> light shade of the icon's dominant color (dark tint-derived
 #                  fallback if the icon can't be read)
 [colors]
-tint = "#4070F0"               # icon dominant color (blue), sampled from icon.png
-tint_alt = "#6050F0"           # icon secondary color (violet-blue), sampled from icon.png
+# tint = "#6050F0"             # badge/glow accent (default: [app] tint_color)
+tint_alt = "#6050F0"           # secondary accent (default: [source] tint_color)
 # background = "#D6DCEB"       background base (default: from icon color)
 # bg_mid = "#151E33"           lighter mid stop (default: derived from background)
 # bg_dark = "#0D1220"          darker end stop (default: derived from background)

@@ -56,11 +56,15 @@ sections.
 5. **Write `news.toml`** (`name`, `tagline`, optional `[colors]`), then
    render the shared promo image (AGENTS.md → [Generating News Images]):
    ```bash
-   python3 templates/render_news.py --out apps/<AppName>
+   ./.venv/bin/python templates/render_news.py --out apps/<AppName>
    ```
    Renders `apps/<AppName>/images/news.png` (1600x1200, 4:3) into the working
    tree (do not auto-commit). Requires `rsvg-convert` (librsvg) or falls back
-   to macOS Quick Look.
+   to macOS Quick Look. ⚠️ **Use the venv interpreter** (same as
+   `update_news.sh`): bare `python3` has no Pillow, so `render_news.py`
+   silently falls back to estimate-based text metrics — the name's vertical
+   position and tagline wrapping differ from the measured layout, producing a
+   `news.png` that doesn't match what `./update_news.sh` renders.
 
 6. **Generate `apps.json`** — **never hand-edit it**:
    ```bash
