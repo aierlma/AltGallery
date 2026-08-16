@@ -29,13 +29,39 @@ A third-party BiliBili client built with Flutter.
 
 ```
 AltGallery/
+├── templates/            # shared news-image template + renderer
+│   ├── news_update.template.svg
+│   └── render_news.py
 ├── <AppName>/            # one folder per app
 │   ├── config.toml       # altgen configuration
 │   ├── icon.png          # resource files live here
-│   ├── screenshots/
+│   ├── images/           # screenshots + news.png promo image
 │   └── apps.json         # generated AltStore source
 └── ...
 ```
+
+## Generating News Images
+
+The same `news.png` is referenced by all news entries via `[news] image_url`,
+so it advertises a generic "NEW UPDATE" (no version number) — just the app
+icon, name, and a one-line tagline. The 4:3 image (1600x1200) is deliberately
+minimal so it stays readable on a landscape phone and two or more fit on one
+screen. Reuse the template for a new app:
+
+```bash
+python3 templates/render_news.py \
+  --name <AppName> \
+  --tagline "One-line descriptor" \
+  --icon icon.png \
+  --tint "#app_tint" \
+  --tint-alt "#source_tint" \
+  --out <AppName>
+```
+
+Output is `<AppName>/images/news.png` — the intermediate `news.svg` is created
+inside the app folder and removed afterwards, not committed. Colors should
+come from `config.toml` (`[app] tint_color` / `[source] tint_color`).
+Requires `rsvg-convert` (librsvg) or falls back to macOS Quick Look.
 
 ## Regenerating a Source
 

@@ -22,9 +22,9 @@ subtitle = "Latest PiliPlus release"
 description = "使用Flutter开发的BiliBili第三方客户端"
 icon_url = "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/PiliPlus/icon.png"
 screenshots = [
-  "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/PiliPlus/screenshots/home.png",
-  "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/PiliPlus/screenshots/bangumi.png",
-  "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/PiliPlus/screenshots/dynamic.png",
+  "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/PiliPlus/images/home.png",
+  "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/PiliPlus/images/bangumi.png",
+  "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/PiliPlus/images/dynamic.png",
 ]
 tint_color = "#73b480"
 min_os_version = "14.0"
@@ -41,6 +41,8 @@ max_versions = 0
 [news]
 enabled = true
 title_template = "{name} {version}"
+# shared promo image rendered by templates/render_news.py
+image_url = "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/PiliPlus/images/news.png"
 max_entries = 0
 
 [output]
