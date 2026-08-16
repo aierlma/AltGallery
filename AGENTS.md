@@ -111,6 +111,12 @@ Use it whenever you need to inspect or convert images on this machine —
 Python's stdlib cannot decode PNG, so the pattern is: `sips` → BMP → parse
 with `struct`.
 
+**Pillow (PIL) alternative:** when you want to use PIL, run it with the uv
+venv's python — `.venv/bin/python` (not the system `python3`) — since
+`pillow` is only installed in the venv (see `requirements.txt`). Set the venv
+up once with `uv venv && uv pip install -r requirements.txt`, then e.g.
+`.venv/bin/python -c "from PIL import Image"`.
+
 Useful commands:
 
 ```bash
@@ -151,18 +157,14 @@ obvious single brand color, and the sample needs human confirmation.
 
 ## Adding a New App
 
-1. Create the `apps/<AppName>/` folder
-2. Write `config.toml` modeled on `apps/PiliPlus/config.toml`:
-   - `[github]`: source repo owner/name
-   - `[source]`: source-level info (name, icon_url, website, etc.)
-   - `[app]`: app info (bundle_identifier, developer_name, icon_url, screenshots, etc.) — if the project has no official tint_color, sample one from the icon (see [Icon Color Sampling (macOS sips)](#icon-color-sampling-macos-sips))
-   - `[versions]`: version matching rules. ⚠️ `asset_pattern` is a **regex**, not a glob — to match all ipa files use `".*\\.ipa$"`; writing `"*.ipa"` fails with `invalid regex`
-   - `[output]`: `path = "apps.json"`
-3. Place icons and screenshots (screenshots go in `apps/<AppName>/images/`)
-4. Write `news.toml` and render `apps/<AppName>/images/news.png` (see [Generating News Images](#generating-news-images))
-5. Run the generation command above and commit the generated `apps.json`
-6. Re-run the merge (see [Merging into all-apps.json](#merging-into-all-appsjson)) so the new app is included in `all-apps.json`
-7. Add the app to the README's **Available Apps** section, with its icon inline before the name (same `raw.githubusercontent.com/bebound/AltGallery/master/apps/<AppName>/icon.png` URL pattern as the existing entries)
+End-to-end procedure lives in the **add-app** skill — invoke it with
+`/add-app` (it also auto-loads when you ask to add a new app). It covers the
+folder/config/icon/news setup, tint sampling, `apps.json` generation, merge,
+and README update. The reference sections below ([Icon Color Sampling
+(macOS sips)](#icon-color-sampling-macos-sips), [Generating News
+Images](#generating-news-images), [Merging into
+all-apps.json](#merging-into-all-appsjson)) remain authoritative for the
+shared details.
 
 ## Update Flow
 
