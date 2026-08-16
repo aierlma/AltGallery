@@ -151,6 +151,7 @@ obvious single brand color, and the sample needs human confirmation.
 
 ## Existing Apps
 
+- `apps/EhPanda/` — source repo `EhPanda-Team/EhPanda` (`asset_pattern = "EhPanda\\.ipa$"`, one ipa per release), `apps.json` generated
 - `apps/PiliPlus/` — source repo `bggRGjQaUbCoE/PiliPlus`, `apps.json` generated
 - `apps/Apollo-Reborn/` — source repo `Apollo-Reborn/Apollo-Reborn` (GLASS variant only, `asset_pattern = "-GLASS\\.ipa$"`), `apps.json` generated
 - `apps/Aidoku/` — source repo `Aidoku/Aidoku` (`asset_pattern = "Aidoku\\.ipa$"`), `apps.json` generated
