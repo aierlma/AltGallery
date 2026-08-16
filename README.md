@@ -34,6 +34,7 @@ AltGallery/
 │   └── render_news.py
 ├── <AppName>/            # one folder per app
 │   ├── config.toml       # altgen configuration
+│   ├── news.toml         # news image config (name, tagline, optional colors)
 │   ├── icon.png          # resource files live here
 │   ├── images/           # screenshots + news.png promo image
 │   └── apps.json         # generated AltStore source
@@ -49,19 +50,18 @@ minimal so it stays readable on a landscape phone and two or more fit on one
 screen. Reuse the template for a new app:
 
 ```bash
-python3 templates/render_news.py \
-  --name <AppName> \
-  --tagline "One-line descriptor" \
-  --icon icon.png \
-  --tint "#app_tint" \
-  --tint-alt "#source_tint" \
-  --out <AppName>
+python3 templates/render_news.py --out <AppName>
 ```
 
-Output is `<AppName>/images/news.png` — the intermediate `news.svg` is created
-inside the app folder and removed afterwards, not committed. Colors should
-come from `config.toml` (`[app] tint_color` / `[source] tint_color`).
-Requires `rsvg-convert` (librsvg) or falls back to macOS Quick Look.
+All values come from `<AppName>/news.toml` — `name`, `tagline`, and optional
+colors under `[colors]` (`tint`, `tint_alt`, `background`, `bg_mid`,
+`bg_dark`, `text_color`, `tagline_color`). Colors left unset are derived into
+a harmonious scheme: tint colors from `config.toml`, and the background
+defaults to a soft light shade of the app icon's dominant color. CLI flags
+(`--name`, `--tagline`, `--tint`, ...) override news.toml. Output is
+`<AppName>/images/news.png` — the intermediate `news.svg` is created inside
+the app folder and removed afterwards, not committed. Requires `rsvg-convert`
+(librsvg) or falls back to macOS Quick Look.
 
 ## Regenerating a Source
 

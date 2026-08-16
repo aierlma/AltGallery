@@ -11,8 +11,19 @@
     {{APP_NAME}}        app display name, e.g. "PiliPlus"
     {{TAGLINE}}         short one-line descriptor, e.g. "BiliBili 第三方客户端"
     {{ICON}}            icon image path, relative to this SVG
-    {{TINT}}            brand accent color (app tint_color from config.toml), e.g. "#73b480"
-    {{TINT_ALT}}        secondary accent color (source tint_color from config.toml), e.g. "#00AEEF"
+    {{TINT}}            brand accent color (config.toml [app] tint_color), e.g. "#73b480"
+    {{TINT_ALT}}        secondary accent color (config.toml [source] tint_color), e.g. "#00AEEF"
+    {{APP_NAME_SIZE}}   app name font size; auto-fitted by render_news.py so
+                        long names still fit the right column (max 140)
+    {{TAGLINE_SIZE}}    tagline font size; auto-fitted the same way (max 48)
+    {{BG_COLOR}}        dark gradient base color (news.toml [colors] background,
+                        or auto-derived from {{TINT}})
+    {{BG_COLOR_MID}}    lighter mid-gradient stop, derived from {{BG_COLOR}}
+    {{BG_COLOR_DARK}}   darker end-gradient stop, derived from {{BG_COLOR}}
+    {{NAME_COLOR}}      app name color (news.toml [colors] text_color; default
+                        auto white/black for contrast)
+    {{TAGLINE_COLOR}}   tagline color (news.toml [colors] tagline_color; default
+                        auto light shade of the background hue)
 
   Note: no version number and no links on purpose — this image is referenced
   by news entries across releases, it only advertises "NEW UPDATE".
@@ -23,12 +34,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200">
   <defs>
     <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0C111D"/>
-      <stop offset="0.55" stop-color="#151E33"/>
-      <stop offset="1" stop-color="#0D1220"/>
+      <stop offset="0" stop-color="{{BG_COLOR}}"/>
+      <stop offset="0.55" stop-color="{{BG_COLOR_MID}}"/>
+      <stop offset="1" stop-color="{{BG_COLOR_DARK}}"/>
     </linearGradient>
 
-    <radialGradient id="glowTint" cx="0.30" cy="0.42" r="0.75">
+    <radialGradient id="glowTint" cx="0.30" cy="0.50" r="0.75">
       <stop offset="0" stop-color="{{TINT}}" stop-opacity="0.30"/>
       <stop offset="1" stop-color="{{TINT}}" stop-opacity="0"/>
     </radialGradient>
@@ -37,7 +48,7 @@
       <stop offset="1" stop-color="{{TINT_ALT}}" stop-opacity="0"/>
     </radialGradient>
 
-    <clipPath id="clipIcon"><rect x="270" y="240" width="420" height="420" rx="104"/></clipPath>
+    <clipPath id="clipIcon"><rect x="270" y="390" width="420" height="420" rx="104"/></clipPath>
   </defs>
 
   <!-- background -->
@@ -47,21 +58,23 @@
   <circle cx="1600" cy="0" r="300" fill="none" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="2"/>
   <circle cx="0" cy="1200" r="340" fill="none" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="2"/>
 
-  <!-- left column: icon -->
-  <image x="270" y="240" width="420" height="420" href="{{ICON}}" clip-path="url(#clipIcon)" preserveAspectRatio="xMidYMid slice"/>
-  <rect x="270" y="240" width="420" height="420" rx="104" fill="none" stroke="#FFFFFF" stroke-opacity="0.22" stroke-width="4"/>
+  <!-- left column: icon + NEW UPDATE badge. Icon (390-810) is vertically
+       centered with the name/tagline text (center y=600); the badge sits
+       below it (890-982, gap 80). -->
+  <image x="270" y="390" width="420" height="420" href="{{ICON}}" clip-path="url(#clipIcon)" preserveAspectRatio="xMidYMid slice"/>
+  <rect x="270" y="390" width="420" height="420" rx="104" fill="none" stroke="#FFFFFF" stroke-opacity="0.22" stroke-width="4"/>
 
   <!-- left column: NEW UPDATE badge -->
-  <rect x="260" y="740" width="440" height="92" rx="46"
+  <rect x="260" y="890" width="440" height="92" rx="46"
         fill="{{TINT}}" fill-opacity="0.18" stroke="{{TINT}}" stroke-opacity="0.6" stroke-width="3"/>
-  <text x="480" y="802" font-family="'Helvetica Neue','Hiragino Sans GB','PingFang SC','Noto Sans CJK SC','Microsoft YaHei',sans-serif"
+  <text x="480" y="952" font-family="'Helvetica Neue','Hiragino Sans GB','PingFang SC','Noto Sans CJK SC','Microsoft YaHei',sans-serif"
         font-size="44" font-weight="800" letter-spacing="6" fill="{{TINT}}" text-anchor="middle">NEW UPDATE</text>
 
-  <!-- right column: app name -->
-  <text x="830" y="540" font-family="'Helvetica Neue','Hiragino Sans GB','PingFang SC','Noto Sans CJK SC','Microsoft YaHei',sans-serif"
-        font-size="140" font-weight="800" letter-spacing="1" fill="#FFFFFF" text-anchor="start">{{APP_NAME}}</text>
+  <!-- right column: app name (font size auto-fitted by render_news.py) -->
+  <text x="830" y="604" font-family="'Helvetica Neue','Hiragino Sans GB','PingFang SC','Noto Sans CJK SC','Microsoft YaHei',sans-serif"
+        font-size="{{APP_NAME_SIZE}}" font-weight="800" letter-spacing="1" fill="{{NAME_COLOR}}" text-anchor="start">{{APP_NAME}}</text>
 
-  <!-- right column: tagline -->
-  <text x="830" y="625" font-family="'Helvetica Neue','Hiragino Sans GB','PingFang SC','Noto Sans CJK SC','Microsoft YaHei',sans-serif"
-        font-size="48" font-weight="600" fill="#AABDD6" text-anchor="start">{{TAGLINE}}</text>
+  <!-- right column: tagline (font size auto-fitted by render_news.py) -->
+  <text x="830" y="689" font-family="'Helvetica Neue','Hiragino Sans GB','PingFang SC','Noto Sans CJK SC','Microsoft YaHei',sans-serif"
+        font-size="{{TAGLINE_SIZE}}" font-weight="600" fill="{{TAGLINE_COLOR}}" text-anchor="start">{{TAGLINE}}</text>
 </svg>
