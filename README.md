@@ -14,13 +14,13 @@
 
 ## Available Apps
 
-### [Aidoku](https://github.com/Aidoku/Aidoku)
+### <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/Aidoku/icon.png" alt="" width="24" align="center"> [Aidoku](https://github.com/Aidoku/Aidoku)
 A free and open source manga reading application for iOS and iPadOS.
 
-### [Apollo Reborn](https://github.com/Apollo-Reborn/Apollo-Reborn)
+### <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/Apollo-Reborn/icon.png" alt="" width="24" align="center"> [Apollo Reborn](https://github.com/Apollo-Reborn/Apollo-Reborn)
 A community-maintained iOS tweak that keeps Apollo for Reddit working after its June 2023 shutdown.
 
-### [PiliPlus](https://github.com/bggRGjQaUbCoE/PiliPlus)
+### <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/PiliPlus/icon.png" alt="" width="24" align="center"> [PiliPlus](https://github.com/bggRGjQaUbCoE/PiliPlus)
 使用Flutter开发的BiliBili第三方客户端。
 
 ## Project Layout

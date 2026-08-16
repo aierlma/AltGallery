@@ -168,6 +168,7 @@ obvious single brand color, and the sample needs human confirmation.
 4. Write `news.toml` and render `images/news.png` (see [Generating News Images](#generating-news-images))
 5. Run the generation command above and commit the generated `apps.json`
 6. Re-run the merge (see [Merging into all-apps.json](#merging-into-all-appsjson)) so the new app is included in `all-apps.json`
+7. Add the app to the README's **Available Apps** section, with its icon inline before the name (same `raw.githubusercontent.com/bebound/AltGallery/master/<AppName>/icon.png` URL pattern as the existing entries)
 
 ## Update Flow
 
