@@ -1,0 +1,48 @@
+{
+  "name": "TiebaPure",
+  "subtitle": "TiebaPure AltStore source by AltGallery & altgen",
+  "description": "Auto-updated AltStore source for TiebaPure",
+  "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/TiebaPure/icon.png",
+  "website": "https://github.com/infinityf4p/TiebaPure-iOS",
+  "tintColor": "#708070",
+  "apps": [
+    {
+      "name": "TiebaPure",
+      "bundleIdentifier": "dev.infinityf4p.tiebapure",
+      "developerName": "infinityf4p",
+      "subtitle": "基于 SwiftUI 的第三方百度贴吧客户端",
+      "localizedDescription": "原生 SwiftUI 构建的非官方贴吧 iOS 客户端。未登录访客即可浏览首页推荐、进吧与吧内列表、帖子详情与楼中楼、搜索、图片缩放与视频播放；登录后支持消息、关注与粉丝、收藏帖子（与官方客户端同步）、每日签到、点赞与发帖回复。另有关键词/用户/贴吧屏蔽、浏览历史与阅读位置恢复、iPad 双栏布局，以及 `tiebapure://` 深链接。",
+      "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/TiebaPure/icon.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/TiebaPure/images/home.png",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/TiebaPure/images/thread.png",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/TiebaPure/images/search.png"
+      ],
+      "tintColor": "#708070",
+      "versions": [
+        {
+          "version": "1.4.12",
+          "date": "2026-08-12",
+          "localizedDescription": "## 修改内容\n\n- 统一发帖、回帖与图片上传的请求身份，完善安全验证响应处理，并明确提示内容删除、账号受限或冻结风险。\n- 修复首页多层导航返回层级，支持从首页直接进入评论区和点赞，并优化显示模式设置。\n- 修复 iOS 18 深层导航及长按选择文字可能卡住的问题。\n- 压缩搜索与帖子回复筛选区域，统一楼层时间、IP 和楼中楼之间的间距。\n- 修复部分帖子主楼缺失的问题：自动补取，必要时显示首页摘要或明确错误，不再只显示评论；屏蔽主楼时显示对应状态。",
+          "downloadURL": "https://github.com/infinityf4p/TiebaPure-iOS/releases/download/v1.4.12/TiebaPure-v1.4.12-unsigned.ipa",
+          "size": 3490394,
+          "minOSVersion": "16.4"
+        }
+      ],
+      "news": []
+    }
+  ],
+  "news": [
+    {
+      "appID": "dev.infinityf4p.tiebapure",
+      "title": "TiebaPure 1.4.12",
+      "identifier": "release-v1.4.12",
+      "caption": "TiebaPure 1.4.12 is available.",
+      "date": "2026-08-12T05:55:08Z",
+      "tintColor": "#708070",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/TiebaPure/images/news.png",
+      "notify": true,
+      "url": "https://github.com/infinityf4p/TiebaPure-iOS/releases/tag/v1.4.12"
+    }
+  ]
+}
