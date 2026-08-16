@@ -21,7 +21,7 @@ A free and open source manga reading application for iOS and iPadOS.
 A community-maintained iOS tweak that keeps Apollo for Reddit working after its June 2023 shutdown.
 
 ### [PiliPlus](https://github.com/bggRGjQaUbCoE/PiliPlus)
-A third-party BiliBili client built with Flutter.
+使用Flutter开发的BiliBili第三方客户端。
 
 ## Project Layout
 

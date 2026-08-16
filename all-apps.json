@@ -64,7 +64,7 @@
       "name": "PiliPlus",
       "bundleIdentifier": "com.example.PiliPlus",
       "developerName": "bggRGjQaUbCoE",
-      "subtitle": "Latest PiliPlus release",
+      "subtitle": "使用Flutter开发的BiliBili第三方客户端",
       "localizedDescription": "使用Flutter开发的BiliBili第三方客户端",
       "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/PiliPlus/icon.png",
       "screenshots": [
