@@ -1,0 +1,46 @@
+# altgen config for the DolphiniOS AltStore source.
+# Run: uvx altgen -c config.toml
+
+[github]
+repo = "OatmealDome/dolphin-ios"
+# token: optional. Precedence: --token > GITHUB_TOKEN env > this value.
+
+[source]
+name = "DolphiniOS"
+subtitle = "DolphiniOS AltStore source by AltGallery & altgen"
+description = "Auto-updated AltStore source for DolphiniOS"
+icon_url = "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/DolphiniOS/icon.png"
+website = "https://github.com/OatmealDome/dolphin-ios"
+tint_color = "#E0B030"
+
+[app]
+name = "DolphiniOS"
+bundle_identifier = "me.oatmealdome.DolphiniOS-njb-patreon-beta"
+developer_name = "OatmealDome"
+subtitle = "GameCube and Wii emulator for iOS/iPadOS"
+description = "Dolphin for iOS, reborn. A GameCube and Wii emulator for iPhone and iPad."
+icon_url = "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/DolphiniOS/icon.png"
+screenshots = [
+  "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/DolphiniOS/images/home.png",
+  "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/DolphiniOS/images/game.png",
+  "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/DolphiniOS/images/settings.png",
+]
+tint_color = "#E0B030"
+min_os_version = "14.0"
+
+[versions]
+strip_v_prefix = true
+include_prereleases = true
+# asset_pattern 是正则（非 glob）：每个 release 恰好附带一个
+# Non-Jailbroken.ipa，只匹配该资产。
+asset_pattern = "Non-Jailbroken\\.ipa$"
+
+[news]
+enabled = true
+title_template = "{name} {version}"
+# shared promo image rendered by templates/render_news.py
+image_url = "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/DolphiniOS/images/news.png"
+max_entries = 0
+
+[output]
+path = "apps.json"

@@ -20,6 +20,9 @@ A free and open source manga reading application for iOS and iPadOS.
 ### <a href="https://github.com/Apollo-Reborn/Apollo-Reborn"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Apollo-Reborn/icon.png" alt="Apollo Reborn icon" width="24" align="top"> Apollo Reborn</a>
 A community-maintained iOS tweak that keeps Apollo for Reddit working after its June 2023 shutdown.
 
+### <a href="https://github.com/OatmealDome/dolphin-ios"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/DolphiniOS/icon.png" alt="DolphiniOS icon" width="24" align="top"> DolphiniOS</a>
+Dolphin for iOS, reborn — a GameCube and Wii emulator for iPhone and iPad.
+
 ### <a href="https://github.com/EhPanda-Team/EhPanda"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/EhPanda/icon.png" alt="EhPanda icon" width="24" align="top"> EhPanda</a>
 An unofficial E-Hentai App for iOS built with SwiftUI & TCA.
 
