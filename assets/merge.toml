@@ -1,0 +1,19 @@
+# altgen merge config for AltGallery.
+# Run: uvx altgen merge -c assets/merge.toml PiliPlus/apps.json
+# (append more <AppName>/apps.json inputs as they are generated)
+#
+# Merge mode only reads [source] (root source metadata) and [output];
+# the apps and news entries are extracted from the input apps.json files.
+# Build-mode tables ([github], [app], [versions], [news]) are rejected.
+# Root values also work as CLI flags, e.g. altgen merge --name ... PiliPlus/apps.json
+
+[source]
+name = "AltGallery"
+subtitle = "Curated AltStore sources for IPA projects on GitHub"
+description = "AltStore sources generated from GitHub Releases by AltGallery"
+icon_url = "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/assets/icon.png"
+website = "https://github.com/bebound/AltGallery"
+tint_color = "#3B82F6"
+
+[output]
+path = "../all-apps.json"   # resolved against THIS file's directory -> repo root all-apps.json

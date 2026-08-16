@@ -7,6 +7,12 @@ Generate AltStore sources (`apps.json`) for IPA projects on GitHub, and provide 
 - Generator: Python **altgen**, invoked via `uvx altgen`
 - Display page: **not implemented yet** (see TODO below)
 
+## Reading JSON
+
+Prefer `jq` to read or inspect JSON files (`apps.json`, `all-apps.json`), e.g.
+`jq '.apps | length' PiliPlus/apps.json` or `jq '.apps[0]' PiliPlus/apps.json`.
+Only read the full file when you actually need the whole content.
+
 ## Directory Layout
 
 Each IPA gets its own folder, e.g. `PiliPlus/`:
@@ -36,6 +42,30 @@ Note: the config filename is `config.toml` (not config.json).
 
 altgen reads the GitHub Releases API. When rate-limited or accessing private repos, a token is required, with precedence: `--token` flag > `GITHUB_TOKEN` env var > `[github].token` in config.toml.
 (Note: the default `GITHUB_TOKEN` in CI only has access to the repo running the workflow; to fetch releases from another repo, use a PAT with public repo read permission.)
+
+**Rule: after ANY modification to a `config.toml`, always regenerate the
+app's `apps.json` with `uvx altgen -c config.toml` — never leave the two out
+of sync, and never hand-edit `apps.json`.**
+
+## Merging into all-apps.json
+
+After all app sources are regenerated, merge them into the repo-root
+`all-apps.json` (the "ultimate" AltStore source for the whole project).
+The whole flow — regenerate every source, then merge — is scripted in
+`./update.sh` (run from anywhere); prefer it over the individual commands.
+
+```bash
+uvx altgen merge -c assets/merge.toml <AppName>/apps.json ...
+```
+
+Pass **every** `<AppName>/apps.json` in the repo as an input. The merge
+config lives in `assets/merge.toml`: merge mode only reads `[source]` (root
+metadata: name, icon_url, tint_color) and `[output]` (`path = "../all-apps.json"`,
+resolved against the config's directory → repo root).
+
+**Rule: always run `./update.sh` (or the merge) and commit the updated
+`all-apps.json` whenever an app's `apps.json` changes (regenerated, new app
+added, app removed).**
 
 ## Generating News Images
 
@@ -79,12 +109,13 @@ python3 templates/render_news.py \
 3. Place icons and screenshots (screenshots go in `<AppName>/images/`)
 4. Render `images/news.png` (see [Generating News Images](#generating-news-images))
 5. Run the generation command above and commit the generated `apps.json`
+6. Re-run the merge (see [Merging into all-apps.json](#merging-into-all-appsjson)) so the new app is included in `all-apps.json`
 
 ## Update Flow
 
 Automated via GitHub Actions CI (workflow file not created yet):
 
-- On a schedule or manual trigger, run altgen for each app folder to regenerate `apps.json`
+- On a schedule or manual trigger, run `./update.sh` — it regenerates every app source and merges `all-apps.json` (see [Merging into all-apps.json](#merging-into-all-appsjson))
 - Commit the changes back to the repo
 
 ## TODO

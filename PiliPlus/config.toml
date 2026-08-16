@@ -16,7 +16,7 @@ tint_color = "#00AEEF"
 
 [app]
 name = "PiliPlus"
-bundle_identifier = "com.bggRGjQaUbCoE.PiliPlus"
+bundle_identifier = "com.example.PiliPlus"
 developer_name = "bggRGjQaUbCoE"
 subtitle = "Latest PiliPlus release"
 description = "使用Flutter开发的BiliBili第三方客户端"
@@ -36,7 +36,6 @@ include_prereleases = false
 # 兼容两种历史命名：PiliPlus_ios_*.ipa 与 ios-release-no-sign.ipa
 asset_pattern = ".*\\.ipa$"
 build_version_pattern = "\\+(\\d+)\\.ipa$"
-max_versions = 0
 
 [news]
 enabled = true

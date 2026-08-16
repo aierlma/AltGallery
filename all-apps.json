@@ -1,10 +1,10 @@
 {
-  "name": "PiliPlus",
-  "subtitle": "PiliPlus AltStore source by AltGallery & altgen",
-  "description": "Auto-updated AltStore source for PiliPlus",
-  "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/PiliPlus/icon.png",
-  "website": "https://github.com/bggRGjQaUbCoE/PiliPlus",
-  "tintColor": "#00AEEF",
+  "name": "AltGallery",
+  "subtitle": "Curated AltStore sources for IPA projects on GitHub",
+  "description": "AltStore sources generated from GitHub Releases by AltGallery",
+  "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/assets/icon.png",
+  "website": "https://github.com/bebound/AltGallery",
+  "tintColor": "#3B82F6",
   "apps": [
     {
       "name": "PiliPlus",
