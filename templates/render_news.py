@@ -16,8 +16,11 @@ a harmonious scheme:
   - text_color        -> white (or black for light backgrounds)
   - tagline_color     -> derived from the background hue
 
-The image is deliberately minimal — icon, name, tagline, NEW UPDATE badge —
-so it stays readable on a landscape phone and several fit per screen.
+The name's cap top lines up with the icon's top edge, and the description
+wraps onto several lines (explicit newlines are honored) and is sized as
+large as it can be without overflowing the right column or dropping below
+the NEW UPDATE badge — so both columns share a vertical span and the promo
+stays readable on a landscape phone and several fit per screen.
 
 Usage:
   render_news.py --out PiliPlus              # everything from PiliPlus/news.toml
@@ -26,7 +29,7 @@ Usage:
 
 news.toml:
   name = "PiliPlus"
-  tagline = "BiliBili 第三方客户端"
+  tagline = "BiliBili 第三方客户端"            # "\n" in the value wraps too
   # Optional — unset colors are derived from config.toml:
   # [colors]
   # tint = "#73b480"             badge/glow accent (default: [app] tint_color)
@@ -45,8 +48,10 @@ import shutil
 import struct
 import subprocess
 import sys
+import tempfile
 from collections import Counter
 from pathlib import Path
+from xml.sax.saxutils import escape
 
 try:
     import tomllib
@@ -56,15 +61,42 @@ except ModuleNotFoundError:  # pragma: no cover - Python < 3.11
 TEMPLATE = Path(__file__).resolve().parent / "news_update.template.svg"
 WIDTH, HEIGHT = 1600, 1200
 
-# Right column geometry from the template: text starts at x=830 and must
-# stay inside the 1600-wide canvas with ~40px of margin.
-MAX_TEXT_WIDTH = 730
-# Approximate rendered width per ASCII char as an em fraction, calibrated
-# from rsvg-convert renders of the template's font stack. CJK glyphs are
-# full-width (~1em). Overestimating slightly is safe — it only shrinks the
-# font a bit more than strictly needed.
+# Right column geometry from the template: text starts at x=640 and must
+# stay inside the 1600-wide canvas with ~100px of right margin.
+TEXT_X = 640
+RIGHT_MARGIN = 100
+MAX_TEXT_WIDTH = WIDTH - RIGHT_MARGIN - TEXT_X  # 860
+
+# Left column geometry, shared with the template. The name's cap top aligns
+# with the icon's top edge (y=343), and the description's bottom must stay
+# above the badge's bottom edge (857) — the description font is shrunk to
+# enforce this.
+ICON_X, ICON_Y, ICON_SIZE = 150, 343, 350
+BADGE_X, BADGE_Y, BADGE_W, BADGE_H = 125, 773, 400, 84
+BADGE_BOTTOM = BADGE_Y + BADGE_H  # 857
+GAP_DESC = 40  # gap between the app name and the description
+
+# Approximate rendered width per ASCII char as an em fraction, used for the
+# description's line-wrapping and as a fallback when the real renderer can't
+# be probed. Calibrated from rsvg-convert renders of the template's font
+# stack; CJK glyphs are full-width (~1em). Overestimating slightly is safe —
+# it only wraps/shapes a bit more conservatively than strictly needed.
 NAME_WIDTH_FACTOR = 0.55     # app name, weight 800
-TAGLINE_WIDTH_FACTOR = 0.50  # tagline, weight 600
+TAGLINE_WIDTH_FACTOR = 0.50  # description, weight 600
+
+# Font-size caps. The name and description are fitted as large as they can
+# be without overflowing the right column or the vertical space above the
+# badge, so text stays readable when AltStore shows the image small.
+NAME_MAX = 180
+TAGLINE_MAX = 72
+TAGLINE_MIN = 30  # floor for a pathologically long description
+NAME_LETTER_SPACING = 1  # template name uses letter-spacing="1"
+CAP_HEIGHT_FACTOR = 0.73  # fallback cap-top height (em) when unmeasurable
+
+FONT_STACK = (
+    "'Helvetica Neue','Hiragino Sans GB','PingFang SC','Noto Sans CJK SC',"
+    "'Microsoft YaHei',sans-serif"
+)
 
 _HEX_RE = re.compile(r"^#[0-9a-fA-F]{6}$")
 
@@ -86,6 +118,186 @@ def fit_font_size(text: str, font_size: int, factor: float) -> int:
     if width <= MAX_TEXT_WIDTH:
         return font_size
     return max(1, int(font_size * MAX_TEXT_WIDTH / width))
+
+
+def _longest_prefix(text: str, font: int, factor: float, max_width: int) -> int:
+    """Length of the longest prefix of ``text`` that fits ``max_width``."""
+    lo, hi = 1, len(text)
+    while lo < hi:
+        mid = (lo + hi + 1) // 2
+        if text_width(text[:mid], font, factor) <= max_width:
+            lo = mid
+        else:
+            hi = mid - 1
+    return max(lo, 1)
+
+
+def wrap_text(text: str, font: int, factor: float, max_width: int) -> list[str]:
+    """Split ``text`` into lines that fit ``max_width`` at ``font``.
+
+    Explicit ``\\n`` always breaks a line; lines are additionally wrapped at
+    whitespace, with long CJK runs / single words character-wrapped as a
+    fallback. Keeps the description large and readable on several lines
+    instead of shrinking it onto one.
+    """
+    lines: list[str] = []
+    for para in text.split("\n"):
+        para = para.strip()
+        if not para:
+            lines.append("")
+            continue
+        current = ""
+        for word in para.split(" "):
+            trial = f"{current} {word}" if current else word
+            if text_width(trial, font, factor) <= max_width:
+                current = trial
+                continue
+            if current:
+                lines.append(current)
+            current = word
+            # A single token can still be wider than the column: break it up.
+            while current and text_width(current, font, factor) > max_width:
+                k = _longest_prefix(current, font, factor, max_width)
+                lines.append(current[:k])
+                current = current[k:]
+        if current:
+            lines.append(current)
+    return lines
+
+
+def _probe(text: str, weight: int) -> tuple[float, float] | None:
+    """Rasterize ``text`` at font-size 100 with the template's font stack and
+    return ``(width_em, ascent_em)`` where ``ascent_em`` is the cap-top height
+    above the baseline (probe baseline is y=260).
+
+    Returns None when measurement isn't available (no rsvg-convert or no
+    Pillow); callers then fall back to the per-char estimate / constants.
+    These are the *actual* renderer metrics, so the name can be fitted right
+    up to the column edge and aligned to the icon without guessing.
+    """
+    if not shutil.which("rsvg-convert"):
+        return None
+    try:
+        from PIL import Image
+    except ImportError:
+        return None
+
+    svg = (
+        '<svg xmlns="http://www.w3.org/2000/svg" width="4000" height="300"'
+        ' viewBox="0 0 4000 300">'
+        '<rect width="4000" height="300" fill="#000"/>'
+        f'<text x="0" y="260" font-family="{FONT_STACK}" font-size="100"'
+        f' font-weight="{weight}" fill="#fff">{escape(text)}</text></svg>'
+    )
+    with tempfile.TemporaryDirectory() as td:
+        svg_path = Path(td) / "probe.svg"
+        png_path = Path(td) / "probe.png"
+        svg_path.write_text(svg, encoding="utf-8")
+        try:
+            subprocess.run(
+                ["rsvg-convert", "-o", str(png_path), str(svg_path)],
+                check=True,
+                capture_output=True,
+            )
+            img = Image.open(png_path).convert("RGB")
+            w, h = img.size
+            px = img.load()
+            minx, maxx, miny, maxy = w, -1, h, -1
+            for y in range(h):
+                for x in range(w):
+                    r, g, b = px[x, y]
+                    if r > 128 and g > 128 and b > 128:
+                        if x < minx:
+                            minx = x
+                        if x > maxx:
+                            maxx = x
+                        if y < miny:
+                            miny = y
+                        if y > maxy:
+                            maxy = y
+            if maxx < 0:
+                return None
+            return (maxx - minx + 1) / 100.0, (260 - miny) / 100.0
+        except (subprocess.CalledProcessError, OSError, ValueError):
+            return None
+
+
+def measure_glyph_em(text: str, weight: int) -> float | None:
+    """Rendered glyph width of ``text`` in ems (per 100px font)."""
+    metrics = _probe(text, weight)
+    return metrics[0] if metrics else None
+
+
+def measure_font_ascent_em(weight: int) -> float | None:
+    """Cap-top height of the template font at ``weight`` in ems, measured from
+    a capital 'A' — used to line the app name's top edge up with the icon."""
+    metrics = _probe("A", weight)
+    return metrics[1] if metrics else None
+
+
+def fit_name_font(name: str) -> int:
+    """Largest app-name font size that fits the right column (cap ``NAME_MAX``),
+    using the measured renderer width where available, else the estimate."""
+    if not name:
+        return NAME_MAX
+    glyph_em = measure_glyph_em(name, 800)
+    if glyph_em is not None:
+        gaps = max(len(name) - 1, 0) * NAME_LETTER_SPACING
+        if glyph_em * NAME_MAX + gaps <= MAX_TEXT_WIDTH:
+            return NAME_MAX
+        return max(1, int((MAX_TEXT_WIDTH - gaps) / glyph_em))
+    return fit_font_size(name, NAME_MAX, NAME_WIDTH_FACTOR)
+
+
+def fit_tagline(tagline: str, max_height: float) -> tuple[list[str], int]:
+    """The description wrapped onto lines and sized to fit ``max_height`` px.
+
+    A short description stays on one line at full size when the measured
+    renderer width proves it fits; otherwise it's word-wrapped (explicit
+    ``\\n`` always breaks). Wrapping — not shrinking — keeps the text large,
+    but the whole block is also constrained to ``max_height`` so its bottom
+    stays above the NEW UPDATE badge. The per-char estimate can under-measure
+    wide glyphs, so each wrapped line is verified against the real renderer
+    and the font shrunk if a line overflows.
+    """
+    if not tagline.strip():
+        return [], TAGLINE_MAX
+    # Fast path: exact single-line fit when the real renderer says it fits.
+    if "\n" not in tagline:
+        glyph_em = measure_glyph_em(tagline, 600)
+        if glyph_em is not None and glyph_em * TAGLINE_MAX <= MAX_TEXT_WIDTH:
+            font = max(TAGLINE_MIN, min(TAGLINE_MAX, int(max_height / 1.5)))
+            return [tagline.strip()], font
+    font = TAGLINE_MAX
+    lines = wrap_text(tagline, font, TAGLINE_WIDTH_FACTOR, MAX_TEXT_WIDTH)
+    for _ in range(8):
+        # 1) Horizontal: any line the real renderer would clip shrinks the font.
+        ems = [measure_glyph_em(l, 600) for l in lines if l]
+        if ems and all(e is not None for e in ems) and max(ems) * font > MAX_TEXT_WIDTH:
+            font = max(TAGLINE_MIN, int(MAX_TEXT_WIDTH / max(ems)))
+            lines = wrap_text(tagline, font, TAGLINE_WIDTH_FACTOR, MAX_TEXT_WIDTH)
+            continue
+        # 2) Vertical: whole description must fit above the badge.
+        if len(lines) * 1.5 * font <= max_height or font <= TAGLINE_MIN:
+            break
+        font = max(TAGLINE_MIN, int(max_height / (len(lines) * 1.5)))
+        lines = wrap_text(tagline, font, TAGLINE_WIDTH_FACTOR, MAX_TEXT_WIDTH)
+    return lines, font
+
+
+def build_tagline_lines(
+    lines: list[str], y_positions: list[float], font: int, color: str
+) -> str:
+    """One ``<text>`` element per wrapped description line, left-aligned at
+    the right column's x origin with its own baseline."""
+    parts = []
+    for y, line in zip(y_positions, lines):
+        parts.append(
+            f'  <text x="{TEXT_X}" y="{y:.0f}" font-family="{FONT_STACK}"'
+            f' font-size="{font}" font-weight="600" fill="{color}"'
+            f' text-anchor="start">{escape(line)}</text>'
+        )
+    return "\n".join(parts)
 
 
 # ---------------------------------------------------------------------------
@@ -302,14 +514,31 @@ def main() -> None:
         colors.get("tagline_color") or derive_tagline_color(bg), "tagline_color"
     )
 
+    # Layout the right column: the name's cap top lines up with the icon's
+    # top edge, and the description (possibly several wrapped lines) is sized
+    # so its bottom stays above the NEW UPDATE badge's bottom edge.
+    name_font = fit_name_font(name)
+    ascent_em = measure_font_ascent_em(800) or CAP_HEIGHT_FACTOR
+    name_y = ICON_Y + ascent_em * name_font
+    name_bottom = name_y + 0.25 * name_font  # descender, conservative
+    desc_space = BADGE_BOTTOM - name_bottom - GAP_DESC
+
+    tag_lines, tagline_font = fit_tagline(tagline, desc_space)
+    line_h_tag = 1.5 * tagline_font
+    tag_ys = [
+        name_bottom + GAP_DESC + (i + 0.8) * line_h_tag for i in range(len(tag_lines))
+    ]
+
     tokens = {
-        "{{APP_NAME}}": name,
-        "{{TAGLINE}}": tagline,
+        "{{APP_NAME}}": escape(name),
+        "{{APP_NAME_SIZE}}": str(name_font),
+        "{{NAME_Y}}": f"{name_y:.0f}",
+        "{{TAGLINE_LINES}}": build_tagline_lines(
+            tag_lines, tag_ys, tagline_font, tagline_color
+        ),
         "{{ICON}}": args.icon,
         "{{TINT}}": check_hex(tint, "tint"),
         "{{TINT_ALT}}": check_hex(tint_alt, "tint_alt"),
-        "{{APP_NAME_SIZE}}": str(fit_font_size(name, 140, NAME_WIDTH_FACTOR)),
-        "{{TAGLINE_SIZE}}": str(fit_font_size(tagline, 48, TAGLINE_WIDTH_FACTOR)),
         "{{BG_COLOR}}": bg,
         "{{BG_COLOR_MID}}": bg_mid,
         "{{BG_COLOR_DARK}}": bg_dark,

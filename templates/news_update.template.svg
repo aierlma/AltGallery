@@ -2,28 +2,37 @@
 <!--
   AltGallery news update promo template
   Canvas: 1600 x 1200 (4:3) — two columns:
-    left:  app icon with NEW UPDATE badge below it
-    right: app name + one-line tagline
-  Type and icon are intentionally large so the image stays readable when
-  AltStore shows it at thumbnail size.
+    left:  app icon (350x350) with a NEW UPDATE badge below it
+    right: app name + description (may span multiple wrapped lines)
+  The name's top edge lines up with the icon's top edge, and the description
+  is sized so its bottom stays above the badge's bottom — so both columns
+  share the same vertical span, and the type stays large and readable even
+  when AltStore shows the image small.
 
   Placeholders (replace with `render_news.py`, or by hand):
     {{APP_NAME}}        app display name, e.g. "PiliPlus"
-    {{TAGLINE}}         short one-line descriptor, e.g. "BiliBili 第三方客户端"
+    {{APP_NAME_SIZE}}   app name font size; auto-fitted by render_news.py so
+                        long names still fit the right column (max 180)
+    {{NAME_Y}}          app name baseline; auto-computed so the name's cap
+                        top aligns with the icon's top edge (y=343)
     {{ICON}}            icon image path, relative to this SVG
     {{TINT}}            brand accent color (config.toml [app] tint_color), e.g. "#73b480"
     {{TINT_ALT}}        secondary accent color (config.toml [source] tint_color), e.g. "#00AEEF"
-    {{APP_NAME_SIZE}}   app name font size; auto-fitted by render_news.py so
-                        long names still fit the right column (max 140)
-    {{TAGLINE_SIZE}}    tagline font size; auto-fitted the same way (max 48)
     {{BG_COLOR}}        dark gradient base color (news.toml [colors] background,
                         or auto-derived from {{TINT}})
     {{BG_COLOR_MID}}    lighter mid-gradient stop, derived from {{BG_COLOR}}
     {{BG_COLOR_DARK}}   darker end-gradient stop, derived from {{BG_COLOR}}
     {{NAME_COLOR}}      app name color (news.toml [colors] text_color; default
                         auto white/black for contrast)
-    {{TAGLINE_COLOR}}   tagline color (news.toml [colors] tagline_color; default
+    {{TAGLINE_COLOR}}   description color (news.toml [colors] tagline_color; default
                         auto light shade of the background hue)
+    TAGLINE_LINES       description rendered by render_news.py as one <text>
+                        per wrapped line; explicit newlines are honored, long
+                        lines are wrapped, and the font is shrunk so the last
+                        line stays above the NEW UPDATE badge (y=857)
+
+  Note: the icon/badge coordinates below are shared with render_news.py
+  (ICON_*/BADGE_* constants) and with the badge-bottom constraint.
 
   Note: no version number and no links on purpose — this image is referenced
   by news entries across releases, it only advertises "NEW UPDATE".
@@ -48,7 +57,7 @@
       <stop offset="1" stop-color="{{TINT_ALT}}" stop-opacity="0"/>
     </radialGradient>
 
-    <clipPath id="clipIcon"><rect x="270" y="390" width="420" height="420" rx="104"/></clipPath>
+    <clipPath id="clipIcon"><rect x="150" y="343" width="350" height="350" rx="88"/></clipPath>
   </defs>
 
   <!-- background -->
@@ -58,23 +67,23 @@
   <circle cx="1600" cy="0" r="300" fill="none" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="2"/>
   <circle cx="0" cy="1200" r="340" fill="none" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="2"/>
 
-  <!-- left column: icon + NEW UPDATE badge. Icon (390-810) is vertically
-       centered with the name/tagline text (center y=600); the badge sits
-       below it (890-982, gap 80). -->
-  <image x="270" y="390" width="420" height="420" href="{{ICON}}" clip-path="url(#clipIcon)" preserveAspectRatio="xMidYMid slice"/>
-  <rect x="270" y="390" width="420" height="420" rx="104" fill="none" stroke="#FFFFFF" stroke-opacity="0.22" stroke-width="4"/>
+  <!-- left column: icon. Its top edge (y=343) is the anchor the app name's
+       top lines up with; the badge sits below (773-857). -->
+  <image x="150" y="343" width="350" height="350" href="{{ICON}}" clip-path="url(#clipIcon)" preserveAspectRatio="xMidYMid slice"/>
+  <rect x="150" y="343" width="350" height="350" rx="88" fill="none" stroke="#FFFFFF" stroke-opacity="0.22" stroke-width="4"/>
 
   <!-- left column: NEW UPDATE badge -->
-  <rect x="260" y="890" width="440" height="92" rx="46"
+  <rect x="125" y="773" width="400" height="84" rx="42"
         fill="{{TINT}}" fill-opacity="0.18" stroke="{{TINT}}" stroke-opacity="0.6" stroke-width="3"/>
-  <text x="480" y="952" font-family="'Helvetica Neue','Hiragino Sans GB','PingFang SC','Noto Sans CJK SC','Microsoft YaHei',sans-serif"
+  <text x="325" y="830" font-family="'Helvetica Neue','Hiragino Sans GB','PingFang SC','Noto Sans CJK SC','Microsoft YaHei',sans-serif"
         font-size="44" font-weight="800" letter-spacing="6" fill="{{TINT}}" text-anchor="middle">NEW UPDATE</text>
 
-  <!-- right column: app name (font size auto-fitted by render_news.py) -->
-  <text x="830" y="604" font-family="'Helvetica Neue','Hiragino Sans GB','PingFang SC','Noto Sans CJK SC','Microsoft YaHei',sans-serif"
+  <!-- right column: app name (font size + baseline auto-fitted by render_news.py).
+       Its cap top is set to the icon's top edge. -->
+  <text x="640" y="{{NAME_Y}}" font-family="'Helvetica Neue','Hiragino Sans GB','PingFang SC','Noto Sans CJK SC','Microsoft YaHei',sans-serif"
         font-size="{{APP_NAME_SIZE}}" font-weight="800" letter-spacing="1" fill="{{NAME_COLOR}}" text-anchor="start">{{APP_NAME}}</text>
 
-  <!-- right column: tagline (font size auto-fitted by render_news.py) -->
-  <text x="830" y="689" font-family="'Helvetica Neue','Hiragino Sans GB','PingFang SC','Noto Sans CJK SC','Microsoft YaHei',sans-serif"
-        font-size="{{TAGLINE_SIZE}}" font-weight="600" fill="{{TAGLINE_COLOR}}" text-anchor="start">{{TAGLINE}}</text>
+  <!-- right column: description — render_news.py emits one <text> per wrapped
+       line, each with its own baseline and the fitted font size. -->
+  {{TAGLINE_LINES}}
 </svg>
