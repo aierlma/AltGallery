@@ -1,34 +1,35 @@
-# AltGallery
+<p align="center">
+  <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/assets/icon.png" alt="AltGallery" width="120">
+</p>
 
-Curated AltStore sources for IPA projects on GitHub. Some sources are generated in this repo with [altgen](https://github.com/bebound/AltGen). Other sources are maintained by their own projects and linked here for convenience.
+<h1 align="center">AltGallery</h1>
+
+<p align="center">Curated AltStore sources for IPA projects on GitHub. All sources are generated in this repo with <a href="https://github.com/bebound/AltGen">altgen</a>.</p>
+
+<p align="center">
+<a href="https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/all-apps.json" target="_blank">
+<img src="https://raw.githubusercontent.com/bebound/AltGallery/master/assets/add-alt-source.png" alt="Add AltSource" width="200">
+</a>
+</p>
 
 ## Available Sources
 
 ### [Aidoku](https://github.com/Aidoku/Aidoku)
 A free and open source manga reading application for iOS and iPadOS.
 
-<a href="https://raw.githubusercontent.com/Aidoku/Aidoku/altstore/apps.json" target="_blank">
-<img src="https://github.com/CelloSerenity/altdirect/blob/main/assets/png/AltSource_Blue.png?raw=true" alt="Add AltSource" width="200">
-</a>
-
 ### [Apollo Reborn](https://github.com/Apollo-Reborn/Apollo-Reborn)
 A community-maintained iOS tweak that keeps Apollo for Reddit working after its June 2023 shutdown.
 
-<a href="https://raw.githubusercontent.com/Apollo-Reborn/Apollo-Reborn/refs/heads/main/apps_glass.json" target="_blank">
-<img src="https://github.com/CelloSerenity/altdirect/blob/main/assets/png/AltSource_Blue.png?raw=true" alt="Add AltSource" width="200">
-</a>
-
 ### [PiliPlus](https://github.com/bggRGjQaUbCoE/PiliPlus)
 A third-party BiliBili client built with Flutter.
-
-<a href="https://altdirect.app/?url=https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/PiliPlus/apps.json" target="_blank">
-<img src="https://github.com/CelloSerenity/altdirect/blob/main/assets/png/AltSource_Blue.png?raw=true" alt="Add AltSource" width="200">
-</a>
 
 ## Project Layout
 
 ```
 AltGallery/
+├── assets/               # shared assets: app icon + "Add AltSource" button
+│   ├── icon.svg / icon.png
+│   └── add-alt-source.svg / add-alt-source.png
 ├── templates/            # shared news-image template + renderer
 │   ├── news_update.template.svg
 │   └── render_news.py
