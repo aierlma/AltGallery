@@ -1,0 +1,18 @@
+# render_news.py config: python3 templates/render_news.py --out Apollo-Reborn
+# Colors left unset are auto-derived from config.toml into a harmonious
+# dark scheme (see the [colors] section below for what you can override).
+
+name = "Apollo-Reborn"
+tagline = "Community-maintained Apollo for Reddit"
+
+# Optional — unset colors are auto-derived:
+#   background  -> light shade of the icon's dominant color (dark tint-derived
+#                  fallback if the icon can't be read)
+[colors]
+tint = "#F0856A"               # brighter badge/glow accent (default: [app] tint_color #F0542D)
+# tint_alt = "#F0542D"         secondary accent (default: [source] tint_color)
+# background = "#D6DCEB"       background base (default: from icon color)
+# bg_mid = "#151E33"           lighter mid stop (default: derived from background)
+# bg_dark = "#0D1220"          darker end stop (default: derived from background)
+# text_color = "#111111"       app name color (default: auto white/black)
+# tagline_color = "#AABDD6"    subtitle color (default: derived from background)
