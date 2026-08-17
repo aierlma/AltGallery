@@ -18,7 +18,8 @@ Refresh every generated artifact in the repo:
    ./update_news.sh
    ```
    Needs the uv venv set up once (`uv venv && uv pip install -r
-   requirements.txt`), plus `rsvg-convert` or macOS Quick Look.
+   requirements.txt`); the image is drawn entirely with Pillow — no external
+   rasterizer needed.
 
 Notes:
 - `update.sh` reads the GitHub Releases API; if rate-limited, retry with a

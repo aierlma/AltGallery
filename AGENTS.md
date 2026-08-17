@@ -86,16 +86,17 @@ app's image (from each app's `news.toml`: `name`, `tagline`, optional
 or a single app with `python3 templates/render_news.py --out apps/<AppName>`.
 Unset colors are auto-derived from `config.toml` tints and the icon's dominant
 color (needs the uv venv set up once: `uv venv && uv pip install -r
-requirements.txt`, plus `rsvg-convert` or macOS Quick Look). The rendered
-`apps/<AppName>/images/news.png` stays in the working tree — the URL in
-`config.toml` `[news] image_url` already points at it. Do not auto-commit it.
+requirements.txt`; Pillow is the only image dependency — no external
+rasterizer). The rendered `apps/<AppName>/images/news.png` stays in the working
+tree — the URL in `config.toml` `[news] image_url` already points at it. Do
+not auto-commit it.
 
-## Icon Color Sampling (macOS sips)
+## Icon Color Sampling (PIL)
 
 Sampling a dominant color from an icon — for a new app's `tint_color`, or the
 news background derived by `render_news.py` — is already implemented in
-`templates/render_news.py` → `extract_icon_color()` (it handles the
-sips→BMP→`struct` parsing and all its pitfalls). Just call it:
+`templates/render_news.py` → `extract_icon_color()` (it downsamples the icon
+with Pillow and buckets the pixels). Just call it:
 
 ```bash
 PYTHONPATH=templates python3 -c \
@@ -114,7 +115,7 @@ End-to-end procedure lives in the **add-app** skill — invoke it with
 `/add-app` (it also auto-loads when you ask to add a new app). It covers the
 folder/config/icon/news setup, tint sampling, `apps.json` generation, merge,
 and README update. The reference sections below ([Icon Color Sampling
-(macOS sips)](#icon-color-sampling-macos-sips), [Generating News
+(PIL)](#icon-color-sampling-pil), [Generating News
 Images](#generating-news-images), [Merging into
 all-apps.json](#merging-into-all-appsjson)) remain authoritative for the
 shared details.

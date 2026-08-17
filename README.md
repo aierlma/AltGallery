@@ -93,4 +93,4 @@ a `config.toml`, then merges the resulting sources into the repo-root
 uv venv && uv pip install -r requirements.txt
 ```
 
-It also requires `rsvg-convert` (librsvg) or falls back to macOS Quick Look.
+The image is drawn entirely with Pillow — no external rasterizer needed.

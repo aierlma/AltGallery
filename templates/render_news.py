@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
-"""Render an AltStore "NEW UPDATE" promo image from the shared SVG template.
+"""Render an AltStore "NEW UPDATE" promo image with Pillow — no SVG, no
+rsvg-convert / qlmanage.
 
-Fills the placeholders in templates/news_update.template.svg with app values
-and rasterizes to <out>/images/news.png at 1600x1200 (4:3). The intermediate
-SVG is written to a temporary news.svg inside the app folder — so the icon's
-relative href resolves — and removed afterwards; only the PNG is kept.
+Draws the 1600x1200 (4:3) promo directly with ImageDraw/ImageFont: a diagonal
+tint-tinted gradient, two soft radial glows, the app icon (rounded corners) and
+its white stroke, the "NEW UPDATE" badge, and the app name + description in the
+right column. Layout is computed from Pillow font metrics (exact per-glyph
+widths), so the text always fits the column even with CJK strings.
 
-Configuration comes from <out>/news.toml (see the template below); any CLI
-flag overrides its news.toml counterpart. Colors left unset are derived into
-a harmonious scheme:
+Configuration comes from <out>/news.toml (see the template below); any CLI flag
+overrides its news.toml counterpart. Colors left unset are derived into a
+harmonious scheme:
   - tint / tint_alt   -> [app] / [source] tint_color
   - background        -> light shade of the icon's dominant color, so the
                          promo blends with the app's artwork; falls back to
@@ -21,6 +23,11 @@ wraps onto several lines (explicit newlines are honored) and is sized as
 large as it can be without overflowing the right column or dropping below
 the NEW UPDATE badge — so both columns share a vertical span and the promo
 stays readable on a landscape phone and several fit per screen.
+
+Text is drawn per glyph so each character uses the font for its script:
+Helvetica for Latin, Hiragino Sans GB (W6/W3) for CJK, with letter-spacing
+applied between glyphs. Fonts are loaded from macOS system paths; a clear
+error is raised if none of them can be loaded.
 
 Usage:
   render_news.py --out apps/PiliPlus           # everything from apps/PiliPlus/news.toml
@@ -37,41 +44,36 @@ news.toml:
   # background = "#0C111D"       dark gradient base (default: derived from tint)
   # text_color = "#FFFFFF"       app name color (default: auto white/black)
   # tagline_color = "#AABDD6"    subtitle color (default: derived from background)
-
-Converters tried in order: rsvg-convert, qlmanage (macOS Quick Look).
 """
 
 import argparse
 import colorsys
 import re
-import shutil
-import struct
-import subprocess
 import sys
-import tempfile
 from collections import Counter
 from pathlib import Path
-from xml.sax.saxutils import escape
+
+from PIL import Image, ImageChops, ImageDraw, ImageFont
 
 try:
     import tomllib
 except ModuleNotFoundError:  # pragma: no cover - Python < 3.11
     import tomli as tomllib
 
-TEMPLATE = Path(__file__).resolve().parent / "news_update.template.svg"
 WIDTH, HEIGHT = 1600, 1200
 
-# Left column geometry, shared with the template. The icon's left edge (x=150)
-# is the layout's side margin; the name's cap top aligns with the icon's top
-# edge (y=343), and the description's bottom must stay above the badge's
-# bottom edge (857) — the description font is shrunk to enforce this.
+# Left column geometry. The icon's left edge (x=150) is the layout's side
+# margin; the name's cap top aligns with the icon's top edge (y=343), and the
+# description's bottom must stay above the badge's bottom edge (857) — the
+# description font is shrunk to enforce this.
 ICON_X, ICON_Y, ICON_SIZE = 150, 343, 350
+ICON_RADIUS = 88  # rounded-corner radius of the icon
 
-# Right column geometry from the template: text starts at x=640 and must stay
-# inside the 1600-wide canvas with the same side margin as the icon's left
-# edge — so the text's right edge and the icon's left edge sit an equal
-# distance from the image borders. Short text stops earlier and leaves a
-# larger gap, but never a smaller one than the icon's.
+# Right column geometry: text starts at x=640 and must stay inside the
+# 1600-wide canvas with the same side margin as the icon's left edge — so the
+# text's right edge and the icon's left edge sit an equal distance from the
+# image borders. Short text stops earlier and leaves a larger gap, but never a
+# smaller one than the icon's.
 TEXT_X = 640
 RIGHT_MARGIN = ICON_X
 MAX_TEXT_WIDTH = WIDTH - RIGHT_MARGIN - TEXT_X  # 810
@@ -79,63 +81,117 @@ BADGE_X, BADGE_Y, BADGE_W, BADGE_H = 125, 773, 400, 84
 BADGE_BOTTOM = BADGE_Y + BADGE_H  # 857
 GAP_DESC = 40  # gap between the app name and the description
 
-# Approximate rendered width per ASCII char as an em fraction, used for the
-# description's line-wrapping and as a fallback when the real renderer can't
-# be probed. Calibrated from rsvg-convert renders of the template's font
-# stack; CJK glyphs are full-width (~1em). Overestimating slightly is safe —
-# it only wraps/shapes a bit more conservatively than strictly needed.
-NAME_WIDTH_FACTOR = 0.55     # app name, weight 800
-TAGLINE_WIDTH_FACTOR = 0.50  # description, weight 600
-
-# Font-size caps. The name and description are fitted as large as they can
-# be without overflowing the right column or the vertical space above the
-# badge, so text stays readable when AltStore shows the image small.
+# Font-size caps. The name and description are fitted as large as they can be
+# without overflowing the right column or the vertical space above the badge,
+# so text stays readable when AltStore shows the image small.
 NAME_MAX = 180
 TAGLINE_MAX = 72
 TAGLINE_MIN = 30  # floor for a pathologically long description
-NAME_LETTER_SPACING = 1  # template name uses letter-spacing="1"
-CAP_HEIGHT_FACTOR = 0.73  # fallback cap-top height (em) when unmeasurable
-
-FONT_STACK = (
-    "'Helvetica Neue','Hiragino Sans GB','PingFang SC','Noto Sans CJK SC',"
-    "'Microsoft YaHei',sans-serif"
-)
+NAME_LETTER_SPACING = 1  # letter-spacing of the app name
+BADGE_LETTER_SPACING = 6
+BADGE_TEXT = "NEW UPDATE"
+BADGE_TEXT_Y = 830  # baseline of the badge caption (matches the old template)
 
 _HEX_RE = re.compile(r"^#[0-9a-fA-F]{6}$")
 
+# Font candidates per role, in preference order. Each is (path, ttc index);
+# the first that loads is used. Helvetica covers Latin, Hiragino Sans GB (and
+# the STHeiti fallback) cover CJK — one per style so the app name / badge can
+# be bolder than the description.
+FONT_CANDIDATES = {
+    "latin": [
+        ("/System/Library/Fonts/Helvetica.ttc", 0),  # Regular
+    ],
+    "latin_bold": [
+        ("/System/Library/Fonts/Helvetica.ttc", 1),  # Bold
+    ],
+    "cjk": [
+        ("/System/Library/Fonts/Hiragino Sans GB.ttc", 0),  # W3
+        ("/System/Library/Fonts/STHeiti Medium.ttc", 1),  # Heiti SC Medium
+    ],
+    "cjk_bold": [
+        ("/System/Library/Fonts/Hiragino Sans GB.ttc", 2),  # W6
+        ("/System/Library/Fonts/STHeiti Medium.ttc", 0),  # Heiti TC Medium
+    ],
+}
 
-def text_width(text: str, font_size: int, factor: float) -> float:
-    """Estimated rendered width of ``text`` at ``font_size``."""
-    width = 0.0
-    for ch in text:
-        width += 1.0 if ord(ch) >= 0x2E80 else factor  # CJK is full-width
-    return width * font_size
+_FONT_CACHE: dict[tuple[str, int], ImageFont.FreeTypeFont] = {}
 
 
-def fit_font_size(text: str, font_size: int, factor: float) -> int:
-    """``font_size`` as-is if ``text`` fits the column, otherwise shrunk
-    so it does."""
-    if not text:
-        return font_size
-    width = text_width(text, font_size, factor)
+def _load_font(kind: str, size: int) -> ImageFont.FreeTypeFont:
+    """The first loadable font for ``kind`` at ``size``, cached per
+    (kind, size). Fails with a clear message if no candidate loads."""
+    key = (kind, size)
+    font = _FONT_CACHE.get(key)
+    if font is not None:
+        return font
+    for path, index in FONT_CANDIDATES[kind]:
+        try:
+            font = ImageFont.truetype(path, size, index=index)
+            _FONT_CACHE[key] = font
+            return font
+        except OSError:
+            continue
+    tried = ", ".join(f"{p}#{i}" for p, i in FONT_CANDIDATES[kind])
+    sys.exit(f"error: no loadable font for '{kind}' (tried: {tried})")
+
+
+def _is_cjk(ch: str) -> bool:
+    """CJK / full-width glyphs (Hiragana, Katakana, CJK ideographs, hangul…)."""
+    return ord(ch) >= 0x2E80
+
+
+def _font_for(ch: str, style: str, size: int) -> ImageFont.FreeTypeFont:
+    """Font for one character: bold styles for the name/badge, regular for the
+    description; each script picks its own Latin / CJK font."""
+    if style == "bold":
+        kind = "cjk_bold" if _is_cjk(ch) else "latin_bold"
+    else:
+        kind = "cjk" if _is_cjk(ch) else "latin"
+    return _load_font(kind, size)
+
+
+def measure_width(text: str, size: int, style: str) -> float:
+    """Exact rendered width of ``text`` at ``size``: each glyph is measured
+    with the font it will be drawn in, so mixed Latin + CJK is exact."""
+    return sum(_font_for(ch, style, size).getlength(ch) for ch in text)
+
+
+def cap_top_em(style: str) -> float:
+    """Cap-top height above the baseline in ems, from a capital 'A' at size
+    100 — used to line the app name's top edge up with the icon. The bbox is
+    measured with anchor='ls' so it's relative to the baseline (as drawn)."""
+    font = _load_font("latin_bold" if style == "bold" else "latin", 100)
+    _left, top, _right, _bottom = font.getbbox("A", anchor="ls")
+    return -top / 100.0
+
+
+def fit_name_font(name: str) -> int:
+    """Largest app-name font size that fits the right column (cap ``NAME_MAX``),
+    using the exact measured width."""
+    if not name:
+        return NAME_MAX
+    gaps = max(len(name) - 1, 0) * NAME_LETTER_SPACING
+    width = measure_width(name, NAME_MAX, "bold") + gaps
     if width <= MAX_TEXT_WIDTH:
-        return font_size
-    return max(1, int(font_size * MAX_TEXT_WIDTH / width))
+        return NAME_MAX
+    # Glyph widths are proportional to font size for TrueType, so scale.
+    return max(1, int((MAX_TEXT_WIDTH - gaps) * NAME_MAX / width))
 
 
-def _longest_prefix(text: str, font: int, factor: float, max_width: int) -> int:
+def _longest_prefix(text: str, font: int, max_width: float) -> int:
     """Length of the longest prefix of ``text`` that fits ``max_width``."""
     lo, hi = 1, len(text)
     while lo < hi:
         mid = (lo + hi + 1) // 2
-        if text_width(text[:mid], font, factor) <= max_width:
+        if measure_width(text[:mid], font, "regular") <= max_width:
             lo = mid
         else:
             hi = mid - 1
     return max(lo, 1)
 
 
-def wrap_text(text: str, font: int, factor: float, max_width: int) -> list[str]:
+def wrap_text(text: str, font: int, max_width: float) -> list[str]:
     """Split ``text`` into lines that fit ``max_width`` at ``font``.
 
     Explicit ``\\n`` always breaks a line; lines are additionally wrapped at
@@ -152,15 +208,15 @@ def wrap_text(text: str, font: int, factor: float, max_width: int) -> list[str]:
         current = ""
         for word in para.split(" "):
             trial = f"{current} {word}" if current else word
-            if text_width(trial, font, factor) <= max_width:
+            if measure_width(trial, font, "regular") <= max_width:
                 current = trial
                 continue
             if current:
                 lines.append(current)
             current = word
             # A single token can still be wider than the column: break it up.
-            while current and text_width(current, font, factor) > max_width:
-                k = _longest_prefix(current, font, factor, max_width)
+            while current and measure_width(current, font, "regular") > max_width:
+                k = _longest_prefix(current, font, max_width)
                 lines.append(current[:k])
                 current = current[k:]
         if current:
@@ -168,139 +224,55 @@ def wrap_text(text: str, font: int, factor: float, max_width: int) -> list[str]:
     return lines
 
 
-def _probe(text: str, weight: int) -> tuple[float, float] | None:
-    """Rasterize ``text`` at font-size 100 with the template's font stack and
-    return ``(width_em, ascent_em)`` where ``ascent_em`` is the cap-top height
-    above the baseline (probe baseline is y=260).
-
-    Returns None when measurement isn't available (no rsvg-convert or no
-    Pillow); callers then fall back to the per-char estimate / constants.
-    These are the *actual* renderer metrics, so the name can be fitted right
-    up to the column edge and aligned to the icon without guessing.
-    """
-    if not shutil.which("rsvg-convert"):
-        return None
-    try:
-        from PIL import Image
-    except ImportError:
-        return None
-
-    svg = (
-        '<svg xmlns="http://www.w3.org/2000/svg" width="4000" height="300"'
-        ' viewBox="0 0 4000 300">'
-        '<rect width="4000" height="300" fill="#000"/>'
-        f'<text x="0" y="260" font-family="{FONT_STACK}" font-size="100"'
-        f' font-weight="{weight}" fill="#fff">{escape(text)}</text></svg>'
-    )
-    with tempfile.TemporaryDirectory() as td:
-        svg_path = Path(td) / "probe.svg"
-        png_path = Path(td) / "probe.png"
-        svg_path.write_text(svg, encoding="utf-8")
-        try:
-            subprocess.run(
-                ["rsvg-convert", "-o", str(png_path), str(svg_path)],
-                check=True,
-                capture_output=True,
-            )
-            img = Image.open(png_path).convert("RGB")
-            w, h = img.size
-            px = img.load()
-            minx, maxx, miny, maxy = w, -1, h, -1
-            for y in range(h):
-                for x in range(w):
-                    r, g, b = px[x, y]
-                    if r > 128 and g > 128 and b > 128:
-                        if x < minx:
-                            minx = x
-                        if x > maxx:
-                            maxx = x
-                        if y < miny:
-                            miny = y
-                        if y > maxy:
-                            maxy = y
-            if maxx < 0:
-                return None
-            return (maxx - minx + 1) / 100.0, (260 - miny) / 100.0
-        except (subprocess.CalledProcessError, OSError, ValueError):
-            return None
-
-
-def measure_glyph_em(text: str, weight: int) -> float | None:
-    """Rendered glyph width of ``text`` in ems (per 100px font)."""
-    metrics = _probe(text, weight)
-    return metrics[0] if metrics else None
-
-
-def measure_font_ascent_em(weight: int) -> float | None:
-    """Cap-top height of the template font at ``weight`` in ems, measured from
-    a capital 'A' — used to line the app name's top edge up with the icon."""
-    metrics = _probe("A", weight)
-    return metrics[1] if metrics else None
-
-
-def fit_name_font(name: str) -> int:
-    """Largest app-name font size that fits the right column (cap ``NAME_MAX``),
-    using the measured renderer width where available, else the estimate."""
-    if not name:
-        return NAME_MAX
-    glyph_em = measure_glyph_em(name, 800)
-    if glyph_em is not None:
-        gaps = max(len(name) - 1, 0) * NAME_LETTER_SPACING
-        if glyph_em * NAME_MAX + gaps <= MAX_TEXT_WIDTH:
-            return NAME_MAX
-        return max(1, int((MAX_TEXT_WIDTH - gaps) / glyph_em))
-    return fit_font_size(name, NAME_MAX, NAME_WIDTH_FACTOR)
-
-
 def fit_tagline(tagline: str, max_height: float) -> tuple[list[str], int]:
     """The description wrapped onto lines and sized to fit ``max_height`` px.
 
-    A short description stays on one line at full size when the measured
-    renderer width proves it fits; otherwise it's word-wrapped (explicit
-    ``\\n`` always breaks). Wrapping — not shrinking — keeps the text large,
-    but the whole block is also constrained to ``max_height`` so its bottom
-    stays above the NEW UPDATE badge. The per-char estimate can under-measure
-    wide glyphs, so each wrapped line is verified against the real renderer
-    and the font shrunk if a line overflows.
+    A short description stays on one line at full size when it fits; otherwise
+    it's word-wrapped (explicit ``\\n`` always breaks). Wrapping — not
+    shrinking — keeps the text large, but the whole block is also constrained
+    to ``max_height`` so its bottom stays above the NEW UPDATE badge. Each
+    line is measured exactly, so the font shrinks only when a line really
+    overflows.
     """
     if not tagline.strip():
         return [], TAGLINE_MAX
-    # Fast path: exact single-line fit when the real renderer says it fits.
-    if "\n" not in tagline:
-        glyph_em = measure_glyph_em(tagline, 600)
-        if glyph_em is not None and glyph_em * TAGLINE_MAX <= MAX_TEXT_WIDTH:
-            font = max(TAGLINE_MIN, min(TAGLINE_MAX, int(max_height / 1.5)))
-            return [tagline.strip()], font
+    # Fast path: exact single-line fit at full size.
+    if "\n" not in tagline and measure_width(tagline, TAGLINE_MAX, "regular") <= MAX_TEXT_WIDTH:
+        font = max(TAGLINE_MIN, min(TAGLINE_MAX, int(max_height / 1.5)))
+        return [tagline.strip()], font
     font = TAGLINE_MAX
-    lines = wrap_text(tagline, font, TAGLINE_WIDTH_FACTOR, MAX_TEXT_WIDTH)
+    lines = wrap_text(tagline, font, MAX_TEXT_WIDTH)
     for _ in range(8):
         # 1) Horizontal: any line the real renderer would clip shrinks the font.
-        ems = [measure_glyph_em(l, 600) for l in lines if l]
-        if ems and all(e is not None for e in ems) and max(ems) * font > MAX_TEXT_WIDTH:
-            font = max(TAGLINE_MIN, int(MAX_TEXT_WIDTH / max(ems)))
-            lines = wrap_text(tagline, font, TAGLINE_WIDTH_FACTOR, MAX_TEXT_WIDTH)
+        worst = max((measure_width(l, font, "regular") for l in lines if l), default=0)
+        if worst > MAX_TEXT_WIDTH:
+            font = max(TAGLINE_MIN, int(MAX_TEXT_WIDTH * font / worst))
+            lines = wrap_text(tagline, font, MAX_TEXT_WIDTH)
             continue
         # 2) Vertical: whole description must fit above the badge.
         if len(lines) * 1.5 * font <= max_height or font <= TAGLINE_MIN:
             break
         font = max(TAGLINE_MIN, int(max_height / (len(lines) * 1.5)))
-        lines = wrap_text(tagline, font, TAGLINE_WIDTH_FACTOR, MAX_TEXT_WIDTH)
+        lines = wrap_text(tagline, font, MAX_TEXT_WIDTH)
     return lines, font
 
 
-def build_tagline_lines(
-    lines: list[str], y_positions: list[float], font: int, color: str
-) -> str:
-    """One ``<text>`` element per wrapped description line, left-aligned at
-    the right column's x origin with its own baseline."""
-    parts = []
-    for y, line in zip(y_positions, lines):
-        parts.append(
-            f'  <text x="{TEXT_X}" y="{y:.0f}" font-family="{FONT_STACK}"'
-            f' font-size="{font}" font-weight="600" fill="{color}"'
-            f' text-anchor="start">{escape(line)}</text>'
-        )
-    return "\n".join(parts)
+def _text_width_tracked(text: str, size: int, style: str, tracking: float) -> float:
+    """Measured width including letter-spacing between glyphs."""
+    if not text:
+        return 0.0
+    return measure_width(text, size, style) + tracking * (len(text) - 1)
+
+
+def _draw_text(img: Image.Image, x: float, y: float, text: str, size: int,
+               style: str, tracking: float, fill: tuple[int, int, int]) -> None:
+    """Draw ``text`` left-aligned with baseline at ``(x, y)``, applying
+    ``tracking`` px between glyphs and per-glyph Latin / CJK fonts."""
+    draw = ImageDraw.Draw(img)
+    for ch in text:
+        font = _font_for(ch, style, size)
+        draw.text((x, y), ch, font=font, fill=fill, anchor="ls")
+        x += font.getlength(ch) + tracking
 
 
 # ---------------------------------------------------------------------------
@@ -318,6 +290,11 @@ def _hls_to_hex(h: float, l: float, s: float) -> str:
     return "#{:02X}{:02X}{:02X}".format(
         round(r * 255), round(g * 255), round(b * 255)
     )
+
+
+def _hex_rgb(value: str) -> tuple[int, int, int]:
+    hx = value.lstrip("#")
+    return tuple(int(hx[i : i + 2], 16) for i in (0, 2, 4))
 
 
 def check_hex(value: str, what: str) -> str:
@@ -369,44 +346,23 @@ def derive_tagline_color(bg: str) -> str:
 def extract_icon_color(icon_path: Path) -> str | None:
     """Dominant colorful color of the app icon, for a light background.
 
-    Rasterizes the icon to a 64x64 BMP via sips, buckets the pixels, and
-    scores buckets by pixel count x (saturation - 0.15) so a light design's
-    background color doesn't win over its colorful elements. Returns None
-    when the icon can't be read or holds no usable color.
+    Downsamples the icon to 64x64 with Pillow (LANCZOS), buckets the pixels,
+    and scores buckets by pixel count x (saturation - 0.15) so a light
+    design's background color doesn't win over its colorful elements. Returns
+    None when the icon can't be read or holds no usable color.
     """
-    tmp = icon_path.with_suffix(".bmp")
     try:
-        subprocess.run(
-            ["sips", "-s", "format", "bmp", "-z", "64", "64", str(icon_path), "--out", str(tmp)],
-            check=True,
-            capture_output=True,
+        img = Image.open(icon_path).convert("RGBA").resize(
+            (64, 64), Image.Resampling.LANCZOS
         )
-        data = tmp.read_bytes()
-    except (subprocess.CalledProcessError, FileNotFoundError, OSError):
+    except (OSError, ValueError, SyntaxError):
         return None
-    finally:
-        tmp.unlink(missing_ok=True)
-
-    try:
-        off = struct.unpack_from("<I", data, 10)[0]
-        w = abs(struct.unpack_from("<i", data, 18)[0])
-        h = abs(struct.unpack_from("<i", data, 22)[0])
-        bpp = struct.unpack_from("<H", data, 28)[0]
-        flip = struct.unpack_from("<i", data, 22)[0] > 0
-        row_bytes = w * (bpp // 8)
-    except struct.error:
-        return None
+    px = img.load()
 
     buckets: Counter = Counter()
-    for y in range(h):
-        src_y = (h - 1 - y) if flip else y
-        row = data[off + src_y * row_bytes : off + src_y * row_bytes + row_bytes]
-        if len(row) < row_bytes:
-            return None
-        for x in range(w):
-            # BGRA in 32bpp (sips output); 24bpp rows are BGR, alpha assumed 255
-            b, g, r = row[x * (bpp // 8)], row[x * (bpp // 8) + 1], row[x * (bpp // 8) + 2]
-            a = row[x * (bpp // 8) + 3] if bpp == 32 else 255
+    for y in range(64):
+        for x in range(64):
+            r, g, b, a = px[x, y]
             if a < 128:
                 continue
             if (r > 235 and g > 235 and b > 235) or (r < 20 and g < 20 and b < 20):
@@ -435,23 +391,127 @@ def saturation(r: int, g: int, b: int) -> float:
     return (mx - mn) / (2 - mx / 255 - mn / 255) if l > 0.5 else (mx - mn) / (mx + mn)
 
 
-def render_png(svg_path: Path, png_path: Path) -> None:
-    """Rasterize an SVG to a 1600x1200 PNG with the first tool available."""
-    png_path.parent.mkdir(parents=True, exist_ok=True)
-    if shutil.which("rsvg-convert"):
-        subprocess.run(
-            ["rsvg-convert", "-o", str(png_path), str(svg_path)], check=True
-        )
-        return
-    if shutil.which("qlmanage"):  # macOS fallback
-        subprocess.run(
-            ["qlmanage", "-t", "-s", str(WIDTH), "-o", str(png_path.parent), str(svg_path)],
-            check=True,
-            capture_output=True,
-        )
-        shutil.move(png_path.parent / f"{svg_path.stem}.svg.png", png_path)
-        return
-    sys.exit("error: no SVG rasterizer found (install librsvg or use macOS)")
+# ---------------------------------------------------------------------------
+# Drawing
+# ---------------------------------------------------------------------------
+
+def _lerp_stops(s: float, stops: list[tuple[float, tuple[int, int, int]]]) -> tuple[int, int, int]:
+    """Color of the gradient at coordinate ``s`` (0..1) across the stops."""
+    if s <= stops[0][0]:
+        return stops[0][1]
+    for (o1, c1), (o2, c2) in zip(stops, stops[1:]):
+        if s <= o2:
+            t = (s - o1) / (o2 - o1) if o2 > o1 else 1.0
+            return tuple(round(a + (b - a) * t) for a, b in zip(c1, c2))
+    return stops[-1][1]
+
+
+def _compose_radial(img: Image.Image, cx: float, cy: float, rx: float, ry: float,
+                    color: tuple[int, int, int], peak: float) -> None:
+    """Overlay a soft radial glow: alpha ``peak`` at the center, fading linearly
+    to 0 at the ellipse edge. Computed small (256x256) and upscaled."""
+    N = 256
+    layer = Image.new("RGBA", (N, N), (0, 0, 0, 0))
+    lp = layer.load()
+    for j in range(N):
+        for i in range(N):
+            x = i / (N - 1) * WIDTH
+            y = j / (N - 1) * HEIGHT
+            d = ((x - cx) / rx) ** 2 + ((y - cy) / ry) ** 2
+            if d >= 1:
+                continue
+            a = int(peak * (1 - d**0.5) * 255)
+            lp[i, j] = (color[0], color[1], color[2], a)
+    img.alpha_composite(layer.resize((WIDTH, HEIGHT), Image.Resampling.BILINEAR))
+
+
+def _base_canvas(colors: dict) -> Image.Image:
+    """Opaque RGBA canvas: diagonal 3-stop gradient plus the two tint glows."""
+    stops = [(0.0, colors["bg"]), (0.55, colors["bg_mid"]), (1.0, colors["bg_dark"])]
+    N = 256
+    g = Image.new("RGB", (N, N))
+    gp = g.load()
+    for j in range(N):
+        for i in range(N):
+            s = (i + j) / (2 * (N - 1))
+            gp[i, j] = _lerp_stops(s, stops)
+    img = g.resize((WIDTH, HEIGHT), Image.Resampling.BILINEAR).convert("RGBA")
+    _compose_radial(img, 0.30 * WIDTH, 0.50 * HEIGHT, 0.75 * WIDTH / 2, 0.75 * HEIGHT / 2,
+                    colors["tint"], 0.30)
+    _compose_radial(img, 0.78 * WIDTH, 0.85 * HEIGHT, 0.80 * WIDTH / 2, 0.80 * HEIGHT / 2,
+                    colors["tint_alt"], 0.22)
+    return img
+
+
+def _draw_circles(img: Image.Image) -> None:
+    """The two faint decorative circles near the corners (white, ~5% opacity)."""
+    layer = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    white = (255, 255, 255, 13)
+    d.ellipse([1600 - 300, -300, 1600 + 300, 300], outline=white, width=2)
+    d.ellipse([-340, 1200 - 340, 340, 1200 + 340], outline=white, width=2)
+    img.alpha_composite(layer)
+
+
+def _draw_icon(img: Image.Image, icon_path: Path) -> None:
+    """Paste the icon center-cropped (aspect-fill) into its rounded-corner
+    slot, then draw the thin white border around it."""
+    try:
+        src = Image.open(icon_path).convert("RGBA")
+    except (OSError, ValueError, SyntaxError):
+        sys.exit(f"error: cannot read icon: {icon_path}")
+    w, h = src.size
+    scale = max(ICON_SIZE / w, ICON_SIZE / h) if w and h else 1.0
+    src = src.resize(
+        (round(w * scale), round(h * scale)), Image.Resampling.LANCZOS
+    )
+    left = (src.width - ICON_SIZE) // 2
+    top = (src.height - ICON_SIZE) // 2
+    src = src.crop((left, top, left + ICON_SIZE, top + ICON_SIZE))
+
+    # Mask = rounded-corner shape AND the icon's own alpha, so transparent
+    # padding inside the icon (common for square app icons) stays transparent.
+    mask = Image.new("L", (ICON_SIZE, ICON_SIZE), 0)
+    ImageDraw.Draw(mask).rounded_rectangle(
+        [0, 0, ICON_SIZE - 1, ICON_SIZE - 1], radius=ICON_RADIUS, fill=255
+    )
+    mask = ImageChops.multiply(mask, src.getchannel("A"))
+    img.paste(src, (ICON_X, ICON_Y), mask)
+
+    layer = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0))
+    ImageDraw.Draw(layer).rounded_rectangle(
+        [ICON_X, ICON_Y, ICON_X + ICON_SIZE - 1, ICON_Y + ICON_SIZE - 1],
+        radius=ICON_RADIUS, outline=(255, 255, 255, 56), width=4,
+    )
+    img.alpha_composite(layer)
+
+
+def _draw_badge(img: Image.Image, colors: dict) -> None:
+    """The NEW UPDATE pill below the icon, plus its tracked caption."""
+    tint = colors["tint"]
+    layer = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0))
+    ImageDraw.Draw(layer).rounded_rectangle(
+        [BADGE_X, BADGE_Y, BADGE_X + BADGE_W - 1, BADGE_Y + BADGE_H - 1],
+        radius=BADGE_H // 2, fill=(*tint, 46), outline=(*tint, 153), width=3,
+    )
+    img.alpha_composite(layer)
+
+    total = _text_width_tracked(BADGE_TEXT, 44, "bold", BADGE_LETTER_SPACING)
+    x = BADGE_X + (BADGE_W - total) / 2
+    _draw_text(img, x, BADGE_TEXT_Y, BADGE_TEXT, 44, "bold",
+               BADGE_LETTER_SPACING, tint)
+
+
+def _draw_layout(img: Image.Image, name: str, name_font: int, name_y: float,
+                 tag_lines: list[str], tag_ys: list[float], tagline_font: int,
+                 colors: dict) -> None:
+    """Right column: the app name (top aligned to the icon) and the wrapped
+    description lines, each on its own baseline."""
+    _draw_text(img, TEXT_X, name_y, name, name_font, "bold", NAME_LETTER_SPACING,
+               colors["text_color"])
+    for line, y in zip(tag_lines, tag_ys):
+        _draw_text(img, TEXT_X, y, line, tagline_font, "regular", 0,
+                   colors["tagline_color"])
 
 
 def load_configs(out: Path) -> tuple[dict, dict]:
@@ -517,12 +577,11 @@ def main() -> None:
         colors.get("tagline_color") or derive_tagline_color(bg), "tagline_color"
     )
 
-    # Layout the right column: the name's cap top lines up with the icon's
-    # top edge, and the description (possibly several wrapped lines) is sized
-    # so its bottom stays above the NEW UPDATE badge's bottom edge.
+    # Layout the right column: the name's cap top lines up with the icon's top
+    # edge, and the description (possibly several wrapped lines) is sized so
+    # its bottom stays above the NEW UPDATE badge's bottom edge.
     name_font = fit_name_font(name)
-    ascent_em = measure_font_ascent_em(800) or CAP_HEIGHT_FACTOR
-    name_y = ICON_Y + ascent_em * name_font
+    name_y = ICON_Y + cap_top_em("bold") * name_font
     name_bottom = name_y + 0.25 * name_font  # descender, conservative
     desc_space = BADGE_BOTTOM - name_bottom - GAP_DESC
 
@@ -532,41 +591,25 @@ def main() -> None:
         name_bottom + GAP_DESC + (i + 0.8) * line_h_tag for i in range(len(tag_lines))
     ]
 
-    tokens = {
-        "{{APP_NAME}}": escape(name),
-        "{{APP_NAME_SIZE}}": str(name_font),
-        "{{NAME_Y}}": f"{name_y:.0f}",
-        "{{TAGLINE_LINES}}": build_tagline_lines(
-            tag_lines, tag_ys, tagline_font, tagline_color
-        ),
-        "{{ICON}}": args.icon,
-        "{{TINT}}": check_hex(tint, "tint"),
-        "{{TINT_ALT}}": check_hex(tint_alt, "tint_alt"),
-        "{{BG_COLOR}}": bg,
-        "{{BG_COLOR_MID}}": bg_mid,
-        "{{BG_COLOR_DARK}}": bg_dark,
-        "{{NAME_COLOR}}": text_color,
-        "{{TAGLINE_COLOR}}": tagline_color,
+    draw_colors = {
+        "bg": _hex_rgb(bg),
+        "bg_mid": _hex_rgb(bg_mid),
+        "bg_dark": _hex_rgb(bg_dark),
+        "tint": _hex_rgb(tint),
+        "tint_alt": _hex_rgb(tint_alt),
+        "text_color": _hex_rgb(text_color),
+        "tagline_color": _hex_rgb(tagline_color),
     }
 
-    svg = TEMPLATE.read_text(encoding="utf-8")
-    for token, value in tokens.items():
-        svg = svg.replace(token, value)
-
-    leftover = sorted(set(re.findall(r"\{\{[A-Z0-9_]+\}\}", svg)))
-    if leftover:
-        sys.exit(f"error: unresolved template tokens: {leftover}")
-
     png_path = out / "images" / "news.png"
-
-    # Render from a temporary news.svg inside the app folder so the icon's
-    # relative href resolves; remove it afterwards — only the PNG is kept.
-    svg_path = out / "news.svg"
-    try:
-        svg_path.write_text(svg, encoding="utf-8")
-        render_png(svg_path, png_path)
-    finally:
-        svg_path.unlink(missing_ok=True)
+    png_path.parent.mkdir(parents=True, exist_ok=True)
+    img = _base_canvas(draw_colors)
+    _draw_circles(img)
+    _draw_icon(img, out / args.icon)
+    _draw_badge(img, draw_colors)
+    _draw_layout(img, name, name_font, name_y, tag_lines, tag_ys, tagline_font,
+                 draw_colors)
+    img.convert("RGB").save(png_path, format="PNG")
 
     size = png_path.stat().st_size
     print(f"wrote {png_path} ({size/1024:.0f} KiB)")

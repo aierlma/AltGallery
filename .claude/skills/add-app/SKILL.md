@@ -44,9 +44,8 @@ sections.
 
 4. **Sample a tint color** (when the project has no official brand color):
    call the existing sampler in `templates/render_news.py` →
-   `extract_icon_color()` instead of re-implementing the sips/BMP pipeline
-   (see AGENTS.md → [Icon Color
-   Sampling](#icon-color-sampling-macos-sips)):
+   `extract_icon_color()` instead of re-implementing the PIL sampling (see
+   AGENTS.md → [Icon Color Sampling](#icon-color-sampling-pil)):
    ```bash
    PYTHONPATH=templates python3 -c "from render_news import extract_icon_color; from pathlib import Path; print(extract_icon_color(Path('apps/<AppName>/icon.png')))"
    ```
@@ -59,12 +58,10 @@ sections.
    ./.venv/bin/python templates/render_news.py --out apps/<AppName>
    ```
    Renders `apps/<AppName>/images/news.png` (1600x1200, 4:3) into the working
-   tree (do not auto-commit). Requires `rsvg-convert` (librsvg) or falls back
-   to macOS Quick Look. ⚠️ **Use the venv interpreter** (same as
-   `update_news.sh`): bare `python3` has no Pillow, so `render_news.py`
-   silently falls back to estimate-based text metrics — the name's vertical
-   position and tagline wrapping differ from the measured layout, producing a
-   `news.png` that doesn't match what `./update_news.sh` renders.
+   tree (do not auto-commit). The image is drawn entirely with Pillow — no
+   external rasterizer needed. ⚠️ **Use the venv interpreter** (same as
+   `update_news.sh`): bare `python3` has no Pillow, so `render_news.py` fails
+   with an import error.
 
 6. **Generate `apps.json`** — **never hand-edit it**:
    ```bash
