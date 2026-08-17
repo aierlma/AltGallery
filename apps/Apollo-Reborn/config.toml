@@ -4,7 +4,6 @@
 
 [github]
 repo = "Apollo-Reborn/Apollo-Reborn"
-# token: optional. Precedence: --token > GITHUB_TOKEN env > this value.
 
 [source]
 name = "Apollo-Reborn - GLASS"
@@ -40,11 +39,9 @@ asset_pattern = "-GLASS\\.ipa$"
 # default (matches nothing -> buildVersion omitted).
 
 [news]
-enabled = true
 title_template = "{name} {version}"
 # shared promo image rendered by templates/render_news.py
 image_url = "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Apollo-Reborn/images/news.png"
-max_entries = 0
 
 [output]
 path = "apps.json"

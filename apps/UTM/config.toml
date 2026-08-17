@@ -4,7 +4,6 @@
 
 [github]
 repo = "utmapp/UTM"
-# token: optional. Precedence: --token > GITHUB_TOKEN env > this value.
 
 [source]
 name = "UTM"
@@ -36,11 +35,9 @@ include_prereleases = false
 asset_pattern = "UTM\\.ipa$"
 
 [news]
-enabled = true
 title_template = "{name} {version}"
 # shared promo image rendered by templates/render_news.py
 image_url = "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/UTM/images/news.png"
-max_entries = 0
 
 [output]
 path = "apps.json"
