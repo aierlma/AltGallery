@@ -23,6 +23,9 @@ A community-maintained iOS tweak that keeps Apollo for Reddit working after its 
 ### <a href="https://github.com/OatmealDome/dolphin-ios"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/DolphiniOS/icon.png" alt="DolphiniOS icon" width="24" align="top"> DolphiniOS</a>
 Dolphin for iOS, reborn — a GameCube and Wii emulator for iPhone and iPad.
 
+### <a href="https://github.com/MaftyManicEMU/DukeX"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/DukeX/icon.png" alt="DukeX icon" width="24" align="top"> DukeX</a>
+Original Xbox emulation for iOS, built from xemu with a native Swift interface.
+
 ### <a href="https://github.com/EhPanda-Team/EhPanda"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/EhPanda/icon.png" alt="EhPanda icon" width="24" align="top"> EhPanda</a>
 An unofficial E-Hentai App for iOS built with SwiftUI & TCA.
 

@@ -1,0 +1,43 @@
+# altgen config for the DukeX AltStore source.
+# Run: uvx altgen -c config.toml
+
+[github]
+repo = "MaftyManicEMU/DukeX"
+
+[source]
+name = "DukeX"
+subtitle = "DukeX AltStore source by AltGallery & altgen"
+description = "Auto-updated AltStore source for DukeX"
+icon_url = "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/DukeX/icon.png"
+website = "https://github.com/MaftyManicEMU/DukeX"
+tint_color = "#8FCA39"
+
+[app]
+name = "DukeX"
+bundle_identifier = "com.mafty.dukex"
+developer_name = "Manic EMU Development Team"
+subtitle = "Original Xbox emulation for iOS"
+description = "DukeX is an experimental iOS-focused frontend for xemu. It embeds the xemu core in a native Swift shell and presents the Vulkan renderer through MoltenVK and native Metal."
+icon_url = "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/DukeX/icon.png"
+screenshots = [
+  "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/DukeX/images/library.png",
+  "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/DukeX/images/activity.png",
+  "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/DukeX/images/game.png",
+]
+tint_color = "#8FCA39"
+min_os_version = "16.0"
+
+[versions]
+strip_v_prefix = true
+include_prereleases = false
+# asset_pattern 是正则（非 glob）：.*\.ipa$ 匹配所有 ipa 资产。
+# 每个 release 恰好一个 ipa（旧版还带 .sha256 校验文件），同时排除 macOS 的 .dmg。
+asset_pattern = ".*\\.ipa$"
+
+[news]
+title_template = "{name} {version}"
+# shared promo image rendered by templates/render_news.py
+image_url = "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/DukeX/images/news.png"
+
+[output]
+path = "apps.json"
