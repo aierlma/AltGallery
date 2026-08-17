@@ -1,6 +1,6 @@
 ---
 name: add-app
-description: Add a new app to the AltGallery repo. Creates apps/<AppName>/, writes config.toml and news.toml, downloads icon + screenshots, samples a tint color from the icon, renders images/news.png, generates apps.json with altgen, merges into all-apps.json, and adds the README "Available Apps" entry. Use whenever the user wants to add a new app / a new IPA source to the gallery.
+description: Add a new app to the AltGallery repo. When the project already ships its own AltStore source (apps.json), extracts the fields it needs from that source to pre-fill config.toml. Creates apps/<AppName>/, writes config.toml and news.toml, downloads icon + screenshots, samples a tint color from the icon, renders images/news.png, generates apps.json with altgen, merges into all-apps.json, and adds the README "Available Apps" entry. Use whenever the user wants to add a new app / a new IPA source to the gallery.
 ---
 
 # Adding a New App to AltGallery
@@ -10,6 +10,10 @@ reference details (icon color sampling, news rendering, merge) live in
 AGENTS.md — the key gotchas are inlined here, and links point at the full
 sections.
 
+When the project already ships its own AltStore source, extract its metadata
+first (step 2) so `config.toml` is pre-filled from the source instead of being
+re-derived from the README by hand.
+
 ## Procedure
 
 1. **Create the folder**
@@ -18,13 +22,65 @@ sections.
    ```
    Use the project's display name (match the GitHub repo's casing).
 
-2. **Download icon and screenshots**
-   Fetch from the project's GitHub repo (e.g. `raw.githubusercontent.com`,
-   or the repo's `assets/` folder) into `apps/<AppName>/icon.png` and
-   `apps/<AppName>/images/*.png` (~3 portrait shots, e.g. `home.png`,
-   `detail.png`, `comment.png`).
+2. **Extract fields from the project's AltStore source (when it provides one)**
 
-3. **Write `config.toml`** modeled on `apps/PiliPlus/config.toml`:
+   Many projects maintain their own AltStore source — an `apps.json` — in the
+   repo (repo root, an `altstore`/`AltStore` folder, or a dedicated branch) or
+   hosted and linked from the README (often an "AltStore" / "Add to AltStore"
+   badge). When one exists, prefer it as the source of truth for the fields
+   below over hand-deriving them. **altgen regenerates the version list from
+   GitHub Releases, so only the app-level metadata and the latest version are
+   needed — not the full version history.**
+
+   a. **Locate it** — grep the README for a source URL or `apps.json` path, or
+      list the repo tree:
+      ```bash
+      # any JSON links in the README (source URL, altstore badge)
+      curl -sL https://raw.githubusercontent.com/<owner>/<repo>/<default-branch>/README.md \
+        | grep -oE 'https?://[^ )">]+\.json' | sort -u
+      ```
+   b. **Fetch and inspect** it (pick the `.apps[]` entry matching the app):
+      ```bash
+      curl -sL <source-url> \
+        | jq '.apps[0] | {name, bundleIdentifier, developerName, subtitle, localizedDescription, iconURL, tintColor, minOSVersion: .versions[0].minOSVersion, downloadURL: .versions[0].downloadURL}'
+      ```
+   c. **Map to `config.toml`** (AltStore JSON key → TOML key):
+
+      | AltStore source field | `config.toml` |
+      |---|---|
+      | `apps[0].name` | `[app] name` (and the folder name) |
+      | `apps[0].bundleIdentifier` | `[app] bundle_identifier` |
+      | `apps[0].developerName` | `[app] developer_name` |
+      | `apps[0].subtitle` | `[app] subtitle` |
+      | `apps[0].localizedDescription` | `[app] description` (trim long release-note blobs) |
+      | `apps[0].tintColor` | `[app] tint_color` — ⚠️ AltStore stores it **without** `#` (e.g. `ff375f`); write it as `#ff375f` |
+      | `apps[0].screenshots` (objects' `imageURL`, or strings) | download to `images/*` (step 3) |
+      | `apps[0].versions[0].minOSVersion` | `[app] min_os_version` |
+      | `apps[0].versions[0].downloadURL` | ipa filename → `[versions] asset_pattern` |
+      | `apps[0].versions[0].version` | leading `v` → `[versions] strip_v_prefix` |
+      | root `name` / `subtitle` / `description` / `website` | `[source] *` |
+
+   d. **Caveats**
+      - Still download the icon/screenshots into `apps/<AppName>/` and point
+        `icon_url` / `screenshots` at the
+        `raw.githubusercontent.com/bebound/AltGallery/...` URLs — **never** copy
+        the source's remote asset URLs into `config.toml`; AltGallery hosts its
+        own copies.
+      - `localizedDescription` is often a release-note-style blob; shorten it
+        for `[app] description` (a one-to-two sentence summary reads better).
+      - When the source has no `tintColor`, sample one from the icon instead
+        (step 5).
+      - If the repo provides no source (or it is stale/broken), skip this step
+        and derive the fields from the README as before.
+
+3. **Download icon and screenshots**
+   Fetch from the project's GitHub repo (e.g. `raw.githubusercontent.com`, or
+   the repo's `assets/` folder) into `apps/<AppName>/icon.png` and
+   `apps/<AppName>/images/*.png` (~3 portrait shots, e.g. `home.png`,
+   `detail.png`, `comment.png`). When a source was found in step 2, its
+   `iconURL` / `screenshots` tell you exactly which files to grab.
+
+4. **Write `config.toml`** modeled on `apps/PiliPlus/config.toml`:
    - `[github]`: `repo = "owner/name"`
    - `[source]`: name, subtitle, description, `website`, and `icon_url`
      pointing at the new app's committed icon
@@ -35,14 +91,16 @@ sections.
    - `[versions]`: matching rules. ⚠️ **`asset_pattern` is a regex, not a
      glob** — to match any ipa use `".*\\.ipa$"`; `"*.ipa"` fails with
      `invalid regex`. Narrow it to a specific filename when each release
-     ships exactly one ipa (e.g. `"EhPanda\\.ipa$"`)
+     ships exactly one ipa (e.g. `"EhPanda\\.ipa$"`). Use the latest
+     `downloadURL` from step 2 to get the exact ipa filename.
    - `[news]`: copy the PiliPlus block, point `image_url` at the new app's
      `images/news.png`
    - `[output]`: `path = "apps.json"`
    - All `raw.githubusercontent.com` URLs use the `bebound/AltGallery`
      repo path.
 
-4. **Sample a tint color** (when the project has no official brand color):
+5. **Sample a tint color** (when the project has no official brand color in
+   its AltStore source — otherwise reuse the source's `tintColor` directly):
    call the existing sampler in `templates/render_news.py` →
    `extract_icon_color()` instead of re-implementing the PIL sampling (see
    AGENTS.md → [Icon Color Sampling](#icon-color-sampling-pil)):
@@ -52,7 +110,7 @@ sections.
    ⚠️ **Eyeball the result — human confirmation required.** Multi-color or
    pale icons may not have an obvious single brand color.
 
-5. **Write `news.toml`** (`name`, `tagline`, optional `[colors]`), then
+6. **Write `news.toml`** (`name`, `tagline`, optional `[colors]`), then
    render the shared promo image (AGENTS.md → [Generating News Images]):
    ```bash
    ./.venv/bin/python templates/render_news.py --out apps/<AppName>
@@ -63,7 +121,7 @@ sections.
    `update_news.sh`): bare `python3` has no Pillow, so `render_news.py` fails
    with an import error.
 
-6. **Generate `apps.json`** — **never hand-edit it**:
+7. **Generate `apps.json`** — **never hand-edit it**:
    ```bash
    cd apps/<AppName> && uvx altgen -c config.toml
    ```
@@ -74,7 +132,7 @@ sections.
    workflow (`.github/workflows/update.yml`) regenerates and commits it after
    your change merges.
 
-7. **Merge into `all-apps.json`** — prefer the scripted flow (regenerates
+8. **Merge into `all-apps.json`** — prefer the scripted flow (regenerates
    every source, then merges):
    ```bash
    ./update.sh
@@ -84,7 +142,7 @@ sections.
    `apps.json`) — you never commit it; the workflow regenerates and commits it
    (AGENTS.md → [Merging into all-apps.json]).
 
-8. **Update README** — add the app to **Available Apps**, icon inline before
+9. **Update README** — add the app to **Available Apps**, icon inline before
    the name:
    ```html
    ### <a href="https://github.com/owner/name"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/<AppName>/icon.png" alt="<AppName> icon" width="24" align="top"> <AppName></a>
@@ -94,7 +152,9 @@ sections.
    GitHub.
 
 ## Checklist
+- [ ] fields extracted from the project's own AltStore source (when one exists); `tintColor` normalized to `#RRGGBB`
 - [ ] `apps/<AppName>/{config.toml, news.toml, icon.png, images/*}` all present
+- [ ] icon/screenshots hosted locally and referenced via `bebound/AltGallery` raw URLs (never the source's remote URLs)
 - [ ] `apps.json` regenerated after the last config change; never hand-edited; gitignored (not committed)
 - [ ] `all-apps.json` merged (via `./update.sh`); gitignored (not committed)
 - [ ] `images/news.png` rendered; not auto-committed

@@ -112,9 +112,10 @@ confirmation.
 ## Adding a New App
 
 End-to-end procedure lives in the **add-app** skill — invoke it with
-`/add-app` (it also auto-loads when you ask to add a new app). It covers the
-folder/config/icon/news setup, tint sampling, `apps.json` generation, merge,
-and README update. The reference sections below ([Icon Color Sampling
+`/add-app` (it also auto-loads when you ask to add a new app). It covers
+extracting fields from the project's own AltStore source (when one exists),
+the folder/config/icon/news setup, tint sampling, `apps.json` generation,
+merge, and README update. The reference sections below ([Icon Color Sampling
 (PIL)](#icon-color-sampling-pil), [Generating News
 Images](#generating-news-images), [Merging into
 all-apps.json](#merging-into-all-appsjson)) remain authoritative for the
