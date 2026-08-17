@@ -5,12 +5,13 @@
 name = "EhPanda"
 tagline = "An unofficial E-Hentai App for iOS"
 
-# Optional — unset colors are auto-derived:
-# [colors]
-# tint = "#0f766e"              badge/glow accent (default: [app] tint_color)
-# tint_alt = "#0f766e"          secondary accent (default: [source] tint_color)
-# background = "#E7ECE7"        background base (default: from icon color)
-# bg_mid = "#151E33"            lighter mid stop (default: derived from background)
-# bg_dark = "#0D1220"           darker end stop (default: derived from background)
-# text_color = "#111111"        app name color (default: auto white/black)
-# tagline_color = "#AABDD6"     subtitle color (default: derived from background)
+# Color notes — each key below controls one element of the image. All are
+# optional: unset keys are auto-derived. Shown values are the current result.
+[colors]
+# tint = "#0F766E"          # NEW UPDATE badge + top-left glow (default: [app] tint_color)
+# tint_alt = "#0F766E"      # bottom-right glow (default: [source] tint_color)
+# background = "#D9E8E4"    # gradient base (derived from the icon's dominant color)
+# bg_mid = "#E9F2EF"        # gradient mid stop (derived from background)
+# bg_dark = "#C0D9D2"       # gradient end stop (derived from background)
+# text_color = "#111111"    # app name (auto white/black)
+# tagline_color = "#58B79D" # tagline text (derived from background)

@@ -5,12 +5,13 @@
 name = "PiliPlus"
 tagline = "BiliBili 第三方客户端"
 
-# Optional — unset colors are auto-derived:
-# [colors]
-# tint = "#73b480"             badge/glow accent (default: [app] tint_color)
-# tint_alt = "#00AEEF"         secondary accent (default: [source] tint_color)
-# background = "#D6EBDD"       background base (default: from icon color)
-# bg_mid = "#151E33"           lighter mid stop (default: derived from background)
-# bg_dark = "#0D1220"          darker end stop (default: derived from background)
-# text_color = "#111111"       app name color (default: auto white/black)
-# tagline_color = "#AABDD6"    subtitle color (default: derived from background)
+# Color notes — each key below controls one element of the image. All are
+# optional: unset keys are auto-derived. Shown values are the current result.
+[colors]
+# tint = "#73B480"          # NEW UPDATE badge + top-left glow (default: [app] tint_color)
+# tint_alt = "#00AEEF"      # bottom-right glow (default: [source] tint_color)
+# background = "#D6EBDD"    # gradient base (derived from the icon's dominant color)
+# bg_mid = "#E7F3EB"        # gradient mid stop (derived from background)
+# bg_dark = "#BBDEC6"       # gradient end stop (derived from background)
+# text_color = "#111111"    # app name (auto white/black)
+# tagline_color = "#51BD75" # tagline text (derived from background)
