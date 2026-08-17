@@ -17,6 +17,9 @@
 ### <a href="https://github.com/Aidoku/Aidoku"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Aidoku/icon.png" alt="Aidoku icon" width="24" align="top"> Aidoku</a>
 A free and open source manga reading application for iOS and iPadOS.
 
+### <a href="https://github.com/openAnimeFlow/AnimeFlow"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/AnimeFlow/icon.png" alt="AnimeFlow icon" width="24" align="top"> AnimeFlow</a>
+跨平台动漫视频播放器，支持多数据源、实时 4K 超分辨率、Bangumi 同步与弹幕。
+
 ### <a href="https://github.com/Apollo-Reborn/Apollo-Reborn"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Apollo-Reborn/icon.png" alt="Apollo Reborn icon" width="24" align="top"> Apollo Reborn</a>
 A community-maintained iOS tweak that keeps Apollo for Reddit working after its June 2023 shutdown.
 
