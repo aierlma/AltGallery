@@ -79,6 +79,11 @@ re-derived from the README by hand.
    `detail.png`, `comment.png`). When a source was found in step 2, its
    `iconURL` / `screenshots` tell you exactly which files to grab.
 
+   ⚠️ **If no screenshots can be found** (no `screenshots` field in the source,
+   no `images`/`assets` folder in the repo, README links broken, etc.), still
+   download the icon and finish the rest of the flow — just remember that the
+   screenshots are missing, and output the warning at the end (step 10).
+
 4. **Write `config.toml`** modeled on `apps/PiliPlus/config.toml`:
    - `[github]`: `repo = "owner/name"`
    - `[source]`: name, subtitle, description, `website`, and `icon_url`
@@ -151,6 +156,22 @@ re-derived from the README by hand.
    ⚠️ Use `align="top"` on the icon — `align="center"` renders ~7px low on
    GitHub.
 
+10. **Warn if no screenshots were found** — this is the LAST step. If step 3
+    could not obtain any screenshots (empty `apps/<AppName>/images/`, no
+    `screenshots` field in the source, no `images`/`assets` folder in the repo,
+    broken URLs, …), output an explicit warning to the user before finishing.
+    Example:
+
+    ```
+    ⚠️ Warning: no screenshots found for <AppName> — apps/<AppName>/images/ is
+    empty. The app will show without screenshots in the gallery. When you have
+    screenshots, drop them into apps/<AppName>/images/ and update the
+    `[app] screenshots` list in config.toml (then regenerate apps.json).
+    ```
+
+    This warning is required — never end the add-app flow silently while
+    screenshots are missing.
+
 ## Checklist
 - [ ] fields extracted from the project's own AltStore source (when one exists); `tintColor` normalized to `#RRGGBB`
 - [ ] `apps/<AppName>/{config.toml, news.toml, icon.png, images/*}` all present
@@ -159,3 +180,4 @@ re-derived from the README by hand.
 - [ ] `all-apps.json` NOT touched — CI workflow regenerates and commits it
 - [ ] `images/news.png` rendered; not auto-committed
 - [ ] README entry added, icon with `align="top"`
+- [ ] if no screenshots could be found, the user was explicitly warned (never proceed silently)
