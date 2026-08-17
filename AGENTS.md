@@ -24,7 +24,7 @@ apps/<AppName>/
 ├── images/          # screenshots + news.png promo image
 │   ├── home.png     # screenshots (referenced from [app] screenshots)
 │   └── news.png     # generated promo image (referenced from [news] image_url)
-└── apps.json        # generated AltStore source, do not hand-edit
+└── apps.json        # generated AltStore source (gitignored), do not hand-edit
 ```
 
 Each folder's `apps.json` is an independent AltStore source.
@@ -45,6 +45,11 @@ config.toml).
 **Rule: after ANY `config.toml` change, regenerate — never leave the two out
 of sync, and never hand-edit `apps.json`.**
 
+`apps/<AppName>/apps.json` and the repo-root `all-apps.json` are gitignored —
+contributors never commit them. `.github/workflows/update.yml` regenerates and
+commits them on every push to `master`, every 6 hours, and on manual
+`workflow_dispatch`.
+
 ## Merging into all-apps.json
 
 After all app sources are regenerated, merge them into the repo-root
@@ -62,9 +67,10 @@ metadata: name, icon_url, tint_color) and `[output]` (`path = "../all-apps.json"
 resolved against the config's directory → repo root).
 
 **Rule: always run `./update.sh` (or the merge) whenever an app's `apps.json`
-changes (regenerated, new app added, app removed). Do not auto-commit — leave
-the updated `all-apps.json` and other generated files in the working tree for
-the user to review and commit.**
+changes (regenerated, new app added, app removed) to verify the sources.
+`apps.json` and `all-apps.json` are gitignored, so leave them untracked — the
+workflow regenerates and commits them. To refresh them immediately, run the
+`Update all-apps.json` workflow manually (`workflow_dispatch`).**
 
 ## Generating News Images
 

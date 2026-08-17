@@ -72,7 +72,10 @@ sections.
    ```
    ⚠️ **After ANY `config.toml` change, regenerate** — never leave config and
    `apps.json` out of sync. If rate-limited or fetching from a private repo,
-   use `GITHUB_TOKEN=$(gh auth token) uvx altgen -c config.toml`.
+   use `GITHUB_TOKEN=$(gh auth token) uvx altgen -c config.toml`. `apps.json`
+   is gitignored, so it won't show in `git status` — you never commit it; the
+   workflow (`.github/workflows/update.yml`) regenerates and commits it after
+   your change merges.
 
 7. **Merge into `all-apps.json`** — prefer the scripted flow (regenerates
    every source, then merges):
@@ -80,9 +83,9 @@ sections.
    ./update.sh
    ```
    Or run the merge explicitly with `uvx altgen merge -c assets/merge.toml
-   apps/*/apps.json`. Do not auto-commit the updated `all-apps.json` — leave
-   it in the working tree for the user to review (AGENTS.md → [Merging into
-   all-apps.json]).
+   apps/*/apps.json`. `all-apps.json` is gitignored (like each app's
+   `apps.json`) — you never commit it; the workflow regenerates and commits it
+   (AGENTS.md → [Merging into all-apps.json]).
 
 8. **Update README** — add the app to **Available Apps**, icon inline before
    the name:
@@ -94,8 +97,8 @@ sections.
    GitHub.
 
 ## Checklist
-- [ ] `apps/<AppName>/{config.toml, news.toml, icon.png, images/*, apps.json}` all present
-- [ ] `apps.json` regenerated after the last config change; never hand-edited
-- [ ] `all-apps.json` merged (via `./update.sh`); not auto-committed
+- [ ] `apps/<AppName>/{config.toml, news.toml, icon.png, images/*}` all present
+- [ ] `apps.json` regenerated after the last config change; never hand-edited; gitignored (not committed)
+- [ ] `all-apps.json` merged (via `./update.sh`); gitignored (not committed)
 - [ ] `images/news.png` rendered; not auto-committed
 - [ ] README entry added, icon with `align="top"`
