@@ -1,0 +1,48 @@
+{
+  "name": "VeneraNext",
+  "subtitle": "VeneraNext AltStore source by AltGallery & altgen",
+  "description": "Auto-updated AltStore source for VeneraNext",
+  "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Venera-Next/icon.png",
+  "website": "https://github.com/CyrilPeng/Venera-Next",
+  "tintColor": "#2090E0",
+  "apps": [
+    {
+      "name": "VeneraNext",
+      "bundleIdentifier": "com.github.cyrilpeng.veneranext",
+      "developerName": "CyrilPeng",
+      "subtitle": "跨平台漫画阅读器",
+      "localizedDescription": "基于 Flutter 的跨平台漫画阅读器，支持本地漫画、WebDAV 漫画源与第三方网络漫画源，支持 Android、iOS、Windows、Linux、macOS 平台。",
+      "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Venera-Next/icon.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Venera-Next/images/home.png",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Venera-Next/images/reader.png",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Venera-Next/images/detail.png"
+      ],
+      "tintColor": "#2090E0",
+      "versions": [
+        {
+          "version": "1.14.2",
+          "buildVersion": "220",
+          "date": "2026-08-07",
+          "localizedDescription": "### 新增\n\n- 收藏页新增独立的封面画廊模式，支持自动或 2～6 列布局，并在本地收藏与网络收藏之间保持一致。\n\n### 修复\n\n- 修复阅读器中手动收藏章节封面后无法取消收藏的问题，同时继续保护收藏其他图片时自动补入的封面。\n- 修复 WebDAV 漫画详情只显示前三章的问题；升级后会自动识别并重建受影响版本生成的旧缓存。",
+          "downloadURL": "https://github.com/CyrilPeng/Venera-Next/releases/download/v1.14.2/VeneraNext-ios-1.14.2%2B220.ipa",
+          "size": 19316858,
+          "minOSVersion": "14.0"
+        }
+      ]
+    }
+  ],
+  "news": [
+    {
+      "appID": "com.github.cyrilpeng.veneranext",
+      "title": "VeneraNext 1.14.2",
+      "identifier": "release-v1.14.2",
+      "caption": "VeneraNext 1.14.2 is available.",
+      "date": "2026-08-07T16:03:31Z",
+      "tintColor": "#2090E0",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Venera-Next/images/news.png",
+      "notify": true,
+      "url": "https://github.com/CyrilPeng/Venera-Next/releases/tag/v1.14.2"
+    }
+  ]
+}

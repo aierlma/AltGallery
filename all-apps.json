@@ -31,6 +31,30 @@
       ]
     },
     {
+      "name": "AnimeFlow",
+      "bundleIdentifier": "com.ligg.anime_flow",
+      "developerName": "openAnimeFlow",
+      "subtitle": "跨平台动漫视频播放器，支持多数据源、实时 4K 超分辨率与弹幕",
+      "localizedDescription": "AnimeFlow 是一个跨平台动漫视频播放应用，支持 Android、iOS、Windows、macOS 与 Linux。内置多数据源与自定义 XPath 爬虫配置，支持基于 Anime4K 的实时视频 4K 超分辨率，对接 Bangumi 同步收藏与追番数据，并支持多平台弹幕源与丰富的弹幕设置。",
+      "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/AnimeFlow/icon.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/AnimeFlow/images/home.png",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/AnimeFlow/images/detail.png",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/AnimeFlow/images/comment.png"
+      ],
+      "tintColor": "#124EB3",
+      "versions": [
+        {
+          "version": "2.2.2",
+          "date": "2026-08-01",
+          "localizedDescription": "### 🔄 更新内容\r\n\r\n## 2.2.2 更新\r\n\r\n- 修复视频资源搜索时可能需要多次重试才有结果\r\n- 支持多语言(英语、繁体中文、简体中文)\r\n- 系统架构优化\r\n\r\n---\r\n\r\n### 📦 下载\r\n- 每个设备的安装包后缀: ``苹果手机(.ipa)、 安卓手机(.apk)、windows电脑(.zip)、mac电脑(.dmg)、linux电脑(.tar.gz或.deb)``\r\n- android分多个包: ``v7a(旧手机)、arm64(新手机,推荐用这个)、x86(模拟器) ``\r\n- windows分多个包: ``.zip(解压直接使用)、.exe(安装后使用) ``",
+          "downloadURL": "https://github.com/openAnimeFlow/AnimeFlow/releases/download/v2.2.2/AnimeFlow-ios-2.2.2.ipa",
+          "size": 22155735,
+          "minOSVersion": "13.0"
+        }
+      ]
+    },
+    {
       "name": "Apollo for Reddit - GLASS",
       "bundleIdentifier": "com.christianselig.Apollo",
       "developerName": "Christian Selig (& Apollo-Reborn contributors)",
@@ -202,6 +226,30 @@
       ]
     },
     {
+      "name": "Musly",
+      "bundleIdentifier": "com.dddevid.musly",
+      "developerName": "dddevid",
+      "subtitle": "Free Navidrome client & Subsonic music player",
+      "localizedDescription": "Musly is a free Navidrome client and Subsonic music player with an Apple Music-inspired interface. Stream your self-hosted library from Navidrome, Subsonic, or Airsonic servers on iOS, Android, desktop, and more.",
+      "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Musly/icon.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Musly/images/home.png",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Musly/images/detail.png",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Musly/images/player.png"
+      ],
+      "tintColor": "#FA243C",
+      "versions": [
+        {
+          "version": "1.0.13",
+          "date": "2026-05-10",
+          "localizedDescription": "## 🎉 Musly v1.0.13\n\n### 📦 Downloads\n\n**Android:**\n- `app-release.apk` (universal APK for all devices)\n\n**iOS:**\n- `musly-ios.ipa` (sideload with AltStore, Sideloadly, or similar — not signed)\n\n**Windows:**\n- `musly-setup.exe` (setup installer, run to install Musly)\n- `musly-windows.zip` (portable version, extract and run)\n\n**macOS:**\n- `musly-macos.dmg` (drag Musly.app to Applications — not notarized)\n\n**Linux:**\n- `musly-linux-x64.tar.gz` (extract and run musly)\n\n### 📝 Changelog\nSee [CHANGELOG.md](https://github.com/dddevid/Musly/blob/master/CHANGELOG.md)\n\n### 🌍 Translations\nContribute translations at [Crowdin](https://crowdin.com/project/musly)",
+          "downloadURL": "https://github.com/dddevid/Musly/releases/download/v1.0.13/musly-ios.ipa",
+          "size": 13684403,
+          "minOSVersion": "15.0"
+        }
+      ]
+    },
+    {
       "name": "PiliPlus",
       "bundleIdentifier": "com.example.PiliPlus",
       "developerName": "bggRGjQaUbCoE",
@@ -296,9 +344,69 @@
           "minOSVersion": "14.0"
         }
       ]
+    },
+    {
+      "name": "VeneraNext",
+      "bundleIdentifier": "com.github.cyrilpeng.veneranext",
+      "developerName": "CyrilPeng",
+      "subtitle": "跨平台漫画阅读器",
+      "localizedDescription": "基于 Flutter 的跨平台漫画阅读器，支持本地漫画、WebDAV 漫画源与第三方网络漫画源，支持 Android、iOS、Windows、Linux、macOS 平台。",
+      "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Venera-Next/icon.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Venera-Next/images/home.png",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Venera-Next/images/reader.png",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Venera-Next/images/detail.png"
+      ],
+      "tintColor": "#2090E0",
+      "versions": [
+        {
+          "version": "1.14.2",
+          "buildVersion": "220",
+          "date": "2026-08-07",
+          "localizedDescription": "### 新增\n\n- 收藏页新增独立的封面画廊模式，支持自动或 2～6 列布局，并在本地收藏与网络收藏之间保持一致。\n\n### 修复\n\n- 修复阅读器中手动收藏章节封面后无法取消收藏的问题，同时继续保护收藏其他图片时自动补入的封面。\n- 修复 WebDAV 漫画详情只显示前三章的问题；升级后会自动识别并重建受影响版本生成的旧缓存。",
+          "downloadURL": "https://github.com/CyrilPeng/Venera-Next/releases/download/v1.14.2/VeneraNext-ios-1.14.2%2B220.ipa",
+          "size": 19316858,
+          "minOSVersion": "14.0"
+        }
+      ]
+    },
+    {
+      "name": "YouProEXTRA",
+      "bundleIdentifier": "com.google.ios.youtube",
+      "developerName": "alibusut",
+      "subtitle": "YouTube mod with customizable tweaks",
+      "localizedDescription": "YouPro mod of YouTube for iOS. Includes no ads, background playback, downloads, iSponsorBlock, PiP, and a host of customizable tweaks.",
+      "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/YouProEXTRA/icon.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/YouProEXTRA/images/list.jpg",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/YouProEXTRA/images/play.jpg"
+      ],
+      "tintColor": "#FF0000",
+      "versions": [
+        {
+          "version": "youproextra-ipa2",
+          "buildVersion": "21.24.3",
+          "date": "2026-08-16",
+          "localizedDescription": "### Latest Stable Release, ENJOY!!\r\n> [!NOTE]\r\n> - Bundled with **YTUHD**\r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTUHD` `YouSlider` `YTSilentVote` `YTweaks` `YouSpeed` `YouMute` `YouLoop` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` \r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `Gonerino`\r\n\r\n> [!WARNING]\r\n> - Limited Support for new YT versions.(+21.25.5). 21.24.3 is the latest build that works with extra tweaks.",
+          "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youproextra-ipa2/YouProExtra_21.24.3_1.3.1.ipa",
+          "size": 119894440,
+          "minOSVersion": "16.0"
+        }
+      ]
     }
   ],
   "news": [
+    {
+      "appID": "com.google.ios.youtube",
+      "title": "YouProEXTRA youproextra-ipa2",
+      "identifier": "release-youproextra-ipa2",
+      "caption": "YouProEXTRA youproextra-ipa2 is available.",
+      "date": "2026-08-16T22:53:43Z",
+      "tintColor": "#FF0000",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/YouProEXTRA/images/news.png",
+      "notify": true,
+      "url": "https://github.com/mrdrvt99/YouProEXTRA/releases/tag/youproextra-ipa2"
+    },
     {
       "appID": "com.kodjodevf.mangayomi",
       "title": "Mangayomi 0.8.5",
@@ -353,6 +461,28 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Apollo-Reborn/images/news.png",
       "notify": true,
       "url": "https://github.com/Apollo-Reborn/Apollo-Reborn/releases/tag/v1.15.11_3.5.1"
+    },
+    {
+      "appID": "com.github.cyrilpeng.veneranext",
+      "title": "VeneraNext 1.14.2",
+      "identifier": "release-v1.14.2",
+      "caption": "VeneraNext 1.14.2 is available.",
+      "date": "2026-08-07T16:03:31Z",
+      "tintColor": "#2090E0",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Venera-Next/images/news.png",
+      "notify": true,
+      "url": "https://github.com/CyrilPeng/Venera-Next/releases/tag/v1.14.2"
+    },
+    {
+      "appID": "com.ligg.anime_flow",
+      "title": "AnimeFlow 2.2.2",
+      "identifier": "release-v2.2.2",
+      "caption": "AnimeFlow 2.2.2 is available.",
+      "date": "2026-08-01T19:52:57Z",
+      "tintColor": "#124EB3",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/AnimeFlow/images/news.png",
+      "notify": true,
+      "url": "https://github.com/openAnimeFlow/AnimeFlow/releases/tag/v2.2.2"
     },
     {
       "appID": "app.ehpanda",
@@ -419,6 +549,17 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/DolphiniOS/images/news.png",
       "notify": true,
       "url": "https://github.com/OatmealDome/dolphin-ios/releases/tag/v5.0.0b6"
+    },
+    {
+      "appID": "com.dddevid.musly",
+      "title": "Musly 1.0.13",
+      "identifier": "release-v1.0.13",
+      "caption": "Musly 1.0.13 is available.",
+      "date": "2026-05-10T21:58:16Z",
+      "tintColor": "#FA243C",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Musly/images/news.png",
+      "notify": true,
+      "url": "https://github.com/dddevid/Musly/releases/tag/v1.0.13"
     },
     {
       "appID": "com.utmapp.UTM",

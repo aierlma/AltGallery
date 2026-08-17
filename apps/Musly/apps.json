@@ -1,0 +1,47 @@
+{
+  "name": "Musly",
+  "subtitle": "Musly AltStore source by AltGallery & altgen",
+  "description": "Auto-updated AltStore source for Musly",
+  "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Musly/icon.png",
+  "website": "https://github.com/dddevid/Musly",
+  "tintColor": "#FA243C",
+  "apps": [
+    {
+      "name": "Musly",
+      "bundleIdentifier": "com.dddevid.musly",
+      "developerName": "dddevid",
+      "subtitle": "Free Navidrome client & Subsonic music player",
+      "localizedDescription": "Musly is a free Navidrome client and Subsonic music player with an Apple Music-inspired interface. Stream your self-hosted library from Navidrome, Subsonic, or Airsonic servers on iOS, Android, desktop, and more.",
+      "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Musly/icon.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Musly/images/home.png",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Musly/images/detail.png",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Musly/images/player.png"
+      ],
+      "tintColor": "#FA243C",
+      "versions": [
+        {
+          "version": "1.0.13",
+          "date": "2026-05-10",
+          "localizedDescription": "## 🎉 Musly v1.0.13\n\n### 📦 Downloads\n\n**Android:**\n- `app-release.apk` (universal APK for all devices)\n\n**iOS:**\n- `musly-ios.ipa` (sideload with AltStore, Sideloadly, or similar — not signed)\n\n**Windows:**\n- `musly-setup.exe` (setup installer, run to install Musly)\n- `musly-windows.zip` (portable version, extract and run)\n\n**macOS:**\n- `musly-macos.dmg` (drag Musly.app to Applications — not notarized)\n\n**Linux:**\n- `musly-linux-x64.tar.gz` (extract and run musly)\n\n### 📝 Changelog\nSee [CHANGELOG.md](https://github.com/dddevid/Musly/blob/master/CHANGELOG.md)\n\n### 🌍 Translations\nContribute translations at [Crowdin](https://crowdin.com/project/musly)",
+          "downloadURL": "https://github.com/dddevid/Musly/releases/download/v1.0.13/musly-ios.ipa",
+          "size": 13684403,
+          "minOSVersion": "15.0"
+        }
+      ]
+    }
+  ],
+  "news": [
+    {
+      "appID": "com.dddevid.musly",
+      "title": "Musly 1.0.13",
+      "identifier": "release-v1.0.13",
+      "caption": "Musly 1.0.13 is available.",
+      "date": "2026-05-10T21:58:16Z",
+      "tintColor": "#FA243C",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Musly/images/news.png",
+      "notify": true,
+      "url": "https://github.com/dddevid/Musly/releases/tag/v1.0.13"
+    }
+  ]
+}
