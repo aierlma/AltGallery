@@ -1,14 +1,13 @@
 ---
 name: add-app
-description: Add a new app to the AltGallery repo. When the project already ships its own AltStore source (apps.json), extracts the fields it needs from that source to pre-fill config.toml. Creates apps/<AppName>/, writes config.toml and news.toml, downloads icon + screenshots, samples a tint color from the icon, renders images/news.png, generates apps.json with altgen, merges into all-apps.json, and adds the README "Available Apps" entry. Use whenever the user wants to add a new app / a new IPA source to the gallery.
+description: Add a new app to the AltGallery repo. When the project already ships its own AltStore source (apps.json), extracts the fields it needs from that source to pre-fill config.toml. Creates apps/<AppName>/, writes config.toml and news.toml, downloads icon + screenshots, samples a tint color from the icon, renders images/news.png, generates apps.json with altgen (local verification only), and adds the README "Available Apps" entry. Both apps.json and all-apps.json are generated and committed by the CI workflow — never update or commit them locally. Use whenever the user wants to add a new app / a new IPA source to the gallery.
 ---
 
 # Adding a New App to AltGallery
 
 End-to-end procedure for adding one IPA project to the gallery. Shared
-reference details (icon color sampling, news rendering, merge) live in
-AGENTS.md — the key gotchas are inlined here, and links point at the full
-sections.
+reference details (icon color sampling, news rendering) live in AGENTS.md —
+the key gotchas are inlined here, and links point at the full sections.
 
 When the project already ships its own AltStore source, extract its metadata
 first (step 2) so `config.toml` is pre-filled from the source instead of being
@@ -127,20 +126,21 @@ re-derived from the README by hand.
    ```
    ⚠️ **After ANY `config.toml` change, regenerate** — never leave config and
    `apps.json` out of sync. If rate-limited or fetching from a private repo,
-   use `GITHUB_TOKEN=$(gh auth token) uvx altgen -c config.toml`. `apps.json`
-   is gitignored, so it won't show in `git status` — you never commit it; the
-   workflow (`.github/workflows/update.yml`) regenerates and commits it after
-   your change merges.
+   use `GITHUB_TOKEN=$(gh auth token) uvx altgen -c config.toml`. This local
+   run only **verifies** `config.toml` — the resulting `apps.json` is
+   gitignored (it won't show in `git status`). The workflow
+   (`.github/workflows/update.yml`) regenerates and commits the real
+   `apps.json` — same as `all-apps.json` — after your change merges.
 
-8. **Merge into `all-apps.json`** — prefer the scripted flow (regenerates
-   every source, then merges):
-   ```bash
-   ./update.sh
-   ```
-   Or run the merge explicitly with `uvx altgen merge -c assets/merge.toml
-   apps/*/apps.json`. `all-apps.json` is gitignored (like each app's
-   `apps.json`) — you never commit it; the workflow regenerates and commits it
-   (AGENTS.md → [Merging into all-apps.json]).
+8. **Do NOT touch `all-apps.json`** — like `apps.json`, the repo-root JSON is
+   generated and committed by the CI workflow
+   (`.github/workflows/update.yml`) after your change merges; never update or
+   commit either file locally. **Never run `./update.sh` here:** it
+   regenerates `all-apps.json`, and since that file is tracked it shows up as
+   an unstaged `M` in `git status`. (AGENTS.md → [Merging into all-apps.json]
+   documents the merge itself, but it belongs to the workflow, not the add-app
+   flow.) Your change ships only `apps/<AppName>/` (its `apps.json` is
+   gitignored) plus the README entry.
 
 9. **Update README** — add the app to **Available Apps**, icon inline before
    the name:
@@ -156,6 +156,6 @@ re-derived from the README by hand.
 - [ ] `apps/<AppName>/{config.toml, news.toml, icon.png, images/*}` all present
 - [ ] icon/screenshots hosted locally and referenced via `bebound/AltGallery` raw URLs (never the source's remote URLs)
 - [ ] `apps.json` regenerated after the last config change; never hand-edited; gitignored (not committed)
-- [ ] `all-apps.json` merged (via `./update.sh`); gitignored (not committed)
+- [ ] `all-apps.json` NOT touched — CI workflow regenerates and commits it
 - [ ] `images/news.png` rendered; not auto-committed
 - [ ] README entry added, icon with `align="top"`
