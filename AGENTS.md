@@ -83,7 +83,8 @@ app's image (from each app's `news.toml`: `name`, `tagline`, optional
 ./update_news.sh
 ```
 
-or a single app with `python3 templates/render_news.py --out apps/<AppName>`.
+or a single app with `.venv/bin/python3 templates/render_news.py --out
+apps/<AppName>`.
 Unset colors are auto-derived from `config.toml` tints and the icon's dominant
 color (needs the uv venv set up once: `uv venv && uv pip install -r
 requirements.txt`; Pillow is the only image dependency — no external
@@ -99,10 +100,16 @@ news background derived by `render_news.py` — is already implemented in
 with Pillow and buckets the pixels). Just call it:
 
 ```bash
-PYTHONPATH=templates python3 -c \
+PYTHONPATH=templates .venv/bin/python3 -c \
   "from render_news import extract_icon_color; from pathlib import Path; \
    print(extract_icon_color(Path('apps/<AppName>/icon.png')))"
 ```
+
+**Pillow/PIL is installed only in the project venv (`.venv/`), not in the
+system Python** — any command that imports PIL (`render_news.py`,
+`extract_icon_color`) must run with the venv's interpreter:
+`.venv/bin/python3` (or `source .venv/bin/activate` first). The bare system
+`python3` will raise `ModuleNotFoundError: No module named 'PIL'`.
 
 When a new app lacks an official tint, use the result as `[app] tint_color`
 (brand color) — but eyeball the icon first: a multi-color or pale icon may
