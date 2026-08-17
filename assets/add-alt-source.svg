@@ -25,8 +25,8 @@
 
   <!-- button body -->
   <g filter="url(#btnShadow)">
-    <rect width="640" height="200" rx="100" fill="url(#btnBg)"/>
-    <rect width="640" height="200" rx="100" fill="url(#btnGloss)"/>
+    <rect width="640" height="200" rx="44" fill="url(#btnBg)"/>
+    <rect width="640" height="200" rx="44" fill="url(#btnGloss)"/>
   </g>
 
   <!-- app icon -->
@@ -61,7 +61,7 @@
   </g>
 
   <!-- label -->
-  <text x="405" y="104" text-anchor="middle" dominant-baseline="central"
+  <text x="405" y="100" text-anchor="middle" dy="0.35em"
         font-family="Arial, Helvetica, sans-serif" font-size="56" font-weight="700"
         fill="#ffffff">Add AltSource</text>
 </svg>
