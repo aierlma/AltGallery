@@ -53,6 +53,9 @@ A native manga & manhwa reader for Suwayomi-Server, built for long webtoon binge
 ### <a href="https://github.com/utmapp/UTM"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/UTM/icon.png" alt="UTM icon" width="24" align="top"> UTM</a>
 A full featured virtual machine host for iOS — run Windows, Android, and more on your iPhone and iPad.
 
+### <a href="https://github.com/mrdrvt99/YouProEXTRA"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/YouProEXTRA/icon.png" alt="YouProEXTRA icon" width="24" align="top"> YouProEXTRA</a>
+YouTube mod for iOS packed with customizable tweaks — no ads, background playback, downloads, and more.
+
 ## Project Layout
 
 ```
