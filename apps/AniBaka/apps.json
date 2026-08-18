@@ -1,0 +1,48 @@
+{
+  "name": "AniBaka",
+  "subtitle": "AniBaka AltStore source by AltGallery & altgen",
+  "description": "Auto-updated AltStore source for AniBaka",
+  "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/AniBaka/icon.png",
+  "website": "https://github.com/AniBakaBaka/AniBaka",
+  "tintColor": "#0077B6",
+  "apps": [
+    {
+      "name": "AniBaka",
+      "bundleIdentifier": "ani.baka",
+      "developerName": "AniBakaBaka",
+      "subtitle": "跨平台番剧聚合、媒体播放与弹幕客户端",
+      "localizedDescription": "AniBaka 是一个基于 Flutter 的跨平台番剧聚合与媒体播放客户端，支持多番剧源、弹幕、字幕、离线缓存与本地媒体库，并提供动漫实时超分辨率画质增强。",
+      "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/AniBaka/icon.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/AniBaka/images/home.png",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/AniBaka/images/detail.png",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/AniBaka/images/player.png"
+      ],
+      "tintColor": "#0077B6",
+      "versions": [
+        {
+          "version": "5.0.7",
+          "buildVersion": "0811",
+          "date": "2026-08-12",
+          "localizedDescription": "* Flutter 升级至 **3.44.9**\r\n* 调整视频源：删除失效源，新增多个规则源，具体变化请以软件内为准\r\n* 新增**弹幕字体自定义**功能\r\n* 修复**无法修改密码**的问题\r\n* 优化软件性能与运行流畅度，提升整体稳定性\r\n\r\n**Full Changelog**: https://github.com/AniBakaBaka/AniBaka/compare/5.0.6+0807...5.0.7+0811",
+          "downloadURL": "https://github.com/AniBakaBaka/AniBaka/releases/download/5.0.7%2B0811/baka-5.0.7%2B0811-ios-unsigned.ipa",
+          "size": 20822413,
+          "minOSVersion": "13.0"
+        }
+      ]
+    }
+  ],
+  "news": [
+    {
+      "appID": "ani.baka",
+      "title": "AniBaka 5.0.7",
+      "identifier": "release-5.0.7+0811",
+      "caption": "AniBaka 5.0.7 is available.",
+      "date": "2026-08-12T07:34:31Z",
+      "tintColor": "#0077B6",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/AniBaka/images/news.png",
+      "notify": true,
+      "url": "https://github.com/AniBakaBaka/AniBaka/releases/tag/5.0.7+0811"
+    }
+  ]
+}
