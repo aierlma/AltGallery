@@ -34,7 +34,7 @@ min_os_version = "13.0"
 [versions]
 strip_v_prefix = true
 include_prereleases = false
-# 每个 release 只含一个 iOS ipa：Kazumi_ios_<version>_no_sign.ipa
+# Each release contains a single iOS ipa: Kazumi_ios_<version>_no_sign.ipa
 asset_pattern = "Kazumi_ios_.*\\.ipa$"
 
 [news]

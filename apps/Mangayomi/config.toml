@@ -30,7 +30,7 @@ tint_color = "#EF4444"
 [versions]
 strip_v_prefix = true
 include_prereleases = false
-# 每个 release 只含一个 iOS ipa：Mangayomi-v<version>-ios.ipa
+# Each release contains a single ipa: Mangayomi-v<version>-ios.ipa
 asset_pattern = "Mangayomi-.*-ios\\.ipa$"
 
 [news]

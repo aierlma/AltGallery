@@ -29,8 +29,8 @@ min_os_version = "14.0"
 [versions]
 strip_v_prefix = true
 include_prereleases = false
-# asset_pattern 是正则（非 glob）：每个 release 恰好一个 ipa（iOS 构建 tsumiru-v*.ipa）。
-# macOS 构建是 .zip，不会被匹配。
+# asset_pattern is a regex (not glob): each release has exactly one ipa (iOS build tsumiru-v*.ipa).
+# The macOS build is a .zip and won't be matched.
 asset_pattern = "-ios\\.ipa$"
 
 [news]

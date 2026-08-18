@@ -31,7 +31,7 @@ min_os_version = "26.0"
 [versions]
 strip_v_prefix = true
 include_prereleases = false
-# 每个 release 只含一个 ipa：EhPanda.ipa
+# Each release contains a single ipa: EhPanda.ipa
 asset_pattern = "EhPanda\\.ipa$"
 
 [news]

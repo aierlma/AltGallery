@@ -30,8 +30,8 @@ min_os_version = "14.0"
 [versions]
 strip_v_prefix = true
 include_prereleases = true
-# asset_pattern 是正则（非 glob）：每个 release 恰好附带一个
-# Non-Jailbroken.ipa，只匹配该资产。
+# asset_pattern is a regex (not glob): each release ships exactly one
+# Non-Jailbroken.ipa, match only that asset.
 asset_pattern = "Non-Jailbroken\\.ipa$"
 
 [news]

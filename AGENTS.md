@@ -6,6 +6,12 @@ Generate AltStore sources (`apps.json`) for IPA projects on GitHub, and provide 
 
 - Generator: Python **AltGen**, invoked via `uvx altgen`
 
+## Comments
+
+Write comments in English. Any comment you add or modify in code
+(`config.toml`, Python, shell scripts, etc.) must be written in English —
+never in Chinese or other languages.
+
 ## Reading JSON
 
 Prefer `jq` to read or inspect JSON files (`apps.json`, `all-apps.json`), e.g.

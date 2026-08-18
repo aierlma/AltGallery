@@ -31,7 +31,7 @@ min_os_version = "16.4"
 [versions]
 strip_v_prefix = true
 include_prereleases = false
-# 每个 release 只含一个未签名 ipa：TiebaPure-v<version>-unsigned.ipa
+# Each release contains a single unsigned ipa: TiebaPure-v<version>-unsigned.ipa
 asset_pattern = "TiebaPure-v.*-unsigned\\.ipa$"
 
 [news]

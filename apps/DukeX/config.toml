@@ -30,8 +30,8 @@ min_os_version = "16.0"
 [versions]
 strip_v_prefix = true
 include_prereleases = false
-# asset_pattern 是正则（非 glob）：.*\.ipa$ 匹配所有 ipa 资产。
-# 每个 release 恰好一个 ipa（旧版还带 .sha256 校验文件），同时排除 macOS 的 .dmg。
+# asset_pattern is a regex (not glob): .*\.ipa$ matches all ipa assets.
+# Each release has exactly one ipa (older releases also carry a .sha256 checksum file); macOS .dmg is excluded.
 asset_pattern = ".*\\.ipa$"
 
 [news]

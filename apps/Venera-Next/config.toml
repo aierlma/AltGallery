@@ -30,7 +30,7 @@ min_os_version = "14.0"
 [versions]
 strip_v_prefix = true
 include_prereleases = false
-# asset_pattern 是正则（非 glob）：每个 release 仅发布一个 ipa，命名固定为 VeneraNext-ios-*.ipa
+# asset_pattern is a regex (not glob): each release publishes a single ipa, named VeneraNext-ios-*.ipa
 asset_pattern = "VeneraNext-ios.*\\.ipa$"
 
 [news]

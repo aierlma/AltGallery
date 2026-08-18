@@ -30,8 +30,8 @@ min_os_version = "15.0"
 [versions]
 strip_v_prefix = true
 include_prereleases = false
-# asset_pattern 是正则（非 glob）：每个 release 恰好一个 ipa（musly-ios.ipa）。
-# Android 构建是 .apk，桌面构建是 .zip/.tar.gz，都不会被匹配。
+# asset_pattern is a regex (not glob): each release has exactly one ipa (musly-ios.ipa).
+# The Android build is .apk and desktop builds are .zip/.tar.gz; neither is matched.
 asset_pattern = "musly-ios\\.ipa$"
 
 [news]

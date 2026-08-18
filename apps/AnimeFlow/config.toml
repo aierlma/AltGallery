@@ -31,7 +31,7 @@ min_os_version = "13.0"
 [versions]
 strip_v_prefix = true
 include_prereleases = false
-# 每个 release 只含一个 iOS ipa：AnimeFlow-ios-<version>.ipa
+# Each release contains a single iOS ipa: AnimeFlow-ios-<version>.ipa
 asset_pattern = "AnimeFlow-ios-.*\\.ipa$"
 
 [news]

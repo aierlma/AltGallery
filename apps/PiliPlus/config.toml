@@ -31,8 +31,8 @@ min_os_version = "14.0"
 [versions]
 strip_v_prefix = true
 include_prereleases = false
-# asset_pattern 是正则（非 glob）：.*\.ipa$ 匹配所有 ipa 资产
-# 兼容两种历史命名：PiliPlus_ios_*.ipa 与 ios-release-no-sign.ipa
+# asset_pattern is a regex (not glob): .*\.ipa$ matches all ipa assets
+# Compatible with two historical naming schemes: PiliPlus_ios_*.ipa and ios-release-no-sign.ipa
 asset_pattern = ".*\\.ipa$"
 build_version_pattern = "\\+(\\d+)\\.ipa$"
 
