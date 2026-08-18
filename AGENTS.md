@@ -2,7 +2,7 @@
 
 ## Project Goal
 
-Generate AltStore sources (`apps.json`) for IPA projects on GitHub, and provide a display page.
+Generate AltStore sources (`apps.json`) for IPA projects on GitHub.
 
 - Generator: Python **AltGen**, invoked via `uvx altgen`
 
