@@ -14,9 +14,9 @@
 
 ## Screenshots
 
-| <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/assets/altstore.jpg" alt="AltGallery in AltStore" width="200" style="border-radius: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"> | <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/assets/altstore_news.jpg" alt="AltGallery news in AltStore" width="200" style="border-radius: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"> | <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/assets/livecontainer.jpg" alt="AltGallery in LiveContainer" width="200" style="border-radius: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"> |
+| <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/assets/sidestore.jpg" alt="AltGallery in SideStore" width="200" style="border-radius: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"> | <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/assets/sidestore_news.jpg" alt="AltGallery news in SideStore" width="200" style="border-radius: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"> | <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/assets/livecontainer.jpg" alt="AltGallery in LiveContainer" width="200" style="border-radius: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"> |
 | :---: | :---: | :---: |
-| **AltStore** | **AltStore News** | **LiveContainer** |
+| **SideStore** | **SideStore News** | **LiveContainer** |
 
 ## Available Apps
 
@@ -75,7 +75,7 @@ AltGallery/
 ├── assets/               # shared assets: app icon, "Add AltSource" button, README screenshots
 │   ├── icon.svg / icon.png
 │   ├── add-alt-source.svg / add-alt-source.png
-│   └── *.jpg             # README screenshots (AltStore, AltStore News, LiveContainer)
+│   └── *.jpg             # README screenshots (SideStore, SideStore News, LiveContainer)
 ├── templates/            # shared news-image template + renderer
 │   ├── news_update.template.svg
 │   └── render_news.py
