@@ -29,6 +29,9 @@ A free and open source manga reading application for iOS and iPadOS.
 ### <a href="https://github.com/openAnimeFlow/AnimeFlow"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/AnimeFlow/icon.png" alt="AnimeFlow icon" width="24" align="top"> AnimeFlow</a>
 跨平台动漫视频播放器，支持多数据源、实时 4K 超分辨率、Bangumi 同步与弹幕。
 
+### <a href="https://github.com/open-ani/animeko"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Animeko/icon.png" alt="Animeko icon" width="24" align="top"> Animeko</a>
+一站式弹幕追番平台，支持 Bangumi 云同步、多视频数据源聚合、离线缓存与弹幕云过滤。
+
 ### <a href="https://github.com/Apollo-Reborn/Apollo-Reborn"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Apollo-Reborn/icon.png" alt="Apollo Reborn icon" width="24" align="top"> Apollo Reborn</a>
 A community-maintained iOS tweak that keeps Apollo for Reddit working after its June 2023 shutdown.
 
