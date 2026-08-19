@@ -20,7 +20,7 @@
       "tintColor": "#FF0000",
       "versions": [
         {
-          "version": "21.24.3_1.3.1",
+          "version": "21.24.3",
           "buildVersion": "21.24.3",
           "date": "2026-08-16",
           "localizedDescription": "### Latest Stable Release, ENJOY!!\r\n> [!NOTE]\r\n> - Bundled with **YTUHD**\r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTUHD` `YouSlider` `YTSilentVote` `YTweaks` `YouSpeed` `YouMute` `YouLoop` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` \r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `Gonerino`\r\n\r\n> [!WARNING]\r\n> - Limited Support for new YT versions.(+21.25.5). 21.24.3 is the latest build that works with extra tweaks.",
@@ -34,9 +34,9 @@
   "news": [
     {
       "appID": "com.google.ios.youtube",
-      "title": "YouProEXTRA 21.24.3_1.3.1 · 16 Aug 2026",
+      "title": "YouProEXTRA 21.24.3 · 16 Aug 2026",
       "identifier": "release-youproextra-ipa2",
-      "caption": "YouProEXTRA 21.24.3_1.3.1 is available.",
+      "caption": "YouProEXTRA 21.24.3 is available.",
       "date": "2026-08-16T22:53:43Z",
       "tintColor": "#FF0000",
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/YouProEXTRA/images/news.png",
