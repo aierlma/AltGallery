@@ -137,15 +137,15 @@ re-derived from the README by hand.
    (`.github/workflows/update.yml`) regenerates and commits the real
    `apps.json` — same as `all-apps.json` — after your change merges.
 
-8. **Do NOT touch `all-apps.json`** — like `apps.json`, the repo-root JSON is
+8. **Do NOT commit `all-apps.json`** — like `apps.json`, the repo-root JSON is
    generated and committed by the CI workflow
-   (`.github/workflows/update.yml`) after your change merges; never update or
-   commit either file locally. **Never run `./update.sh` here:** it
-   regenerates `all-apps.json`, and since that file is tracked it shows up as
-   an unstaged `M` in `git status`. (AGENTS.md → [Merging into all-apps.json]
-   documents the merge itself, but it belongs to the workflow, not the add-app
-   flow.) Your change ships only `apps/<AppName>/` (its `apps.json` is
-   gitignored) plus the README entry.
+   (`.github/workflows/update.yml`) after your change merges; never commit
+   either file locally. To verify the new app's source after its `config.toml`
+   is written, the single-app form is fine: `./update.sh <AppName>` only
+   regenerates this app's `apps.json` (no other app is touched). It still
+   rewrites the tracked `all-apps.json`, so an unstaged `M` shows in
+   `git status` — leave it for the workflow. Your change ships only
+   `apps/<AppName>/` plus the README entry.
 
 9. **Update README** — add the app to **Available Apps**, icon inline before
    the name:

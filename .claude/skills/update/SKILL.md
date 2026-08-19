@@ -1,5 +1,5 @@
 ---
-name: update-all
+name: update
 description: Regenerate everything in the AltGallery repo — run ./update.sh (regenerate every apps/<AppName>/apps.json from config.toml and merge them into all-apps.json) and ./update_news.sh (re-render every app's images/news.png from its news.toml). apps.json / all-apps.json are gitignored (committed by the workflow); leave re-rendered images/news.png files uncommitted for the user to review. Use when the user wants to refresh / update / regenerate all app sources and news images.
 ---
 
@@ -22,6 +22,9 @@ Refresh every generated artifact in the repo:
    rasterizer needed.
 
 Notes:
+- To verify a single app after a `config.toml` change, use the single-app form
+  `./update.sh <AppName>` — it regenerates only that app and is enough for
+  local verification; the full update here is for refreshing everything.
 - `update.sh` reads the GitHub Releases API; if rate-limited, retry with a
   token, e.g. `GITHUB_TOKEN=$(gh auth token) uvx altgen -c config.toml`.
 - `apps/<AppName>/apps.json` and `all-apps.json` are gitignored — after

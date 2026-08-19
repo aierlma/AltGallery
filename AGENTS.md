@@ -38,10 +38,13 @@ Each folder's `apps.json` is an independent AltStore source.
 ## Generating apps.json
 
 `./update.sh` regenerates every app source and merges them into
-`all-apps.json`. For a single app:
+`all-apps.json`. After editing a `config.toml`, regenerate just that app to
+verify it — you don't need to update the other apps locally (the CI workflow
+regenerates and commits everything on push):
 
 ```bash
-cd apps/<AppName> && uvx altgen -c config.toml   # note: config.toml, not config.json
+./update.sh <AppName>                            # single app — enough for local verification
+cd apps/<AppName> && uvx altgen -c config.toml   # equivalent, lower-level; note: config.toml, not config.json
 ```
 
 altgen reads the GitHub Releases API; if rate-limited or the repo is private,
@@ -51,10 +54,10 @@ config.toml).
 **Rule: after ANY `config.toml` change, regenerate — never leave the two out
 of sync, and never hand-edit `apps.json`.**
 
-`apps/<AppName>/apps.json` and the repo-root `all-apps.json` are gitignored —
-contributors never commit them. `.github/workflows/update.yml` regenerates and
-commits them on every push to `master`, every 6 hours, and on manual
-`workflow_dispatch`.
+`.github/workflows/update.yml` regenerates and commits `apps.json` and
+`all-apps.json` on every push to `master`, every 6 hours, and on manual
+`workflow_dispatch`. (Both files are tracked despite `.gitignore`, so leave
+any local regenerated changes for the workflow to commit.)
 
 ## Merging into all-apps.json
 
@@ -72,11 +75,15 @@ config lives in `assets/merge.toml`: merge mode only reads `[source]` (root
 metadata: name, icon_url, tint_color) and `[output]` (`path = "../all-apps.json"`,
 resolved against the config's directory → repo root).
 
-**Rule: always run `./update.sh` (or the merge) whenever an app's `apps.json`
-changes (regenerated, new app added, app removed) to verify the sources.
-`apps.json` and `all-apps.json` are gitignored, so leave them untracked — the
-workflow regenerates and commits them. To refresh them immediately, run the
-`Update all-apps.json` workflow manually (`workflow_dispatch`).**
+**Rule: after any `config.toml` change, regenerate with `./update.sh
+<AppName>` and check the diff — never leave `config.toml` and its `apps.json`
+out of sync. You don't need the full `./update.sh` locally: `apps.json` and
+`all-apps.json` are regenerated and committed by the CI workflow on every push
+to `master`, so a single-app run is enough to verify the sources. (Both files
+are tracked despite `.gitignore`, so a local regenerate shows them as modified
+in `git status` — leave them for the workflow to commit.) To refresh them
+immediately, run the `Update all-apps.json` workflow manually
+(`workflow_dispatch`).**
 
 ## Generating News Images
 
