@@ -35,6 +35,10 @@ include_prereleases = false
 # Only the GLASS build (Apollo-Reborn-<ver>-GLASS.ipa). Excludes
 # GLASS-NOEXTENSIONS, GLASSICONS, NOEXTENSIONS and the plain builds.
 asset_pattern = "-GLASS\\.ipa$"
+# Tags carry a tweak/build pair (e.g. v1.15.11_3.6.0); extract the clean
+# app version (3.6.0) from the asset filename Apollo-Reborn-<ver>-GLASS.ipa.
+version_pattern = "-([0-9.]+)-GLASS\\.ipa$"
+version_source = "filename"
 # Asset names carry no build number, so build_version_pattern keeps the
 # default (matches nothing -> buildVersion omitted).
 
