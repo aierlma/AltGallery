@@ -38,7 +38,7 @@ version_pattern = "^YouProExtra_(.+)\\.ipa$"  # e.g. YouProExtra_21.24.3_1.3.1.i
 version_source = "filename"
 
 [news]
-title_template = "{name} {version}"
+title_template = "{name} {version} · {date}"
 # shared promo image rendered by templates/render_news.py
 image_url = "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/YouProEXTRA/images/news.png"
 
