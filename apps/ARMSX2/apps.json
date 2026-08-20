@@ -21,11 +21,11 @@
       "tintColor": "#3CAEFF",
       "versions": [
         {
-          "version": "nightly-20260819",
-          "date": "2026-08-19",
-          "localizedDescription": "Automated nightly build for community testing (unsigned).\n\nEvery download is named `ARMSX2-nightly-DATE-COMMIT-PLATFORM`, so builds\nfrom different nights stay distinguishable after you have downloaded them.\n\n- macOS arm64: macOS-arm64.tar.xz\n- Linux arm64: Linux-arm64-4K-pages.AppImage on most distros, or the 16K one on Asahi Linux and other Apple Silicon kernels (run getconf PAGESIZE if unsure)\n- Windows arm64: Windows-arm64.zip\n- RetroArch on Linux arm64: Linux-arm64-libretro-core.tar.zst, a 4K-page build\n- Bare-display kmsdrm handhelds: Linux-arm64-SDL-handheld.tar.zst, a 4K-page build (Rocknix and Batocera run compositors, so use the Qt AppImage there instead)\n- Android: Android-arm64.apk, sideload it\n- iOS: iOS-arm64.ipa, unsigned, sideload it\n\n## What's new\n- GameDB: internal FPS by DISPFB blit for NASCAR Thunder 2002 through NASCAR 06\n- iOS: put Download Shaders under Preset, where it can be reached\n- iOS: decode a launch link's filename once, not twice\n- iOS: download the RetroArch shader collection from inside the app\n- iOS: three defects the branch review found, two of them silent\n- iOS: resolve the shader catalogue off-device, and sign what it may ship\n- iOS: let one game keep its own shader preset\n- iOS: give the shader controls their own page and a pause-menu route\n- iOS: clamp a shader's prescale so upscaling cannot blacken the frame\n- iOS: put the shader chain and its parameters in settings\n- iOS: run RetroArch shader chains on the Metal renderer\n- EE rec: stop raising TLB misses on unknown MMIO too\n- Tests: pin the I immediate against a rewrite of micro memory\n- microVU: read the I immediate at run time under IbitHack\n- EE rec: stop raising TLB misses, matching x86\n- Tests: pin the rec's TLB-miss divert, disabled\n- Tests: pin the VU FMAC's range against the console\n\nFull changelog: https://github.com/ARMSX2/ARMSX2/compare/nightly-20260817...7f0ae7a6c689b5b36eccc61b7adb480f65c7a3a3",
-          "downloadURL": "https://github.com/ARMSX2/ARMSX2/releases/download/nightly-20260819/ARMSX2-nightly-20260819-7f0ae7a6c6-iOS-arm64.ipa",
-          "size": 26732588,
+          "version": "nightly-20260820",
+          "date": "2026-08-20",
+          "localizedDescription": "Automated nightly build for community testing (unsigned).\n\nEvery download is named `ARMSX2-nightly-DATE-COMMIT-PLATFORM`, so builds\nfrom different nights stay distinguishable after you have downloaded them.\n\n- macOS arm64: macOS-arm64.tar.xz\n- Linux arm64: Linux-arm64-4K-pages.AppImage on most distros, or the 16K one on Asahi Linux and other Apple Silicon kernels (run getconf PAGESIZE if unsure)\n- Windows arm64: Windows-arm64.zip\n- RetroArch on Linux arm64: Linux-arm64-libretro-core.tar.zst, a 4K-page build\n- Bare-display kmsdrm handhelds: Linux-arm64-SDL-handheld.tar.zst, a 4K-page build (Rocknix and Batocera run compositors, so use the Qt AppImage there instead)\n- Android: Android-arm64.apk, sideload it\n- iOS: iOS-arm64.ipa, unsigned, sideload it\n\n## What's new\n- UI: the Android internal-resolution set in the Qt and Big Picture pickers\n\nFull changelog: https://github.com/ARMSX2/ARMSX2/compare/nightly-20260819...dfef534426f522d3c9acd5e540a36f303a630018",
+          "downloadURL": "https://github.com/ARMSX2/ARMSX2/releases/download/nightly-20260820/ARMSX2-nightly-20260820-dfef534426-iOS-arm64.ipa",
+          "size": 26733967,
           "minOSVersion": "17.0"
         }
       ]
@@ -34,14 +34,14 @@
   "news": [
     {
       "appID": "com.armsx2.ios",
-      "title": "ARMSX2 nightly-20260819 · 19 Aug 2026",
-      "identifier": "release-nightly-20260819",
-      "caption": "ARMSX2 nightly-20260819 is available.",
-      "date": "2026-08-19T09:21:00Z",
+      "title": "ARMSX2 nightly-20260820 · 20 Aug 2026",
+      "identifier": "release-nightly-20260820",
+      "caption": "ARMSX2 nightly-20260820 is available.",
+      "date": "2026-08-20T09:15:13Z",
       "tintColor": "#3CAEFF",
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/ARMSX2/images/news.png",
       "notify": true,
-      "url": "https://github.com/ARMSX2/ARMSX2/releases/tag/nightly-20260819"
+      "url": "https://github.com/ARMSX2/ARMSX2/releases/tag/nightly-20260820"
     }
   ]
 }
