@@ -290,11 +290,11 @@
       "tintColor": "#EF4444",
       "versions": [
         {
-          "version": "0.8.7",
+          "version": "0.8.8",
           "date": "2026-08-20",
-          "localizedDescription": "## What's Changed\r\n* Db restore improvements by @not-akari in https://github.com/kodjodevf/mangayomi/pull/880\r\n* fix libjpeg.so.8 Linux fail\r\n* fix Mihon extensions fail on Android\r\n* Fix Isar async write transaction Exception by @NBA2K1 in https://github.com/kodjodevf/mangayomi/pull/882\r\n\r\n## New Contributors\r\n* @not-akari made their first contribution in https://github.com/kodjodevf/mangayomi/pull/880\r\n\r\n**Full Changelog**: https://github.com/kodjodevf/mangayomi/compare/v0.8.6...v0.8.7",
-          "downloadURL": "https://github.com/kodjodevf/mangayomi/releases/download/v0.8.7/Mangayomi-v0.8.7-ios.ipa",
-          "size": 108103427
+          "localizedDescription": "## What's Changed\r\n* Fix extension list row overflow with NSFW badge + repo name by @not-akari in https://github.com/kodjodevf/mangayomi/pull/883\r\n* fix(download): restore downloads to downloads folder instead of local library\r\n* fix #878\r\n\r\n\r\n**Full Changelog**: https://github.com/kodjodevf/mangayomi/compare/v0.8.7...v0.8.8",
+          "downloadURL": "https://github.com/kodjodevf/mangayomi/releases/download/v0.8.8/Mangayomi-v0.8.8-ios.ipa",
+          "size": 108136104
         }
       ]
     },
@@ -470,6 +470,17 @@
   ],
   "news": [
     {
+      "appID": "com.kodjodevf.mangayomi",
+      "title": "Mangayomi 0.8.8 · 20 Aug 2026",
+      "identifier": "release-v0.8.8",
+      "caption": "Mangayomi 0.8.8 is available.",
+      "date": "2026-08-20T20:10:05Z",
+      "tintColor": "#EF4444",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Mangayomi/images/news.png",
+      "notify": true,
+      "url": "https://github.com/kodjodevf/mangayomi/releases/tag/v0.8.8"
+    },
+    {
       "appID": "dev.infinityf4p.tiebapure",
       "title": "TiebaPure 1.4.13 · 20 Aug 2026",
       "identifier": "release-v1.4.13",
@@ -479,17 +490,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/TiebaPure/images/news.png",
       "notify": true,
       "url": "https://github.com/infinityf4p/TiebaPure-iOS/releases/tag/v1.4.13"
-    },
-    {
-      "appID": "com.kodjodevf.mangayomi",
-      "title": "Mangayomi 0.8.7 · 20 Aug 2026",
-      "identifier": "release-v0.8.7",
-      "caption": "Mangayomi 0.8.7 is available.",
-      "date": "2026-08-20T12:15:14Z",
-      "tintColor": "#EF4444",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Mangayomi/images/news.png",
-      "notify": true,
-      "url": "https://github.com/kodjodevf/mangayomi/releases/tag/v0.8.7"
     },
     {
       "appID": "com.armsx2.ios",
