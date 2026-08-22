@@ -59,6 +59,9 @@ Torrent client for iOS.
 ### <a href="https://github.com/kodjodevf/mangayomi"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Mangayomi/icon.png" alt="Mangayomi icon" width="24" align="top"> Mangayomi</a>
 Read manga, novels, and watch anime.
 
+### <a href="https://github.com/singleton-altman/MoviePilotLite"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/MoviePilotLite/icon.png" alt="MoviePilotLite icon" width="24" align="top"> MoviePilotLite</a>
+MoviePilot 移动端，基于 Flutter 实现。
+
 ### <a href="https://github.com/dddevid/Musly"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Musly/icon.png" alt="Musly icon" width="24" align="top"> Musly</a>
 Free Navidrome client & Subsonic music player with an Apple Music-inspired interface.
 
