@@ -143,11 +143,11 @@
       "tintColor": "#3CAEFF",
       "versions": [
         {
-          "version": "nightly-20260820",
-          "date": "2026-08-20",
-          "localizedDescription": "Automated nightly build for community testing (unsigned).\n\nEvery download is named `ARMSX2-nightly-DATE-COMMIT-PLATFORM`, so builds\nfrom different nights stay distinguishable after you have downloaded them.\n\n- macOS arm64: macOS-arm64.tar.xz\n- Linux arm64: Linux-arm64-4K-pages.AppImage on most distros, or the 16K one on Asahi Linux and other Apple Silicon kernels (run getconf PAGESIZE if unsure)\n- Windows arm64: Windows-arm64.zip\n- RetroArch on Linux arm64: Linux-arm64-libretro-core.tar.zst, a 4K-page build\n- Bare-display kmsdrm handhelds: Linux-arm64-SDL-handheld.tar.zst, a 4K-page build (Rocknix and Batocera run compositors, so use the Qt AppImage there instead)\n- Android: Android-arm64.apk, sideload it\n- iOS: iOS-arm64.ipa, unsigned, sideload it\n\n## What's new\n- UI: the Android internal-resolution set in the Qt and Big Picture pickers\n\nFull changelog: https://github.com/ARMSX2/ARMSX2/compare/nightly-20260819...dfef534426f522d3c9acd5e540a36f303a630018",
-          "downloadURL": "https://github.com/ARMSX2/ARMSX2/releases/download/nightly-20260820/ARMSX2-nightly-20260820-dfef534426-iOS-arm64.ipa",
-          "size": 26733967,
+          "version": "nightly-20260822",
+          "date": "2026-08-22",
+          "localizedDescription": "Automated nightly build for community testing (unsigned).\n\nEvery download is named `ARMSX2-nightly-DATE-COMMIT-PLATFORM`, so builds\nfrom different nights stay distinguishable after you have downloaded them.\n\n- macOS arm64: macOS-arm64.tar.xz\n- Linux arm64: Linux-arm64-4K-pages.AppImage on most distros, or the 16K one on Asahi Linux and other Apple Silicon kernels (run getconf PAGESIZE if unsure)\n- Windows arm64: Windows-arm64.zip\n- RetroArch on Linux arm64: Linux-arm64-libretro-core.tar.zst, a 4K-page build\n- Bare-display kmsdrm handhelds: Linux-arm64-SDL-handheld.tar.zst, a 4K-page build (Rocknix and Batocera run compositors, so use the Qt AppImage there instead)\n- Android: Android-arm64.apk, sideload it\n- iOS: iOS-arm64.ipa, unsigned, sideload it\n\n## What's new\n- GS: remove the texture-replacement diagnostics\n- Patches: a toggle that changes no patch= lines still has to write the enable list\n- Patch: enabling from the library writes to the game INI, not the base layer\n- Patch: delete the enable-list purge\n- Patch: stop the enable-list purge switching off patches people chose\n- GS: fall back to another palette variant when the exact one is absent\n- GS/TC: split the base-level hash from the mip chain in the probe\n- GS/TC: cross-version probe for the texture-hash divergence (diagnostic)\n- GS: drop the palette substitution, keep what it taught us\n- GS: palette fallback picks the NEWEST variant, and names every candidate\n- GS: report replacement files shadowed by an earlier file\n- GS: palette-relaxed replacement fallback (TEST BUILD, not for release)\n- GS: print the pack's own filenames, instead of asking the player for them\n- GS: make the replacement diagnostics able to answer the question\n- GS: say whether replacement lookups are hitting, not just how many indexed\n- Library: five more screensaver backgrounds, from ARMSX3\n- Credit the PR contributors in the code, not only the release notes\n- Library sharing: make the recent-games provider opt-in\n- LSFG: adaptive pacing captured the wrong target rate\n- Community batch: seven feature requests\n- Fix Reset leaving per-game settings, and Fast Forward (Toggle) on analog triggers\n- Library: port the Flurry animated background from ARMSX3\n- Patch: stop Hardcore blocking presentation patches\n- Patches: cache the repository trees on disk\n- Patches: stop the online scan when you leave the browser\n- GS: size the texture cache as RAM minus a reserve, not a fraction of it\n- GS: remove the texture-replacement cache cap\n- Saves: hiding Save must not hide Load\n- Saves: only offer Save when a VM is actually running\n- Saves: honour contextGame when listing, not just when launching\n- Library: open the real Save Manager, and make swipe-to-dismiss actually work\n- Library: find save states in both data roots, and restore swipe-to-dismiss\n- Library: fix the selection highlight contrast, and offer save states on long-press\n- LSFG: expose adaptive frame pacing, and remove the diagnostic tracing\n- LSFG: make frame generation actually run on device\n- LSFG: run frame generation on our own device, and delete the old path\n- LSFG: port Eden's frame generation (passes, pacer, DLL reader)\n- OSD: stop any settings change from wiping the active OSD mode\n- LSFG: keep it out of the Play build entirely, not just switched off\n- Android: take a card snapshot at launch, and offer the restore\n- Android: rolling per-card memory card snapshots\n- Android: flush memory card writes when the app is backgrounded\n- SIO/Memcard: refuse a card write whose read-back failed\n- Settings: a knob missing from the key table should not be a crash\n- Settings: copying global settings into a game writes only the real decisions\n- Settings: a setting the player set for one game outranks the game database\n- Expose recently played games over a content provider for companion apps\n\nFull changelog: https://github.com/ARMSX2/ARMSX2/compare/nightly-20260820...9111cd617dffd60eee64b0329e254e3c7d75bf09",
+          "downloadURL": "https://github.com/ARMSX2/ARMSX2/releases/download/nightly-20260822/ARMSX2-nightly-20260822-9111cd617d-iOS-arm64.ipa",
+          "size": 26734522,
           "minOSVersion": "17.0"
         }
       ]
@@ -518,6 +518,17 @@
   ],
   "news": [
     {
+      "appID": "com.armsx2.ios",
+      "title": "ARMSX2 nightly-20260822 · 22 Aug 2026",
+      "identifier": "release-nightly-20260822",
+      "caption": "ARMSX2 nightly-20260822 is available.",
+      "date": "2026-08-22T09:02:33Z",
+      "tintColor": "#3CAEFF",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/ARMSX2/images/news.png",
+      "notify": true,
+      "url": "https://github.com/ARMSX2/ARMSX2/releases/tag/nightly-20260822"
+    },
+    {
       "appID": "com.example.PiliPlus",
       "title": "PiliPlus 2.1.1 · 22 Aug 2026",
       "identifier": "release-2.1.1",
@@ -593,17 +604,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/TiebaPure/images/news.png",
       "notify": true,
       "url": "https://github.com/infinityf4p/TiebaPure-iOS/releases/tag/v1.4.13"
-    },
-    {
-      "appID": "com.armsx2.ios",
-      "title": "ARMSX2 nightly-20260820 · 20 Aug 2026",
-      "identifier": "release-nightly-20260820",
-      "caption": "ARMSX2 nightly-20260820 is available.",
-      "date": "2026-08-20T09:15:13Z",
-      "tintColor": "#3CAEFF",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/ARMSX2/images/news.png",
-      "notify": true,
-      "url": "https://github.com/ARMSX2/ARMSX2/releases/tag/nightly-20260820"
     },
     {
       "appID": "com.christianselig.Apollo",
