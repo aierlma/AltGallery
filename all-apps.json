@@ -323,6 +323,30 @@
       ]
     },
     {
+      "name": "MoviePilotLite",
+      "bundleIdentifier": "com.altman.moviepilot",
+      "developerName": "singleton-altman",
+      "subtitle": "MoviePilot 移动端，基于 Flutter 实现",
+      "localizedDescription": "基于 MoviePilot 的 Flutter 跨端客户端，对接 MoviePilot v2 API，在手机上完成订阅、搜索、下载、整理与系统运维等常用操作。",
+      "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/MoviePilotLite/icon.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/MoviePilotLite/images/home.png",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/MoviePilotLite/images/recommend.png",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/MoviePilotLite/images/explorer.png"
+      ],
+      "tintColor": "#8050F0",
+      "versions": [
+        {
+          "version": "1.2.3",
+          "date": "2026-08-21",
+          "localizedDescription": "MoviePilot Release\n\n- Version: 1.2.3\n- Build Date: 2026-08-21\n- Android: Signed APK\n- iOS: Unsigned IPA\n\niOS 安装说明：\n- IPA 为未签名包\n- 请使用自己的 Apple Developer 账号通过 AltStore、Sideloadly 或 Xcode 进行签名安装\n\n\n## What's Changed\n* Merge pull request #92 from singleton-altman/dev by @singleton-altman in https://github.com/singleton-altman/MoviePilotLite/pull/94\n* Dev by @singleton-altman in https://github.com/singleton-altman/MoviePilotLite/pull/95\n\n\n**Full Changelog**: https://github.com/singleton-altman/MoviePilotLite/compare/release-v1.2.2-2026-07-24...release-v1.2.3-2026-08-21",
+          "downloadURL": "https://github.com/singleton-altman/MoviePilotLite/releases/download/release-v1.2.3-2026-08-21/ios-v1.2.3-2026-08-21.ipa",
+          "size": 35152040,
+          "minOSVersion": "15.0"
+        }
+      ]
+    },
+    {
       "name": "Musly",
       "bundleIdentifier": "com.dddevid.musly",
       "developerName": "dddevid",
@@ -536,6 +560,17 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Kazumi/images/news.png",
       "notify": true,
       "url": "https://github.com/Predidit/Kazumi/releases/tag/2.2.9"
+    },
+    {
+      "appID": "com.altman.moviepilot",
+      "title": "MoviePilotLite 1.2.3 · 21 Aug 2026",
+      "identifier": "release-release-v1.2.3-2026-08-21",
+      "caption": "MoviePilotLite 1.2.3 is available.",
+      "date": "2026-08-21T01:18:29Z",
+      "tintColor": "#8050F0",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/MoviePilotLite/images/news.png",
+      "notify": true,
+      "url": "https://github.com/singleton-altman/MoviePilotLite/releases/tag/release-v1.2.3-2026-08-21"
     },
     {
       "appID": "com.kodjodevf.mangayomi",
