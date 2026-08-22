@@ -145,9 +145,9 @@
         {
           "version": "nightly-20260822",
           "date": "2026-08-22",
-          "localizedDescription": "Automated nightly build for community testing (unsigned).\n\nEvery download is named `ARMSX2-nightly-DATE-COMMIT-PLATFORM`, so builds\nfrom different nights stay distinguishable after you have downloaded them.\n\n- macOS arm64: macOS-arm64.tar.xz\n- Linux arm64: Linux-arm64-4K-pages.AppImage on most distros, or the 16K one on Asahi Linux and other Apple Silicon kernels (run getconf PAGESIZE if unsure)\n- Windows arm64: Windows-arm64.zip\n- RetroArch on Linux arm64: Linux-arm64-libretro-core.tar.zst, a 4K-page build\n- Bare-display kmsdrm handhelds: Linux-arm64-SDL-handheld.tar.zst, a 4K-page build (Rocknix and Batocera run compositors, so use the Qt AppImage there instead)\n- Android: Android-arm64.apk, sideload it\n- iOS: iOS-arm64.ipa, unsigned, sideload it\n\n## What's new\n- GS: remove the texture-replacement diagnostics\n- Patches: a toggle that changes no patch= lines still has to write the enable list\n- Patch: enabling from the library writes to the game INI, not the base layer\n- Patch: delete the enable-list purge\n- Patch: stop the enable-list purge switching off patches people chose\n- GS: fall back to another palette variant when the exact one is absent\n- GS/TC: split the base-level hash from the mip chain in the probe\n- GS/TC: cross-version probe for the texture-hash divergence (diagnostic)\n- GS: drop the palette substitution, keep what it taught us\n- GS: palette fallback picks the NEWEST variant, and names every candidate\n- GS: report replacement files shadowed by an earlier file\n- GS: palette-relaxed replacement fallback (TEST BUILD, not for release)\n- GS: print the pack's own filenames, instead of asking the player for them\n- GS: make the replacement diagnostics able to answer the question\n- GS: say whether replacement lookups are hitting, not just how many indexed\n- Library: five more screensaver backgrounds, from ARMSX3\n- Credit the PR contributors in the code, not only the release notes\n- Library sharing: make the recent-games provider opt-in\n- LSFG: adaptive pacing captured the wrong target rate\n- Community batch: seven feature requests\n- Fix Reset leaving per-game settings, and Fast Forward (Toggle) on analog triggers\n- Library: port the Flurry animated background from ARMSX3\n- Patch: stop Hardcore blocking presentation patches\n- Patches: cache the repository trees on disk\n- Patches: stop the online scan when you leave the browser\n- GS: size the texture cache as RAM minus a reserve, not a fraction of it\n- GS: remove the texture-replacement cache cap\n- Saves: hiding Save must not hide Load\n- Saves: only offer Save when a VM is actually running\n- Saves: honour contextGame when listing, not just when launching\n- Library: open the real Save Manager, and make swipe-to-dismiss actually work\n- Library: find save states in both data roots, and restore swipe-to-dismiss\n- Library: fix the selection highlight contrast, and offer save states on long-press\n- LSFG: expose adaptive frame pacing, and remove the diagnostic tracing\n- LSFG: make frame generation actually run on device\n- LSFG: run frame generation on our own device, and delete the old path\n- LSFG: port Eden's frame generation (passes, pacer, DLL reader)\n- OSD: stop any settings change from wiping the active OSD mode\n- LSFG: keep it out of the Play build entirely, not just switched off\n- Android: take a card snapshot at launch, and offer the restore\n- Android: rolling per-card memory card snapshots\n- Android: flush memory card writes when the app is backgrounded\n- SIO/Memcard: refuse a card write whose read-back failed\n- Settings: a knob missing from the key table should not be a crash\n- Settings: copying global settings into a game writes only the real decisions\n- Settings: a setting the player set for one game outranks the game database\n- Expose recently played games over a content provider for companion apps\n\nFull changelog: https://github.com/ARMSX2/ARMSX2/compare/nightly-20260820...9111cd617dffd60eee64b0329e254e3c7d75bf09",
-          "downloadURL": "https://github.com/ARMSX2/ARMSX2/releases/download/nightly-20260822/ARMSX2-nightly-20260822-9111cd617d-iOS-arm64.ipa",
-          "size": 26734522,
+          "localizedDescription": "Automated nightly build for community testing (unsigned).\n\nEvery download is named `ARMSX2-nightly-DATE-COMMIT-PLATFORM`, so builds\nfrom different nights stay distinguishable after you have downloaded them.\n\n- macOS arm64: macOS-arm64.tar.xz\n- Linux arm64: Linux-arm64-4K-pages.AppImage on most distros, or the 16K one on Asahi Linux and other Apple Silicon kernels (run getconf PAGESIZE if unsure)\n- Windows arm64: Windows-arm64.zip\n- RetroArch on Linux arm64: Linux-arm64-libretro-core.tar.zst, a 4K-page build\n- Bare-display kmsdrm handhelds: Linux-arm64-SDL-handheld.tar.zst, a 4K-page build (Rocknix and Batocera run compositors, so use the Qt AppImage there instead)\n- Android: Android-arm64.apk, sideload it\n- iOS: iOS-arm64.ipa, unsigned, sideload it\n\n## What's new\n- iOS: give CI builds the RetroAchievements client identity\n- GS: remove the texture-replacement diagnostics\n- Patches: a toggle that changes no patch= lines still has to write the enable list\n- Patch: enabling from the library writes to the game INI, not the base layer\n- Patch: delete the enable-list purge\n- Patch: stop the enable-list purge switching off patches people chose\n- GS: fall back to another palette variant when the exact one is absent\n- GS/TC: split the base-level hash from the mip chain in the probe\n- GS/TC: cross-version probe for the texture-hash divergence (diagnostic)\n- GS: drop the palette substitution, keep what it taught us\n- GS: palette fallback picks the NEWEST variant, and names every candidate\n- GS: report replacement files shadowed by an earlier file\n- GS: palette-relaxed replacement fallback (TEST BUILD, not for release)\n- GS: print the pack's own filenames, instead of asking the player for them\n- GS: make the replacement diagnostics able to answer the question\n- GS: say whether replacement lookups are hitting, not just how many indexed\n- Library: five more screensaver backgrounds, from ARMSX3\n- Credit the PR contributors in the code, not only the release notes\n- Library sharing: make the recent-games provider opt-in\n- LSFG: adaptive pacing captured the wrong target rate\n- Community batch: seven feature requests\n- Fix Reset leaving per-game settings, and Fast Forward (Toggle) on analog triggers\n- Library: port the Flurry animated background from ARMSX3\n- Patch: stop Hardcore blocking presentation patches\n- Patches: cache the repository trees on disk\n- Patches: stop the online scan when you leave the browser\n- GS: size the texture cache as RAM minus a reserve, not a fraction of it\n- GS: remove the texture-replacement cache cap\n- Saves: hiding Save must not hide Load\n- Saves: only offer Save when a VM is actually running\n- Saves: honour contextGame when listing, not just when launching\n- Library: open the real Save Manager, and make swipe-to-dismiss actually work\n- Library: find save states in both data roots, and restore swipe-to-dismiss\n- Library: fix the selection highlight contrast, and offer save states on long-press\n- LSFG: expose adaptive frame pacing, and remove the diagnostic tracing\n- LSFG: make frame generation actually run on device\n- LSFG: run frame generation on our own device, and delete the old path\n- LSFG: port Eden's frame generation (passes, pacer, DLL reader)\n- OSD: stop any settings change from wiping the active OSD mode\n- LSFG: keep it out of the Play build entirely, not just switched off\n- Android: take a card snapshot at launch, and offer the restore\n- Android: rolling per-card memory card snapshots\n- Android: flush memory card writes when the app is backgrounded\n- SIO/Memcard: refuse a card write whose read-back failed\n- Settings: a knob missing from the key table should not be a crash\n- Settings: copying global settings into a game writes only the real decisions\n- Settings: a setting the player set for one game outranks the game database\n- Expose recently played games over a content provider for companion apps\n\nFull changelog: https://github.com/ARMSX2/ARMSX2/compare/nightly-20260820...1b737e25f07ffc7c9b08938024d121467b507f7b",
+          "downloadURL": "https://github.com/ARMSX2/ARMSX2/releases/download/nightly-20260822/ARMSX2-nightly-20260822-1b737e25f0-iOS-arm64.ipa",
+          "size": 26735488,
           "minOSVersion": "17.0"
         }
       ]
@@ -167,11 +167,11 @@
       "tintColor": "#4080E0",
       "versions": [
         {
-          "version": "1.7-build.16",
-          "date": "2026-08-21",
-          "localizedDescription": "**Full Changelog**: https://github.com/moliango/doer/compare/v1.6-build.11...v1.7-build.16",
-          "downloadURL": "https://github.com/moliango/doer/releases/download/v1.7-build.16/doer-unsigned.ipa",
-          "size": 13822899,
+          "version": "1.8-build.17",
+          "date": "2026-08-22",
+          "localizedDescription": "**Full Changelog**: https://github.com/moliango/doer/compare/v1.7-build.16...v1.8-build.17",
+          "downloadURL": "https://github.com/moliango/doer/releases/download/v1.8-build.17/doer-unsigned.ipa",
+          "size": 14004015,
           "minOSVersion": "15.0"
         }
       ]
@@ -385,12 +385,12 @@
       "tintColor": "#73b480",
       "versions": [
         {
-          "version": "2.1.1",
-          "buildVersion": "5225",
+          "version": "2.1.1.2",
+          "buildVersion": "5231",
           "date": "2026-08-22",
-          "localizedDescription": "支持显示 SC 发送时间\r\n私信消息支持标为已读\r\n过滤无播放权限的推荐视频\r\n取消滑动刷新时不隐藏 FAB\r\n动态文字支持复制表情包内容\r\n刷新滑动距离调整为根据刷新指示器高度计算\r\n恢复历史记录视频播放记录 #2458 by @Zxis233\r\n直播卡片支持反馈 #2456 by @My-Responsitories\r\nLinux 平台关闭 Impeller #2569 by @Axiaobo7788\r\n增加弹幕不透明度/字体大小设置区间 #2452 by @Meteor-3\r\n文字选择工具栏部分支持站内搜索 #2474 by @My-Responsitories\r\n支持播放多片段类型视频，优化仅播音频 #2455 by @My-Responsitories\r\n其他调整 #2612 by @My-Responsitories\r\n\r\n界面优化\r\n优化统一 iOS 列表滑动效果 #2184\r\n优化评论/动态检查结果界面 #2501\r\n图片缓存优化 #2473 by @My-Responsitories\r\n\r\n修复桌面端富文本菜单点击无效\r\n修复 #2182 #2485 #2491 #2494 #2581\r\n修复应用内 WebView #2454 by @Starfallan\r\n修复 iPadOS 窗口模式控制按钮 #2482 by @ngbyspy\r\n修复 Start History 链接 #2557 by @Dessalines39394\r\n修复 macOS 标题栏 #2448 by @Lynricsy, #2534 by @xiejiaxue\r\n修复 bug\r\n\r\n其他调整",
-          "downloadURL": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/download/2.1.1/PiliPlus_ios_2.1.1%2B5225.ipa",
-          "size": 23884938,
+          "localizedDescription": "自定义定时关闭时长改为滑动选择 #2632\r\n\r\n修复 #2631 #2636\r\n修复 #1967 #2634 by @My-Responsitories\r\n修复复制 VideoTrack 信息 #2633 by @My-Responsitories",
+          "downloadURL": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/download/2.1.1.2/PiliPlus_ios_2.1.1%2B5231.ipa",
+          "size": 23906848,
           "minOSVersion": "14.0"
         }
       ]
@@ -518,6 +518,28 @@
   ],
   "news": [
     {
+      "appID": "com.example.PiliPlus",
+      "title": "PiliPlus 2.1.1.2 · 22 Aug 2026",
+      "identifier": "release-2.1.1.2",
+      "caption": "PiliPlus 2.1.1.2 is available.",
+      "date": "2026-08-22T14:45:46Z",
+      "tintColor": "#73b480",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/PiliPlus/images/news.png",
+      "notify": true,
+      "url": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/tag/2.1.1.2"
+    },
+    {
+      "appID": "com.naine.doer",
+      "title": "Doer 1.8-build.17 · 22 Aug 2026",
+      "identifier": "release-v1.8-build.17",
+      "caption": "Doer 1.8-build.17 is available.",
+      "date": "2026-08-22T14:35:34Z",
+      "tintColor": "#4080E0",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Doer/images/news.png",
+      "notify": true,
+      "url": "https://github.com/moliango/doer/releases/tag/v1.8-build.17"
+    },
+    {
       "appID": "com.armsx2.ios",
       "title": "ARMSX2 nightly-20260822 · 22 Aug 2026",
       "identifier": "release-nightly-20260822",
@@ -529,17 +551,6 @@
       "url": "https://github.com/ARMSX2/ARMSX2/releases/tag/nightly-20260822"
     },
     {
-      "appID": "com.example.PiliPlus",
-      "title": "PiliPlus 2.1.1 · 22 Aug 2026",
-      "identifier": "release-2.1.1",
-      "caption": "PiliPlus 2.1.1 is available.",
-      "date": "2026-08-22T04:07:26Z",
-      "tintColor": "#73b480",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/PiliPlus/images/news.png",
-      "notify": true,
-      "url": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/tag/2.1.1"
-    },
-    {
       "appID": "com.ligg.anime_flow",
       "title": "AnimeFlow 2.3.0 · 21 Aug 2026",
       "identifier": "release-v2.3.0",
@@ -549,17 +560,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/AnimeFlow/images/news.png",
       "notify": true,
       "url": "https://github.com/openAnimeFlow/AnimeFlow/releases/tag/v2.3.0"
-    },
-    {
-      "appID": "com.naine.doer",
-      "title": "Doer 1.7-build.16 · 21 Aug 2026",
-      "identifier": "release-v1.7-build.16",
-      "caption": "Doer 1.7-build.16 is available.",
-      "date": "2026-08-21T09:32:29Z",
-      "tintColor": "#4080E0",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Doer/images/news.png",
-      "notify": true,
-      "url": "https://github.com/moliango/doer/releases/tag/v1.7-build.16"
     },
     {
       "appID": "com.example.kazumi",
