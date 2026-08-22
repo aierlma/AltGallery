@@ -38,6 +38,9 @@ A community-maintained iOS tweak that keeps Apollo for Reddit working after its 
 ### <a href="https://github.com/ARMSX2/ARMSX2"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/ARMSX2/icon.png" alt="ARMSX2 icon" width="24" align="top"> ARMSX2</a>
 A native ARM64 PlayStation 2 emulator for iOS and iPadOS, forked from PCSX2.
 
+### <a href="https://github.com/moliango/doer"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Doer/icon.png" alt="Doer icon" width="24" align="top"> Doer</a>
+A native iOS client for Linux.do.
+
 ### <a href="https://github.com/OatmealDome/dolphin-ios"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/DolphiniOS/icon.png" alt="DolphiniOS icon" width="24" align="top"> DolphiniOS</a>
 Dolphin for iOS, reborn — a GameCube and Wii emulator for iPhone and iPad.
 
