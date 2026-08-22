@@ -11,12 +11,30 @@
 <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/assets/add-alt-source.png" alt="Add AltSource" width="200">
 </a>
 </p>
+<p align="center">(Click the above image to add the AltGallery source)</p>
+
+## Request an App
+
+Don't see an app you want? [Create an issue](https://github.com/bebound/AltGallery/issues/new) and I'll add it to the gallery. Please include the app's name and a link to its GitHub repo (or an IPA / release URL) so I can verify and add it.
 
 ## Screenshots
 
-| <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/assets/sidestore.jpg" alt="AltGallery in SideStore" width="200" style="border-radius: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"> | <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/assets/sidestore_news.jpg" alt="AltGallery news in SideStore" width="200" style="border-radius: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"> | <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/assets/livecontainer.jpg" alt="AltGallery in LiveContainer" width="200" style="border-radius: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"> |
-| :---: | :---: | :---: |
-| **SideStore** | **SideStore News** | **LiveContainer** |
+<table align="center" style="border: none; margin-left: auto; margin-right: auto;">
+  <tr>
+    <td align="center" style="border: none; padding: 6px;">
+      <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/assets/sidestore.jpg" alt="AltGallery in SideStore" width="200" style="border-radius: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+      <br><b>SideStore</b>
+    </td>
+    <td align="center" style="border: none; padding: 6px;">
+      <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/assets/sidestore_news.jpg" alt="AltGallery news in SideStore" width="200" style="border-radius: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+      <br><b>SideStore News</b>
+    </td>
+    <td align="center" style="border: none; padding: 6px;">
+      <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/assets/livecontainer.jpg" alt="AltGallery in LiveContainer" width="200" style="border-radius: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+      <br><b>LiveContainer</b>
+    </td>
+  </tr>
+</table>
 
 ## Available Apps
 
