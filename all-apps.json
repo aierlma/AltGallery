@@ -167,11 +167,11 @@
       "tintColor": "#4080E0",
       "versions": [
         {
-          "version": "1.8-build.17",
-          "date": "2026-08-22",
-          "localizedDescription": "**Full Changelog**: https://github.com/moliango/doer/compare/v1.7-build.16...v1.8-build.17",
-          "downloadURL": "https://github.com/moliango/doer/releases/download/v1.8-build.17/doer-unsigned.ipa",
-          "size": 14004015,
+          "version": "1.8",
+          "date": "2026-08-24",
+          "localizedDescription": "**Full Changelog**: https://github.com/moliango/doer/compare/v1.8-build.17...v1.8",
+          "downloadURL": "https://github.com/moliango/doer/releases/download/v1.8/doer-unsigned.ipa",
+          "size": 23304438,
           "minOSVersion": "15.0"
         }
       ]
@@ -385,12 +385,12 @@
       "tintColor": "#73b480",
       "versions": [
         {
-          "version": "2.1.1.2",
-          "buildVersion": "5231",
-          "date": "2026-08-22",
-          "localizedDescription": "自定义定时关闭时长改为滑动选择 #2632\r\n\r\n修复 #2631 #2636\r\n修复 #1967 #2634 by @My-Responsitories\r\n修复复制 VideoTrack 信息 #2633 by @My-Responsitories",
-          "downloadURL": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/download/2.1.1.2/PiliPlus_ios_2.1.1%2B5231.ipa",
-          "size": 23906848,
+          "version": "2.1.2",
+          "buildVersion": "5241",
+          "date": "2026-08-24",
+          "localizedDescription": "支持设置蜂窝网络解码格式 #2571 by @ucxn\r\n合并字体设置 #2611 by @My-Responsitories\r\n增加楼中楼评论排序设置 #2655 by @Meteor-3\r\nmacOS Command+R 刷新推荐 #2537 by @xiejiaxue\r\nAndroid、Windows、Linux 支持从已安装字体中选择字体 #2611 by @My-Responsitories\r\n\r\n修复部分安卓无法播放 #2631 #2642\r\n修复账号退出逻辑 #2666 by @KIDA-MNESIA\r\n修复导入设置 WebDav 配置未更新 #2667 by @KIDA-MNESIA",
+          "downloadURL": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/download/2.1.2/PiliPlus_ios_2.1.2%2B5241.ipa",
+          "size": 23940004,
           "minOSVersion": "14.0"
         }
       ]
@@ -410,11 +410,11 @@
       "tintColor": "#708070",
       "versions": [
         {
-          "version": "1.4.13",
-          "date": "2026-08-20",
-          "localizedDescription": "## 修改内容\n\n- 修复多图帖子首图放大后停留在低清过渡图的问题，并增加受内存与帧数限制的 GIF 动画显示。\n- 修复回复倒序分页只作用于当前已加载页面的问题，并完善楼中楼进入动画、下拉/右滑退出和阅读位置恢复。\n- 修复 iOS 18 长按选择帖子文字时可能出现的布局卡死。\n- 修复登录账号发帖、回帖时 TBS 刷新失败的问题；恢复签名登录校验，并保留发送结果不明确时不自动重试的保护。\n\n## 验证\n\n- GitHub Actions `ci-ok` 全部通过。\n- 本地发布请求与身份夹具测试 48 项通过。\n- 真实账号发帖和回帖均验证成功。",
-          "downloadURL": "https://github.com/infinityf4p/TiebaPure-iOS/releases/download/v1.4.13/TiebaPure-v1.4.13-unsigned.ipa",
-          "size": 3509096,
+          "version": "1.4.14",
+          "date": "2026-08-24",
+          "localizedDescription": "## 修改内容\n\n- 新增帖子本地保存：支持完整楼层和楼中楼离线阅读、媒体下载、搜索、回复更新、存储管理及备份导入导出。\n- 新增内置与自定义阅读字体，并完善首页重复点击刷新。\n- 自动检测账号登录失效，提示后清理当前登录态，同时避免旧请求或网络中断误触发退出。\n- 修复 iOS 16 嵌套搜索布局递归卡死、文字选择与导航手势冲突，并将媒体、字体、语音和存储文件 I/O 移出主线程。\n- 加固本地帖子并发写入、媒体事务崩溃恢复、备份校验与字体目录一致性。\n\n## 验证\n\n- GitHub Actions ci-ok 全部通过，包含单元测试、iOS 16 兼容检查、iPhone/iPad UI 测试和 Release 构建。\n- App 与扩展均为 1.4.14 (58)、arm64、最低 iOS 16.4；IPA 压缩结构正常且未签名。\n- 发帖和回帖夹具 UI 测试通过；本次未改动认证写入路径，因此未重复进行真实账号写入测试。",
+          "downloadURL": "https://github.com/infinityf4p/TiebaPure-iOS/releases/download/v1.4.14/TiebaPure-v1.4.14-unsigned.ipa",
+          "size": 3787516,
           "minOSVersion": "16.4"
         }
       ]
@@ -518,6 +518,39 @@
   ],
   "news": [
     {
+      "appID": "com.example.PiliPlus",
+      "title": "PiliPlus 2.1.2 · 24 Aug 2026",
+      "identifier": "release-2.1.2",
+      "caption": "PiliPlus 2.1.2 is available.",
+      "date": "2026-08-24T03:06:40Z",
+      "tintColor": "#73b480",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/PiliPlus/images/news.png",
+      "notify": true,
+      "url": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/tag/2.1.2"
+    },
+    {
+      "appID": "com.naine.doer",
+      "title": "Doer 1.8 · 24 Aug 2026",
+      "identifier": "release-v1.8",
+      "caption": "Doer 1.8 is available.",
+      "date": "2026-08-24T03:06:26Z",
+      "tintColor": "#4080E0",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Doer/images/news.png",
+      "notify": true,
+      "url": "https://github.com/moliango/doer/releases/tag/v1.8"
+    },
+    {
+      "appID": "dev.infinityf4p.tiebapure",
+      "title": "TiebaPure 1.4.14 · 24 Aug 2026",
+      "identifier": "release-v1.4.14",
+      "caption": "TiebaPure 1.4.14 is available.",
+      "date": "2026-08-24T01:40:29Z",
+      "tintColor": "#708070",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/TiebaPure/images/news.png",
+      "notify": true,
+      "url": "https://github.com/infinityf4p/TiebaPure-iOS/releases/tag/v1.4.14"
+    },
+    {
       "appID": "com.armsx2.ios",
       "title": "ARMSX2 nightly-20260823 · 23 Aug 2026",
       "identifier": "release-nightly-20260823",
@@ -527,28 +560,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/ARMSX2/images/news.png",
       "notify": true,
       "url": "https://github.com/ARMSX2/ARMSX2/releases/tag/nightly-20260823"
-    },
-    {
-      "appID": "com.example.PiliPlus",
-      "title": "PiliPlus 2.1.1.2 · 22 Aug 2026",
-      "identifier": "release-2.1.1.2",
-      "caption": "PiliPlus 2.1.1.2 is available.",
-      "date": "2026-08-22T14:45:46Z",
-      "tintColor": "#73b480",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/PiliPlus/images/news.png",
-      "notify": true,
-      "url": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/tag/2.1.1.2"
-    },
-    {
-      "appID": "com.naine.doer",
-      "title": "Doer 1.8-build.17 · 22 Aug 2026",
-      "identifier": "release-v1.8-build.17",
-      "caption": "Doer 1.8-build.17 is available.",
-      "date": "2026-08-22T14:35:34Z",
-      "tintColor": "#4080E0",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Doer/images/news.png",
-      "notify": true,
-      "url": "https://github.com/moliango/doer/releases/tag/v1.8-build.17"
     },
     {
       "appID": "com.ligg.anime_flow",
@@ -593,17 +604,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Mangayomi/images/news.png",
       "notify": true,
       "url": "https://github.com/kodjodevf/mangayomi/releases/tag/v0.8.8"
-    },
-    {
-      "appID": "dev.infinityf4p.tiebapure",
-      "title": "TiebaPure 1.4.13 · 20 Aug 2026",
-      "identifier": "release-v1.4.13",
-      "caption": "TiebaPure 1.4.13 is available.",
-      "date": "2026-08-20T15:32:45Z",
-      "tintColor": "#708070",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/TiebaPure/images/news.png",
-      "notify": true,
-      "url": "https://github.com/infinityf4p/TiebaPure-iOS/releases/tag/v1.4.13"
     },
     {
       "appID": "com.christianselig.Apollo",
