@@ -1,6 +1,5 @@
 # altgen config for the PiliPlus AltStore source.
 # Run: uvx altgen -c config.toml
-# Reproduces the original update_source.py output (130 versions).
 
 [github]
 repo = "bggRGjQaUbCoE/PiliPlus"
