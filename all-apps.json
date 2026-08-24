@@ -314,11 +314,11 @@
       "tintColor": "#EF4444",
       "versions": [
         {
-          "version": "0.8.8",
-          "date": "2026-08-20",
-          "localizedDescription": "## What's Changed\r\n* Fix extension list row overflow with NSFW badge + repo name by @not-akari in https://github.com/kodjodevf/mangayomi/pull/883\r\n* fix(download): restore downloads to downloads folder instead of local library\r\n* fix #878\r\n\r\n\r\n**Full Changelog**: https://github.com/kodjodevf/mangayomi/compare/v0.8.7...v0.8.8",
-          "downloadURL": "https://github.com/kodjodevf/mangayomi/releases/download/v0.8.8/Mangayomi-v0.8.8-ios.ipa",
-          "size": 108136104
+          "version": "0.8.9",
+          "date": "2026-08-24",
+          "localizedDescription": "## What's Changed\r\n* Fix migration screen row overflow by @not-akari in https://github.com/kodjodevf/mangayomi/pull/884\r\n* Fix History screen scroll lag by @not-akari in https://github.com/kodjodevf/mangayomi/pull/885\r\n* Fix Updates and chapter list scroll lag by @not-akari in https://github.com/kodjodevf/mangayomi/pull/886\r\n* Fix warning by @NBA2K1 in https://github.com/kodjodevf/mangayomi/pull/887\r\n* New feature: backup encryption by @NBA2K1 in https://github.com/kodjodevf/mangayomi/pull/888\r\n* fix: read downloaded chapters from disk instead of the source by @mrandhawa14 in https://github.com/kodjodevf/mangayomi/pull/889\r\n* Fix chapter sort incorrectly and Added Missing Chapter Header by @not-akari in https://github.com/kodjodevf/mangayomi/pull/890\r\n* Fix overflow in global search result cards by @not-akari in https://github.com/kodjodevf/mangayomi/pull/891\r\n* Add live connection status to Sync screen, redesign layout by @not-akari in https://github.com/kodjodevf/mangayomi/pull/892\r\n* Fixed reader where it launch and causing blank screen by @not-akari in https://github.com/kodjodevf/mangayomi/pull/893\r\n* Fix Isar nested-transaction crash after backup restore and settings sync by @not-akari in https://github.com/kodjodevf/mangayomi/pull/894\r\n* Fix blank reader screen on chapter change by @not-akari in https://github.com/kodjodevf/mangayomi/pull/895\r\n* Surface the real error when an image fails to load by @not-akari in https://github.com/kodjodevf/mangayomi/pull/896\r\n* Fix overflow in tracker library section screen by @not-akari in https://github.com/kodjodevf/mangayomi/pull/897\r\n* Fix migration screen lag by @not-akari in https://github.com/kodjodevf/mangayomi/pull/898\r\n* fix: stop a running update from the updates screen, and a grey box in its list by @mrandhawa14 in https://github.com/kodjodevf/mangayomi/pull/900\r\n* fix: stop dropping decimal chapters and mismatching them on migration (#812) by @mrandhawa14 in https://github.com/kodjodevf/mangayomi/pull/899\r\n* feat: a first run for a fresh install by @mrandhawa14 in https://github.com/kodjodevf/mangayomi/pull/901\r\n* fix: stop settings writes putting back what changed in the meantime by @mrandhawa14 in https://github.com/kodjodevf/mangayomi/pull/904\r\n* Cloudflare Issue Fixed by @not-akari in https://github.com/kodjodevf/mangayomi/pull/910\r\n* Push restored data to sync server after a restore, guarding against r… by @not-akari in https://github.com/kodjodevf/mangayomi/pull/905\r\n* Add dyslexia-friendly font options for novel reader text by @not-akari in https://github.com/kodjodevf/mangayomi/pull/908\r\n* Use correct file extension for images by @NBA2K1 in https://github.com/kodjodevf/mangayomi/pull/909\r\n* Fix source-installed detection and add mangayomi-backup merge parity by @not-akari in https://github.com/kodjodevf/mangayomi/pull/907\r\n* fix: stop share throwing on Linux, and give it something useful to do by @mrandhawa14 in https://github.com/kodjodevf/mangayomi/pull/903\r\n* feat: keep the errors the app catches, and offer to report them by @mrandhawa14 in https://github.com/kodjodevf/mangayomi/pull/906\r\n\r\n\r\n**Full Changelog**: https://github.com/kodjodevf/mangayomi/compare/v0.8.8...v0.8.9",
+          "downloadURL": "https://github.com/kodjodevf/mangayomi/releases/download/v0.8.9/Mangayomi-v0.8.9-ios.ipa",
+          "size": 108580643
         }
       ]
     },
@@ -434,11 +434,11 @@
       "tintColor": "#50B0F0",
       "versions": [
         {
-          "version": "2.9.4",
+          "version": "2.9.5",
           "date": "2026-08-24",
-          "localizedDescription": "# 纯粹直播 v2.9.4\n|版本|下载地址|\n|---|---|\n|TV版|[pure_live_TV](https://github.com/liuchuancong/pure_live_TV/releases/latest)|\n|Windows/macOS/Android/iOS版|[pure_live](https://github.com/liuchuancong/pure_live/releases/latest)|\n### 🖥️ Windows 版\n- **Portable ZIP**：解压即用，无需安装\n- **EXE 安装包**：适合所有用户\n- **MSIX 包**：现代应用格式，支持干净卸载\n- 适配：Windows 10/11 x64\n### 🍎 macOS 版\n- macOS 桌面版\n- Universal：Apple Silicon + Intel\n- ZIP / DMG\n### 📱 Android 版\n- Android 6.0+\n- ARM64-v8a\n- ARMv7\n- x86_64\n- 统一 SHA256 校验文件：[**ANDROID_SHA256SUM.txt**](https://github.com/liuchuancong/pure_live/releases/download/v2.9.4/ANDROID_SHA256SUM.txt)\n### 🐧 Linux 版\n- Linux x64\n- Portable tar.gz\n### 🍎 iOS 版\n- unsigned iOS device application\n- TrollStore / ad-hoc IPA\n- ARM64\n### 🔧 Build Metadata\n[**BUILD_METADATA.json**](https://github.com/liuchuancong/pure_live/releases/download/v2.9.4/BUILD_METADATA.json)\n### 📝 本次更新\n- 新增YY直播。\n- 新增多画面同看、纯 Dart 平台签名与语言切换修复，并保留维护分支播放器、弹幕和高刷新率增强。\n- 修复 Windows MSIX 数据路径提供器，商店式安装使用系统隔离目录，便携版继续使用安装目录内 AppData。\n- Windows 安装包改用当前 CMake 清单与必要运行时白名单，排除增量输出中已退役的 QuickJS 运行库与旧插件资产。\n- 修复录制目录清理可能误删用户所选父目录文件的问题；自定义位置统一进入带所有权标记的 PureLiveRecords 专用子目录。\n- 修复录制限额无法发现分层文件并可能持续循环的问题，改为递归快照、有界清理和文件轮转容错。\n- 适配快手当前直播与录播两种播放结构，合并多 CDN 线路，并以房间页状态区分直播/录播回退。\n- 斗鱼、抖音签名迁移为纯 Dart；斗鱼加密描述符按秒缓存并合并并发刷新，抖音签名保留基础查询且不再污染调用方参数。\n- 多画面音频焦点改为串行最新选择，播放器 pause 异常仍执行销毁；移动端限制四路、桌面端最多九路。\n- 调试日志与 EPG 匹配缓存增加容量上限和来源隔离；站点失败回退不再把其他直播间状态写入当前房间。\n- Android arm64-v8a、Windows x64、Linux x64、macOS Universal 与 iOS arm64 按阶段串行构建发布。",
-          "downloadURL": "https://github.com/liuchuancong/pure_live/releases/download/v2.9.4/PureLive-2.9.4-4083-ios-arm64-trollstore.ipa",
-          "size": 58564254,
+          "localizedDescription": "# 纯粹直播 v2.9.5\n|版本|下载地址|\n|---|---|\n|TV版|[pure_live_TV](https://github.com/liuchuancong/pure_live_TV/releases/latest)|\n|Windows/macOS/Android/iOS版|[pure_live](https://github.com/liuchuancong/pure_live/releases/latest)|\n### 🖥️ Windows 版\n- **Portable ZIP**：解压即用，无需安装\n- **EXE 安装包**：适合所有用户\n- **MSIX 包**：现代应用格式，支持干净卸载\n- 适配：Windows 10/11 x64\n### 🍎 macOS 版\n- macOS 桌面版\n- Universal：Apple Silicon + Intel\n- ZIP / DMG\n### 📱 Android 版\n- Android 6.0+\n- ARM64-v8a\n- ARMv7\n- x86_64\n- 统一 SHA256 校验文件：[**ANDROID_SHA256SUM.txt**](https://github.com/liuchuancong/pure_live/releases/download/v2.9.5/ANDROID_SHA256SUM.txt)\n### 🐧 Linux 版\n- Linux x64\n- Portable tar.gz\n### 🍎 iOS 版\n- unsigned iOS device application\n- TrollStore / ad-hoc IPA\n- ARM64\n### 🔧 Build Metadata\n[**BUILD_METADATA.json**](https://github.com/liuchuancong/pure_live/releases/download/v2.9.5/BUILD_METADATA.json)\n### 📝 本次更新\n- 修复斗鱼直播。\n- 新增YY直播以及搜索。\n- 新增多画面同看、纯 Dart 平台签名与语言切换修复，并保留维护分支播放器、弹幕和高刷新率增强。\n- 修复 Windows MSIX 数据路径提供器，商店式安装使用系统隔离目录，便携版继续使用安装目录内 AppData。\n- Windows 安装包改用当前 CMake 清单与必要运行时白名单，排除增量输出中已退役的 QuickJS 运行库与旧插件资产。\n- 修复录制目录清理可能误删用户所选父目录文件的问题；自定义位置统一进入带所有权标记的 PureLiveRecords 专用子目录。\n- 修复录制限额无法发现分层文件并可能持续循环的问题，改为递归快照、有界清理和文件轮转容错。\n- 适配快手当前直播与录播两种播放结构，合并多 CDN 线路，并以房间页状态区分直播/录播回退。\n- 斗鱼、抖音签名迁移为纯 Dart；斗鱼加密描述符按秒缓存并合并并发刷新，抖音签名保留基础查询且不再污染调用方参数。\n- 多画面音频焦点改为串行最新选择，播放器 pause 异常仍执行销毁；移动端限制四路、桌面端最多九路。\n- 调试日志与 EPG 匹配缓存增加容量上限和来源隔离；站点失败回退不再把其他直播间状态写入当前房间。\n- Android arm64-v8a、Windows x64、Linux x64、macOS Universal 与 iOS arm64 按阶段串行构建发布。",
+          "downloadURL": "https://github.com/liuchuancong/pure_live/releases/download/v2.9.5/PureLive-2.9.5-4084-ios-arm64-trollstore.ipa",
+          "size": 58578964,
           "minOSVersion": "15.6"
         }
       ]
@@ -591,14 +591,25 @@
   "news": [
     {
       "appID": "com.mystyle.purelive.liu",
-      "title": "PureLive 2.9.4 · 24 Aug 2026",
-      "identifier": "PureLive-release-v2.9.4",
-      "caption": "PureLive 2.9.4 is available.",
-      "date": "2026-08-24T11:49:47Z",
+      "title": "PureLive 2.9.5 · 24 Aug 2026",
+      "identifier": "PureLive-release-v2.9.5",
+      "caption": "PureLive 2.9.5 is available.",
+      "date": "2026-08-24T16:46:41Z",
       "tintColor": "#50B0F0",
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/PureLive/images/news.png",
       "notify": true,
-      "url": "https://github.com/liuchuancong/pure_live/releases/tag/v2.9.4"
+      "url": "https://github.com/liuchuancong/pure_live/releases/tag/v2.9.5"
+    },
+    {
+      "appID": "com.kodjodevf.mangayomi",
+      "title": "Mangayomi 0.8.9 · 24 Aug 2026",
+      "identifier": "Mangayomi-release-v0.8.9",
+      "caption": "Mangayomi 0.8.9 is available.",
+      "date": "2026-08-24T12:56:49Z",
+      "tintColor": "#EF4444",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Mangayomi/images/news.png",
+      "notify": true,
+      "url": "https://github.com/kodjodevf/mangayomi/releases/tag/v0.8.9"
     },
     {
       "appID": "com.armsx2.ios",
@@ -698,17 +709,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/MoviePilotLite/images/news.png",
       "notify": true,
       "url": "https://github.com/singleton-altman/MoviePilotLite/releases/tag/release-v1.2.3-2026-08-21"
-    },
-    {
-      "appID": "com.kodjodevf.mangayomi",
-      "title": "Mangayomi 0.8.8 · 20 Aug 2026",
-      "identifier": "Mangayomi-release-v0.8.8",
-      "caption": "Mangayomi 0.8.8 is available.",
-      "date": "2026-08-20T20:10:05Z",
-      "tintColor": "#EF4444",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Mangayomi/images/news.png",
-      "notify": true,
-      "url": "https://github.com/kodjodevf/mangayomi/releases/tag/v0.8.8"
     },
     {
       "appID": "com.christianselig.Apollo",
