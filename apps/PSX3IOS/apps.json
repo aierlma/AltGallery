@@ -21,11 +21,11 @@
       "tintColor": "#5080D0",
       "versions": [
         {
-          "version": "O.2.4-beta",
-          "date": "2026-08-23",
-          "localizedDescription": "## beta 0.4\r\n\r\nTwo reports from people running the app in ways I do not: JIT that the system had\r\nalready granted was being thrown away, and the bundle was missing keys that every\r\niOS app carries.\r\n\r\n### JIT\r\n\r\n- **JIT that was already granted is no longer discarded.** Setting up the JIT\r\n  ground asks the attached debugger to register each chunk of executable memory,\r\n  and any chunk it did not register aborted the whole thing. But the registration\r\n  call also reports failure when no debugger is attached at all — which is the\r\n  normal state for two of the three ways this app gets JIT. LiveContainer grants\r\n  it by attaching a debugger that then detaches, and TrollStore grants it through\r\n  an entitlement with no debugger ever involved. In both cases the permission is\r\n  real and the memory works; there is simply nobody left to notify. The app was\r\n  throwing that away and falling back to the interpreter, while telling the user\r\n  \"JIT unavailable\" on a device where JIT was working. It now measures instead of\r\n  inferring: with no debugger present it writes a minimal function through the\r\n  write alias and calls it through the executable view, under a signal guard so\r\n  that a refusal degrades instead of taking the process down. If it runs, there is\r\n  JIT. The path with a debugger attached is unchanged, and a registration failure\r\n  there is still fatal.\r\n- **Attaching JIT after the app is open now works.** The ground was probed once\r\n  per session, so the first answer was cached for good. Under LiveContainer the\r\n  natural order is to open the app and enable JIT afterwards, which meant the\r\n  answer being cached was always \"no\" — and nothing the user did could change it\r\n  short of relaunching. The status pill re-measures now, and it also refreshes\r\n  when you return to the app, which is exactly the moment the permission has just\r\n  been granted somewhere else.",
-          "downloadURL": "https://github.com/xmiguel911x/PSX3IOS/releases/download/vO.2.4-beta/PSX3IOS-beta.0.4-unsigned.ipa",
-          "size": 67583942,
+          "version": "0.2.5-beta",
+          "date": "2026-08-24",
+          "localizedDescription": "File selector fixed, TrollStore version added",
+          "downloadURL": "https://github.com/xmiguel911x/PSX3IOS/releases/download/v0.2.5-beta/PSX3IOS-beta.0.5-unsigned.ipa",
+          "size": 67584625,
           "minOSVersion": "15.0"
         }
       ]
@@ -34,14 +34,14 @@
   "news": [
     {
       "appID": "com.miguel.psx3ios",
-      "title": "PSX3IOS O.2.4-beta · 23 Aug 2026",
-      "identifier": "PSX3IOS-release-vO.2.4-beta",
-      "caption": "PSX3IOS O.2.4-beta is available.",
-      "date": "2026-08-23T11:08:42Z",
+      "title": "PSX3IOS 0.2.5-beta · 24 Aug 2026",
+      "identifier": "PSX3IOS-release-v0.2.5-beta",
+      "caption": "PSX3IOS 0.2.5-beta is available.",
+      "date": "2026-08-24T23:07:50Z",
       "tintColor": "#5080D0",
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/PSX3IOS/images/news.png",
       "notify": true,
-      "url": "https://github.com/xmiguel911x/PSX3IOS/releases/tag/vO.2.4-beta"
+      "url": "https://github.com/xmiguel911x/PSX3IOS/releases/tag/v0.2.5-beta"
     }
   ]
 }
