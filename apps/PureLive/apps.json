@@ -21,11 +21,11 @@
       "tintColor": "#50B0F0",
       "versions": [
         {
-          "version": "2.9.5",
-          "date": "2026-08-24",
-          "localizedDescription": "# 纯粹直播 v2.9.5\n|版本|下载地址|\n|---|---|\n|TV版|[pure_live_TV](https://github.com/liuchuancong/pure_live_TV/releases/latest)|\n|Windows/macOS/Android/iOS版|[pure_live](https://github.com/liuchuancong/pure_live/releases/latest)|\n### 🖥️ Windows 版\n- **Portable ZIP**：解压即用，无需安装\n- **EXE 安装包**：适合所有用户\n- **MSIX 包**：现代应用格式，支持干净卸载\n- 适配：Windows 10/11 x64\n### 🍎 macOS 版\n- macOS 桌面版\n- Universal：Apple Silicon + Intel\n- ZIP / DMG\n### 📱 Android 版\n- Android 6.0+\n- ARM64-v8a\n- ARMv7\n- x86_64\n- 统一 SHA256 校验文件：[**ANDROID_SHA256SUM.txt**](https://github.com/liuchuancong/pure_live/releases/download/v2.9.5/ANDROID_SHA256SUM.txt)\n### 🐧 Linux 版\n- Linux x64\n- Portable tar.gz\n### 🍎 iOS 版\n- unsigned iOS device application\n- TrollStore / ad-hoc IPA\n- ARM64\n### 🔧 Build Metadata\n[**BUILD_METADATA.json**](https://github.com/liuchuancong/pure_live/releases/download/v2.9.5/BUILD_METADATA.json)\n### 📝 本次更新\n- 修复斗鱼直播。\n- 新增YY直播以及搜索。\n- 新增多画面同看、纯 Dart 平台签名与语言切换修复，并保留维护分支播放器、弹幕和高刷新率增强。\n- 修复 Windows MSIX 数据路径提供器，商店式安装使用系统隔离目录，便携版继续使用安装目录内 AppData。\n- Windows 安装包改用当前 CMake 清单与必要运行时白名单，排除增量输出中已退役的 QuickJS 运行库与旧插件资产。\n- 修复录制目录清理可能误删用户所选父目录文件的问题；自定义位置统一进入带所有权标记的 PureLiveRecords 专用子目录。\n- 修复录制限额无法发现分层文件并可能持续循环的问题，改为递归快照、有界清理和文件轮转容错。\n- 适配快手当前直播与录播两种播放结构，合并多 CDN 线路，并以房间页状态区分直播/录播回退。\n- 斗鱼、抖音签名迁移为纯 Dart；斗鱼加密描述符按秒缓存并合并并发刷新，抖音签名保留基础查询且不再污染调用方参数。\n- 多画面音频焦点改为串行最新选择，播放器 pause 异常仍执行销毁；移动端限制四路、桌面端最多九路。\n- 调试日志与 EPG 匹配缓存增加容量上限和来源隔离；站点失败回退不再把其他直播间状态写入当前房间。\n- Android arm64-v8a、Windows x64、Linux x64、macOS Universal 与 iOS arm64 按阶段串行构建发布。",
-          "downloadURL": "https://github.com/liuchuancong/pure_live/releases/download/v2.9.5/PureLive-2.9.5-4084-ios-arm64-trollstore.ipa",
-          "size": 58578964,
+          "version": "2.9.7",
+          "date": "2026-08-25",
+          "localizedDescription": "# 纯粹直播 v2.9.7\n|版本|下载地址|\n|---|---|\n|TV版|[pure_live_TV](https://github.com/liuchuancong/pure_live_TV/releases/latest)|\n|Windows/macOS/Android/iOS版|[pure_live](https://github.com/liuchuancong/pure_live/releases/latest)|\n### 🖥️ Windows 版\n- **Portable ZIP**：解压即用，无需安装\n- **EXE 安装包**：适合所有用户\n- **MSIX 包**：现代应用格式，支持干净卸载\n- 适配：Windows 10/11 x64\n### 🍎 macOS 版\n- macOS 桌面版\n- Universal：Apple Silicon + Intel\n- ZIP / DMG\n### 📱 Android 版\n- Android 6.0+\n- ARM64-v8a\n- ARMv7\n- x86_64\n- 统一 SHA256 校验文件：[**ANDROID_SHA256SUM.txt**](https://github.com/liuchuancong/pure_live/releases/download/v2.9.7/ANDROID_SHA256SUM.txt)\n### 🐧 Linux 版\n- Linux x64\n- Portable tar.gz\n### 🍎 iOS 版\n- unsigned iOS device application\n- TrollStore / ad-hoc IPA\n- ARM64\n### 🔧 Build Metadata\n[**BUILD_METADATA.json**](https://github.com/liuchuancong/pure_live/releases/download/v2.9.7/BUILD_METADATA.json)\n### 📝 本次更新\n- 修复Android录制。\n- 抖音：读取当前 Feed 顶层 user_count 作为真实在线；累计观看与在线人数彻底分字段。\n- 网易 CC：webcc_visitor/hot_score/visitor 归为热度，只有 vision_visitor/online_num 归为在线。\n- SOOP：推荐和搜索改用 PC + 移动端 total_view_cnt，不再只统计 PC 端。\n- 斗鱼、虎牙、YY：继续按平台热度显示，避免把百万级热度误标为真实人数。\n- 快手、Twitch：保留明确在线口径。\n- 热门页、收藏、搜索和房间选择器统一使用指标感知、稳定、从高到低的排行规则；切换口径会刷新当前热门平台。\n- 修复抖音推荐 Feed 从 data.data 变为 data[] 信封结构后触发的 String/int 动态索引异常；兼容新旧 Map、嵌入 JSON 与缺失可选字段。\n- 修复哔哩哔哩热门误用推荐流导致热度不按降序的问题，改用 sort=online 排行源并在客户端稳定二次排序；房间信息遇到过期 WBI 或 -352 时刷新密钥并有界重试。",
+          "downloadURL": "https://github.com/liuchuancong/pure_live/releases/download/v2.9.7/PureLive-2.9.7-4086-ios-arm64-trollstore.ipa",
+          "size": 58646180,
           "minOSVersion": "15.6"
         }
       ]
@@ -34,14 +34,14 @@
   "news": [
     {
       "appID": "com.mystyle.purelive.liu",
-      "title": "PureLive 2.9.5 · 24 Aug 2026",
-      "identifier": "PureLive-release-v2.9.5",
-      "caption": "PureLive 2.9.5 is available.",
-      "date": "2026-08-24T16:46:41Z",
+      "title": "PureLive 2.9.7 · 25 Aug 2026",
+      "identifier": "PureLive-release-v2.9.7",
+      "caption": "PureLive 2.9.7 is available.",
+      "date": "2026-08-25T04:49:26Z",
       "tintColor": "#50B0F0",
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/PureLive/images/news.png",
       "notify": true,
-      "url": "https://github.com/liuchuancong/pure_live/releases/tag/v2.9.5"
+      "url": "https://github.com/liuchuancong/pure_live/releases/tag/v2.9.7"
     }
   ]
 }
