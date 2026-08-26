@@ -361,11 +361,11 @@
       "tintColor": "#FA243C",
       "versions": [
         {
-          "version": "2.0.0",
+          "version": "2.0.1",
           "date": "2026-08-25",
-          "localizedDescription": "## 🎉 Musly v2.0.0\n\n### 📦 Downloads\n\n**Android:**\n- `app-release.apk` (universal APK for all devices)\n\n**iOS:**\n- `musly-ios.ipa` (sideload with AltStore, Sideloadly, or similar — not signed)\n\n**Windows:**\n- `musly-setup.exe` (setup installer, run to install Musly)\n- `musly-windows.zip` (portable version, extract and run)\n\n**macOS:**\n- `musly-macos.dmg` (drag Musly.app to Applications — not notarized)\n\n**Linux:**\n- `musly-linux-x64.tar.gz` (extract and run musly)\n\n### 📝 Changelog\nSee [CHANGELOG.md](https://github.com/dddevid/Musly/blob/master/CHANGELOG.md)\n\n### 🌍 Translations\nContribute translations at [Crowdin](https://crowdin.com/project/musly)",
-          "downloadURL": "https://github.com/dddevid/Musly/releases/download/v2.0.0/musly-ios.ipa",
-          "size": 13851589,
+          "localizedDescription": "## 🎉 Musly v2.0.1\n\n### 📦 Downloads\n\n**Android:**\n- `app-release.apk` (universal APK for all devices)\n\n**iOS:**\n- `musly-ios.ipa` (sideload with AltStore, Sideloadly, or similar — not signed)\n\n**Windows:**\n- `musly-setup.exe` (setup installer, run to install Musly)\n- `musly-windows.zip` (portable version, extract and run)\n\n**macOS:**\n- `musly-macos.dmg` (drag Musly.app to Applications — not notarized)\n\n**Linux:**\n- `musly-linux-x64.tar.gz` (extract and run musly)\n\n### 📝 Changelog\nSee [CHANGELOG.md](https://github.com/dddevid/Musly/blob/master/CHANGELOG.md)\n\n### 🌍 Translations\nContribute translations at [Crowdin](https://crowdin.com/project/musly)",
+          "downloadURL": "https://github.com/dddevid/Musly/releases/download/v2.0.1/musly-ios.ipa",
+          "size": 13891321,
           "minOSVersion": "15.0"
         }
       ]
@@ -385,12 +385,12 @@
       "tintColor": "#73b480",
       "versions": [
         {
-          "version": "2.1.2",
-          "buildVersion": "5241",
-          "date": "2026-08-24",
-          "localizedDescription": "支持设置蜂窝网络解码格式 #2571 by @ucxn\r\n合并字体设置 #2611 by @My-Responsitories\r\n增加楼中楼评论排序设置 #2655 by @Meteor-3\r\nmacOS Command+R 刷新推荐 #2537 by @xiejiaxue\r\nAndroid、Windows、Linux 支持从已安装字体中选择字体 #2611 by @My-Responsitories\r\n\r\n修复部分安卓无法播放 #2631 #2642\r\n修复账号退出逻辑 #2666 by @KIDA-MNESIA\r\n修复导入设置 WebDav 配置未更新 #2667 by @KIDA-MNESIA",
-          "downloadURL": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/download/2.1.2/PiliPlus_ios_2.1.2%2B5241.ipa",
-          "size": 23940004,
+          "version": "2.1.2.1",
+          "buildVersion": "5255",
+          "date": "2026-08-26",
+          "localizedDescription": "支持加载 `bcc` 格式字幕 #2705\r\n播放器启用自动重连 #2446 by @AlinJiang\r\n安卓支持允许三方 APP 访问私有存储，默认关\r\n支持复制设备信息 #2688 by @My-Responsitories\r\n调整部分设置选项界面 #2683 by @My-Responsitories\r\n\r\n修复 #2697 by @My-Responsitories\r\n修复 #2637 #2638 #2647 #2671 #2692",
+          "downloadURL": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/download/2.1.2.1/PiliPlus_ios_2.1.2%2B5255.ipa",
+          "size": 23937413,
           "minOSVersion": "14.0"
         }
       ]
@@ -590,15 +590,26 @@
   ],
   "news": [
     {
+      "appID": "com.example.PiliPlus",
+      "title": "PiliPlus 2.1.2.1 · 26 Aug 2026",
+      "identifier": "PiliPlus-release-2.1.2.1",
+      "caption": "PiliPlus 2.1.2.1 is available.",
+      "date": "2026-08-26T03:10:08Z",
+      "tintColor": "#73b480",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/PiliPlus/images/news.png",
+      "notify": true,
+      "url": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/tag/2.1.2.1"
+    },
+    {
       "appID": "com.dddevid.musly",
-      "title": "Musly 2.0.0 · 25 Aug 2026",
-      "identifier": "Musly-release-v2.0.0",
-      "caption": "Musly 2.0.0 is available.",
-      "date": "2026-08-25T15:48:44Z",
+      "title": "Musly 2.0.1 · 25 Aug 2026",
+      "identifier": "Musly-release-v2.0.1",
+      "caption": "Musly 2.0.1 is available.",
+      "date": "2026-08-25T21:44:35Z",
       "tintColor": "#FA243C",
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Musly/images/news.png",
       "notify": true,
-      "url": "https://github.com/dddevid/Musly/releases/tag/v2.0.0"
+      "url": "https://github.com/dddevid/Musly/releases/tag/v2.0.1"
     },
     {
       "appID": "com.naine.doer",
@@ -676,17 +687,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Mangayomi/images/news.png",
       "notify": true,
       "url": "https://github.com/kodjodevf/mangayomi/releases/tag/v0.8.9"
-    },
-    {
-      "appID": "com.example.PiliPlus",
-      "title": "PiliPlus 2.1.2 · 24 Aug 2026",
-      "identifier": "PiliPlus-release-2.1.2",
-      "caption": "PiliPlus 2.1.2 is available.",
-      "date": "2026-08-24T03:06:40Z",
-      "tintColor": "#73b480",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/PiliPlus/images/news.png",
-      "notify": true,
-      "url": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/tag/2.1.2"
     },
     {
       "appID": "dev.infinityf4p.tiebapure",
