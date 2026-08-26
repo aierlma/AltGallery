@@ -74,6 +74,9 @@ Torrent client for iOS.
 ### <a href="https://github.com/Predidit/Kazumi"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Kazumi/icon.png" alt="Kazumi icon" width="24" align="top"> Kazumi</a>
 基于自定义规则的番剧采集APP，支持流媒体在线观看、弹幕与实时超分辨率。
 
+### <a href="https://github.com/LiveContainer/LiveContainer"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/LiveContainer+SideStore/icon.png" alt="LiveContainer+SideStore icon" width="24" align="top"> LiveContainer+SideStore</a>
+An app launcher that runs iOS apps without actually installing them, with a built-in SideStore for refreshing your apps.
+
 ### <a href="https://github.com/kodjodevf/mangayomi"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Mangayomi/icon.png" alt="Mangayomi icon" width="24" align="top"> Mangayomi</a>
 Read manga, novels, and watch anime.
 
