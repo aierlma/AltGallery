@@ -409,11 +409,11 @@
       "tintColor": "#FA243C",
       "versions": [
         {
-          "version": "2.0.1",
-          "date": "2026-08-25",
-          "localizedDescription": "## 🎉 Musly v2.0.1\n\n### 📦 Downloads\n\n**Android:**\n- `app-release.apk` (universal APK for all devices)\n\n**iOS:**\n- `musly-ios.ipa` (sideload with AltStore, Sideloadly, or similar — not signed)\n\n**Windows:**\n- `musly-setup.exe` (setup installer, run to install Musly)\n- `musly-windows.zip` (portable version, extract and run)\n\n**macOS:**\n- `musly-macos.dmg` (drag Musly.app to Applications — not notarized)\n\n**Linux:**\n- `musly-linux-x64.tar.gz` (extract and run musly)\n\n### 📝 Changelog\nSee [CHANGELOG.md](https://github.com/dddevid/Musly/blob/master/CHANGELOG.md)\n\n### 🌍 Translations\nContribute translations at [Crowdin](https://crowdin.com/project/musly)",
-          "downloadURL": "https://github.com/dddevid/Musly/releases/download/v2.0.1/musly-ios.ipa",
-          "size": 13891321,
+          "version": "2.0.2",
+          "date": "2026-08-26",
+          "localizedDescription": "## 🎉 Musly v2.0.2\n\n### 📦 Downloads\n\n**Android:**\n- `app-release.apk` (universal APK for all devices)\n\n**iOS:**\n- `musly-ios.ipa` (sideload with AltStore, Sideloadly, or similar — not signed)\n\n**Windows:**\n- `musly-setup.exe` (setup installer, run to install Musly)\n- `musly-windows.zip` (portable version, extract and run)\n\n**macOS:**\n- `musly-macos.dmg` (drag Musly.app to Applications — not notarized)\n\n**Linux:**\n- `musly-linux-x64.tar.gz` (extract and run musly)\n\n### 📝 Changelog\nSee [CHANGELOG.md](https://github.com/dddevid/Musly/blob/master/CHANGELOG.md)\n\n### 🌍 Translations\nContribute translations at [Crowdin](https://crowdin.com/project/musly)",
+          "downloadURL": "https://github.com/dddevid/Musly/releases/download/v2.0.2/musly-ios.ipa",
+          "size": 13928367,
           "minOSVersion": "15.0"
         }
       ]
@@ -482,11 +482,11 @@
       "tintColor": "#50B0F0",
       "versions": [
         {
-          "version": "3.0.4",
-          "date": "2026-08-26",
-          "localizedDescription": "# 纯粹直播 v3.0.4\n|版本|下载地址|\n|---|---|\n|TV版|[pure_live_TV](https://github.com/liuchuancong/pure_live_TV/releases/latest)|\n|Windows/macOS/Android/iOS版|[pure_live](https://github.com/liuchuancong/pure_live/releases/latest)|\n### 🖥️ Windows 版\n- **Portable ZIP**：解压即用，无需安装\n- **EXE 安装包**：适合所有用户\n- **MSIX 包**：现代应用格式，支持干净卸载\n- 适配：Windows 10/11 x64\n### 🍎 macOS 版\n- macOS 桌面版\n- Universal：Apple Silicon + Intel\n- ZIP / DMG\n### 📱 Android 版\n- Android 6.0+\n- ARM64-v8a\n- ARMv7\n- x86_64\n- 统一 SHA256 校验文件：[**ANDROID_SHA256SUM.txt**](https://github.com/liuchuancong/pure_live/releases/download/v3.0.4/ANDROID_SHA256SUM.txt)\n### 🐧 Linux 版\n- Linux x64\n- Portable tar.gz\n### 🍎 iOS 版\n- unsigned iOS device application\n- TrollStore / ad-hoc IPA\n- ARM64\n### 🔧 Build Metadata\n[**BUILD_METADATA.json**](https://github.com/liuchuancong/pure_live/releases/download/v3.0.4/BUILD_METADATA.json)\n### 📝 本次更新\n- 修正移动端比例。\n- 设置-> 视频添加沉沁选择。\n- 优化返回处理。\n- 增加小屏选择其他直播间。",
-          "downloadURL": "https://github.com/liuchuancong/pure_live/releases/download/v3.0.4/PureLive-3.0.4-4092-ios-arm64-trollstore.ipa",
-          "size": 58676157,
+          "version": "3.0.6",
+          "date": "2026-08-27",
+          "localizedDescription": "# 纯粹直播 v3.0.6\n|版本|下载地址|\n|---|---|\n|TV版|[pure_live_TV](https://github.com/liuchuancong/pure_live_TV/releases/latest)|\n|Windows/macOS/Android/iOS版|[pure_live](https://github.com/liuchuancong/pure_live/releases/latest)|\n### 🖥️ Windows 版\n- **Portable ZIP**：解压即用，无需安装\n- **EXE 安装包**：适合所有用户\n- **MSIX 包**：现代应用格式，支持干净卸载\n- 适配：Windows 10/11 x64\n### 🍎 macOS 版\n- macOS 桌面版\n- Universal：Apple Silicon + Intel\n- ZIP / DMG\n### 📱 Android 版\n- Android 8.0+（API 26，FFmpegKit 录制依赖要求）\n- ARM64-v8a\n- ARMv7\n- x86_64\n- 统一 SHA256 校验文件：[**ANDROID_SHA256SUM.txt**](https://github.com/liuchuancong/pure_live/releases/download/v3.0.6/ANDROID_SHA256SUM.txt)\n### 🐧 Linux 版\n- Linux x64\n- Portable tar.gz\n### 🍎 iOS 版\n- unsigned iOS device application\n- TrollStore / ad-hoc IPA\n- ARM64\n### 🔧 Build Metadata\n[**BUILD_METADATA.json**](https://github.com/liuchuancong/pure_live/releases/download/v3.0.6/BUILD_METADATA.json)\n### 📝 本次更新\nversion: 3.0.6\n版本更新：\n- 优化windows的画中画只能区分横竖屏。\n- 添加刘海屏适配。\n- 备份添加cookie和webdav等用户数据。\n- 优化Iptv的竖屏显示。\n- 修复快手直播源获取错误。",
+          "downloadURL": "https://github.com/liuchuancong/pure_live/releases/download/v3.0.6/PureLive-3.0.6-4094-ios-arm64-trollstore.ipa",
+          "size": 58719365,
           "minOSVersion": "15.6"
         }
       ]
@@ -639,14 +639,25 @@
   "news": [
     {
       "appID": "com.mystyle.purelive.liu",
-      "title": "PureLive 3.0.4 · 26 Aug 2026",
-      "identifier": "PureLive-release-v3.0.4",
-      "caption": "PureLive 3.0.4 is available.",
-      "date": "2026-08-26T15:46:09Z",
+      "title": "PureLive 3.0.6 · 27 Aug 2026",
+      "identifier": "PureLive-release-v3.0.6",
+      "caption": "PureLive 3.0.6 is available.",
+      "date": "2026-08-27T07:52:52Z",
       "tintColor": "#50B0F0",
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/PureLive/images/news.png",
       "notify": true,
-      "url": "https://github.com/liuchuancong/pure_live/releases/tag/v3.0.4"
+      "url": "https://github.com/liuchuancong/pure_live/releases/tag/v3.0.6"
+    },
+    {
+      "appID": "com.dddevid.musly",
+      "title": "Musly 2.0.2 · 26 Aug 2026",
+      "identifier": "Musly-release-v2.0.2",
+      "caption": "Musly 2.0.2 is available.",
+      "date": "2026-08-26T20:40:22Z",
+      "tintColor": "#FA243C",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Musly/images/news.png",
+      "notify": true,
+      "url": "https://github.com/dddevid/Musly/releases/tag/v2.0.2"
     },
     {
       "appID": "ani.baka",
@@ -702,17 +713,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/PiliPlus/images/news.png",
       "notify": true,
       "url": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/tag/2.1.2.1"
-    },
-    {
-      "appID": "com.dddevid.musly",
-      "title": "Musly 2.0.1 · 25 Aug 2026",
-      "identifier": "Musly-release-v2.0.1",
-      "caption": "Musly 2.0.1 is available.",
-      "date": "2026-08-25T21:44:35Z",
-      "tintColor": "#FA243C",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Musly/images/news.png",
-      "notify": true,
-      "url": "https://github.com/dddevid/Musly/releases/tag/v2.0.1"
     },
     {
       "appID": "com.github.cyrilpeng.veneranext",
