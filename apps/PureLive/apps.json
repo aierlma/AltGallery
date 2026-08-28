@@ -21,11 +21,11 @@
       "tintColor": "#50B0F0",
       "versions": [
         {
-          "version": "3.0.5",
-          "date": "2026-08-27",
-          "localizedDescription": "# 纯粹直播 v3.0.5\n|版本|下载地址|\n|---|---|\n|TV版|[pure_live_TV](https://github.com/liuchuancong/pure_live_TV/releases/latest)|\n|Windows/macOS/Android/iOS版|[pure_live](https://github.com/liuchuancong/pure_live/releases/latest)|\n### 🖥️ Windows 版\n- **Portable ZIP**：解压即用，无需安装\n- **EXE 安装包**：适合所有用户\n- **MSIX 包**：现代应用格式，支持干净卸载\n- 适配：Windows 10/11 x64\n### 🍎 macOS 版\n- macOS 桌面版\n- Universal：Apple Silicon + Intel\n- ZIP / DMG\n### 📱 Android 版\n- Android 6.0+\n- ARM64-v8a\n- ARMv7\n- x86_64\n- 统一 SHA256 校验文件：[**ANDROID_SHA256SUM.txt**](https://github.com/liuchuancong/pure_live/releases/download/v3.0.5/ANDROID_SHA256SUM.txt)\n### 🐧 Linux 版\n- Linux x64\n- Portable tar.gz\n### 🍎 iOS 版\n- unsigned iOS device application\n- TrollStore / ad-hoc IPA\n- ARM64\n### 🔧 Build Metadata\n[**BUILD_METADATA.json**](https://github.com/liuchuancong/pure_live/releases/download/v3.0.5/BUILD_METADATA.json)\n### 📝 本次更新\n- 优化windows的画中画只能区分横竖屏。\n- 添加浏览屏适配。\n- 备份添加cookie和webdav等用户数据。",
-          "downloadURL": "https://github.com/liuchuancong/pure_live/releases/download/v3.0.5/PureLive-3.0.5-4093-ios-arm64-trollstore.ipa",
-          "size": 58693625,
+          "version": "3.0.7",
+          "date": "2026-08-28",
+          "localizedDescription": "# 纯粹直播 v3.0.7\n|版本|下载地址|\n|---|---|\n|TV版|[pure_live_TV](https://github.com/liuchuancong/pure_live_TV/releases/latest)|\n|Windows/macOS/Android/iOS版|[pure_live](https://github.com/liuchuancong/pure_live/releases/latest)|\n### 🖥️ Windows 版\n- **Portable ZIP**：解压即用，无需安装\n- **EXE 安装包**：适合所有用户\n- **MSIX 包**：现代应用格式，支持干净卸载\n- 适配：Windows 10/11 x64\n### 🍎 macOS 版\n- macOS 桌面版\n- Universal：Apple Silicon + Intel\n- ZIP / DMG\n### 📱 Android 版\n- Android 8.0+（API 26，FFmpegKit 录制依赖要求）\n- ARM64-v8a\n- ARMv7\n- x86_64\n- 统一 SHA256 校验文件：[**ANDROID_SHA256SUM.txt**](https://github.com/liuchuancong/pure_live/releases/download/v3.0.7/ANDROID_SHA256SUM.txt)\n### 🐧 Linux 版\n- Linux x64\n- Portable tar.gz\n### 🍎 iOS 版\n- unsigned iOS device application\n- TrollStore / ad-hoc IPA\n- ARM64\n### 🔧 Build Metadata\n[**BUILD_METADATA.json**](https://github.com/liuchuancong/pure_live/releases/download/v3.0.7/BUILD_METADATA.json)\n### 📝 本次更新\nversion: 3.0.7\n版本更新：\n- 优化windows的画中画只能区分横竖屏。\n- 添加刘海屏适配。\n- 备份添加cookie和webdav等用户数据。\n- 优化Iptv的竖屏显示。\n- 优化IJK播放器。\n- 修复录制中android证书问题。\n- 修复快手直播源获取错误。",
+          "downloadURL": "https://github.com/liuchuancong/pure_live/releases/download/v3.0.7/PureLive-3.0.7-4095-ios-arm64-trollstore.ipa",
+          "size": 58852530,
           "minOSVersion": "15.6"
         }
       ]
@@ -34,14 +34,14 @@
   "news": [
     {
       "appID": "com.mystyle.purelive.liu",
-      "title": "PureLive 3.0.5 · 27 Aug 2026",
-      "identifier": "PureLive-release-v3.0.5",
-      "caption": "PureLive 3.0.5 is available.",
-      "date": "2026-08-27T03:15:54Z",
+      "title": "PureLive 3.0.7 · 28 Aug 2026",
+      "identifier": "PureLive-release-v3.0.7",
+      "caption": "PureLive 3.0.7 is available.",
+      "date": "2026-08-28T10:57:11Z",
       "tintColor": "#50B0F0",
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/PureLive/images/news.png",
       "notify": true,
-      "url": "https://github.com/liuchuancong/pure_live/releases/tag/v3.0.5"
+      "url": "https://github.com/liuchuancong/pure_live/releases/tag/v3.0.7"
     }
   ]
 }
