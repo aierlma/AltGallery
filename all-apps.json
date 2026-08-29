@@ -143,11 +143,11 @@
       "tintColor": "#3CAEFF",
       "versions": [
         {
-          "version": "nightly-20260828",
-          "date": "2026-08-28",
-          "localizedDescription": "Automated nightly build for community testing (unsigned).\n\nEvery download is named `ARMSX2-nightly-DATE-COMMIT-PLATFORM`, so builds\nfrom different nights stay distinguishable after you have downloaded them.\n\n- macOS arm64: macOS-arm64.tar.xz\n- Linux arm64: Linux-arm64-4K-pages.AppImage on most distros, or the 16K one on Asahi Linux and other Apple Silicon kernels (run getconf PAGESIZE if unsure)\n- Windows arm64: Windows-arm64.zip\n- RetroArch on Linux arm64: Linux-arm64-libretro-core.tar.zst, a 4K-page build\n- Bare-display kmsdrm handhelds: Linux-arm64-SDL-handheld.tar.zst, a 4K-page build (Rocknix and Batocera run compositors, so use the Qt AppImage there instead)\n- Android: Android-arm64.apk, sideload it\n- iOS: iOS-arm64.ipa, unsigned, sideload it\n\n## What's new\n- GS: native ASTC texture replacements for Vulkan and OpenGL ES\n\nFull changelog: https://github.com/ARMSX2/ARMSX2/compare/nightly-20260827...dec880e5c8ed08a85d9f242b19bc384d4150bab9",
-          "downloadURL": "https://github.com/ARMSX2/ARMSX2/releases/download/nightly-20260828/ARMSX2-nightly-20260828-3eb3684e49-iOS-arm64.ipa",
-          "size": 26753774,
+          "version": "nightly-20260829",
+          "date": "2026-08-29",
+          "localizedDescription": "Automated nightly build for community testing (unsigned).\n\nEvery download is named `ARMSX2-nightly-DATE-COMMIT-PLATFORM`, so builds\nfrom different nights stay distinguishable after you have downloaded them.\n\n- macOS arm64: macOS-arm64.tar.xz\n- Linux arm64: Linux-arm64-4K-pages.AppImage on most distros, or the 16K one on Asahi Linux and other Apple Silicon kernels (run getconf PAGESIZE if unsure)\n- Windows arm64: Windows-arm64.zip\n- RetroArch on Linux arm64: Linux-arm64-libretro-core.tar.zst, a 4K-page build\n- Bare-display kmsdrm handhelds: Linux-arm64-SDL-handheld.tar.zst, a 4K-page build (Rocknix and Batocera run compositors, so use the Qt AppImage there instead)\n- Android: Android-arm64.apk, sideload it\n- iOS: iOS-arm64.ipa, unsigned, sideload it\n\n## What's new\n- delete PCXS2's AGENTS.md\n- GS: native ASTC texture replacements for Vulkan and OpenGL ES\n- Fall back to CLOCK_MONOTONIC when the arch timer frequency is unset\n\nFull changelog: https://github.com/ARMSX2/ARMSX2/compare/nightly-20260828...97d95b0ce5e7140a7135ed68dbff06df6b1ead49",
+          "downloadURL": "https://github.com/ARMSX2/ARMSX2/releases/download/nightly-20260829/ARMSX2-nightly-20260829-97d95b0ce5-iOS-arm64.ipa",
+          "size": 26752743,
           "minOSVersion": "17.0"
         }
       ]
@@ -314,11 +314,11 @@
       "tintColor": "#F0D060",
       "versions": [
         {
-          "version": "0.3.12",
-          "date": "2026-08-27",
-          "localizedDescription": "### Improved / 改进\n\n- **iOS + macOS**: stronger contrast for karaoke (逐字) lyrics — unsung characters are dimmer, so the word-by-word highlight is more obvious. Only songs that have NetEase verbatim (`yrc`) lyrics show it; others keep line-level highlighting.\n- **iOS + macOS**：逐字歌词（卡拉OK）对比度加强——未唱的字更暗，逐字高亮更明显。仅对有网易云逐字歌词（`yrc`）的歌曲生效，其余保持整行高亮。",
-          "downloadURL": "https://github.com/missuo/kumone/releases/download/v0.3.12/Kumone-iOS-0.3.12.ipa",
-          "size": 7018566,
+          "version": "0.3.14",
+          "date": "2026-08-29",
+          "localizedDescription": "### Added / 新增\n\n- **iOS + macOS**: a retro vinyl record-player now-playing mode (黑胶模式) — programmatic vinyl + tonearm with swipe-to-switch. Opt in from Settings (the default stays 沉浸模式). Thanks @MikeChongCan (#55).\n- **iOS + macOS**：新增黑胶唱片播放页模式（黑胶模式）——矢量唱片 + 唱臂，可滑动切换。默认仍是沉浸模式，可在设置中选择。感谢 @MikeChongCan（#55）。\n- **macOS**: a \"桌面歌词水平居中\" toggle that locks the floating lyric capsule to the horizontal centre of the screen (vertical drag still works). (#48)\n- **macOS**：新增「桌面歌词水平居中」开关，可把悬浮歌词锁定在屏幕水平中央（仍可上下拖动）。（#48）\n\n### Fixed / 修复\n\n- **macOS**: the desktop-lyrics button in the player bar now reflects its on/off state — it read the setting directly and never re-rendered when toggled. (#48)\n- **macOS**：播放条上的桌面歌词按钮现在会正确反映开/关状态——之前直接读取设置、切换后不重绘，颜色卡住。（#48）",
+          "downloadURL": "https://github.com/missuo/kumone/releases/download/v0.3.14/Kumone-iOS-0.3.14.ipa",
+          "size": 7137029,
           "minOSVersion": "16.0"
         }
       ]
@@ -433,12 +433,12 @@
       "tintColor": "#73b480",
       "versions": [
         {
-          "version": "2.1.2.1",
-          "buildVersion": "5255",
-          "date": "2026-08-26",
-          "localizedDescription": "支持加载 `bcc` 格式字幕 #2705\r\n播放器启用自动重连 #2446 by @AlinJiang\r\n安卓支持允许三方 APP 访问私有存储，默认关\r\n支持复制设备信息 #2688 by @My-Responsitories\r\n调整部分设置选项界面 #2683 by @My-Responsitories\r\n\r\n修复 #2697 by @My-Responsitories\r\n修复 #2637 #2638 #2647 #2671 #2692",
-          "downloadURL": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/download/2.1.2.1/PiliPlus_ios_2.1.2%2B5255.ipa",
-          "size": 23937413,
+          "version": "2.1.2.2",
+          "buildVersion": "5277",
+          "date": "2026-08-29",
+          "localizedDescription": "回退 #2446\r\n显示视频分 P 序号 #2717\r\n弹幕应用 APP 字体 #2712\r\n支持导入字体 co-by @My-Responsitories\r\n其他调整 #2734 #2767 by @My-Responsitories\r\n\r\n修复 #2716 #2731\r\n修复部分安卓设备无法显示登录验证码 #2642 #2713 by @My-Responsitories",
+          "downloadURL": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/download/2.1.2.2/PiliPlus_ios_2.1.2%2B5277.ipa",
+          "size": 23936202,
           "minOSVersion": "14.0"
         }
       ]
@@ -482,11 +482,11 @@
       "tintColor": "#50B0F0",
       "versions": [
         {
-          "version": "3.0.7",
-          "date": "2026-08-28",
-          "localizedDescription": "# 纯粹直播 v3.0.7\n|版本|下载地址|\n|---|---|\n|TV版|[pure_live_TV](https://github.com/liuchuancong/pure_live_TV/releases/latest)|\n|Windows/macOS/Android/iOS版|[pure_live](https://github.com/liuchuancong/pure_live/releases/latest)|\n### 🖥️ Windows 版\n- **Portable ZIP**：解压即用，无需安装\n- **EXE 安装包**：适合所有用户\n- **MSIX 包**：现代应用格式，支持干净卸载\n- 适配：Windows 10/11 x64\n### 🍎 macOS 版\n- macOS 桌面版\n- Universal：Apple Silicon + Intel\n- ZIP / DMG\n### 📱 Android 版\n- Android 8.0+（API 26，FFmpegKit 录制依赖要求）\n- ARM64-v8a\n- ARMv7\n- x86_64\n- 统一 SHA256 校验文件：[**ANDROID_SHA256SUM.txt**](https://github.com/liuchuancong/pure_live/releases/download/v3.0.7/ANDROID_SHA256SUM.txt)\n### 🐧 Linux 版\n- Linux x64\n- Portable tar.gz\n### 🍎 iOS 版\n- unsigned iOS device application\n- TrollStore / ad-hoc IPA\n- ARM64\n### 🔧 Build Metadata\n[**BUILD_METADATA.json**](https://github.com/liuchuancong/pure_live/releases/download/v3.0.7/BUILD_METADATA.json)\n### 📝 本次更新\nversion: 3.0.7\n版本更新：\n- 优化windows的画中画只能区分横竖屏。\n- 添加刘海屏适配。\n- 备份添加cookie和webdav等用户数据。\n- 优化Iptv的竖屏显示。\n- 优化IJK播放器。\n- 修复录制中android证书问题。\n- 修复快手直播源获取错误。",
-          "downloadURL": "https://github.com/liuchuancong/pure_live/releases/download/v3.0.7/PureLive-3.0.7-4095-ios-arm64-trollstore.ipa",
-          "size": 58852530,
+          "version": "3.0.8",
+          "date": "2026-08-29",
+          "localizedDescription": "# 纯粹直播 v3.0.8\n|版本|下载地址|\n|---|---|\n|TV版|[pure_live_TV](https://github.com/liuchuancong/pure_live_TV/releases/latest)|\n|Windows/macOS/Android/iOS版|[pure_live](https://github.com/liuchuancong/pure_live/releases/latest)|\n### 🖥️ Windows 版\n- **Portable ZIP**：解压即用，无需安装\n- **EXE 安装包**：适合所有用户\n- **MSIX 包**：现代应用格式，支持干净卸载\n- 适配：Windows 10/11 x64\n### 🍎 macOS 版\n- macOS 桌面版\n- Universal：Apple Silicon + Intel\n- ZIP / DMG\n### 📱 Android 版\n- Android 8.0+（API 26，FFmpegKit 录制依赖要求）\n- ARM64-v8a\n- ARMv7\n- x86_64\n- 统一 SHA256 校验文件：[**ANDROID_SHA256SUM.txt**](https://github.com/liuchuancong/pure_live/releases/download/v3.0.8/ANDROID_SHA256SUM.txt)\n### 🐧 Linux 版\n- Linux x64\n- Portable tar.gz\n### 🍎 iOS 版\n- unsigned iOS device application\n- TrollStore / ad-hoc IPA\n- ARM64\n### 🔧 Build Metadata\n[**BUILD_METADATA.json**](https://github.com/liuchuancong/pure_live/releases/download/v3.0.8/BUILD_METADATA.json)\n### 📝 本次更新\nversion: 3.0.8\n版本更新：\n- 修复huya断流",
+          "downloadURL": "https://github.com/liuchuancong/pure_live/releases/download/v3.0.8/PureLive-3.0.8-4096-ios-arm64-trollstore.ipa",
+          "size": 58809542,
           "minOSVersion": "15.6"
         }
       ]
@@ -638,6 +638,50 @@
   ],
   "news": [
     {
+      "appID": "com.armsx2.ios",
+      "title": "ARMSX2 nightly-20260829 · 29 Aug 2026",
+      "identifier": "ARMSX2-release-nightly-20260829",
+      "caption": "ARMSX2 nightly-20260829 is available.",
+      "date": "2026-08-29T14:12:37Z",
+      "tintColor": "#3CAEFF",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/ARMSX2/images/news.png",
+      "notify": true,
+      "url": "https://github.com/ARMSX2/ARMSX2/releases/tag/nightly-20260829"
+    },
+    {
+      "appID": "com.example.PiliPlus",
+      "title": "PiliPlus 2.1.2.2 · 29 Aug 2026",
+      "identifier": "PiliPlus-release-2.1.2.2",
+      "caption": "PiliPlus 2.1.2.2 is available.",
+      "date": "2026-08-29T13:58:46Z",
+      "tintColor": "#73b480",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/PiliPlus/images/news.png",
+      "notify": true,
+      "url": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/tag/2.1.2.2"
+    },
+    {
+      "appID": "sb.moe.kumone",
+      "title": "Kumone 0.3.14 · 29 Aug 2026",
+      "identifier": "Kumone-release-v0.3.14",
+      "caption": "Kumone 0.3.14 is available.",
+      "date": "2026-08-29T12:43:10Z",
+      "tintColor": "#F0D060",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Kumone/images/news.png",
+      "notify": true,
+      "url": "https://github.com/missuo/kumone/releases/tag/v0.3.14"
+    },
+    {
+      "appID": "com.mystyle.purelive.liu",
+      "title": "PureLive 3.0.8 · 29 Aug 2026",
+      "identifier": "PureLive-release-v3.0.8",
+      "caption": "PureLive 3.0.8 is available.",
+      "date": "2026-08-29T11:26:46Z",
+      "tintColor": "#50B0F0",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/PureLive/images/news.png",
+      "notify": true,
+      "url": "https://github.com/liuchuancong/pure_live/releases/tag/v3.0.8"
+    },
+    {
       "appID": "org.animeko.animeko",
       "title": "Animeko 6.1.0 · 28 Aug 2026",
       "identifier": "Animeko-release-v6.1.0",
@@ -660,17 +704,6 @@
       "url": "https://github.com/openAnimeFlow/AnimeFlow/releases/tag/v2.4.0"
     },
     {
-      "appID": "com.mystyle.purelive.liu",
-      "title": "PureLive 3.0.7 · 28 Aug 2026",
-      "identifier": "PureLive-release-v3.0.7",
-      "caption": "PureLive 3.0.7 is available.",
-      "date": "2026-08-28T10:57:11Z",
-      "tintColor": "#50B0F0",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/PureLive/images/news.png",
-      "notify": true,
-      "url": "https://github.com/liuchuancong/pure_live/releases/tag/v3.0.7"
-    },
-    {
       "appID": "com.altman.moviepilot",
       "title": "MoviePilotLite 1.2.3 · 28 Aug 2026",
       "identifier": "MoviePilotLite-release-release-v1.2.3-2026-08-28",
@@ -680,17 +713,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/MoviePilotLite/images/news.png",
       "notify": true,
       "url": "https://github.com/singleton-altman/MoviePilotLite/releases/tag/release-v1.2.3-2026-08-28"
-    },
-    {
-      "appID": "com.armsx2.ios",
-      "title": "ARMSX2 nightly-20260828 · 28 Aug 2026",
-      "identifier": "ARMSX2-release-nightly-20260828",
-      "caption": "ARMSX2 nightly-20260828 is available.",
-      "date": "2026-08-28T04:47:54Z",
-      "tintColor": "#3CAEFF",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/ARMSX2/images/news.png",
-      "notify": true,
-      "url": "https://github.com/ARMSX2/ARMSX2/releases/tag/nightly-20260828"
     },
     {
       "appID": "com.example.kazumi",
@@ -726,17 +748,6 @@
       "url": "https://github.com/moliango/doer/releases/tag/v1.8.3"
     },
     {
-      "appID": "sb.moe.kumone",
-      "title": "Kumone 0.3.12 · 27 Aug 2026",
-      "identifier": "Kumone-release-v0.3.12",
-      "caption": "Kumone 0.3.12 is available.",
-      "date": "2026-08-27T10:28:37Z",
-      "tintColor": "#F0D060",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Kumone/images/news.png",
-      "notify": true,
-      "url": "https://github.com/missuo/kumone/releases/tag/v0.3.12"
-    },
-    {
       "appID": "com.dddevid.musly",
       "title": "Musly 2.0.2 · 26 Aug 2026",
       "identifier": "Musly-release-v2.0.2",
@@ -757,17 +768,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/AniBaka/images/news.png",
       "notify": true,
       "url": "https://github.com/AniBakaBaka/AniBaka/releases/tag/5.1.0+0823"
-    },
-    {
-      "appID": "com.example.PiliPlus",
-      "title": "PiliPlus 2.1.2.1 · 26 Aug 2026",
-      "identifier": "PiliPlus-release-2.1.2.1",
-      "caption": "PiliPlus 2.1.2.1 is available.",
-      "date": "2026-08-26T03:10:08Z",
-      "tintColor": "#73b480",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/PiliPlus/images/news.png",
-      "notify": true,
-      "url": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/tag/2.1.2.1"
     },
     {
       "appID": "com.miguel.psx3ios",
