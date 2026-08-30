@@ -21,11 +21,11 @@
       "tintColor": "#5080D0",
       "versions": [
         {
-          "version": "0.2.5-beta",
-          "date": "2026-08-24",
-          "localizedDescription": "File selector fixed, TrollStore version added",
-          "downloadURL": "https://github.com/xmiguel911x/PSX3IOS/releases/download/v0.2.5-beta/PSX3IOS-beta.0.5-unsigned.ipa",
-          "size": 67584625,
+          "version": "0.2.6-beta",
+          "date": "2026-08-29",
+          "localizedDescription": "Various improvements added and bugs fixed",
+          "downloadURL": "https://github.com/xmiguel911x/PSX3IOS/releases/download/v0.2.6-beta/PSX3IOS-beta.0.2.6-unsigned.ipa",
+          "size": 67623829,
           "minOSVersion": "15.0"
         }
       ]
@@ -34,14 +34,14 @@
   "news": [
     {
       "appID": "com.miguel.psx3ios",
-      "title": "PSX3IOS 0.2.5-beta · 24 Aug 2026",
-      "identifier": "PSX3IOS-release-v0.2.5-beta",
-      "caption": "PSX3IOS 0.2.5-beta is available.",
-      "date": "2026-08-24T23:07:50Z",
+      "title": "PSX3IOS 0.2.6-beta · 29 Aug 2026",
+      "identifier": "PSX3IOS-release-v0.2.6-beta",
+      "caption": "PSX3IOS 0.2.6-beta is available.",
+      "date": "2026-08-29T21:52:54Z",
       "tintColor": "#5080D0",
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/PSX3IOS/images/news.png",
       "notify": true,
-      "url": "https://github.com/xmiguel911x/PSX3IOS/releases/tag/v0.2.5-beta"
+      "url": "https://github.com/xmiguel911x/PSX3IOS/releases/tag/v0.2.6-beta"
     }
   ]
 }
