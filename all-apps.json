@@ -167,11 +167,11 @@
       "tintColor": "#4080E0",
       "versions": [
         {
-          "version": "1.8.3",
-          "date": "2026-08-27",
-          "localizedDescription": "**Full Changelog**: https://github.com/moliango/doer/compare/v1.8.2...v1.8.3",
-          "downloadURL": "https://github.com/moliango/doer/releases/download/v1.8.3/doer-unsigned.ipa",
-          "size": 23511134,
+          "version": "1.8.4",
+          "date": "2026-08-31",
+          "localizedDescription": "**Full Changelog**: https://github.com/moliango/doer/compare/v1.8.3...v1.8.4",
+          "downloadURL": "https://github.com/moliango/doer/releases/download/v1.8.4/doer-unsigned.ipa",
+          "size": 23691051,
           "minOSVersion": "15.0"
         }
       ]
@@ -482,11 +482,11 @@
       "tintColor": "#50B0F0",
       "versions": [
         {
-          "version": "3.0.8",
-          "date": "2026-08-29",
-          "localizedDescription": "# 纯粹直播 v3.0.8\n|版本|下载地址|\n|---|---|\n|TV版|[pure_live_TV](https://github.com/liuchuancong/pure_live_TV/releases/latest)|\n|Windows/macOS/Android/iOS版|[pure_live](https://github.com/liuchuancong/pure_live/releases/latest)|\n### 🖥️ Windows 版\n- **Portable ZIP**：解压即用，无需安装\n- **EXE 安装包**：适合所有用户\n- **MSIX 包**：现代应用格式，支持干净卸载\n- 适配：Windows 10/11 x64\n### 🍎 macOS 版\n- macOS 桌面版\n- Universal：Apple Silicon + Intel\n- ZIP / DMG\n### 📱 Android 版\n- Android 8.0+（API 26，FFmpegKit 录制依赖要求）\n- ARM64-v8a\n- ARMv7\n- x86_64\n- 统一 SHA256 校验文件：[**ANDROID_SHA256SUM.txt**](https://github.com/liuchuancong/pure_live/releases/download/v3.0.8/ANDROID_SHA256SUM.txt)\n### 🐧 Linux 版\n- Linux x64\n- Portable tar.gz\n### 🍎 iOS 版\n- unsigned iOS device application\n- TrollStore / ad-hoc IPA\n- ARM64\n### 🔧 Build Metadata\n[**BUILD_METADATA.json**](https://github.com/liuchuancong/pure_live/releases/download/v3.0.8/BUILD_METADATA.json)\n### 📝 本次更新\nversion: 3.0.8\n版本更新：\n- 修复huya断流",
-          "downloadURL": "https://github.com/liuchuancong/pure_live/releases/download/v3.0.8/PureLive-3.0.8-4096-ios-arm64-trollstore.ipa",
-          "size": 58809542,
+          "version": "3.0.9",
+          "date": "2026-08-31",
+          "localizedDescription": "# 纯粹直播 v3.0.9\n|版本|下载地址|\n|---|---|\n|TV版|[pure_live_TV](https://github.com/liuchuancong/pure_live_TV/releases/latest)|\n|Windows/macOS/Android/iOS版|[pure_live](https://github.com/liuchuancong/pure_live/releases/latest)|\n### 🖥️ Windows 版\n- **Portable ZIP**：解压即用，无需安装\n- **EXE 安装包**：适合所有用户\n- **MSIX 包**：现代应用格式，支持干净卸载\n- 适配：Windows 10/11 x64\n### 🍎 macOS 版\n- macOS 桌面版\n- Universal：Apple Silicon + Intel\n- ZIP / DMG\n### 📱 Android 版\n- Android 8.0+（API 26，FFmpegKit 录制依赖要求）\n- ARM64-v8a\n- ARMv7\n- x86_64\n- 统一 SHA256 校验文件：[**ANDROID_SHA256SUM.txt**](https://github.com/liuchuancong/pure_live/releases/download/v3.0.9/ANDROID_SHA256SUM.txt)\n### 🐧 Linux 版\n- Linux x64\n- Portable tar.gz\n### 🍎 iOS 版\n- unsigned iOS device application\n- TrollStore / ad-hoc IPA\n- ARM64\n### 🔧 Build Metadata\n[**BUILD_METADATA.json**](https://github.com/liuchuancong/pure_live/releases/download/v3.0.9/BUILD_METADATA.json)\n### 📝 本次更新\nversion: 3.0.9\n版本更新：\n- 优化MPV播放器支持超高清观看。\n- 添加设备同步。\n- 修复弹幕速度不同步。",
+          "downloadURL": "https://github.com/liuchuancong/pure_live/releases/download/v3.0.9/PureLive-3.0.9-4097-ios-arm64-trollstore.ipa",
+          "size": 59023476,
           "minOSVersion": "15.6"
         }
       ]
@@ -638,6 +638,28 @@
   ],
   "news": [
     {
+      "appID": "com.mystyle.purelive.liu",
+      "title": "PureLive 3.0.9 · 31 Aug 2026",
+      "identifier": "PureLive-release-v3.0.9",
+      "caption": "PureLive 3.0.9 is available.",
+      "date": "2026-08-31T11:48:50Z",
+      "tintColor": "#50B0F0",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/PureLive/images/news.png",
+      "notify": true,
+      "url": "https://github.com/liuchuancong/pure_live/releases/tag/v3.0.9"
+    },
+    {
+      "appID": "com.naine.doer",
+      "title": "Doer 1.8.4 · 31 Aug 2026",
+      "identifier": "Doer-release-v1.8.4",
+      "caption": "Doer 1.8.4 is available.",
+      "date": "2026-08-31T09:45:33Z",
+      "tintColor": "#4080E0",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Doer/images/news.png",
+      "notify": true,
+      "url": "https://github.com/moliango/doer/releases/tag/v1.8.4"
+    },
+    {
       "appID": "com.github.cyrilpeng.veneranext",
       "title": "VeneraNext 1.15.0 · 31 Aug 2026",
       "identifier": "VeneraNext-release-v1.15.0",
@@ -704,17 +726,6 @@
       "url": "https://github.com/missuo/kumone/releases/tag/v0.3.14"
     },
     {
-      "appID": "com.mystyle.purelive.liu",
-      "title": "PureLive 3.0.8 · 29 Aug 2026",
-      "identifier": "PureLive-release-v3.0.8",
-      "caption": "PureLive 3.0.8 is available.",
-      "date": "2026-08-29T11:26:46Z",
-      "tintColor": "#50B0F0",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/PureLive/images/news.png",
-      "notify": true,
-      "url": "https://github.com/liuchuancong/pure_live/releases/tag/v3.0.8"
-    },
-    {
       "appID": "org.animeko.animeko",
       "title": "Animeko 6.1.0 · 28 Aug 2026",
       "identifier": "Animeko-release-v6.1.0",
@@ -757,17 +768,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Kazumi/images/news.png",
       "notify": true,
       "url": "https://github.com/Predidit/Kazumi/releases/tag/2.3.0"
-    },
-    {
-      "appID": "com.naine.doer",
-      "title": "Doer 1.8.3 · 27 Aug 2026",
-      "identifier": "Doer-release-v1.8.3",
-      "caption": "Doer 1.8.3 is available.",
-      "date": "2026-08-27T10:31:42Z",
-      "tintColor": "#4080E0",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Doer/images/news.png",
-      "notify": true,
-      "url": "https://github.com/moliango/doer/releases/tag/v1.8.3"
     },
     {
       "appID": "com.dddevid.musly",
