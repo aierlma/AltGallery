@@ -462,7 +462,7 @@
           "date": "2026-09-01",
           "localizedDescription": "Various improvements added, jit fixed A15 iOS 17.0 TrollStore Go to settings, JIT mode detected, and leave it on automatic, and bugs fixed",
           "downloadURL": "https://github.com/xmiguel911x/PSX3IOS/releases/download/v0.2.7-beta/PSX3IOS-beta.0.2.7-unsigned.ipa",
-          "size": 67646406,
+          "size": 67644766,
           "minOSVersion": "15.0"
         }
       ]
