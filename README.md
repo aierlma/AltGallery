@@ -92,6 +92,9 @@ Free Navidrome client & Subsonic music player with an Apple Music-inspired inter
 ### <a href="https://github.com/bggRGjQaUbCoE/PiliPlus"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/PiliPlus/icon.png" alt="PiliPlus icon" width="24" align="top"> PiliPlus</a>
 使用Flutter开发的BiliBili第三方客户端。
 
+### <a href="https://github.com/Eslzzyl/Pixiv-SwiftUI"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Pixiv-SwiftUI/icon.png" alt="Pixiv-SwiftUI icon" width="24" align="top"> Pixiv-SwiftUI</a>
+基于 SwiftUI 的 Pixiv 第三方客户端，支持 iOS/iPadOS/macOS。
+
 ### <a href="https://github.com/xmiguel911x/PSX3IOS"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/PSX3IOS/icon.png" alt="PSX3IOS icon" width="24" align="top"> PSX3IOS</a>
 A PlayStation 3 emulator for iPhone and iPad, built on RPCS3.
 
