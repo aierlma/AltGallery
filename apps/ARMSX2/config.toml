@@ -30,6 +30,7 @@ tint_color = "#3CAEFF"
 min_os_version = "17.0"
 
 [versions]
+# No ipa in normal release
 include_prereleases = true
 # asset_pattern is a regex (not glob): matches any ipa asset. Nightlies ship
 # *-iOS-arm64.ipa; older iOSv* releases ship ARMSX2-iOS-*.ipa.
