@@ -433,7 +433,7 @@
       "tintColor": "#73b480",
       "versions": [
         {
-          "version": "2.1.2.3",
+          "version": "2.1.2",
           "buildVersion": "5281",
           "date": "2026-08-30",
           "localizedDescription": "修复 bug",
@@ -705,9 +705,9 @@
     },
     {
       "appID": "com.example.piliplus",
-      "title": "PiliPlus 2.1.2.3 · 30 Aug 2026",
+      "title": "PiliPlus 2.1.2 · 30 Aug 2026",
       "identifier": "PiliPlus-release-2.1.2.3",
-      "caption": "PiliPlus 2.1.2.3 is available.",
+      "caption": "PiliPlus 2.1.2 is available.",
       "date": "2026-08-30T04:20:00Z",
       "tintColor": "#73b480",
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/PiliPlus/images/news.png",
