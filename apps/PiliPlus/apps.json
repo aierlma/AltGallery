@@ -8,7 +8,7 @@
   "apps": [
     {
       "name": "PiliPlus",
-      "bundleIdentifier": "com.example.PiliPlus",
+      "bundleIdentifier": "com.example.piliplus",
       "developerName": "bggRGjQaUbCoE",
       "subtitle": "使用Flutter开发的BiliBili第三方客户端",
       "localizedDescription": "使用Flutter开发的BiliBili第三方客户端",
@@ -34,7 +34,7 @@
   ],
   "news": [
     {
-      "appID": "com.example.PiliPlus",
+      "appID": "com.example.piliplus",
       "title": "PiliPlus 2.1.2.3 · 30 Aug 2026",
       "identifier": "PiliPlus-release-2.1.2.3",
       "caption": "PiliPlus 2.1.2.3 is available.",

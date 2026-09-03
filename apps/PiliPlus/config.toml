@@ -14,7 +14,7 @@ tint_color = "#00AEEF"
 
 [app]
 name = "PiliPlus"
-bundle_identifier = "com.example.PiliPlus"
+bundle_identifier = "com.example.piliplus"
 developer_name = "bggRGjQaUbCoE"
 subtitle = "使用Flutter开发的BiliBili第三方客户端"
 description = "使用Flutter开发的BiliBili第三方客户端"
