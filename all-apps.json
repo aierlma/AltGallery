@@ -168,10 +168,10 @@
       "versions": [
         {
           "version": "1.8.5.1",
-          "date": "2026-09-10",
+          "date": "2026-09-11",
           "localizedDescription": "**Full Changelog**: https://github.com/moliango/doer/compare/v1.8.5...v1.8.5.1",
           "downloadURL": "https://github.com/moliango/doer/releases/download/v1.8.5.1/doer-unsigned.ipa",
-          "size": 28075875,
+          "size": 28070169,
           "minOSVersion": "15.0"
         }
       ]
@@ -386,10 +386,10 @@
       "versions": [
         {
           "version": "1.2.5",
-          "date": "2026-09-07",
-          "localizedDescription": "MoviePilot Release\n\n- Version: 1.2.5\n- Build Date: 2026-09-07\n- Android: Signed universal APK\n- Android: Signed arm64-v8a APK\n- iOS: Unsigned IPA\n\niOS 安装说明：\n- IPA 为未签名包\n- 请使用自己的 Apple Developer 账号通过 AltStore、Sideloadly 或 Xcode 进行签名安装\n\n\n## What's Changed\n* V3 by @singleton-altman in https://github.com/singleton-altman/MoviePilotLite/pull/100\n* Dev by @singleton-altman in https://github.com/singleton-altman/MoviePilotLite/pull/103\n\n\n**Full Changelog**: https://github.com/singleton-altman/MoviePilotLite/compare/release-v1.2.3-2026-09-04...release-v1.2.5-2026-09-07",
-          "downloadURL": "https://github.com/singleton-altman/MoviePilotLite/releases/download/release-v1.2.5-2026-09-07/ios-v1.2.5-2026-09-07.ipa",
-          "size": 35225066,
+          "date": "2026-09-11",
+          "localizedDescription": "MoviePilot Release\n\n- Version: 1.2.5\n- Build Date: 2026-09-11\n- Android: Signed universal APK\n- Android: Signed arm64-v8a APK\n- iOS: Unsigned IPA\n\niOS 安装说明：\n- IPA 为未签名包\n- 请使用自己的 Apple Developer 账号通过 AltStore、Sideloadly 或 Xcode 进行签名安装\n\n\n## What's Changed\n* Add arm64 APK release artifact and proxy update downloads by @singleton-altman in https://github.com/singleton-altman/MoviePilotLite/pull/104\n\n\n**Full Changelog**: https://github.com/singleton-altman/MoviePilotLite/compare/release-v1.2.5-2026-09-07...release-v1.2.5-2026-09-11",
+          "downloadURL": "https://github.com/singleton-altman/MoviePilotLite/releases/download/release-v1.2.5-2026-09-11/ios-v1.2.5-2026-09-11.ipa",
+          "size": 35225061,
           "minOSVersion": "15.0"
         }
       ]
@@ -638,6 +638,28 @@
   ],
   "news": [
     {
+      "appID": "com.naine.doer",
+      "title": "Doer 1.8.5.1 · 11 Sep 2026",
+      "identifier": "Doer-release-v1.8.5.1",
+      "caption": "Doer 1.8.5.1 is available.",
+      "date": "2026-09-11T03:31:11Z",
+      "tintColor": "#4080E0",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Doer/images/news.png",
+      "notify": true,
+      "url": "https://github.com/moliango/doer/releases/tag/v1.8.5.1"
+    },
+    {
+      "appID": "com.altman.moviepilot",
+      "title": "MoviePilotLite 1.2.5 · 11 Sep 2026",
+      "identifier": "MoviePilotLite-release-release-v1.2.5-2026-09-11",
+      "caption": "MoviePilotLite 1.2.5 is available.",
+      "date": "2026-09-11T03:14:57Z",
+      "tintColor": "#8050F0",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/MoviePilotLite/images/news.png",
+      "notify": true,
+      "url": "https://github.com/singleton-altman/MoviePilotLite/releases/tag/release-v1.2.5-2026-09-11"
+    },
+    {
       "appID": "com.christianselig.Apollo",
       "title": "Apollo for Reddit - GLASS 3.7.0 · 11 Sep 2026",
       "identifier": "Apollo for Reddit - GLASS-release-v1.15.11_3.7.0",
@@ -658,17 +680,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Kumone/images/news.png",
       "notify": true,
       "url": "https://github.com/missuo/kumone/releases/tag/v0.3.17"
-    },
-    {
-      "appID": "com.naine.doer",
-      "title": "Doer 1.8.5.1 · 10 Sep 2026",
-      "identifier": "Doer-release-v1.8.5.1",
-      "caption": "Doer 1.8.5.1 is available.",
-      "date": "2026-09-10T11:45:50Z",
-      "tintColor": "#4080E0",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Doer/images/news.png",
-      "notify": true,
-      "url": "https://github.com/moliango/doer/releases/tag/v1.8.5.1"
     },
     {
       "appID": "com.google.ios.youtube",
@@ -724,17 +735,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Kazumi/images/news.png",
       "notify": true,
       "url": "https://github.com/Predidit/Kazumi/releases/tag/2.3.1"
-    },
-    {
-      "appID": "com.altman.moviepilot",
-      "title": "MoviePilotLite 1.2.5 · 07 Sep 2026",
-      "identifier": "MoviePilotLite-release-release-v1.2.5-2026-09-07",
-      "caption": "MoviePilotLite 1.2.5 is available.",
-      "date": "2026-09-07T04:44:07Z",
-      "tintColor": "#8050F0",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/MoviePilotLite/images/news.png",
-      "notify": true,
-      "url": "https://github.com/singleton-altman/MoviePilotLite/releases/tag/release-v1.2.5-2026-09-07"
     },
     {
       "appID": "com.example.piliplus",
