@@ -6,7 +6,7 @@ repo = "seanhowarthdev/Roam-Control"
 
 [source]
 name = "Roam Control"
-subtitle = "Roam Control AltStore source by AltGallery & altgen"
+subtitle = "Roam Control AltStore source by AltGallery & AltGen"
 description = "Auto-updated AltStore source for Roam Control"
 icon_url = "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Roam-Control/icon.png"
 website = "https://github.com/seanhowarthdev/Roam-Control"

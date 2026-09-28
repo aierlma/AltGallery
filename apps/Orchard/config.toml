@@ -6,7 +6,7 @@ repo = "MakrSas/orchard-ios"
 
 [source]
 name = "Orchard"
-subtitle = "Orchard AltStore source by AltGallery & altgen"
+subtitle = "Orchard AltStore source by AltGallery & AltGen"
 description = "Auto-updated AltStore source for Orchard"
 icon_url = "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Orchard/icon.png"
 website = "https://github.com/MakrSas/orchard-ios"

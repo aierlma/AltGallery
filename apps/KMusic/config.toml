@@ -6,7 +6,7 @@ repo = "Mac-XK/KMusic"
 
 [source]
 name = "KMusic"
-subtitle = "KMusic AltStore source by AltGallery & altgen"
+subtitle = "KMusic AltStore source by AltGallery & AltGen"
 description = "Auto-updated AltStore source for KMusic"
 icon_url = "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/KMusic/icon.png"
 website = "https://github.com/Mac-XK/KMusic"

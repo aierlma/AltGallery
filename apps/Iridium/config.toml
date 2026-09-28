@@ -6,7 +6,7 @@ repo = "intraducine/iridium"
 
 [source]
 name = "Iridium"
-subtitle = "Iridium AltStore source by AltGallery & altgen"
+subtitle = "Iridium AltStore source by AltGallery & AltGen"
 description = "Auto-updated AltStore source for Iridium"
 icon_url = "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Iridium/icon.png"
 website = "https://github.com/intraducine/iridium"

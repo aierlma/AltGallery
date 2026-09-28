@@ -6,7 +6,7 @@ repo = "Leviidev/Husk"
 
 [source]
 name = "Husk"
-subtitle = "Husk AltStore source by AltGallery & altgen"
+subtitle = "Husk AltStore source by AltGallery & AltGen"
 description = "Auto-updated AltStore source for Husk"
 icon_url = "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Husk/icon.png"
 website = "https://github.com/Leviidev/Husk"

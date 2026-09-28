@@ -6,7 +6,7 @@ repo = "Eslzzyl/Pixiv-SwiftUI"
 
 [source]
 name = "Pixiv-SwiftUI"
-subtitle = "Pixiv-SwiftUI AltStore source by AltGallery & altgen"
+subtitle = "Pixiv-SwiftUI AltStore source by AltGallery & AltGen"
 description = "Auto-updated AltStore source for Pixiv-SwiftUI"
 icon_url = "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Pixiv-SwiftUI/icon.png"
 website = "https://github.com/Eslzzyl/Pixiv-SwiftUI"
