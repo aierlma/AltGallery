@@ -71,6 +71,9 @@ Original Xbox emulation for iOS, built from xemu with a native Swift interface.
 ### <a href="https://github.com/EhPanda-Team/EhPanda"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/EhPanda/icon.png" alt="EhPanda icon" width="24" align="top"> EhPanda</a>
 An unofficial E-Hentai App for iOS built with SwiftUI & TCA.
 
+### <a href="https://github.com/intraducine/iridium"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Iridium/icon.png" alt="Iridium icon" width="24" align="top"> Iridium</a>
+An experimental iPhone and iPad Windows-game runtime, with a native game library and touch, keyboard, mouse, and controller integration.
+
 ### <a href="https://github.com/XITRIX/iTorrent"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/iTorrent/icon.png" alt="iTorrent icon" width="24" align="top"> iTorrent</a>
 Torrent client for iOS.
 
