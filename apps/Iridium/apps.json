@@ -1,0 +1,46 @@
+{
+  "name": "Iridium",
+  "subtitle": "Iridium AltStore source by AltGallery & AltGen",
+  "description": "Auto-updated AltStore source for Iridium",
+  "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Iridium/icon.png",
+  "website": "https://github.com/intraducine/iridium",
+  "tintColor": "#1C1C1E",
+  "apps": [
+    {
+      "name": "Iridium",
+      "bundleIdentifier": "software.iridium",
+      "developerName": "intraducine",
+      "subtitle": "Experimental Windows-game runtime for iPhone and iPad",
+      "localizedDescription": "An experimental iPhone and iPad Windows-game runtime, with a native game library and touch, keyboard, mouse, and controller integration. Requires iOS 18+, JIT, and your own game files; compatibility varies by game and device.",
+      "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Iridium/icon.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Iridium/images/all-games.png",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Iridium/images/settings.png"
+      ],
+      "tintColor": "#1C1C1E",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "date": "2026-09-27",
+          "localizedDescription": "# Iridium 0.1.0\n\nPlay your Windows games on iPhone and iPad. This first release is experimental; game compatibility varies.\n\n## Download\n\n**[Download Iridium (.ipa)](https://github.com/intraducine/iridium/releases/download/v0.1.0/Iridium-unsigned.ipa)**\n\nRequires **iOS or iPadOS 18+**, JIT, and your own game files. You only need the IPA to install.\n\n## Install\n\n1. Sign and install the IPA with a compatible sideloading tool, including its helper extension, or import it into LiveContainer.\n2. Open Iridium and configure JIT in **Launch Support**.\n3. Select **Add Game**, choose your game folder and executable, then press **Play**.\n\nUpdating a development build? Back up your saves and update the existing app or LiveContainer entry without deleting its data.\n\n## What's new\n\n- A game library with artwork, Favorites, and search.\n- On-screen controls, controller support, and keyboard/mouse input.\n- Game Options, launch logs, and performance controls.\n- The updated Madeira runtime, plus keyboard, artwork, and save-path fixes.\n\n## Known issues\n\n- Some games may fail to launch or have graphics, video, audio, or input problems.\n- Skyrim speech and mouse attack issues remain unverified in this build.\n- JIT and available memory depend on your device and signing setup; LiveContainer and standalone results can differ.\n\n<details>\n<summary>Source code, licenses, and build details</summary>\n\n## Source and licenses\n\nThe remaining assets are for source access, rebuilding, and download verification:\n\n- Both `Iridium-corresponding-source.tar.gz.part01` and `.part02` contain the complete matching source package.\n- `Iridium-source-guide.zip` contains license notices and build/relink instructions.\n- `SHA256SUMS` verifies the four downloadable files above, including the IPA.\n\nDownload all five assets into one folder, then run:\n\n```sh\nshasum -a 256 -c SHA256SUMS\ncat Iridium-corresponding-source.tar.gz.part01 Iridium-corresponding-source.tar.gz.part02 > Iridium-corresponding-source.tar.gz\n```\n\nThe source guide includes the checksum for the assembled archive and rebuild instructions. GitHub's automatic repository ZIP does not contain all required dependency sources.\n\nSource commit: 305ea4bd427dd5077506df24ad7a8246f94f8186\nBuild run: https://github.com/intraducine/iridium/actions/runs/36350639335\n\nApp and helper version: **0.1.0 (86.1)**. Source checks, build, and unsigned-package checks passed. The release files match their checksums. These checks do not establish compatibility with every game or device; a complete device acceptance record for this exact build is not available.\n\nApple compiler-runtime notice uncertainty and unsigned-IPA contractual authorization remain documented risks. See the license guide in `Iridium-source-guide.zip`.\n\n</details>",
+          "downloadURL": "https://github.com/intraducine/iridium/releases/download/v0.1.0/Iridium-unsigned.ipa",
+          "size": 415218419,
+          "minOSVersion": "18.0"
+        }
+      ]
+    }
+  ],
+  "news": [
+    {
+      "appID": "software.iridium",
+      "title": "Iridium 0.1.0 · 27 Sep 2026",
+      "identifier": "Iridium-release-v0.1.0",
+      "caption": "Iridium 0.1.0 is available.",
+      "date": "2026-09-27T22:36:34Z",
+      "tintColor": "#1C1C1E",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Iridium/images/news.png",
+      "notify": true,
+      "url": "https://github.com/intraducine/iridium/releases/tag/v0.1.0"
+    }
+  ]
+}

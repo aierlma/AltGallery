@@ -191,11 +191,11 @@
       "tintColor": "#4080E0",
       "versions": [
         {
-          "version": "1.8.5.2",
-          "date": "2026-09-16",
-          "localizedDescription": "**Full Changelog**: https://github.com/moliango/doer/compare/v1.8.5.1...v1.8.5.2",
-          "downloadURL": "https://github.com/moliango/doer/releases/download/v1.8.5.2/doer-unsigned.ipa",
-          "size": 28115063,
+          "version": "1.8.5.3",
+          "date": "2026-09-28",
+          "localizedDescription": "**Full Changelog**: https://github.com/moliango/doer/compare/v1.8.5.2...v1.8.5.3",
+          "downloadURL": "https://github.com/moliango/doer/releases/download/v1.8.5.3/doer-unsigned.ipa",
+          "size": 28033512,
           "minOSVersion": "15.0"
         }
       ]
@@ -269,6 +269,52 @@
           "downloadURL": "https://github.com/EhPanda-Team/EhPanda/releases/download/v2.8.1/EhPanda.ipa",
           "size": 7352364,
           "minOSVersion": "26.0"
+        }
+      ]
+    },
+    {
+      "name": "Husk",
+      "bundleIdentifier": "com.husk.app",
+      "developerName": "Leviidev",
+      "subtitle": "Android app launcher for iOS",
+      "localizedDescription": "Run Android apps on iOS: drop in an APK, tap it, and the Android app opens full-screen on a QEMU guest with hardware-accelerated display and audio. Needs JIT plus a debugger attached at runtime, so it requires a sideloading setup that can provide get-task-allow rather than a plain re-sign.",
+      "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Husk/icon.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Husk/images/main.png",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Husk/images/settings.png"
+      ],
+      "tintColor": "#5949E5",
+      "versions": [
+        {
+          "version": "0.4.1",
+          "date": "2026-09-21",
+          "localizedDescription": "## What's new\r\n- Hopefully fixed iOS 26 JIT not working",
+          "downloadURL": "https://github.com/Leviidev/Husk/releases/download/0.4.1/Husk.ipa",
+          "size": 40275539,
+          "minOSVersion": "16.4"
+        }
+      ]
+    },
+    {
+      "name": "Iridium",
+      "bundleIdentifier": "software.iridium",
+      "developerName": "intraducine",
+      "subtitle": "Experimental Windows-game runtime for iPhone and iPad",
+      "localizedDescription": "An experimental iPhone and iPad Windows-game runtime, with a native game library and touch, keyboard, mouse, and controller integration. Requires iOS 18+, JIT, and your own game files; compatibility varies by game and device.",
+      "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Iridium/icon.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Iridium/images/all-games.png",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Iridium/images/settings.png"
+      ],
+      "tintColor": "#1C1C1E",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "date": "2026-09-27",
+          "localizedDescription": "# Iridium 0.1.0\n\nPlay your Windows games on iPhone and iPad. This first release is experimental; game compatibility varies.\n\n## Download\n\n**[Download Iridium (.ipa)](https://github.com/intraducine/iridium/releases/download/v0.1.0/Iridium-unsigned.ipa)**\n\nRequires **iOS or iPadOS 18+**, JIT, and your own game files. You only need the IPA to install.\n\n## Install\n\n1. Sign and install the IPA with a compatible sideloading tool, including its helper extension, or import it into LiveContainer.\n2. Open Iridium and configure JIT in **Launch Support**.\n3. Select **Add Game**, choose your game folder and executable, then press **Play**.\n\nUpdating a development build? Back up your saves and update the existing app or LiveContainer entry without deleting its data.\n\n## What's new\n\n- A game library with artwork, Favorites, and search.\n- On-screen controls, controller support, and keyboard/mouse input.\n- Game Options, launch logs, and performance controls.\n- The updated Madeira runtime, plus keyboard, artwork, and save-path fixes.\n\n## Known issues\n\n- Some games may fail to launch or have graphics, video, audio, or input problems.\n- Skyrim speech and mouse attack issues remain unverified in this build.\n- JIT and available memory depend on your device and signing setup; LiveContainer and standalone results can differ.\n\n<details>\n<summary>Source code, licenses, and build details</summary>\n\n## Source and licenses\n\nThe remaining assets are for source access, rebuilding, and download verification:\n\n- Both `Iridium-corresponding-source.tar.gz.part01` and `.part02` contain the complete matching source package.\n- `Iridium-source-guide.zip` contains license notices and build/relink instructions.\n- `SHA256SUMS` verifies the four downloadable files above, including the IPA.\n\nDownload all five assets into one folder, then run:\n\n```sh\nshasum -a 256 -c SHA256SUMS\ncat Iridium-corresponding-source.tar.gz.part01 Iridium-corresponding-source.tar.gz.part02 > Iridium-corresponding-source.tar.gz\n```\n\nThe source guide includes the checksum for the assembled archive and rebuild instructions. GitHub's automatic repository ZIP does not contain all required dependency sources.\n\nSource commit: 305ea4bd427dd5077506df24ad7a8246f94f8186\nBuild run: https://github.com/intraducine/iridium/actions/runs/36350639335\n\nApp and helper version: **0.1.0 (86.1)**. Source checks, build, and unsigned-package checks passed. The release files match their checksums. These checks do not establish compatibility with every game or device; a complete device acceptance record for this exact build is not available.\n\nApple compiler-runtime notice uncertainty and unsigned-IPA contractual authorization remain documented risks. See the license guide in `Iridium-source-guide.zip`.\n\n</details>",
+          "downloadURL": "https://github.com/intraducine/iridium/releases/download/v0.1.0/Iridium-unsigned.ipa",
+          "size": 415218419,
+          "minOSVersion": "18.0"
         }
       ]
     },
@@ -564,6 +610,28 @@
       ]
     },
     {
+      "name": "Orchard",
+      "bundleIdentifier": "com.makr.orchard",
+      "developerName": "MakrSas",
+      "subtitle": "Apple Silicon macOS Ventura running inside an iPhone app",
+      "localizedDescription": "Boots a real arm64 macOS Ventura guest on iPhone through Apple's own chain (AVPBooter, iBoot and XNU) on QEMU's apple-vm machine, with the GPU drawn through Metal by reims-vgpu. Requires JIT, a signing tool that adds the increased memory limit, and a macOS VM you make yourself. It is slow — light scenes reach 30–40 fps at best.",
+      "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Orchard/icon.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Orchard/images/main.png"
+      ],
+      "tintColor": "#F0C060",
+      "versions": [
+        {
+          "version": "0.2",
+          "date": "2026-09-25",
+          "localizedDescription": "Orchard for iPhone 0.2: a faster emulator and a faster Metal path, plus a fix for guests that end up in Recovery.\n\nSetup and settings: [README](https://github.com/MakrSas/orchard-ios#readme).\n\n## Faster\n\nOn an iPhone 15 (A16), light scenes now reach 30–40 frames a second. Dragging a window runs at 10–15 frames a second (in 0.1 it dropped to around 7 once the Dock and menu bar were up).\n\n- **CPU (QEMU TCG)**\n  - The jump cache is bigger and better hashed, and keeps each process's blocks across context switches. Block-lookup misses fell from ~15% to ~3%.\n  - Changing ASID flushes only the user half of the TLB.\n  - The PMU is off, and fewer system-register writes end a translation block or flush the TLB.\n- **Fast pointer authentication** (on by default, in Settings → Machine → Processor). The guest still sees PAC, but no signature is computed. That was 10–15% of the emulator's time. Turn it off if macOS stops booting.\n- **Metal path (reims-vgpu)**\n  - A guest render pass stays on the GPU as one Metal pass, instead of a GPU round trip, a full-frame readback and a re-upload for every draw.\n  - Draw buffers come from a shared ring.\n  - Shader keys hash faster.\n  - Stores write back only the drawn area, with a NEON channel swap straight into guest pages.\n- **Tip:** 960×540 at 30 Hz is the sweet spot. In the guest, Reduce transparency helps dragging windows.\n\n## Fixed\n\n- **Guest stuck in Recovery with no disk.** This was macOS installing an automatic update, which cannot complete on this machine. Turn automatic updates off first thing; the README has the settings and the Terminal commands.\n- **Disk safety.** The disk is flushed when the app goes to the background and on Shut Down, and the log records guest flushes and I/O errors.\n\n## Also since 0.1\n\n- Sound (experimental, Settings → Machine → Sound).\n- A shared folder: Files → Orchard → Shared, mounted in the guest at `http://10.0.2.2:8080`.\n- Internet in the guest works.\n\n## You need\n\n- iOS 16 or later, tested on an iPhone 15 with iOS 27, and a phone with 6 GB of memory or more.\n- A signing tool that adds the increased memory limit capability, and JIT (such as StikDebug).\n- A macOS 13 VM made in UTM on a Mac.\n\nUnofficial, and not affiliated with Apple or ChefKiss. No Apple software is included. Licences: see LICENSE-NOTICE.md.",
+          "downloadURL": "https://github.com/MakrSas/orchard-ios/releases/download/v0.2/Orchard.ipa",
+          "size": 18477287,
+          "minOSVersion": "16.0"
+        }
+      ]
+    },
+    {
       "name": "PiliPlus",
       "bundleIdentifier": "com.example.piliplus",
       "developerName": "bggRGjQaUbCoE",
@@ -855,6 +923,28 @@
   ],
   "news": [
     {
+      "appID": "com.naine.doer",
+      "title": "Doer 1.8.5.3 · 28 Sep 2026",
+      "identifier": "Doer-release-v1.8.5.3",
+      "caption": "Doer 1.8.5.3 is available.",
+      "date": "2026-09-28T04:11:27Z",
+      "tintColor": "#4080E0",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Doer/images/news.png",
+      "notify": true,
+      "url": "https://github.com/moliango/doer/releases/tag/v1.8.5.3"
+    },
+    {
+      "appID": "software.iridium",
+      "title": "Iridium 0.1.0 · 27 Sep 2026",
+      "identifier": "Iridium-release-v0.1.0",
+      "caption": "Iridium 0.1.0 is available.",
+      "date": "2026-09-27T22:36:34Z",
+      "tintColor": "#1C1C1E",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Iridium/images/news.png",
+      "notify": true,
+      "url": "https://github.com/intraducine/iridium/releases/tag/v0.1.0"
+    },
+    {
       "appID": "com.armsx2.ios",
       "title": "ARMSX2 nightly-20260927 · 27 Sep 2026",
       "identifier": "ARMSX2-release-nightly-20260927",
@@ -919,6 +1009,17 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/AnimeFlow/images/news.png",
       "notify": true,
       "url": "https://github.com/openAnimeFlow/AnimeFlow/releases/tag/v2.6.1"
+    },
+    {
+      "appID": "com.makr.orchard",
+      "title": "Orchard 0.2 · 25 Sep 2026",
+      "identifier": "Orchard-release-v0.2",
+      "caption": "Orchard 0.2 is available.",
+      "date": "2026-09-25T16:12:05Z",
+      "tintColor": "#F0C060",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Orchard/images/news.png",
+      "notify": true,
+      "url": "https://github.com/MakrSas/orchard-ios/releases/tag/v0.2"
     },
     {
       "appID": "org.zhaohe.MiniWatts",
@@ -1042,6 +1143,17 @@
       "url": "https://github.com/Suwayomi/Suwayomi-Tsumiru/releases/tag/v1.3.3"
     },
     {
+      "appID": "com.husk.app",
+      "title": "Husk 0.4.1 · 21 Sep 2026",
+      "identifier": "Husk-release-0.4.1",
+      "caption": "Husk 0.4.1 is available.",
+      "date": "2026-09-21T14:38:56Z",
+      "tintColor": "#5949E5",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Husk/images/news.png",
+      "notify": true,
+      "url": "https://github.com/Leviidev/Husk/releases/tag/0.4.1"
+    },
+    {
       "appID": "com.github.cyrilpeng.veneranext",
       "title": "VeneraNext 1.16.0 · 21 Sep 2026",
       "identifier": "VeneraNext-release-v1.16.0",
@@ -1084,17 +1196,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Pixiv-SwiftUI/images/news.png",
       "notify": true,
       "url": "https://github.com/Eslzzyl/Pixiv-SwiftUI/releases/tag/v0.16.0"
-    },
-    {
-      "appID": "com.naine.doer",
-      "title": "Doer 1.8.5.2 · 16 Sep 2026",
-      "identifier": "Doer-release-v1.8.5.2",
-      "caption": "Doer 1.8.5.2 is available.",
-      "date": "2026-09-16T05:40:12Z",
-      "tintColor": "#4080E0",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Doer/images/news.png",
-      "notify": true,
-      "url": "https://github.com/moliango/doer/releases/tag/v1.8.5.2"
     },
     {
       "appID": "ani.baka",
