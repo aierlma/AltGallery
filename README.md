@@ -134,6 +134,9 @@ Choose, test and move an iPhone's reported location from one clean Apple Maps in
 ### <a href="https://github.com/donbytyqi/scenebox"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/SceneBox/icon.png" alt="SceneBox icon" width="24" align="top"> SceneBox</a>
 Torrent streaming client for iOS, iPadOS, tvOS and Mac (Catalyst), written in SwiftUI.
 
+### <a href="https://github.com/spotiflacapp/SpotiFLAC-Mobile"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/SpotiFLAC/icon.png" alt="SpotiFLAC icon" width="24" align="top"> SpotiFLAC</a>
+Flutter music downloader built around installable extensions that provide the metadata and audio, with a local library, lyrics and quality badges.
+
 ### <a href="https://github.com/infinityf4p/TiebaPure-iOS"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/TiebaPure/icon.png" alt="TiebaPure icon" width="24" align="top"> TiebaPure</a>
 原生 SwiftUI 构建的非官方贴吧 iOS 客户端，支持浏览、搜索、收藏、媒体查看与本地阅读记录。
 
