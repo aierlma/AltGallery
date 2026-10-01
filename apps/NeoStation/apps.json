@@ -1,0 +1,47 @@
+{
+  "name": "NeoStation iOS",
+  "subtitle": "NeoStation iOS AltStore source by AltGallery & AltGen",
+  "description": "Auto-updated AltStore source for NeoStation iOS",
+  "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/NeoStation/icon.png",
+  "website": "https://github.com/TarbleFR/neostation-ios",
+  "tintColor": "#01E989",
+  "apps": [
+    {
+      "name": "NeoStation iOS",
+      "bundleIdentifier": "com.neogamelab.neostation",
+      "developerName": "TarbleFR",
+      "subtitle": "Emulation frontend for iPhone and iPad",
+      "localizedDescription": "An independently maintained iOS/iPadOS fork of NeoStation, with embedded Dolphin, ARMSX2, RPCS3, Dusklight and KartPad runtimes alongside RetroArch and MeloNX integration, JIT workflows and mobile-friendly game and session management.",
+      "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/NeoStation/icon.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/NeoStation/images/intro.png",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/NeoStation/images/library.png",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/NeoStation/images/settings.png"
+      ],
+      "tintColor": "#01E989",
+      "versions": [
+        {
+          "version": "0.0.2",
+          "date": "2026-09-29",
+          "localizedDescription": "<p align=\"center\">\r\n  <img src=\"https://raw.githubusercontent.com/TarbleFR/neostation-ios/f4583c6a3083b8aed358da28b2f8f849256e0e8b/assets/images/fork-icon-valid.jpg\" width=\"180\" alt=\"NeoStation iOS logo\">\r\n</p>\r\n\r\n<h1 align=\"center\">🎮 NeoStation iOS — 0.0.2</h1>\r\n\r\n<p align=\"center\"><strong>JIT compatibility, DolphiniOS improvements and overall stability update.</strong></p>\r\n\r\n---\r\n\r\n## ⚡ StikJIT updated\r\n\r\nNeoStation now integrates **StikJIT 1.9.0**, replacing the previous 1.5.0 integration.\r\n\r\nThe JIT layer has been updated to improve compatibility across:\r\n\r\n- **iOS 18**\r\n- **iOS 26**\r\n- **iOS 27**\r\n\r\nPairing validation and JIT diagnostics have also been improved to help reduce silent or indefinite loading states.\r\n\r\n---\r\n\r\n## 🐬 DolphiniOS improvements\r\n\r\nThe embedded Dolphin integration receives several display and runtime improvements:\r\n\r\n- improved frame pacing\r\n- reduced micro-stutter\r\n- **120 Hz support**\r\n- improved Metal presentation\r\n- improved shader handling\r\n- cleaner resource handling between game sessions\r\n- improved display diagnostics\r\n\r\n> 120 Hz support improves presentation on compatible devices but does not turn a 30/60 FPS game into a native 120 FPS game.\r\n\r\n---\r\n\r\n## 📱 Requirements\r\n\r\n- iPhone or iPad\r\n- **iOS 18 or later**\r\n- Developer Mode enabled\r\n- NeoStation installed as a standalone IPA\r\n- compatible JIT configuration when required\r\n\r\n**LiveContainer is not supported.**\r\n\r\n---\r\n\r\n## 🎮 Game files\r\n\r\nNeoStation does not distribute ROMs, ISOs, BIOS files, firmware or copyrighted commercial game assets.\r\n\r\nNative ports such as **KartPad** and **Dusklight** require data from the user's own legally obtained supported games.\r\n\r\n---\r\n\r\n## 📦 Release\r\n\r\nDownload **NeoStation.ipa** from the Assets section.\r\n\r\n**Version:** 0.0.2  \r\n**Internal build:** 365  \r\n**Source:** f4583c6a3083b8aed358da28b2f8f849256e0e8b\r\n\r\nFull credits, licenses, source information and checksums are included with the release assets.\r\n\r\n---\r\n\r\n**One app. One library. Multiple systems.**",
+          "downloadURL": "https://github.com/TarbleFR/neostation-ios/releases/download/0.0.2/NeoStation.ipa",
+          "size": 143767912,
+          "minOSVersion": "18.0"
+        }
+      ]
+    }
+  ],
+  "news": [
+    {
+      "appID": "com.neogamelab.neostation",
+      "title": "NeoStation iOS 0.0.2 · 29 Sep 2026",
+      "identifier": "NeoStation iOS-release-0.0.2",
+      "caption": "NeoStation iOS 0.0.2 is available.",
+      "date": "2026-09-29T21:10:03Z",
+      "tintColor": "#01E989",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/NeoStation/images/news.png",
+      "notify": true,
+      "url": "https://github.com/TarbleFR/neostation-ios/releases/tag/0.0.2"
+    }
+  ]
+}
