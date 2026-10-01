@@ -92,6 +92,9 @@ Torrent client for iOS.
 ### <a href="https://github.com/LiveContainer/LiveContainer"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/LiveContainer+SideStore/icon.png" alt="LiveContainer+SideStore icon" width="24" align="top"> LiveContainer+SideStore</a>
 An app launcher that runs iOS apps without actually installing them, with a built-in SideStore for refreshing your apps.
 
+### <a href="https://github.com/willfaust/Madeira"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Madeira/icon.png" alt="Madeira icon" width="24" align="top"> Madeira</a>
+Run unmodified x86-64 Windows PC games on iPhone through Wine, FEX-Emu and Metal — no jailbreak.
+
 ### <a href="https://github.com/kodjodevf/mangayomi"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Mangayomi/icon.png" alt="Mangayomi icon" width="24" align="top"> Mangayomi</a>
 Read manga, novels, and watch anime.
 
