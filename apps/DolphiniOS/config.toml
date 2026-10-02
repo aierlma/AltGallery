@@ -6,7 +6,7 @@ repo = "OatmealDome/dolphin-ios"
 
 [source]
 name = "DolphiniOS"
-subtitle = "DolphiniOS AltStore source by AltGallery & altgen"
+subtitle = "DolphiniOS AltStore source by AltGallery & AltGen"
 description = "Auto-updated AltStore source for DolphiniOS"
 icon_url = "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/DolphiniOS/icon.png"
 website = "https://github.com/OatmealDome/dolphin-ios"

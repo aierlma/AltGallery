@@ -7,7 +7,7 @@ repo = "infinityf4p/TiebaPure-iOS"
 
 [source]
 name = "TiebaPure"
-subtitle = "TiebaPure AltStore source by AltGallery & altgen"
+subtitle = "TiebaPure AltStore source by AltGallery & AltGen"
 description = "Auto-updated AltStore source for TiebaPure"
 icon_url = "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/TiebaPure/icon.png"
 website = "https://github.com/infinityf4p/TiebaPure-iOS"

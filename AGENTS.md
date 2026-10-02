@@ -129,6 +129,52 @@ When a new app lacks an official tint, use the result as `[app] tint_color`
 not have an obvious single brand color, so the sample needs human
 confirmation.
 
+## Reading an IPA's Bundle ID
+
+`[app] bundle_identifier` must be the **real** identifier — never invent one
+(`com.example.*` is a placeholder). Read it from a release ipa when no AltStore
+source provides it:
+
+```bash
+curl -sL "https://api.github.com/repos/<owner>/<repo>/releases/latest" \
+  | jq -r '.assets[] | select(.name|endswith(".ipa")) | .browser_download_url' | head -1
+tools/ipa_bundle_id.py App.ipa            # com.example.App
+tools/ipa_bundle_id.py App.ipa --json     # + name, version, build, min_os_version
+```
+
+Stdlib only (`plistlib`), so the bare `python3` runs it. stdout is the
+identifier alone, notes go to stderr, exit 1 when unreadable. Several
+`Payload/*.app` bundles → the `CFBundlePackageType = APPL` one wins (Flutter
+ships as `Runner.app`, which never matches the ipa's filename); nested
+`PlugIns/`/`Watch/` bundles are ignored. Its `min_os_version` is what the
+binary really needs, and it may contradict `config.toml`.
+
+## Extracting the App Icon from an IPA
+
+Only when the project has **no** icon to download (nothing in the repo, README,
+`assets/`, or its AltStore source):
+
+```bash
+tools/ipa_icon.py App.ipa --list                     # candidates: size + file name
+tools/ipa_icon.py App.ipa --out apps/<AppName>/icon.png
+```
+
+Takes the largest icon the bundle lists (`CFBundleIcons`/`CFBundleIconFiles`,
+matched against `<Entry>@2x.png` / `@3x` / `~ipad` files, plus any
+`*icon*.png`); nested `PlugIns/`/`Watch/` bundles are ignored, so a Watch
+app's bigger icon never wins. Writes the raw square artwork — `render_news.py`
+rounds it at draw time — and refuses to overwrite an icon without `--force`.
+Stdlib only, bare `python3` works.
+
+Apple's **CgBI** PNGs (BGRA, premultiplied, raw-deflate) break Pillow, so the
+tool decodes them to a standard PNG that `render_news.py` can read; plain
+PNGs/JPEGs are copied as-is.
+
+⚠️ **Most ipas ship only 120x120/152x152** loose icons — the 1024px artwork sits
+in `Assets.car`, unreadable here (LZFSE `bvx2`, no PNG data inside). The tool
+warns below 512px: treat that as a last resort, and prefer the project's own
+artwork wherever it exists.
+
 ## Adding a New App
 
 End-to-end procedure lives in the **add-app** skill — invoke it with
@@ -136,7 +182,9 @@ End-to-end procedure lives in the **add-app** skill — invoke it with
 extracting fields from the project's own AltStore source (when one exists),
 the folder/config/icon/news setup, tint sampling, `apps.json` generation,
 merge, and README update. The reference sections below ([Icon Color Sampling
-(PIL)](#icon-color-sampling-pil), [Generating News
+(PIL)](#icon-color-sampling-pil), [Reading an IPA's Bundle
+ID](#reading-an-ipas-bundle-id), [Extracting the App Icon from an
+IPA](#extracting-the-app-icon-from-an-ipa), [Generating News
 Images](#generating-news-images), [Merging into
 all-apps.json](#merging-into-all-appsjson)) remain authoritative for the
 shared details.

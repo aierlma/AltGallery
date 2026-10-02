@@ -1,6 +1,6 @@
 ---
 name: add-app
-description: Add a new app to the AltGallery repo. When the project already ships its own AltStore source (apps.json), extracts the fields it needs from that source to pre-fill config.toml. Creates apps/<AppName>/, writes config.toml and news.toml, downloads icon + screenshots, samples a tint color from the icon, renders images/news.png, generates apps.json with altgen (local verification only), and adds the README "Available Apps" entry. Both apps.json and all-apps.json are generated and committed by the CI workflow — never update or commit them locally. Use whenever the user wants to add a new app / a new IPA source to the gallery.
+description: Add a new app to the AltGallery repo. When the project already ships its own AltStore source (apps.json), extracts the fields it needs from that source to pre-fill config.toml; otherwise reads the bundle identifier and version metadata out of a release .ipa with tools/ipa_bundle_id.py, and extracts the icon from that ipa with tools/ipa_icon.py when the repo has no icon. Creates apps/<AppName>/, writes config.toml and news.toml, downloads icon + screenshots, samples a tint color from the icon, renders images/news.png, generates apps.json with altgen (local verification only), and adds the README "Available Apps" entry. Both apps.json and all-apps.json are generated and committed by the CI workflow — never update or commit them locally. Use whenever the user wants to add a new app / a new IPA source to the gallery.
 ---
 
 # Adding a New App to AltGallery
@@ -21,7 +21,7 @@ re-derived from the README by hand.
    ```
    Use the project's display name (match the GitHub repo's casing).
 
-2. **Extract fields from the project's AltStore source (when it provides one)**
+2. **Extract fields from the project's AltStore source, or from a release ipa**
 
    Many projects maintain their own AltStore source — an `apps.json` — in the
    repo (repo root, an `altstore`/`AltStore` folder, or a dedicated branch) or
@@ -60,6 +60,9 @@ re-derived from the README by hand.
       | root `name` / `subtitle` / `description` / `website` | `[source] *` |
 
    d. **Caveats**
+      - **A missing `bundleIdentifier`** — no source at all, or one that omits
+        it — comes from the release ipa (step e); never invent one.
+        `com.example.*` in an existing `config.toml` means someone guessed.
       - Still download the icon/screenshots into `apps/<AppName>/` and point
         `icon_url` / `screenshots` at the
         `raw.githubusercontent.com/bebound/AltGallery/...` URLs — **never** copy
@@ -69,8 +72,26 @@ re-derived from the README by hand.
         for `[app] description` (a one-to-two sentence summary reads better).
       - When the source has no `tintColor`, sample one from the icon instead
         (step 5).
-      - If the repo provides no source (or it is stale/broken), skip this step
-        and derive the fields from the README as before.
+      - No source (or stale/broken)? Derive the fields from the README as
+        before, but take `bundle_identifier`/`min_os_version` from the ipa
+        (step e).
+
+   e. **When no source provides the identifier — read it from a release ipa**
+
+      AltStore installs fail when the identifier does not match the app, so
+      never write a placeholder or copy one from a README:
+      ```bash
+      # 1. latest ipa asset — also the exact filename for asset_pattern
+      curl -sL "https://api.github.com/repos/<owner>/<repo>/releases/latest" \
+        | jq -r '.assets[] | select(.name|endswith(".ipa")) | .browser_download_url' | head -1
+      # 2. download it (often tens of MB) and read it, then delete it
+      curl -sL -o /tmp/<AppName>.ipa "<url-from-1>"
+      tools/ipa_bundle_id.py /tmp/<AppName>.ipa --json
+      ```
+      Use `bundle_id`, `min_os_version`, and check `version` against
+      `strip_v_prefix`/`asset_pattern`. Stdlib only (bare `python3`); exit 1
+      when unreadable. AGENTS.md → [Reading an IPA's Bundle
+      ID](../AGENTS.md#reading-an-ipas-bundle-id).
 
 3. **Download icon and screenshots**
    Fetch from the project's GitHub repo (e.g. `raw.githubusercontent.com`, or
@@ -84,6 +105,17 @@ re-derived from the README by hand.
    download the icon and finish the rest of the flow — just remember that the
    screenshots are missing, and output the warning at the end (step 10).
 
+   ⚠️ **If no icon exists in the repo either**, take it from the release ipa
+   (step 2e) — never leave `icon.png` missing, never grab a random web image:
+   ```bash
+   tools/ipa_icon.py /tmp/<AppName>.ipa --out apps/<AppName>/icon.png
+   ```
+   It prints the size on stderr: most ipas ship only 120x120/152x152 (the
+   1024px artwork is locked in `Assets.car`), which looks soft at promo size —
+   say so in the final summary. Don't run it over a repo icon (`--force` is
+   required, on purpose). AGENTS.md → [Extracting the App Icon from an
+   IPA](../AGENTS.md#extracting-the-app-icon-from-an-ipa).
+
 4. **Write `config.toml`** modeled on `apps/PiliPlus/config.toml`:
    - `[github]`: `repo = "owner/name"`
    - `[source]`: name, subtitle, description, `website`, and `icon_url`
@@ -92,6 +124,8 @@ re-derived from the README by hand.
      description, `icon_url`, `screenshots` (the
      `https://raw.githubusercontent.com/bebound/AltGallery/master/apps/<AppName>/images/*.png`
      URLs), `tint_color`, `min_os_version`
+     ⚠️ `bundle_identifier` from the source (2c) or the ipa (2e) — never a
+     made-up `com.example.*`; `min_os_version` from the ipa too.
    - `[versions]`: matching rules. ⚠️ **`asset_pattern` is a regex, not a
      glob** — to match any ipa use `".*\\.ipa$"`; `"*.ipa"` fails with
      `invalid regex`. Narrow it to a specific filename when each release
@@ -109,7 +143,7 @@ re-derived from the README by hand.
    `extract_icon_color()` instead of re-implementing the PIL sampling (see
    AGENTS.md → [Icon Color Sampling](#icon-color-sampling-pil)):
    ```bash
-   PYTHONPATH=templates python3 -c "from render_news import extract_icon_color; from pathlib import Path; print(extract_icon_color(Path('apps/<AppName>/icon.png')))"
+   PYTHONPATH=templates .venv/bin/python3 -c "from render_news import extract_icon_color; from pathlib import Path; print(extract_icon_color(Path('apps/<AppName>/icon.png')))"
    ```
    ⚠️ **Eyeball the result — human confirmation required.** Multi-color or
    pale icons may not have an obvious single brand color.
@@ -174,7 +208,9 @@ re-derived from the README by hand.
 
 ## Checklist
 - [ ] fields extracted from the project's own AltStore source (when one exists); `tintColor` normalized to `#RRGGBB`
+- [ ] `bundle_identifier` and `min_os_version` from the source or the ipa (`tools/ipa_bundle_id.py`) — no `com.example.*` placeholder; ipa deleted afterwards
 - [ ] `apps/<AppName>/{config.toml, news.toml, icon.png, images/*}` all present
+- [ ] `icon.png` from the repo, or from the ipa via `tools/ipa_icon.py` when the repo has none — size checked, small size reported to the user
 - [ ] icon/screenshots hosted locally and referenced via `bebound/AltGallery` raw URLs (never the source's remote URLs)
 - [ ] `apps.json` regenerated after the last config change; never hand-edited; gitignored (not committed)
 - [ ] `all-apps.json` NOT touched — CI workflow regenerates and commits it

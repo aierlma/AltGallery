@@ -1,0 +1,47 @@
+{
+  "name": "Madeira",
+  "subtitle": "Madeira AltStore source by AltGallery & AltGen",
+  "description": "Auto-updated AltStore source for Madeira",
+  "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Madeira/icon.png",
+  "website": "https://github.com/willfaust/Madeira",
+  "tintColor": "#7B68EE",
+  "apps": [
+    {
+      "name": "Madeira",
+      "bundleIdentifier": "com.willfaust.madeora",
+      "developerName": "Will Faust",
+      "subtitle": "Windows PC games on your iPhone",
+      "localizedDescription": "Madeira runs unmodified x86-64 Windows PC games inside a single jailed iOS app: FEX-Emu translates the game's x86 code to ARM64 as it runs, Wine 11.4 built for ARM64EC provides Windows itself, and DXMT plus Madeira's own Direct3D 12 runtime draw Direct3D 9, 10, 11 and 12 through Metal. Games come with a library, Steam sign-in and installs, controller and touch controls, and keyboard, mouse and trackpad input. Requires an iPhone on iOS 26 or later with JIT enabled through StikDebug.",
+      "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Madeira/icon.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Madeira/images/introduction.png",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Madeira/images/main.png",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Madeira/images/settings.png"
+      ],
+      "tintColor": "#7B68EE",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "date": "2026-10-01",
+          "localizedDescription": "Madeira runs Windows PC games on iPhone in a single app: FEX-Emu translates x86-64 to ARM64, a Wine 11 fork runs as ARM64EC, DXMT maps Direct3D 11 to Metal, and Direct3D 12 runs natively.\n\n### Install\n- The IPA is ad-hoc signed (no certificate) and carries the app's entitlements, including the increased memory limit. Sideload it with your own Apple ID (SideStore, AltStore, Sideloadly, Plume or similar), which signs it for your device. Settings should show both JIT and Memory+ green before you play.\n- Games need JIT: enable it with StikDebug (the app's **Enable JIT** button). Settings shows JIT and Memory+ status and says **Ready to play** when both are on.\n- Requires iOS 17 or later; the interface is designed for iOS 26.\n\n### In this build\n- Liquid metal in place of Liquid Glass on the navigation bar's buttons, the tab bar and the Desktop button, with a metal rim on the tab bar's lens and the search field (`MADEIRA_GLASS_SKIN=0` / `MADEIRA_LIQUID_METAL=0` in `madeira.cfg` turn them off).\n- Library: ambient light around game artwork, a card press animation, icon-only tab bar.\n- fastsync is the default sync engine.\n- New app icon.\n\n### Not included\nThe Microsoft Visual C++ runtime DLLs are not redistributed (see `legal/THIRD-PARTY-NOTICES.md`). Building from source: `tools/fetch-vcruntime.md`.\n\nLicenses and third-party notices are in the app bundle (`legal/`, `licenses/`) and in this repository.",
+          "downloadURL": "https://github.com/willfaust/Madeira/releases/download/v0.1.0/Madeira-0.1.0.ipa",
+          "size": 142433883,
+          "minOSVersion": "17.0"
+        }
+      ]
+    }
+  ],
+  "news": [
+    {
+      "appID": "com.willfaust.madeora",
+      "title": "Madeira 0.1.0 · 01 Oct 2026",
+      "identifier": "Madeira-release-v0.1.0",
+      "caption": "Madeira 0.1.0 is available.",
+      "date": "2026-10-01T08:46:35Z",
+      "tintColor": "#7B68EE",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Madeira/images/news.png",
+      "notify": true,
+      "url": "https://github.com/willfaust/Madeira/releases/tag/v0.1.0"
+    }
+  ]
+}

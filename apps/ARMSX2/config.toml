@@ -8,7 +8,7 @@ repo = "ARMSX2/ARMSX2"
 
 [source]
 name = "ARMSX2"
-subtitle = "ARMSX2 AltStore source by AltGallery & altgen"
+subtitle = "ARMSX2 AltStore source by AltGallery & AltGen"
 description = "Auto-updated AltStore source for ARMSX2"
 icon_url = "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/ARMSX2/icon.png"
 website = "https://github.com/ARMSX2/ARMSX2"
@@ -30,6 +30,7 @@ tint_color = "#3CAEFF"
 min_os_version = "17.0"
 
 [versions]
+# No ipa in normal release
 include_prereleases = true
 # asset_pattern is a regex (not glob): matches any ipa asset. Nightlies ship
 # *-iOS-arm64.ipa; older iOSv* releases ship ARMSX2-iOS-*.ipa.
