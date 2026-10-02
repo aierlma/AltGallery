@@ -23,6 +23,8 @@ jobs:
       - uses: astral-sh/setup-uv@v7
 
       - name: Run update.sh
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: ./update.sh
 
       # apps.json / all-apps.json are gitignored, so `git add -A` won't pick
