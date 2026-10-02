@@ -1,0 +1,46 @@
+{
+  "name": "Husk",
+  "subtitle": "Husk AltStore source by AltGallery & AltGen",
+  "description": "Auto-updated AltStore source for Husk",
+  "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Husk/icon.png",
+  "website": "https://github.com/Leviidev/Husk",
+  "tintColor": "#5949E5",
+  "apps": [
+    {
+      "name": "Husk",
+      "bundleIdentifier": "com.husk.app",
+      "developerName": "Leviidev",
+      "subtitle": "Android app launcher for iOS",
+      "localizedDescription": "Run Android apps on iOS: drop in an APK, tap it, and the Android app opens full-screen on a QEMU guest with hardware-accelerated display and audio. Needs JIT plus a debugger attached at runtime, so it requires a sideloading setup that can provide get-task-allow rather than a plain re-sign.",
+      "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Husk/icon.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Husk/images/main.png",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Husk/images/settings.png"
+      ],
+      "tintColor": "#5949E5",
+      "versions": [
+        {
+          "version": "0.5.0",
+          "date": "2026-10-01",
+          "localizedDescription": "## What's Changed\r\n* Fix guest seed packaging and snapshot preservation by @creeper4004 in https://github.com/Leviidev/Husk/pull/29\r\n* Add a light mode (Settings › Appearance) by @hernan0078 in https://github.com/Leviidev/Husk/pull/30\r\n* Fixed UI bugs by @Leviidev \r\n\r\n## New Contributors\r\n* @creeper4004 made their first contribution in https://github.com/Leviidev/Husk/pull/29\r\n* @hernan0078 made their first contribution in https://github.com/Leviidev/Husk/pull/30\r\n\r\n**Full Changelog**: https://github.com/Leviidev/Husk/compare/0.4.1...0.5.0",
+          "downloadURL": "https://github.com/Leviidev/Husk/releases/download/0.5.0/Husk.ipa",
+          "size": 40279923,
+          "minOSVersion": "16.4"
+        }
+      ]
+    }
+  ],
+  "news": [
+    {
+      "appID": "com.husk.app",
+      "title": "Husk 0.5.0 · 01 Oct 2026",
+      "identifier": "Husk-release-0.5.0",
+      "caption": "Husk 0.5.0 is available.",
+      "date": "2026-10-01T23:46:10Z",
+      "tintColor": "#5949E5",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Husk/images/news.png",
+      "notify": true,
+      "url": "https://github.com/Leviidev/Husk/releases/tag/0.5.0"
+    }
+  ]
+}

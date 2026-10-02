@@ -7,7 +7,7 @@ repo = "XITRIX/iTorrent"
 
 [source]
 name = "iTorrent"
-subtitle = "iTorrent AltStore source by AltGallery & altgen"
+subtitle = "iTorrent AltStore source by AltGallery & AltGen"
 description = "Auto-updated AltStore source for iTorrent"
 icon_url = "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/iTorrent/icon.png"
 website = "https://github.com/XITRIX/iTorrent"

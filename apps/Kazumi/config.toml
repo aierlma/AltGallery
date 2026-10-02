@@ -7,7 +7,7 @@ repo = "Predidit/Kazumi"
 
 [source]
 name = "Kazumi"
-subtitle = "Kazumi AltStore source by AltGallery & altgen"
+subtitle = "Kazumi AltStore source by AltGallery & AltGen"
 description = "Auto-updated AltStore source for Kazumi"
 icon_url = "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Kazumi/icon.png"
 website = "https://github.com/Predidit/Kazumi"

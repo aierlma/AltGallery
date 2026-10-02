@@ -1,6 +1,6 @@
 {
   "name": "UTM",
-  "subtitle": "UTM AltStore source by AltGallery & altgen",
+  "subtitle": "UTM AltStore source by AltGallery & AltGen",
   "description": "Auto-updated AltStore source for UTM",
   "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/UTM/icon.png",
   "website": "https://github.com/utmapp/UTM",
