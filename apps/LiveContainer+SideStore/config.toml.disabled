@@ -1,3 +1,9 @@
+# DISABLED 2026-10-04: upstream LiveContainer/LiveContainer was deleted (404,
+# docs site also gone). Auto-update disabled so CI stays green; the last-known
+# apps.json is kept and still merged into all-apps.json.
+# To re-enable: rename this file back to config.toml (and fix [github] repo if it moved).
+#
+# --- original config.toml below ---
 # altgen config for the LiveContainer+SideStore AltStore source.
 # Run: uvx altgen -c config.toml
 
