@@ -45,11 +45,11 @@
       "tintColor": "#5020E0",
       "versions": [
         {
-          "version": "1.3.1",
-          "date": "2026-10-01",
-          "localizedDescription": "## What's Changed in v1.3.1\n\n### 📲 Pairing File Import (iOS 18 – iOS 26 Support!)\n• **SideStore & LiveContainer Pairing File Support**: You can now import pairing files (`.mobiledevicepairing`, `.plist`, `.mobilepair`) directly from SideStore, LiveContainer, iLoader, AltStore, Jitterbug, or PC/Mac.\n• **No iOS 27 Required**: Users on iOS 18.0 through iOS 26 can now fully use AirCard-iOS by simply importing their pairing file from SideStore or LiveContainer.\n• **Safe Unpair / Reset**: Added a dedicated \"Delete Pairing / Unpair\" button to reset or switch pairing configurations without having to reinstall the app.\n• **In-App Pairing Guide**: Added a step-by-step setup guide sheet with exact paths to locate pairing files in the Files app (e.g. `SideStore/ALTPairingFile.mobiledevicepairing`).\n• **iOS 27+ Gated**: The \"Pair on Phone\" developer pairing block is now cleanly gated to iOS 27+, avoiding confusion on older iOS versions.\n\n### 💳 Apple Wallet & Card Customization\n• **Interactive Photo Cropper**: Added custom zoom, pan, and framing when selecting card artwork (PR #29).\n\n### 🔒 Passcode Themes (.passthm)\n• **UTF-8 Encoding Fix**: Fixed filename encoding in generated passcode theme ZIP archives to support non-ASCII characters and localization (PR #12).\n\n### 🖼 Wallpapers (.tendies)\n• **Restored Rock-Solid Wallpaper Engine**: Reverted experimental template tracking to restore proven v1.3 Tendies injection, auto-detection of PosterBoard containers, and instant WebKit NeoSpring resprings.\n\n### ❤️ Developer Support & Links\n• **Donate Tab in Credits**: Added direct donation options (PayPal, TON, USDT TRC-20, BEP-20) with one-tap copy and quick links to developer socials (@mak5er).\n• **Startup Welcome**: Clean notice highlighting developer credits and quick links.\n\n**Full Changelog**: https://github.com/Mak5er/AirCard-iOS/compare/v1.3...v1.3.1",
-          "downloadURL": "https://github.com/Mak5er/AirCard-iOS/releases/download/v1.3.1/AirCard-iOS.ipa",
-          "size": 4597510,
+          "version": "1.3.2",
+          "date": "2026-10-04",
+          "localizedDescription": "## What's Changed in v1.3.2 🚀\n\nThis update brings full feature parity with AirCard macOS v1.2.6, restores robust card discovery across all iOS versions, introduces automatic bank/network recognition with custom card nicknames, delivers an ultra-fast tunnel cache (0.02s connections), and completely resolves wallpaper flashing for Collections and Mercury wallpapers.\n\n### 💳 Wallet Card Discovery & Bank Identification\n• **Universal Wallet Log Parser**: Ported the proven `WalletScanParser` from AirCard macOS. Captures cards from `Dashboard loading (...): for SOO+`, `passIDs[InSession]`, `passIDs[global]`, and modern JSON NFC activations (`\"identifier\": \"HEX\"`).\n• **Automatic Bank & Network Detection**: Recognizes Visa, Mastercard, American Express, UnionPay, Discover, and JCB via applet AIDs during selection.\n• **Card Nicknames (Rename)**: Added a direct **Rename** button (✏️) so you can give your cards friendly names like *\"Monobank\"*, *\"Salary Card\"*, or *\"Revolut\"*, safely persisted in app settings.\n• **28-Character Fallback Token Matcher**: Restores dependable card discovery on devices where standard log patterns are redacted.\n\n### ⚡ Ultra-Fast Tunnel Routing (from 10s to 0.02s!)\n• **Working Route Caching**: `rust-core` now caches the active RSD connection route (`LAST_WORKING_ROUTE`), eliminating repeated port and interface scanning.\n• **RSD-First Priority**: Connects directly via RemoteXPC on port 49152, bypassing slow Lockdown retries and broken pipes on iOS 18+.\n• **Eliminated Loopback Policy Drops**: Removed local loopback attempts that caused `policy drop` control channel errors.\n\n### 🖼 Wallpapers (.tendies) — Collections & Mercury Fixes\n• **Dual Injection on iOS 18+**: Wallpapers are now injected into both their primary bundle (`com.apple.WallpaperKit.CollectionsPoster` or `com.apple.MercuryPoster`) and the modern iOS 18+ application container (`com.apple.Posters.CollectionsPosterApp` / `com.apple.Posters.MercuryPosterApp`).\n• **Metadata Synchronization**: Fixed a critical issue where `Wallpaper.plist`'s numeric identifier was randomized out-of-sync with `suggestionMetadata.plist` (`7400.DYNAMIC`), causing wallpapers like Windows 11 to vanish from the Lock Screen gallery.\n• **Mercury Wallpaper Support**: Added recognition for `mercury-descriptors` container folders and registered `com.apple.Posters.MercuryPosterApp` in `PersistedPosterContainerBundleIdentifiers`.\n• **NeoSpring Respring**: Instant springboard reload to apply wallpaper preferences immediately.\n\n### 🧪 Quality & Testing\n• All 24 unit tests passing (`TendiesEngineTests`, `WalletScanParserTests`, `CardPhotoCropTests`, `CardPhotoPickerTests`).\n\n**Full Changelog**: https://github.com/Mak5er/AirCard-iOS/compare/v1.3.1...v1.3.2",
+          "downloadURL": "https://github.com/Mak5er/AirCard-iOS/releases/download/v1.3.2/AirCard-iOS.ipa",
+          "size": 4638147,
           "minOSVersion": "27.0"
         }
       ]
@@ -94,11 +94,11 @@
       "tintColor": "#124EB3",
       "versions": [
         {
-          "version": "2.6.1",
-          "date": "2026-09-26",
-          "localizedDescription": "### 🔄 更新内容\n\n## 2.6.1 更新\n\n## 重要修复\n\n- 修复图片加载失败问题 [ech_http](https://github.com/ech-research/ech_http)\n\n## 新增\n\n- 新番时间表添加标签过滤功能\n\n## 优化\n \n- 搜索页面点击历史记录搜索自动取消输入框焦点\n- 优化搜索页面输入框的吸附效果\n- 优化推荐首页的输入框样式\n- 优化社区在线页面布局\n\n## 修复\n\n- 修复字体设置页面开关cdn可能导致的状态错误问题\n- 修复播放页数据源弹窗在移动端搜索时输入框被遮挡问题\n\n---\n\n### 📦 下载\n- 每个设备的安装包后缀: ``苹果手机(.ipa)、 安卓手机(.apk)、windows电脑(.zip或.exe)、mac电脑(.dmg)、linux电脑(.tar.gz或.deb)``\n- android分多个包: ``v7a(32位架构旧手机或TV)、arm64(新手机,推荐用这个)、x86(模拟器) ``\n- windows分多个包: ``.zip(解压直接使用)、.exe(安装后使用) ``",
-          "downloadURL": "https://github.com/openAnimeFlow/AnimeFlow/releases/download/v2.6.1/AnimeFlow-ios-2.6.1.ipa",
-          "size": 29694830,
+          "version": "2.6.2",
+          "date": "2026-10-04",
+          "localizedDescription": "### 🔄 更新内容\n\n## 2.6.2 更新\n\n## 新增\n\n- 番剧收藏支持取消收藏，同步收藏时不在同步已取消的番剧 #82\n- 番剧详情页添加预览图，添加剧集封面\n- 排行榜页面支持两种布局切换 #86\n- 截图成功展示缩略图\n- 升级规则系统支持更多规则配置\n\n## 优化\n \n- 移动端部分设置页面添加全边距,统一最大宽度\n- 优化播放页弹幕设置弹窗布局\n- 删除已失效的数据源\n- 排行榜页面修改条件从新获取数据时添加加载状态反馈\n- 优化播放指示器显示隐藏逻辑\n- 视频源小于两分支不自动标记观看状态\n\n## 修复\n\n- 修复在“我的”页面中登录成功后出现两次页面刷新问题\n- 修复数据源拖拽排序异常问题\n\n---\n\n### 📦 下载\n- 每个设备的安装包后缀: ``苹果手机(.ipa)、 安卓手机(.apk)、windows电脑(.zip或.exe)、mac电脑(.dmg)、linux电脑(.tar.gz或.deb)``\n- android分多个包: ``v7a(32位架构旧手机或TV)、arm64(新手机,推荐用这个)、x86(模拟器) ``\n- windows分多个包: ``.zip(解压直接使用)、.exe(安装后使用) ``",
+          "downloadURL": "https://github.com/openAnimeFlow/AnimeFlow/releases/download/v2.6.2/AnimeFlow-ios-2.6.2.ipa",
+          "size": 29964323,
           "minOSVersion": "13.0"
         }
       ]
@@ -167,11 +167,11 @@
       "tintColor": "#3CAEFF",
       "versions": [
         {
-          "version": "nightly-20261003",
-          "date": "2026-10-03",
-          "localizedDescription": "Automated nightly build for community testing (unsigned).\n\nEvery download is named `ARMSX2-nightly-DATE-COMMIT-PLATFORM`, so builds\nfrom different nights stay distinguishable after you have downloaded them.\n\n- macOS arm64: macOS-arm64.tar.xz\n- Linux arm64: Linux-arm64-4K-pages.AppImage on most distros, or the 16K one on Asahi Linux and other Apple Silicon kernels (run getconf PAGESIZE if unsure)\n- Windows arm64: Windows-arm64.zip\n- RetroArch on Linux arm64: Linux-arm64-libretro-core.tar.zst, a 4K-page build\n- Bare-display kmsdrm handhelds: Linux-arm64-SDL-handheld.tar.zst, a 4K-page build (Rocknix and Batocera run compositors, so use the Qt AppImage there instead)\n- Android: Android-arm64.apk (installs as ARMSX2 Nightly, alongside the stable app)\n- iOS: iOS-arm64.ipa, unsigned, sideload it (installs as ARMSX2 Nightly, alongside the stable app)\n\nComing from an old nightly? Nightlies are now a separate app, ARMSX2 Nightly, next to stable.\n\n- Android: stable cannot install over an old nightly. Back up your saves and memory cards, uninstall the old nightly, then install the stable APK.\n- iOS: your old nightly is the ARMSX2 iOS app and still has your saves. Copy them into ARMSX2 Nightly with the Files app.\n\n## What's new\n- iOS: stop Settings pages jumping down after Back on a landscape phone\n- iOS: write why an auto-save didn't happen to emulog.txt\n- iOS: auto-save when Back to Menu leaves a game\n\nFull changelog: https://github.com/ARMSX2/ARMSX2/compare/nightly-20261002...9d989ca933a85bb2f1d111fd3b9e5742ac7d2fbe",
-          "downloadURL": "https://github.com/ARMSX2/ARMSX2/releases/download/nightly-20261003/ARMSX2-nightly-20261003-9d989ca933-iOS-arm64.ipa",
-          "size": 38988244,
+          "version": "nightly-20261004",
+          "date": "2026-10-04",
+          "localizedDescription": "Automated nightly build for community testing (unsigned).\n\nEvery download is named `ARMSX2-nightly-DATE-COMMIT-PLATFORM`, so builds\nfrom different nights stay distinguishable after you have downloaded them.\n\n- macOS arm64: macOS-arm64.tar.xz\n- Linux arm64: Linux-arm64-4K-pages.AppImage on most distros, or the 16K one on Asahi Linux and other Apple Silicon kernels (run getconf PAGESIZE if unsure)\n- Windows arm64: Windows-arm64.zip\n- RetroArch on Linux arm64: Linux-arm64-libretro-core.tar.zst, a 4K-page build\n- Bare-display kmsdrm handhelds: Linux-arm64-SDL-handheld.tar.zst, a 4K-page build (Rocknix and Batocera run compositors, so use the Qt AppImage there instead)\n- Android: Android-arm64.apk (installs as ARMSX2 Nightly, alongside the stable app)\n- iOS: iOS-arm64.ipa, unsigned, sideload it (installs as ARMSX2 Nightly, alongside the stable app)\n\nComing from an old nightly? Nightlies are now a separate app, ARMSX2 Nightly, next to stable.\n\n- Android: stable cannot install over an old nightly. Back up your saves and memory cards, uninstall the old nightly, then install the stable APK.\n- iOS: your old nightly is the ARMSX2 iOS app and still has your saves. Copy them into ARMSX2 Nightly with the Files app.\n\n## What's new\n- Discord: renew the sign-in instead of retrying a dead one forever\n- Android: leave out the emoji fonts nothing loads\n- Release APKs: compress the emulator cores\n- OSD: ARMSX2 2.8 on Android\n- i18n: translate the strings 2.7.2 shipped in English only\n- Textures: read the pack links from the server, not the app\n- Controller: switches flip with A only\n- Controller: the texture and patch managers in columns, and back to the top\n- Textures: the pack browser opens on Popular Today\n- Textures: Popular Today and Shuffle in the pack browser\n- Textures: back out of a creator to the page they are on\n- Textures: \"November Snow\" for the texture screen's music\n- Textures: the online packs as pages of cubes, with creators and music\n- Textures: the pack window as tiles, in its creator's colours\n- Textures: read only our catalog, not sashkinbro's\n- Textures: a window per pack with its source, creator, tip and socials\n- Library: arcade covers from arcade.ps2ktxpak.net\n- Arcade import: Cancel, and replace a file with no moment it is gone\n- GameDB: Tekken 5's arcade clamp setting, under clampModes\n- Arcade: reset the board at every reset, not only at a game's start\n- Arcade: bound ATA DMA reads; a short read is a drive error\n- Arcade: keep an SRAM file the board could not read\n- Arcade: read the session flag atomically\n- BIOS: a console game never auto-picks an arcade BIOS\n- Library: an Arcade games only toggle in the ⋮ menu\n- i18n: arcade strings indented like the rest of their files\n- i18n: Kurdish \"Close\" was translated as \"near\"\n- Android: save states for arcade games\n- Arcade: uninstall a game from the NAMCO screen\n- Arcade: import a game's disc and dongle on their own\n- Play AAB: leak checks that can fail\n- Arcade: boot a game whose folder was picked through Android's picker\n- Arcade: build with the Play flavor's NDK 28\n- Library: arcade covers from covers.ps2ktxpak.net, also for Discord friends\n- Library: arcade covers are the same real art in either cover style\n- Library: arcade games' 3D covers in the 3D cover style\n- Library: arcade game covers from ARMSX2's own arcade covers\n- Arcade import: unpack gzipped dumps, refuse a dongle under 8 MB\n- Arcade: name an imported dongle by what it holds (.ps2 with ECC)\n- Arcade: 2 MB board BIOS dumps, list only imported games, logo icons\n- Android: make Arcade's state on the main thread, before the first frame\n- Android: NAMCO System 246/256 screen\n- Android: Namco System 246/256 arcade games\n- Namco System 246/256 arcade boards, from PCSX2x6\n\nFull changelog: https://github.com/ARMSX2/ARMSX2/compare/nightly-20261003...d383b3636947565d9201f81e32178d0288623d8d",
+          "downloadURL": "https://github.com/ARMSX2/ARMSX2/releases/download/nightly-20261004/ARMSX2-nightly-20261004-d383b36369-iOS-arm64.ipa",
+          "size": 39037501,
           "minOSVersion": "17.0"
         }
       ]
@@ -996,6 +996,39 @@
   ],
   "news": [
     {
+      "appID": "com.armsx2.ios",
+      "title": "ARMSX2 nightly-20261004 · 04 Oct 2026",
+      "identifier": "ARMSX2-release-nightly-20261004",
+      "caption": "ARMSX2 nightly-20261004 is available.",
+      "date": "2026-10-04T14:35:05Z",
+      "tintColor": "#3CAEFF",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/ARMSX2/images/news.png",
+      "notify": true,
+      "url": "https://github.com/ARMSX2/ARMSX2/releases/tag/nightly-20261004"
+    },
+    {
+      "appID": "com.ligg.anime_flow",
+      "title": "AnimeFlow 2.6.2 · 04 Oct 2026",
+      "identifier": "AnimeFlow-release-v2.6.2",
+      "caption": "AnimeFlow 2.6.2 is available.",
+      "date": "2026-10-04T12:32:07Z",
+      "tintColor": "#124EB3",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/AnimeFlow/images/news.png",
+      "notify": true,
+      "url": "https://github.com/openAnimeFlow/AnimeFlow/releases/tag/v2.6.2"
+    },
+    {
+      "appID": "com.mak5er.aircard",
+      "title": "AirCard-iOS 1.3.2 · 04 Oct 2026",
+      "identifier": "AirCard-iOS-release-v1.3.2",
+      "caption": "AirCard-iOS 1.3.2 is available.",
+      "date": "2026-10-04T12:22:53Z",
+      "tintColor": "#5020E0",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/AirCard/images/news.png",
+      "notify": true,
+      "url": "https://github.com/Mak5er/AirCard-iOS/releases/tag/v1.3.2"
+    },
+    {
       "appID": "software.iridium",
       "title": "Iridium 0.2.0 · 04 Oct 2026",
       "identifier": "Iridium-release-v0.2.0",
@@ -1040,17 +1073,6 @@
       "url": "https://github.com/missuo/kumone/releases/tag/v0.3.20"
     },
     {
-      "appID": "com.armsx2.ios",
-      "title": "ARMSX2 nightly-20261003 · 03 Oct 2026",
-      "identifier": "ARMSX2-release-nightly-20261003",
-      "caption": "ARMSX2 nightly-20261003 is available.",
-      "date": "2026-10-03T13:56:46Z",
-      "tintColor": "#3CAEFF",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/ARMSX2/images/news.png",
-      "notify": true,
-      "url": "https://github.com/ARMSX2/ARMSX2/releases/tag/nightly-20261003"
-    },
-    {
       "appID": "com.huamu013.ZhihuMinusMinus",
       "title": "ZhihuMinusMinus 0.7.1 · 03 Oct 2026",
       "identifier": "ZhihuMinusMinus-release-v0.7.1",
@@ -1071,17 +1093,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/MoviePilotLite/images/news.png",
       "notify": true,
       "url": "https://github.com/singleton-altman/MoviePilotLite/releases/tag/release-v1.2.5-2026-10-02"
-    },
-    {
-      "appID": "com.mak5er.aircard",
-      "title": "AirCard-iOS 1.3.1 · 01 Oct 2026",
-      "identifier": "AirCard-iOS-release-v1.3.1",
-      "caption": "AirCard-iOS 1.3.1 is available.",
-      "date": "2026-10-01T23:01:18Z",
-      "tintColor": "#5020E0",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/AirCard/images/news.png",
-      "notify": true,
-      "url": "https://github.com/Mak5er/AirCard-iOS/releases/tag/v1.3.1"
     },
     {
       "appID": "com.zarz.spotiflac",
@@ -1203,17 +1214,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Animeko/images/news.png",
       "notify": true,
       "url": "https://github.com/open-ani/animeko/releases/tag/v6.2.0"
-    },
-    {
-      "appID": "com.ligg.anime_flow",
-      "title": "AnimeFlow 2.6.1 · 26 Sep 2026",
-      "identifier": "AnimeFlow-release-v2.6.1",
-      "caption": "AnimeFlow 2.6.1 is available.",
-      "date": "2026-09-26T12:55:01Z",
-      "tintColor": "#124EB3",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/AnimeFlow/images/news.png",
-      "notify": true,
-      "url": "https://github.com/openAnimeFlow/AnimeFlow/releases/tag/v2.6.1"
     },
     {
       "appID": "com.makr.orchard",
