@@ -22,6 +22,11 @@ jobs:
       # update.sh uses `uvx altgen`
       - uses: astral-sh/setup-uv@v7
 
+      # update.sh tolerates single-app failures (hardened 2026-10-04) and
+      # exits 1 at the end with a summary when any app failed. The steps
+      # below must still run so the successfully regenerated sources get
+      # committed — hence `if: always()`. The run stays red so the outage
+      # is still signaled.
       - name: Run update.sh
         env:
           GITHUB_TOKEN: ${{ github.token }}
@@ -31,10 +36,12 @@ jobs:
       # them up. Stage them explicitly (force) so the regenerated sources can
       # be committed here — contributors never commit them.
       - name: Stage generated sources
+        if: always()
         run: git add -f all-apps.json apps/*/apps.json
 
       - name: Check for changes
         id: changes
+        if: always()
         run: |
           if git diff --cached --quiet; then
             echo "No changes to commit"
@@ -44,7 +51,7 @@ jobs:
           fi
 
       - name: Commit and push
-        if: steps.changes.outputs.changed == 'true'
+        if: always() && steps.changes.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
