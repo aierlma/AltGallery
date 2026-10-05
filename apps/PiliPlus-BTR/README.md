@@ -6,16 +6,16 @@
 
 本源只接收 `PiliPlus-BTR-ios-<version>-btr.<revision>-unsigned.ipa` 正式附件，排除 APK、draft、预发布以及单独的 iOS 14 包。当前保留最新一版；新闻标题保留完整 BTR tag，安装版本字段取自实际 IPA。
 
-2026-10-05 下载并仅解析自己 fork 的 [v2.1.6-btr.5485-b3109a6274f1 正式附件](https://github.com/aierlma/PiliPlus/releases/tag/v2.1.6-btr.5485-b3109a6274f1) 得到：
+2026-10-05 下载并仅解析自己 fork 的 [v2.1.6-btr.5488-aa2e954d1547 正式附件](https://github.com/aierlma/PiliPlus/releases/tag/v2.1.6-btr.5488-aa2e954d1547) 得到：
 
 | 字段 | 正式 IPA 的值 |
 |---|---|
 | Bundle identifier | `com.example.piliplus.btr` |
 | CFBundleShortVersionString | `2.1.6` |
-| CFBundleVersion | `5485` |
+| CFBundleVersion | `5488` |
 | MinimumOSVersion | `15.0` |
-| 大小 | 24,443,690 bytes |
-| SHA-256 | `0185683b2bf209a4ff0f9965ef65176d76589b472c0abbb06971290e318d28de` |
+| 大小 | 24,443,570 bytes |
+| SHA-256 | `75e9e2f0362768b9e2a51838e590f1bdcdb4112cd5360ff87cacc3ae85998faa` |
 
 `com.example.piliplus.btr` 是正式包实际使用的标识符，尽管名称看似占位符。构建号始终从实际包读取，不能使用另一份 CI 构建的编号。原 fork 的 btr.15 基线也已解析验证，为 2.1.4 / 5418 / iOS 15.0。
 
@@ -23,19 +23,21 @@
 
 [首个 GitHub 构建与发布](https://github.com/aierlma/PiliPlus/actions/runs/37331343799)通过 45 项 BTR 测试和 8 项维护流程测试；静态分析无错误或警告，37 条继承的提示级 lint 保留输出，不阻断发布。另一次[无更新检查](https://github.com/aierlma/PiliPlus/actions/runs/37347929498)确认跳过构建与发布。
 
+[双上游 GitHub 构建](https://github.com/aierlma/PiliPlus/actions/runs/37354822916)通过 15 项维护测试、45 项 BTR 测试和 iOS 构建。构建清单记录个人、PiliPlus 官方和 BTR 作者三个 SHA；[三者均无变化的检查](https://github.com/aierlma/PiliPlus/actions/runs/37356373282)确认跳过重复构建。
+
 本次 1024×1024 图标和三张截图来自该 fork 的 iOS artwork 与 `assets/screenshots/`。截图展示与官方共享的 PiliPlus 界面，不代表 BTR 设置页。
 
 ## 更新与上游同步
 
-合并到 `aierlma/AltGallery` 的 `master` 后，现有生成工作流在 master push、每 6 小时的计划任务或手动触发时刷新本源。订阅用户自己的 [AltGallery 合集](https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/all-apps.json) 才能获得这个额外条目；合并前不会上线。生成的 `apps.json` 和 `all-apps.json` 由 CI 提交，贡献者不提交它们。
+该条目已合并到 `aierlma/AltGallery` 的 `master`。现有生成工作流在 master push、每 6 小时的计划任务或手动触发时刷新本源。可以订阅 [AltGallery 合集](https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/all-apps.json)，也可以在 SideStore 单独添加 [PiliPlus BTR 源](https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/PiliPlus-BTR/apps.json)。生成的 `apps.json` 和 `all-apps.json` 由 CI 提交，贡献者不提交它们。
 
-源码维护与构建由 [aierlma/PiliPlus 的 GitHub Actions](https://github.com/aierlma/PiliPlus/actions/workflows/btr-maintain.yml) 执行，每天检查官方 main 一次。只有 BTR 接线验证、测试、静态分析、iOS 构建和 IPA 元数据验证全部通过，才快进个人 BTR 分支并发布正式 IPA；发生冲突或验证失败则保留上一正式版本，记录失败 issue，相同输入不会每天重复构建。具体门槛、停止及恢复操作见[个人 fork 说明](https://github.com/aierlma/PiliPlus#同步与发布)。
+源码维护与构建由 [aierlma/PiliPlus 的 GitHub Actions](https://github.com/aierlma/PiliPlus/actions/workflows/btr-maintain.yml) 执行，每天分别检查 BTR 作者 `nishuodedui1145-del/PiliPlus/btr` 和 PiliPlus 官方 `bggRGjQaUbCoE/PiliPlus/main`。任一来源有新提交都独立触发合并、测试与构建，不需要等待 BTR 作者先跟上新版官方；之后合入 BTR 新提交时也不会直接覆盖回作者所用的旧官方代码。只有 BTR 接线验证、测试、静态分析、iOS 构建和 IPA 元数据验证全部通过，才快进个人 BTR 分支并发布正式 IPA；发生冲突或验证失败则保留上一正式版本，记录失败 issue，相同的个人、官方和 BTR 三个 SHA 输入不会每天重复构建。具体门槛、停止及恢复操作见[个人 fork 说明](https://github.com/aierlma/PiliPlus#同步与发布)。
 
-自己的应用内更新 API、源码链接和下载回退地址均指向 `aierlma/PiliPlus`。它保留原 BTR 的独立 bundle ID，避免切回官方包。GitHub 中的源码合并、测试与构建不等同于真机播放验收；不调用 Codex 的定时会话或本地常驻任务。
+自己的应用内更新 API、源码链接和下载回退地址均指向 `aierlma/PiliPlus`。它保留原 BTR 的独立 bundle ID，避免切回官方包。任一来源产生源码冲突时，整个候选回滚并记录 issue，待维护者处理；未启用 LLM 自动修复。GitHub 中的源码合并、测试与构建不等同于真机播放验收；不调用 Codex 的定时会话或本地常驻任务。
 
 AltGallery 通过已有每 6 小时的生成工作流获取个人 fork 最新的正式 IPA，不需要跨仓库访问令牌。这里跟踪的是实际构建结果；不能从官方已有提交推断一个尚未构建通过的个人 IPA 已经发布。
 
-AltGallery 本身仍可合并 `bebound/AltGallery` 的 upstream 更新，同时保留独立的 `apps/PiliPlus-BTR/`。本次只扩展生成入口，并将个人合集入口、合集元数据与新增素材地址指向 `aierlma/AltGallery`，没有批量改写现有应用；将来同步时检查 `update.sh` 的自定义入口以及这几处个人链接即可。本次未启用额外自动合并任务。
+AltGallery 源码仓库的上游是 `bebound/AltGallery`，其源码更新目前需要单独维护。本次双上游自动合并作用于个人 PiliPlus 源码；AltGallery 继续自动生成应用订阅，保留官方 PiliPlus 和其他应用。
 
 ## 本地验证
 
