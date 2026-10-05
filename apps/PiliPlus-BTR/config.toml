@@ -1,22 +1,22 @@
 # Use ./update.sh PiliPlus-BTR: generate.py reads version metadata from the IPA.
 [github]
-repo = "nishuodedui1145-del/PiliPlus"
+repo = "aierlma/PiliPlus"
 
 [source]
 name = "PiliPlus BTR"
 subtitle = "PiliPlus BTR AltStore source by AltGallery & AltGen"
 description = "Stable unsigned IPA releases of the personal PiliPlus BTR fork"
 icon_url = "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/PiliPlus-BTR/icon.png"
-website = "https://github.com/nishuodedui1145-del/PiliPlus"
+website = "https://github.com/aierlma/PiliPlus"
 tint_color = "#00AEEF"
 
 [app]
 name = "PiliPlus BTR"
-# Verified in the published btr.15 IPA; this is its real identifier.
+# Verified in the published personal IPA; this is its real identifier.
 bundle_identifier = "com.example.piliplus.btr"
-developer_name = "nishuodedui1145-del / bggRGjQaUbCoE"
+developer_name = "aierlma / nishuodedui1145-del / bggRGjQaUbCoE"
 subtitle = "PiliPlus 个人衍生版 · BTR 多线程加速"
-description = "基于 PiliPlus 的个人衍生版，通过本地 HTTP 代理、多 Range 并发下载和 CDN 选择/竞速改善海外点播体验，提供 BTR 设置与日志。BTR 默认关闭，需在音视频设置中开启。本源仅跟踪该 fork 的正式未签名 IPA，需自行侧载；应用内更新检查仍指向官方，请通过本源更新以保留 BTR。"
+description = "基于 PiliPlus 的个人维护版，保留 BTR 本地 HTTP 代理、多 Range 并发下载、CDN 选择/竞速、设置与日志，并定期合并官方更新。BTR 默认关闭，需在音视频设置中开启。本源跟踪 aierlma/PiliPlus 通过验证后发布的正式未签名 IPA，需自行侧载；应用内更新检查也指向该仓库。"
 icon_url = "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/PiliPlus-BTR/icon.png"
 # These are shared PiliPlus UI screenshots shipped by the fork, not BTR settings.
 screenshots = [
@@ -25,7 +25,7 @@ screenshots = [
   "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/PiliPlus-BTR/images/dynamic.png",
 ]
 tint_color = "#73b480"
-# Baseline verified in btr.15; generate.py reads each selected IPA's actual minimum.
+# Verified in build 5485; generate.py reads each selected IPA's actual minimum.
 min_os_version = "15.0"
 
 [versions]
@@ -34,7 +34,10 @@ include_prereleases = false
 max_versions = 1
 # Exclude APKs and the separate ios14 prerelease, even if its flag changes.
 asset_pattern = '^PiliPlus-BTR-ios-\d+\.\d+\.\d+-btr\.\d+-unsigned\.ipa$'
-# The filename has no build number. generate.py reads CFBundleVersion instead.
+# Sort build numbers numerically without the source SHA appended to release tags.
+version_source = "filename"
+version_pattern = '(\d+\.\d+\.\d+-btr\.\d+)'
+# Always read CFBundleVersion from the IPA instead of trusting the filename.
 build_version_pattern = '(?!)'
 
 [news]

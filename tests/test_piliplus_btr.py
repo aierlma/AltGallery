@@ -89,6 +89,17 @@ class BtrGenerationTests(unittest.TestCase):
         data, _ = self.generate([draft, release()], ipa())
         self.assertIn("btr.15", data["apps"][0]["versions"][0]["downloadURL"])
 
+    def test_personal_sha_tags_keep_numeric_build_order(self):
+        older, newer = release(9999), release(10000)
+        older["tag_name"] += "-ffffffffffff"
+        newer["tag_name"] += "-aaaaaaaaaaaa"
+        payload = ipa(CFBundleVersion="10000")
+        older["assets"][0]["size"] = newer["assets"][0]["size"] = len(payload)
+        older["assets"][0]["digest"] = newer["assets"][0]["digest"] = f"sha256:{hashlib.sha256(payload).hexdigest()}"
+        data, _ = self.generate([older, newer], payload)
+        self.assertIn("btr.10000", data["apps"][0]["versions"][0]["downloadURL"])
+        self.assertIn("v2.1.4-btr.10000-aaaaaaaaaaaa", data["news"][0]["title"])
+
     def test_wrong_bundle_is_rejected(self):
         payload = ipa(CFBundleIdentifier="com.example.piliplus")
         with self.assertRaisesRegex(ValueError, "bundle identifier"):
