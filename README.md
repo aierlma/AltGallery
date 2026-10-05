@@ -126,7 +126,7 @@ Boots an arm64 macOS Ventura guest on iPhone through Apple's own chain on QEMU's
 使用Flutter开发的BiliBili第三方客户端。
 
 ### <a href="https://github.com/aierlma/PiliPlus"><img src="https://raw.githubusercontent.com/aierlma/AltGallery/master/apps/PiliPlus-BTR/icon.png" alt="PiliPlus BTR icon" width="24" align="top"> PiliPlus BTR</a>
-个人维护的 PiliPlus + BTR，通过本地 HTTP 代理、多 Range 并发下载和 CDN 选择/竞速改善海外点播体验，提供 BTR 设置与日志；由 GitHub 定期合并官方更新，订阅验证通过后发布的正式未签名 IPA。详见[版本与同步说明](apps/PiliPlus-BTR/README.md)。
+个人维护的 PiliPlus + BTR，通过本地 HTTP 代理、多 Range 并发下载和 CDN 选择/竞速改善海外点播体验，提供 BTR 设置与日志；由 GitHub 分别跟进 BTR 作者和 PiliPlus 官方更新，订阅验证通过后发布的正式未签名 IPA。详见[版本与同步说明](apps/PiliPlus-BTR/README.md)。
 
 ### <a href="https://github.com/Eslzzyl/Pixiv-SwiftUI"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Pixiv-SwiftUI/icon.png" alt="Pixiv-SwiftUI icon" width="24" align="top"> Pixiv-SwiftUI</a>
 基于 SwiftUI 的 Pixiv 第三方客户端，支持 iOS/iPadOS/macOS。
