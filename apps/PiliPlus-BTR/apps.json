@@ -1,0 +1,48 @@
+{
+  "name": "PiliPlus BTR",
+  "subtitle": "PiliPlus BTR AltStore source by AltGallery & AltGen",
+  "description": "Stable unsigned IPA releases of the personal PiliPlus BTR fork",
+  "iconURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/PiliPlus-BTR/icon.png",
+  "website": "https://github.com/aierlma/PiliPlus",
+  "tintColor": "#00AEEF",
+  "apps": [
+    {
+      "name": "PiliPlus BTR",
+      "bundleIdentifier": "com.example.piliplus.btr",
+      "developerName": "aierlma / nishuodedui1145-del / bggRGjQaUbCoE",
+      "subtitle": "PiliPlus 个人衍生版 · BTR 多线程加速",
+      "localizedDescription": "基于 PiliPlus 的个人维护版，保留 BTR 本地 HTTP 代理、多 Range 并发下载、CDN 选择/竞速、设置与日志，并定期合并官方更新。BTR 默认关闭，需在音视频设置中开启。本源跟踪 aierlma/PiliPlus 通过验证后发布的正式未签名 IPA，需自行侧载；应用内更新检查也指向该仓库。",
+      "iconURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/PiliPlus-BTR/icon.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/PiliPlus-BTR/images/home.png",
+        "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/PiliPlus-BTR/images/bangumi.png",
+        "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/PiliPlus-BTR/images/dynamic.png"
+      ],
+      "tintColor": "#73b480",
+      "versions": [
+        {
+          "version": "2.1.6",
+          "date": "2026-10-05",
+          "localizedDescription": "PiliPlus BTR 2.1.6, build 5485\n\nSource: b3109a6274f1ddd38972fca1ec9cc2eda1b218bd\nOfficial upstream: 4ed5968f37af8b4aa7e0f13178cb8d8c2f86defc\nMinimum iOS: 15.0\nIPA SHA-256: 0185683b2bf209a4ff0f9965ef65176d76589b472c0abbb06971290e318d28de\n\nBTR tests, static analysis and unsigned iOS build passed. Sideloading is required.",
+          "downloadURL": "https://github.com/aierlma/PiliPlus/releases/download/v2.1.6-btr.5485-b3109a6274f1/PiliPlus-BTR-ios-2.1.6-btr.5485-unsigned.ipa",
+          "size": 24443690,
+          "minOSVersion": "15.0",
+          "buildVersion": "5485"
+        }
+      ]
+    }
+  ],
+  "news": [
+    {
+      "appID": "com.example.piliplus.btr",
+      "title": "PiliPlus BTR v2.1.6-btr.5485-b3109a6274f1 · 05 Oct 2026",
+      "identifier": "PiliPlus BTR-release-v2.1.6-btr.5485-b3109a6274f1",
+      "caption": "PiliPlus BTR v2.1.6-btr.5485-b3109a6274f1 is available.",
+      "date": "2026-10-05T15:28:31Z",
+      "tintColor": "#73b480",
+      "imageURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/PiliPlus-BTR/images/news.png",
+      "notify": true,
+      "url": "https://github.com/aierlma/PiliPlus/releases/tag/v2.1.6-btr.5485-b3109a6274f1"
+    }
+  ]
+}
