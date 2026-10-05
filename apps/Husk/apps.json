@@ -20,11 +20,11 @@
       "tintColor": "#5949E5",
       "versions": [
         {
-          "version": "0.5.1",
+          "version": "0.6.0",
           "date": "2026-10-04",
-          "localizedDescription": "## What's new?\r\n- Fixed iOS26 JIT crashes\r\n- Fixed a fatal pipe2 crash, (added fallback)\r\n## Credits\r\n@Yaryk007 - made the HuskPatch repo where I got the iOS26 JIT fixes :)\r\n\r\n**Full Changelog**: https://github.com/Leviidev/Husk/compare/0.5.0...0.5.1",
-          "downloadURL": "https://github.com/Leviidev/Husk/releases/download/0.5.1/Husk.ipa",
-          "size": 40386325,
+          "localizedDescription": "## What's new?\r\n- Implementation for the experimental Android Translation Layer\r\n    - You can test it by going to: Settings -> Android Translation Layer -> Add APK -> Chosen APK -> Run Translation Layer Attempt\r\n    - It currently can 100% emulate Flappy Bird and Subway 60 FPS\r\n## Credits\r\nOriginal Android Translation Layer: https://gitlab.com/android_translation_layer/android_translation_layer",
+          "downloadURL": "https://github.com/Leviidev/Husk/releases/download/0.6.0/Husk.ipa",
+          "size": 40778819,
           "minOSVersion": "16.4"
         }
       ]
@@ -33,14 +33,14 @@
   "news": [
     {
       "appID": "com.husk.app",
-      "title": "Husk 0.5.1 · 04 Oct 2026",
-      "identifier": "Husk-release-0.5.1",
-      "caption": "Husk 0.5.1 is available.",
-      "date": "2026-10-04T02:00:07Z",
+      "title": "Husk 0.6.0 · 04 Oct 2026",
+      "identifier": "Husk-release-0.6.0",
+      "caption": "Husk 0.6.0 is available.",
+      "date": "2026-10-04T23:36:46Z",
       "tintColor": "#5949E5",
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Husk/images/news.png",
       "notify": true,
-      "url": "https://github.com/Leviidev/Husk/releases/tag/0.5.1"
+      "url": "https://github.com/Leviidev/Husk/releases/tag/0.6.0"
     }
   ]
 }
