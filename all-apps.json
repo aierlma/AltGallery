@@ -167,11 +167,11 @@
       "tintColor": "#3CAEFF",
       "versions": [
         {
-          "version": "nightly-20261004",
-          "date": "2026-10-04",
-          "localizedDescription": "Automated nightly build for community testing (unsigned).\n\nEvery download is named `ARMSX2-nightly-DATE-COMMIT-PLATFORM`, so builds\nfrom different nights stay distinguishable after you have downloaded them.\n\n- macOS arm64: macOS-arm64.tar.xz\n- Linux arm64: Linux-arm64-4K-pages.AppImage on most distros, or the 16K one on Asahi Linux and other Apple Silicon kernels (run getconf PAGESIZE if unsure)\n- Windows arm64: Windows-arm64.zip\n- RetroArch on Linux arm64: Linux-arm64-libretro-core.tar.zst, a 4K-page build\n- Bare-display kmsdrm handhelds: Linux-arm64-SDL-handheld.tar.zst, a 4K-page build (Rocknix and Batocera run compositors, so use the Qt AppImage there instead)\n- Android: Android-arm64.apk (installs as ARMSX2 Nightly, alongside the stable app)\n- iOS: iOS-arm64.ipa, unsigned, sideload it (installs as ARMSX2 Nightly, alongside the stable app)\n\nComing from an old nightly? Nightlies are now a separate app, ARMSX2 Nightly, next to stable.\n\n- Android: stable cannot install over an old nightly. Back up your saves and memory cards, uninstall the old nightly, then install the stable APK.\n- iOS: your old nightly is the ARMSX2 iOS app and still has your saves. Copy them into ARMSX2 Nightly with the Files app.\n\n## What's new\n- Discord: renew the sign-in instead of retrying a dead one forever\n- Android: leave out the emoji fonts nothing loads\n- Release APKs: compress the emulator cores\n- OSD: ARMSX2 2.8 on Android\n- i18n: translate the strings 2.7.2 shipped in English only\n- Textures: read the pack links from the server, not the app\n- Controller: switches flip with A only\n- Controller: the texture and patch managers in columns, and back to the top\n- Textures: the pack browser opens on Popular Today\n- Textures: Popular Today and Shuffle in the pack browser\n- Textures: back out of a creator to the page they are on\n- Textures: \"November Snow\" for the texture screen's music\n- Textures: the online packs as pages of cubes, with creators and music\n- Textures: the pack window as tiles, in its creator's colours\n- Textures: read only our catalog, not sashkinbro's\n- Textures: a window per pack with its source, creator, tip and socials\n- Library: arcade covers from arcade.ps2ktxpak.net\n- Arcade import: Cancel, and replace a file with no moment it is gone\n- GameDB: Tekken 5's arcade clamp setting, under clampModes\n- Arcade: reset the board at every reset, not only at a game's start\n- Arcade: bound ATA DMA reads; a short read is a drive error\n- Arcade: keep an SRAM file the board could not read\n- Arcade: read the session flag atomically\n- BIOS: a console game never auto-picks an arcade BIOS\n- Library: an Arcade games only toggle in the ⋮ menu\n- i18n: arcade strings indented like the rest of their files\n- i18n: Kurdish \"Close\" was translated as \"near\"\n- Android: save states for arcade games\n- Arcade: uninstall a game from the NAMCO screen\n- Arcade: import a game's disc and dongle on their own\n- Play AAB: leak checks that can fail\n- Arcade: boot a game whose folder was picked through Android's picker\n- Arcade: build with the Play flavor's NDK 28\n- Library: arcade covers from covers.ps2ktxpak.net, also for Discord friends\n- Library: arcade covers are the same real art in either cover style\n- Library: arcade games' 3D covers in the 3D cover style\n- Library: arcade game covers from ARMSX2's own arcade covers\n- Arcade import: unpack gzipped dumps, refuse a dongle under 8 MB\n- Arcade: name an imported dongle by what it holds (.ps2 with ECC)\n- Arcade: 2 MB board BIOS dumps, list only imported games, logo icons\n- Android: make Arcade's state on the main thread, before the first frame\n- Android: NAMCO System 246/256 screen\n- Android: Namco System 246/256 arcade games\n- Namco System 246/256 arcade boards, from PCSX2x6\n\nFull changelog: https://github.com/ARMSX2/ARMSX2/compare/nightly-20261003...d383b3636947565d9201f81e32178d0288623d8d",
-          "downloadURL": "https://github.com/ARMSX2/ARMSX2/releases/download/nightly-20261004/ARMSX2-nightly-20261004-d383b36369-iOS-arm64.ipa",
-          "size": 39037501,
+          "version": "nightly-20261005",
+          "date": "2026-10-05",
+          "localizedDescription": "Automated nightly build for community testing (unsigned).\n\nEvery download is named `ARMSX2-nightly-DATE-COMMIT-PLATFORM`, so builds\nfrom different nights stay distinguishable after you have downloaded them.\n\n- macOS arm64: macOS-arm64.tar.xz\n- Linux arm64: Linux-arm64-4K-pages.AppImage on most distros, or the 16K one on Asahi Linux and other Apple Silicon kernels (run getconf PAGESIZE if unsure)\n- Windows arm64: Windows-arm64.zip\n- RetroArch on Linux arm64: Linux-arm64-libretro-core.tar.zst, a 4K-page build\n- Bare-display kmsdrm handhelds: Linux-arm64-SDL-handheld.tar.zst, a 4K-page build (Rocknix and Batocera run compositors, so use the Qt AppImage there instead)\n- Android: Android-arm64.apk (installs as ARMSX2 Nightly, alongside the stable app)\n- iOS: iOS-arm64.ipa, unsigned, sideload it (installs as ARMSX2 Nightly, alongside the stable app)\n\nComing from an old nightly? Nightlies are now a separate app, ARMSX2 Nightly, next to stable.\n\n- Android: stable cannot install over an old nightly. Back up your saves and memory cards, uninstall the old nightly, then install the stable APK.\n- iOS: your old nightly is the ARMSX2 iOS app and still has your saves. Copy them into ARMSX2 Nightly with the Files app.\n\n## What's new\n- pcsx2: add the DEV9 arcade-board files to the MSVC project\n- Arcade: the System 256 BIOS for every game, the 246 one for Battle Gear 3\n- Arcade controls: a layout for all arcade games\n- Arcade: Arcade controls, the player's own layout per game\n- GS/Vulkan: keep the shared DATE copy's pass untiled with one loop declaration\n- GS/Vulkan: drop the shared DATE stencil copy on a clear inside the pass\n- GS/Vulkan: share one DATE stencil copy across a run of alpha-bit shadow draws\n- GS: name GSAlphaBitLogicOp.h in the MSVC project\n- GS/Vulkan: set and clear alpha bit 7 with a logic op where a read waits per draw\n- microVU: the full-width sign clamp reads the resident clamp bounds\n- GS/HW: draw over-one (Cd - Cs) * As in two hardware passes on the copy road\n- Arcade: keep what games write to a CHD hard drive\n- Arcade: racing games' test menus can be entered\n- Arcade: say which games only reach their attract demo\n- Arcade: every arcade BIOS in use, each game on its own board's\n- Android: let libchdr open arcade hard drive CHDs\n- Android: write the data folder off the main thread, and only when needed\n- Arcade: find games where they are, instead of importing them\n- Arcade: open big hard drive CHDs, and read them like raw images\n- github: fixup templates to point to the right places for ARMSX2\n- iOS: build for the A10, the oldest chip that can install the app\n\nFull changelog: https://github.com/ARMSX2/ARMSX2/compare/nightly-20261004...8f6da1639fb10dcd4a43d84113d770b6edf2c0c1",
+          "downloadURL": "https://github.com/ARMSX2/ARMSX2/releases/download/nightly-20261005/ARMSX2-nightly-20261005-8f6da1639f-iOS-arm64.ipa",
+          "size": 39043867,
           "minOSVersion": "17.0"
         }
       ]
@@ -709,7 +709,7 @@
       "bundleIdentifier": "com.example.piliplus.btr",
       "developerName": "aierlma / nishuodedui1145-del / bggRGjQaUbCoE",
       "subtitle": "PiliPlus 个人衍生版 · BTR 多线程加速",
-      "localizedDescription": "基于 PiliPlus 的个人维护版，保留 BTR 本地 HTTP 代理、多 Range 并发下载、CDN 选择/竞速、设置与日志，并定期合并官方更新。BTR 默认关闭，需在音视频设置中开启。本源跟踪 aierlma/PiliPlus 通过验证后发布的正式未签名 IPA，需自行侧载；应用内更新检查也指向该仓库。",
+      "localizedDescription": "基于 PiliPlus 的个人维护版，保留 BTR 本地 HTTP 代理、多 Range 并发下载、CDN 选择/竞速、设置与日志，并分别定期合并 BTR 作者与 PiliPlus 官方更新。BTR 默认关闭，需在音视频设置中开启。本源跟踪 aierlma/PiliPlus 通过验证后发布的正式未签名 IPA，需自行侧载；应用内更新检查也指向该仓库。",
       "iconURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/PiliPlus-BTR/icon.png",
       "screenshots": [
         "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/PiliPlus-BTR/images/home.png",
@@ -721,11 +721,11 @@
         {
           "version": "2.1.6",
           "date": "2026-10-05",
-          "localizedDescription": "PiliPlus BTR 2.1.6, build 5485\n\nSource: b3109a6274f1ddd38972fca1ec9cc2eda1b218bd\nOfficial upstream: 4ed5968f37af8b4aa7e0f13178cb8d8c2f86defc\nMinimum iOS: 15.0\nIPA SHA-256: 0185683b2bf209a4ff0f9965ef65176d76589b472c0abbb06971290e318d28de\n\nBTR tests, static analysis and unsigned iOS build passed. Sideloading is required.",
-          "downloadURL": "https://github.com/aierlma/PiliPlus/releases/download/v2.1.6-btr.5485-b3109a6274f1/PiliPlus-BTR-ios-2.1.6-btr.5485-unsigned.ipa",
-          "size": 24443690,
+          "localizedDescription": "PiliPlus BTR 2.1.6, build 5488\n\nSource: aa2e954d1547dcbb1e15d3db14ff00e6c8d14588\nOfficial PiliPlus upstream: 4ed5968f37af8b4aa7e0f13178cb8d8c2f86defc\nBTR author upstream: 3988e6d081a26120ca79f1e654fe1a3422b7282f\nMinimum iOS: 15.0\nIPA SHA-256: 75e9e2f0362768b9e2a51838e590f1bdcdb4112cd5360ff87cacc3ae85998faa\n\nBoth source histories are included. BTR tests, static analysis and unsigned iOS build passed. Sideloading is required.",
+          "downloadURL": "https://github.com/aierlma/PiliPlus/releases/download/v2.1.6-btr.5488-aa2e954d1547/PiliPlus-BTR-ios-2.1.6-btr.5488-unsigned.ipa",
+          "size": 24443570,
           "minOSVersion": "15.0",
-          "buildVersion": "5485"
+          "buildVersion": "5488"
         }
       ]
     },
@@ -1022,14 +1022,25 @@
   "news": [
     {
       "appID": "com.example.piliplus.btr",
-      "title": "PiliPlus BTR v2.1.6-btr.5485-b3109a6274f1 · 05 Oct 2026",
-      "identifier": "PiliPlus BTR-release-v2.1.6-btr.5485-b3109a6274f1",
-      "caption": "PiliPlus BTR v2.1.6-btr.5485-b3109a6274f1 is available.",
-      "date": "2026-10-05T15:28:31Z",
+      "title": "PiliPlus BTR v2.1.6-btr.5488-aa2e954d1547 · 05 Oct 2026",
+      "identifier": "PiliPlus BTR-release-v2.1.6-btr.5488-aa2e954d1547",
+      "caption": "PiliPlus BTR v2.1.6-btr.5488-aa2e954d1547 is available.",
+      "date": "2026-10-05T18:28:58Z",
       "tintColor": "#73b480",
       "imageURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/PiliPlus-BTR/images/news.png",
       "notify": true,
-      "url": "https://github.com/aierlma/PiliPlus/releases/tag/v2.1.6-btr.5485-b3109a6274f1"
+      "url": "https://github.com/aierlma/PiliPlus/releases/tag/v2.1.6-btr.5488-aa2e954d1547"
+    },
+    {
+      "appID": "com.armsx2.ios",
+      "title": "ARMSX2 nightly-20261005 · 05 Oct 2026",
+      "identifier": "ARMSX2-release-nightly-20261005",
+      "caption": "ARMSX2 nightly-20261005 is available.",
+      "date": "2026-10-05T17:48:58Z",
+      "tintColor": "#3CAEFF",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/ARMSX2/images/news.png",
+      "notify": true,
+      "url": "https://github.com/ARMSX2/ARMSX2/releases/tag/nightly-20261005"
     },
     {
       "appID": "com.example.piliplus",
@@ -1063,17 +1074,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/YouProEXTRA/images/news.png",
       "notify": true,
       "url": "https://github.com/mrdrvt99/YouProEXTRA/releases/tag/youproextra-ipa3"
-    },
-    {
-      "appID": "com.armsx2.ios",
-      "title": "ARMSX2 nightly-20261004 · 04 Oct 2026",
-      "identifier": "ARMSX2-release-nightly-20261004",
-      "caption": "ARMSX2 nightly-20261004 is available.",
-      "date": "2026-10-04T14:35:05Z",
-      "tintColor": "#3CAEFF",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/ARMSX2/images/news.png",
-      "notify": true,
-      "url": "https://github.com/ARMSX2/ARMSX2/releases/tag/nightly-20261004"
     },
     {
       "appID": "com.ligg.anime_flow",
