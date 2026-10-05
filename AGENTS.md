@@ -51,6 +51,14 @@ altgen reads the GitHub Releases API; if rate-limited or the repo is private,
 pass a token (`--token` > `GITHUB_TOKEN` env > `[github].token` in
 config.toml).
 
+An app may provide `generate.py` with PEP 723 dependencies. `update.sh` runs
+it with `uv run --no-project --script generate.py` instead of the standard
+AltGen CLI; all other apps keep the standard path. PiliPlus-BTR uses this
+to read version, build number, and minimum OS from the actual IPA because
+its stable asset names omit build numbers. Verify such an app with
+`./update.sh <AppName>` rather than calling `uvx altgen` directly. Generator
+failures follow the existing per-app failure policy and preserve prior output.
+
 **Rule: after ANY `config.toml` change, regenerate — never leave the two out
 of sync, and never hand-edit `apps.json`.**
 
