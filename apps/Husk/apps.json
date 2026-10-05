@@ -20,11 +20,11 @@
       "tintColor": "#5949E5",
       "versions": [
         {
-          "version": "0.6.0",
-          "date": "2026-10-04",
-          "localizedDescription": "## What's new?\r\n- Implementation for the experimental Android Translation Layer\r\n    - You can test it by going to: Settings -> Android Translation Layer -> Add APK -> Chosen APK -> Run Translation Layer Attempt\r\n    - It currently can 100% emulate Flappy Bird and Subway 60 FPS\r\n## Credits\r\nOriginal Android Translation Layer: https://gitlab.com/android_translation_layer/android_translation_layer",
-          "downloadURL": "https://github.com/Leviidev/Husk/releases/download/0.6.0/Husk.ipa",
-          "size": 40778819,
+          "version": "0.6.1",
+          "date": "2026-10-05",
+          "localizedDescription": "## What’s new?\r\n- WiFi support for Unity Games\r\n- Geometry Dash support\r\n- Minecraft Support\r\n## Notes\r\nThis release only edits the Android Translation Layer. The fully emulated android OS has not been changed this build.",
+          "downloadURL": "https://github.com/Leviidev/Husk/releases/download/0.6.1/Husk.ipa",
+          "size": 40885768,
           "minOSVersion": "16.4"
         }
       ]
@@ -33,14 +33,14 @@
   "news": [
     {
       "appID": "com.husk.app",
-      "title": "Husk 0.6.0 · 04 Oct 2026",
-      "identifier": "Husk-release-0.6.0",
-      "caption": "Husk 0.6.0 is available.",
-      "date": "2026-10-04T23:36:46Z",
+      "title": "Husk 0.6.1 · 05 Oct 2026",
+      "identifier": "Husk-release-0.6.1",
+      "caption": "Husk 0.6.1 is available.",
+      "date": "2026-10-05T11:16:32Z",
       "tintColor": "#5949E5",
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Husk/images/news.png",
       "notify": true,
-      "url": "https://github.com/Leviidev/Husk/releases/tag/0.6.0"
+      "url": "https://github.com/Leviidev/Husk/releases/tag/0.6.1"
     }
   ]
 }
