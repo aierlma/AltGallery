@@ -35,7 +35,15 @@ for app_dir in apps/*/; do
       continue
     fi
     echo "==> Updating $name"
-    if (cd "$app_dir" && uvx altgen -c config.toml); then
+    if (
+      cd "$app_dir" || exit 1
+      if [[ -f generate.py ]]; then
+        # App-specific generators can inspect IPA metadata that filenames omit.
+        uv run --no-project --script generate.py
+      else
+        uvx altgen -c config.toml
+      fi
+    ); then
       echo "    ok: $name"
     else
       echo "    FAILED: $name (continuing with remaining apps)" >&2

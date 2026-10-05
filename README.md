@@ -7,7 +7,7 @@
 <p>Curated AltStore sources for IPA projects on GitHub. All sources are generated in this repo with <a href="https://github.com/bebound/AltGen">AltGen</a>. It can be used with <a href="https://github.com/altstoreio/Altstore">AltStore</a>, <a href="https://github.com/SideStore/SideStore">SideStore</a>, <a href="https://github.com/LiveContainer/LiveContainer">LiveContainer</a>, <a href="https://github.com/claration/Feather">Feather</a> or other compatible apps.</p>
 
 <p align="center">
-<a href="https://altdirect.app/?url=https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/all-apps.json" target="_blank">
+<a href="https://altdirect.app/?url=https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/all-apps.json" target="_blank">
 <img src="https://raw.githubusercontent.com/bebound/AltGallery/master/assets/add-alt-source.png" alt="Add AltSource" width="200">
 </a>
 </p>
@@ -124,6 +124,9 @@ Boots an arm64 macOS Ventura guest on iPhone through Apple's own chain on QEMU's
 
 ### <a href="https://github.com/bggRGjQaUbCoE/PiliPlus"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/PiliPlus/icon.png" alt="PiliPlus icon" width="24" align="top"> PiliPlus</a>
 使用Flutter开发的BiliBili第三方客户端。
+
+### <a href="https://github.com/nishuodedui1145-del/PiliPlus"><img src="https://raw.githubusercontent.com/aierlma/AltGallery/master/apps/PiliPlus-BTR/icon.png" alt="PiliPlus BTR icon" width="24" align="top"> PiliPlus BTR</a>
+PiliPlus 个人衍生版，通过本地 HTTP 代理、多 Range 并发下载和 CDN 选择/竞速改善海外点播体验，提供 BTR 设置与日志；独立跟踪正式未签名 IPA。详见[版本与同步说明](apps/PiliPlus-BTR/README.md)。
 
 ### <a href="https://github.com/Eslzzyl/Pixiv-SwiftUI"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Pixiv-SwiftUI/icon.png" alt="Pixiv-SwiftUI icon" width="24" align="top"> Pixiv-SwiftUI</a>
 基于 SwiftUI 的 Pixiv 第三方客户端，支持 iOS/iPadOS/macOS。
