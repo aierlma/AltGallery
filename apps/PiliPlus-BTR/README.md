@@ -31,6 +31,10 @@
 
 该条目已合并到 `aierlma/AltGallery` 的 `master`。现有生成工作流在 master push、每 6 小时的计划任务或手动触发时刷新本源。可以订阅 [AltGallery 合集](https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/all-apps.json)，也可以在 SideStore 单独添加 [PiliPlus BTR 源](https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/PiliPlus-BTR/apps.json)。生成的 `apps.json` 和 `all-apps.json` 由 CI 提交，贡献者不提交它们。
 
+从 [个人 fork 的版本修复](https://github.com/aierlma/PiliPlus/pull/6) 起，正式 iOS 包使用 `官方主版本.官方次版本.个人构建号` 作为短版本号，例如基于官方 `2.1.6` 的 build 5502 在 SideStore 显示为 `2.1.5502`。官方原版本仍保存在应用内、IPA 的 `PiliPlusUpstreamVersion`、构建清单的 `upstream_version` 和 Release 说明中；Tag/附件名继续包含官方版本与构建号。本源的 `version` 和 `buildVersion` 均读取实际 IPA，不能只把订阅版本写高。发布前要求新短版本和构建号都高于上一正式版，拒绝重复或倒退；纯维护改动仍不发布新包。
+
+在 SideStore 从上述源安装或关联 PiliPlus BTR，然后在 My Apps 下拉刷新源；有新正式包时点 **Update**，SideStore 会从源下载、签名并覆盖安装，无需手动下载 IPA。**Refresh** 只续签。已安装包与源未关联时，请从源中的 PiliPlus BTR 条目安装/关联，保留同一个 bundle ID。通知横幅还需启用 SideStore 通知权限及系统允许的后台检查。更新先等待个人 fork 的 GitHub 合并、测试和发布，再等待本源每 6 小时的生成；没有新包或包验证失败时保留上一正式版。
+
 源码维护与构建由 [aierlma/PiliPlus 的 GitHub Actions](https://github.com/aierlma/PiliPlus/actions/workflows/btr-maintain.yml) 执行，每天分别检查 BTR 作者 `nishuodedui1145-del/PiliPlus/btr` 和 PiliPlus 官方 `bggRGjQaUbCoE/PiliPlus/main`。任一来源有新提交都独立触发合并、测试与构建，不需要等待 BTR 作者先跟上新版官方；之后合入 BTR 新提交时也不会直接覆盖回作者所用的旧官方代码。只有 BTR 接线验证、测试、静态分析、iOS 构建和 IPA 元数据验证全部通过，才快进个人 BTR 分支并发布正式 IPA；发生冲突或验证失败则保留上一正式版本，记录失败 issue，相同的个人、官方和 BTR 三个 SHA 输入不会每天重复构建。具体门槛、停止及恢复操作见[个人 fork 说明](https://github.com/aierlma/PiliPlus#同步与发布)。
 
 自己的应用内更新 API、源码链接和下载回退地址均指向 `aierlma/PiliPlus`。它保留原 BTR 的独立 bundle ID，避免切回官方包。任一来源产生源码冲突时，整个候选回滚并记录 issue，待维护者处理；未启用 LLM 自动修复。GitHub 中的源码合并、测试与构建不等同于真机播放验收；不调用 Codex 的定时会话或本地常驻任务。
