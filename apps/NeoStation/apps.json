@@ -21,11 +21,11 @@
       "tintColor": "#01E989",
       "versions": [
         {
-          "version": "0.0.2",
-          "date": "2026-09-29",
-          "localizedDescription": "<p align=\"center\">\r\n  <img src=\"https://raw.githubusercontent.com/TarbleFR/neostation-ios/f4583c6a3083b8aed358da28b2f8f849256e0e8b/assets/images/fork-icon-valid.jpg\" width=\"180\" alt=\"NeoStation iOS logo\">\r\n</p>\r\n\r\n<h1 align=\"center\">🎮 NeoStation iOS — 0.0.2</h1>\r\n\r\n<p align=\"center\"><strong>JIT compatibility, DolphiniOS improvements and overall stability update.</strong></p>\r\n\r\n---\r\n\r\n## ⚡ StikJIT updated\r\n\r\nNeoStation now integrates **StikJIT 1.9.0**, replacing the previous 1.5.0 integration.\r\n\r\nThe JIT layer has been updated to improve compatibility across:\r\n\r\n- **iOS 18**\r\n- **iOS 26**\r\n- **iOS 27**\r\n\r\nPairing validation and JIT diagnostics have also been improved to help reduce silent or indefinite loading states.\r\n\r\n---\r\n\r\n## 🐬 DolphiniOS improvements\r\n\r\nThe embedded Dolphin integration receives several display and runtime improvements:\r\n\r\n- improved frame pacing\r\n- reduced micro-stutter\r\n- **120 Hz support**\r\n- improved Metal presentation\r\n- improved shader handling\r\n- cleaner resource handling between game sessions\r\n- improved display diagnostics\r\n\r\n> 120 Hz support improves presentation on compatible devices but does not turn a 30/60 FPS game into a native 120 FPS game.\r\n\r\n---\r\n\r\n## 📱 Requirements\r\n\r\n- iPhone or iPad\r\n- **iOS 18 or later**\r\n- Developer Mode enabled\r\n- NeoStation installed as a standalone IPA\r\n- compatible JIT configuration when required\r\n\r\n**LiveContainer is not supported.**\r\n\r\n---\r\n\r\n## 🎮 Game files\r\n\r\nNeoStation does not distribute ROMs, ISOs, BIOS files, firmware or copyrighted commercial game assets.\r\n\r\nNative ports such as **KartPad** and **Dusklight** require data from the user's own legally obtained supported games.\r\n\r\n---\r\n\r\n## 📦 Release\r\n\r\nDownload **NeoStation.ipa** from the Assets section.\r\n\r\n**Version:** 0.0.2  \r\n**Internal build:** 365  \r\n**Source:** f4583c6a3083b8aed358da28b2f8f849256e0e8b\r\n\r\nFull credits, licenses, source information and checksums are included with the release assets.\r\n\r\n---\r\n\r\n**One app. One library. Multiple systems.**",
-          "downloadURL": "https://github.com/TarbleFR/neostation-ios/releases/download/0.0.2/NeoStation.ipa",
-          "size": 143767912,
+          "version": "0.0.3",
+          "date": "2026-10-09",
+          "localizedDescription": "# NeoStation iOS 0.0.3 — Build 427\n\n**Libretro emulation cores**, also used by RetroArch, are now **embedded directly in NeoStation iOS**. For supported systems, your games launch inside NeoStation without opening the RetroArch app.\n\n- **BIOS files:** open **Files → On My iPhone/iPad → NeoStation → Libretro → System** and add your BIOS files, just as you did in RetroArch’s `system` folder. Keep the filenames and subfolders required by each core. No BIOS files are included.\n- **NeoPlay / AirPlay:** streaming is working. The **NeoPlay 0.8.0** Windows receiver is included with this release. Install it on your PC and connect your iPhone/iPad to the same local network.\n- **NeoSwap:** the swap system is still a work in progress.\n- **Credits and licenses:** notices for all 14 Libretro cores and their support libraries have been added to the license bundle.\n\n## Coming next\n\nMore additions are planned for future updates, including **shader support** to customize how your games look, as in RetroArch, and **skins** to personalize the appearance of the on-screen controls.\n\nThank you to the Libretro and RetroArch teams, all emulator developers, and the NeoStation community for their work, support, and feedback!\n\n## Downloads\n\n- `NeoStation-0.0.3.ipa` — iOS/iPadOS app, internal build 427. Sign it using your usual sideloading tool.\n- `NeoPlay-Setup-0.8.0.exe` — Windows installer.\n- `NeoStation-0.0.3-Licenses-and-Notices.zip` — licenses and credits.\n- `NeoStation-0.0.3-Source-Manifest.md` and the source archives — source and build provenance.\n- `NeoStation-0.0.3-SHA256SUMS.txt` — file checksums.\n\n## Release information\n\nBased on build 427 (`6bfc9dd`). The emulator cores and compiled application code are preserved. The package has been updated to display version 0.0.3 and include the notices, then sealed again with ad hoc signatures. Successful build checks do not establish that every game and core has been tested on an iPhone.\n\nEach component remains subject to its own license. Non-commercial conditions and limitations in tracing the exact sources of precompiled binaries are documented in the accompanying files. Adding these notices is not a certification of legal compliance.",
+          "downloadURL": "https://github.com/TarbleFR/neostation-ios/releases/download/0.0.3/NeoStation-0.0.3.ipa",
+          "size": 205767832,
           "minOSVersion": "18.0"
         }
       ]
@@ -34,14 +34,14 @@
   "news": [
     {
       "appID": "com.neogamelab.neostation",
-      "title": "NeoStation iOS 0.0.2 · 29 Sep 2026",
-      "identifier": "NeoStation iOS-release-0.0.2",
-      "caption": "NeoStation iOS 0.0.2 is available.",
-      "date": "2026-09-29T21:10:03Z",
+      "title": "NeoStation iOS 0.0.3 · 09 Oct 2026",
+      "identifier": "NeoStation iOS-release-0.0.3",
+      "caption": "NeoStation iOS 0.0.3 is available.",
+      "date": "2026-10-09T16:58:04Z",
       "tintColor": "#01E989",
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/NeoStation/images/news.png",
       "notify": true,
-      "url": "https://github.com/TarbleFR/neostation-ios/releases/tag/0.0.2"
+      "url": "https://github.com/TarbleFR/neostation-ios/releases/tag/0.0.3"
     }
   ]
 }
