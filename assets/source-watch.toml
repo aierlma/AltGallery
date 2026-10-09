@@ -1,0 +1,4 @@
+# Watched producers publish actual IPA metadata alongside each formal release.
+[[watch]]
+app = "PiliPlus-BTR"
+metadata_asset = "build-info.json"

@@ -67,6 +67,13 @@ of sync, and never hand-edit `apps.json`.**
 `workflow_dispatch`. (Both files are tracked despite `.gitignore`, so leave
 any local regenerated changes for the workflow to commit.)
 
+`.github/workflows/source-sync.yml` checks `assets/source-watch.toml` every
+hour at minute 23. `tools/source_sync.py watch` compares a producer's formal
+release metadata with both sources and invokes the existing single-app
+generator only when needed. `verify` checks convergence after a full update.
+Both workflows share a write concurrency group and check out current `master`.
+Producer metadata is a check, not a replacement for actual IPA parsing.
+
 ## Merging into all-apps.json
 
 After all app sources are regenerated, merge them into the repo-root
