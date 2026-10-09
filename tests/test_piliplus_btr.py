@@ -56,6 +56,20 @@ class BtrGenerationTests(unittest.TestCase):
     def setUp(self):
         self.config = load_config(APP / "config.toml")
 
+    def test_older_version_or_build_cannot_replace_a_newer_source(self):
+        previous = {"apps": [{"versions": [{"version": "2.1.5506", "buildVersion": "5506", "downloadURL": "current"}]}]}
+        for version, build in (("2.1.5502", "5502"), ("2.0.6000", "6000"), ("2.2.0", "5502")):
+            data = {"apps": [{"versions": [{"version": version, "buildVersion": build, "downloadURL": "new"}]}]}
+            with self.subTest(version=version, build=build), self.assertRaisesRegex(ValueError, "older IPA"):
+                generator.ensure_progress(data, previous)
+
+    def test_same_package_is_idempotent_but_another_url_cannot_reuse_its_identity(self):
+        data = {"apps": [{"versions": [{"version": "2.1.5506", "buildVersion": "5506", "downloadURL": "current"}]}]}
+        generator.ensure_progress(data, data)
+        changed = {"apps": [{"versions": [dict(data["apps"][0]["versions"][0], downloadURL="other")]}]}
+        with self.assertRaisesRegex(ValueError, "same version and build"):
+            generator.ensure_progress(changed, data)
+
     def generate(self, releases, payload):
         with patch.object(generator, "urlopen", return_value=io.BytesIO(payload)) as download:
             data = generator.generate(self.config, releases)

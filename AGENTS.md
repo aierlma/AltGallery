@@ -70,7 +70,8 @@ any local regenerated changes for the workflow to commit.)
 `.github/workflows/source-sync.yml` checks `assets/source-watch.toml` every
 hour at minute 23. `tools/source_sync.py watch` compares a producer's formal
 release metadata with both sources and invokes the existing single-app
-generator only when needed. `verify` checks convergence after a full update.
+generator only when needed. Full updates also run `watch` to catch a release
+published during generation; `verify` performs a read-only convergence check.
 Both workflows share a write concurrency group and check out current `master`.
 Producer metadata is a check, not a replacement for actual IPA parsing.
 

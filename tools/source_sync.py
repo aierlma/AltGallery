@@ -116,6 +116,29 @@ def sources_match(root, package):
         root / "apps" / package.watch.app / "apps.json", root / "all-apps.json"))
 
 
+def newer_source(root, package):
+    """Keep newer generated packages when the producer API returns older data."""
+    expected = (tuple(map(int, package.fields["version"].split("."))),
+                int(package.fields["buildVersion"]))
+    ahead = []
+    for path in (root / "apps" / package.watch.app / "apps.json", root / "all-apps.json"):
+        try:
+            apps = [a for a in json.loads(path.read_text())["apps"] if a["bundleIdentifier"] == package.watch.bundle]
+            if len(apps) != 1:
+                continue
+            value = apps[0]["versions"][0]
+            actual = (tuple(map(int, value["version"].split("."))), int(value["buildVersion"]))
+            if actual[0] >= expected[0] and actual[1] >= expected[1] and actual != expected:
+                ahead.append({key: value[key] for key in package.fields})
+        except (OSError, ValueError, TypeError, KeyError, IndexError):
+            continue
+    if not ahead:
+        return False
+    if len(ahead) == 2 and ahead[0] == ahead[1]:
+        return True
+    raise ValueError("One source is newer than producer metadata; refusing to overwrite it")
+
+
 def reconcile(root=ROOT, *, update=False):
     failures = []
     updated = []
@@ -125,6 +148,9 @@ def reconcile(root=ROOT, *, update=False):
             if sources_match(root, package):
                 print(f"{watch.app}: both sources match released build {package.fields['buildVersion']}; no update")
                 continue
+            if newer_source(root, package):
+                print(f"{watch.app}: both sources are newer than producer metadata; keeping them")
+                continue
             if update:
                 # Reuse actual-IPA validation and the existing per-app failure policy.
                 subprocess.run(["bash", str(root / "update.sh"), watch.app], cwd=root, check=True)
@@ -132,7 +158,7 @@ def reconcile(root=ROOT, *, update=False):
             if not sources_match(root, package):
                 # A producer can publish another release while generation is running.
                 package = published_package(watch)
-                if not sources_match(root, package):
+                if not sources_match(root, package) and not newer_source(root, package):
                     raise ValueError("Standalone or aggregate source differs from the published IPA metadata")
             print(f"{watch.app}: verified both sources at build {package.fields['buildVersion']}")
         except Exception as error:

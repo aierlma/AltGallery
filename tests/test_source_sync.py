@@ -109,6 +109,19 @@ class SourceSyncTests(unittest.TestCase):
             self.reconcile(runner=lambda *a, **k: (_ for _ in ()).throw(RuntimeError("download failed")))
         self.assertEqual(previous, (self.target.read_bytes(), self.aggregate.read_bytes()))
 
+    def test_older_producer_response_cannot_downgrade_current_sources(self):
+        previous = (self.target.read_bytes(), self.aggregate.read_bytes())
+        result, run = self.reconcile(package(build="5502"))
+        self.assertEqual(result, [])
+        run.assert_not_called()
+        self.assertEqual(previous, (self.target.read_bytes(), self.aggregate.read_bytes()))
+
+    def test_older_producer_response_cannot_overwrite_one_newer_source(self):
+        self.aggregate.write_text(json.dumps({"apps": []}))
+        with self.assertRaisesRegex(RuntimeError, "refusing to overwrite"):
+            self.reconcile(package(build="5502"))
+        self.assertTrue(source_sync.source_matches(self.target, package()))
+
     def test_successful_exit_without_convergence_is_a_failure(self):
         self.write_package(package(build="5502"))
         with self.assertRaisesRegex(RuntimeError, "Standalone or aggregate"):
