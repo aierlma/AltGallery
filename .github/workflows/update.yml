@@ -8,6 +8,10 @@ on:
     branches:
       - master
 
+concurrency:
+  group: altgallery-source-writes
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
@@ -17,6 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
+          ref: master
           fetch-depth: 0
 
       # update.sh uses `uvx altgen`
@@ -31,6 +36,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: ./update.sh
+
+      - name: Verify watched releases reached both sources
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 tools/source_sync.py verify
 
       # apps.json / all-apps.json are gitignored, so `git add -A` won't pick
       # them up. Stage them explicitly (force) so the regenerated sources can
