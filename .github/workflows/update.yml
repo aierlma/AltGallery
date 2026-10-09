@@ -37,11 +37,11 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: ./update.sh
 
-      - name: Verify watched releases reached both sources
+      - name: Reconcile watched releases with both sources
         if: always()
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: python3 tools/source_sync.py verify
+        run: python3 tools/source_sync.py watch
 
       # apps.json / all-apps.json are gitignored, so `git add -A` won't pick
       # them up. Stage them explicitly (force) so the regenerated sources can
