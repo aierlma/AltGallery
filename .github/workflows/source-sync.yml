@@ -1,12 +1,9 @@
-name: Update apps.json and all-apps.json
+name: Sync watched release sources
 
 on:
   schedule:
-    - cron: '0 */6 * * *'
+    - cron: '23 * * * *'
   workflow_dispatch:
-  push:
-    branches:
-      - master
 
 concurrency:
   group: altgallery-source-writes
@@ -16,55 +13,38 @@ permissions:
   contents: write
 
 jobs:
-  update:
+  sync:
+    if: github.repository == 'aierlma/AltGallery'
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v5
         with:
           ref: master
           fetch-depth: 0
-
-      # update.sh uses `uvx altgen`
       - uses: astral-sh/setup-uv@v7
-
-      # update.sh tolerates single-app failures (hardened 2026-10-04) and
-      # exits 1 at the end with a summary when any app failed. The steps
-      # below must still run so the successfully regenerated sources get
-      # committed — hence `if: always()`. The run stays red so the outage
-      # is still signaled.
-      - name: Run update.sh
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: ./update.sh
-
-      - name: Reconcile watched releases with both sources
-        if: always()
+      - name: Check source reconciliation and failure preservation
+        run: uv run --no-project --with altgen==0.2.7 python -m unittest discover -s tests -v
+      - name: Reconcile watched sources
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: python3 tools/source_sync.py watch
-
-      # apps.json / all-apps.json are gitignored, so `git add -A` won't pick
-      # them up. Stage them explicitly (force) so the regenerated sources can
-      # be committed here — contributors never commit them.
       - name: Stage generated sources
         if: always()
         run: git add -f all-apps.json apps/*/apps.json
-
       - name: Check for changes
         id: changes
         if: always()
         run: |
           if git diff --cached --quiet; then
-            echo "No changes to commit"
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
-
       - name: Commit and push
         if: always() && steps.changes.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore: update all-apps.json"
-          git push origin "HEAD:${GITHUB_REF_NAME}"
+          git commit -m "chore: sync watched release sources"
+          git push origin HEAD:master

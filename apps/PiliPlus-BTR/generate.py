@@ -5,6 +5,7 @@
 """Generate with AltGen, using the downloaded stable IPA's actual metadata."""
 
 import hashlib
+import json
 import os
 import sys
 import tempfile
@@ -63,12 +64,36 @@ def generate(config, releases):
     return data
 
 
+def ensure_progress(data, previous):
+    """An older API response must not replace a newer generated package."""
+    if previous is None:
+        return
+    try:
+        before = previous["apps"][0]["versions"][0]
+        old_version = tuple(map(int, before["version"].split(".")))
+        old_build = int(before["buildVersion"])
+    except (TypeError, ValueError, KeyError, IndexError):
+        return
+    after = data["apps"][0]["versions"][0]
+    new_version = tuple(map(int, after["version"].split(".")))
+    new_build = int(after["buildVersion"])
+    if new_version < old_version or new_build < old_build:
+        raise ValueError("Refusing to replace the source with an older IPA")
+    if new_version == old_version and new_build == old_build and after["downloadURL"] != before["downloadURL"]:
+        raise ValueError("A different IPA URL reuses the same version and build")
+
+
 def main():
     config = load_config(Path(__file__).with_name("config.toml"))
     releases = fetch_releases(config.github.repo, os.environ.get("GITHUB_TOKEN") or config.github.token)
     data = generate(config, releases)
     # Publish only after every selected IPA validates; preserve last good output on failure.
     output = config.output.path
+    try:
+        previous = json.loads(output.read_text())
+    except (OSError, ValueError):
+        previous = None
+    ensure_progress(data, previous)
     with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=output.parent, delete=False) as temporary:
         temporary.write(serialize(data))
     Path(temporary.name).replace(output)

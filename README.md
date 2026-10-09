@@ -203,6 +203,16 @@ regenerates and commits them on every push to `master`, every 6 hours, or on
 manual "Run workflow". Re-rendered `images/news.png` files stay in the working
 tree for you to review and commit.
 
+`Sync watched release sources` checks the producers declared in
+`assets/source-watch.toml` hourly at minute 23. It compares actual IPA metadata
+from a formal release with the standalone and aggregate sources, regenerating
+only a stale watched app through the existing validated generator. No-change
+checks do not download an IPA or create a commit. Both workflows serialize
+writes and publish the two sources together; full updates also reconcile a
+release published during generation. Older API responses cannot downgrade an
+existing BTR source. GitHub can delay scheduled runs, so this is eventual
+synchronization rather than an immediate push notification.
+
 `update.sh` runs `uvx altgen -c config.toml` in every `apps/<AppName>/` that has
 a `config.toml`, then merges the resulting sources into the repo-root
 `all-apps.json` via `uvx altgen merge -c assets/merge.toml`.
