@@ -1,0 +1,50 @@
+name: Sync watched release sources
+
+on:
+  schedule:
+    - cron: '23 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: altgallery-source-writes
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    if: github.repository == 'aierlma/AltGallery'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: master
+          fetch-depth: 0
+      - uses: astral-sh/setup-uv@v7
+      - name: Check source reconciliation and failure preservation
+        run: uv run --no-project --with altgen==0.2.7 python -m unittest discover -s tests -v
+      - name: Reconcile watched sources
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 tools/source_sync.py watch
+      - name: Stage generated sources
+        if: always()
+        run: git add -f all-apps.json apps/*/apps.json
+      - name: Check for changes
+        id: changes
+        if: always()
+        run: |
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Commit and push
+        if: always() && steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: sync watched release sources"
+          git push origin HEAD:master
