@@ -191,11 +191,11 @@
       "tintColor": "#4080E0",
       "versions": [
         {
-          "version": "1.8.5.3",
-          "date": "2026-09-28",
-          "localizedDescription": "**Full Changelog**: https://github.com/moliango/doer/compare/v1.8.5.2...v1.8.5.3",
-          "downloadURL": "https://github.com/moliango/doer/releases/download/v1.8.5.3/doer-unsigned.ipa",
-          "size": 28033512,
+          "version": "1.8.6",
+          "date": "2026-10-10",
+          "localizedDescription": "**Full Changelog**: https://github.com/moliango/doer/compare/v1.8.5.3...v1.8.6",
+          "downloadURL": "https://github.com/moliango/doer/releases/download/v1.8.6/doer-unsigned.ipa",
+          "size": 28095758,
           "minOSVersion": "15.0"
         }
       ]
@@ -528,11 +528,11 @@
       "tintColor": "#30E0F0",
       "versions": [
         {
-          "version": "1.4.1",
-          "date": "2026-09-25",
-          "localizedDescription": "Unsigned build — sign it with your own Apple ID before installing.\nhttps://github.com/ResistanceTo/MiniWatts#install\n\n## 修复\n\n- **滑动时每秒卡一下**：在 iPhone 15 Pro 等机型上，任何页面匀速滑动时大约每秒会顿一下，插不插充电器都会出现，现已修复。原因有几处叠加：\n  - 表盘中间的数字滚动效果和弧线动画会被放到 CPU 上绘制，页面滚动时每一帧都要重画一次，占用了大量主线程时间。\n  - 悬浮读数（画中画）即使没有打开，也每秒在后台画一帧画面。\n  - 打开过的每个标签页即使不在前台，也会每秒跟着刷新；当前页面的导航栏和工具栏也每秒重建一次。\n  - 读取传感器改到后台线程进行，不再占用界面线程。\n\n## 变化\n\n- 表盘上的功率数字不再有滚动动画，弧线也不再有过渡动画，都和其他读数一样直接更新。\n- 切换到别的标签页再切回来时，页面会回到顶部。\n\n感谢反馈这个问题的用户。\n\n---\n\n## Fixes\n\n- **Scrolling hitched about once a second** on every screen, charging or not (reported on an iPhone 15 Pro). Several causes added up:\n  - The dial's rolling number and arc animations were drawn on the CPU and redrawn on every scroll frame.\n  - The floating meter (Picture in Picture) rendered a frame every second even when it was not open.\n  - Every tab you had visited kept refreshing in the background once a second, and the visible page rebuilt its navigation bar and toolbar on every refresh.\n  - Sensor reads now run off the main thread.\n\n## Changes\n\n- The power reading on the dial no longer rolls and its arcs no longer animate; they update in place like every other reading.\n- A tab returns to the top when you switch back to it.\n\nThanks to the user who reported it.\n\n**Full Changelog**: https://github.com/ResistanceTo/MiniWatts/compare/v1.4.0...v1.4.1",
-          "downloadURL": "https://github.com/ResistanceTo/MiniWatts/releases/download/v1.4.1/MiniWatts-unsigned.ipa",
-          "size": 3270441,
+          "version": "1.5.0",
+          "date": "2026-10-10",
+          "localizedDescription": "Unsigned build — sign it with your own Apple ID before installing.\nhttps://github.com/ResistanceTo/MiniWatts#install\n\n## 改进\n\n- **缺失的读数不再显示成 0。** 某一侧没有读数时（例如无线充电没有输入电流），图表在那一段断开，不再掉到 0；能量统计也只累计真正测到的时间段。\n- **充电效率更准。** \"电芯占比\"和\"负载与损耗\"只按输入侧、电池侧同时有读数的时间段计算，某一侧中途缺失不会再把结果带偏。\n- **两个标签改名。** \"以热量损失\"改为\"负载与损耗\"：这部分是手机自身耗电加上转换损耗，并不全是发热。\"效率 / 往返效率\"改为\"电芯占比\"。\n- **\"暂停充电\"的判断更稳。** 状态切换要持续 30 秒才生效，不再来回跳；没有电池电流读数时显示\"保持状态未知\"，不再直接当成暂停充电。\n- **耗电估算不再因为切到后台而清空。** 短暂离开 App 再回来，估算值还在。\n- **历史文件损坏时不再被直接覆盖。** 读不出来的历史文件会改名保留，并在\"原始数据\"页给出提示。\n- **发热相关的说明更准确。** 系统热状态只说明\"可能\"在限制充电电流，不再说成确定的原因。\n\n## 修复\n\n- 历史记录：没有测到输入侧的记录，\"输入\"和\"充电器峰值\"显示为\"—\"，不再显示 0；列表里的迷你曲线改画电池侧功率，不再空白。\n- 实时活动：灵动岛展开后，右上角的状态文字和\"结束\"按钮不再被圆角裁掉；暂停提示能完整显示。\n- 原始数据：重名的 HID 服务各占一行，不再被合并。\n\n## 注意\n\n- 升级后历史记录的格式有变化，旧版本读不了新格式。**如果从 1.5.0 降级回旧版本，历史记录会丢失。**\n\n---\n\n## Improvements\n\n- **A missing reading is no longer shown as 0.** When a rail has no reading (wireless charging has no input current, for one), the charts break there instead of dropping to zero, and energy is only counted over time that was actually measured.\n- **Charge efficiency is more accurate.** \"Cell share\" and \"Load + loss\" are computed only over the time both the input and the battery side were read, so one side dropping out no longer skews them.\n- **Two labels renamed.** \"Lost as heat\" is now \"Load + loss\": it is the phone's own consumption plus conversion loss, not all heat. \"Efficiency\" / \"Round trip\" is now \"Cell share\".\n- **\"Charging on hold\" is steadier.** A change has to last 30 seconds before it shows, so it no longer flickers; with no battery-current reading at all it says \"hold status unknown\" instead of assuming a hold.\n- **The discharge estimate survives a short trip to the background** instead of being cleared every time.\n- **An unreadable history file is no longer overwritten.** It is renamed and kept, and Raw data says so.\n- **Thermal wording is more careful.** The system thermal state says charging *may* be limited; it is no longer stated as the cause.\n\n## Fixes\n\n- History: a session whose input side was never measured shows \"—\" for Delivered and the charger's peak instead of 0, and its row draws the battery curve instead of nothing.\n- Live Activity: the expanded Dynamic Island no longer clips its status text and End button, and the paused message fits.\n- Raw data: HID services that share a name are listed as separate rows.\n\n## Note\n\n- The history file format changed and older versions cannot read it. **Downgrading from 1.5.0 loses the session history.**\n\n**Full Changelog**: https://github.com/ResistanceTo/MiniWatts/compare/v1.4.1...v1.5.0",
+          "downloadURL": "https://github.com/ResistanceTo/MiniWatts/releases/download/v1.5.0/MiniWatts-unsigned.ipa",
+          "size": 3284306,
           "minOSVersion": "17.0"
         }
       ]
@@ -695,11 +695,11 @@
       "versions": [
         {
           "version": "2.1.6",
-          "buildVersion": "5453",
-          "date": "2026-10-05",
-          "localizedDescription": "支持离线合集归档\r\n支持离线/更新空降片段\r\n添加视频过滤作用域详情\r\n支持切换`番剧`/`剧集`季度\r\n支持横屏时在侧栏显示`番剧`列表\r\n直播聊天显示`主播`标识 #3156\r\n直播聊天只显示点亮的牌子 #3155\r\n用户未直播时在主页显示入口按钮 #3033\r\n从视频切到直播不影响视频倍速 #3112\r\n支持转发同时评论 #3135\r\n@ 用户时置顶被`回复`/`转发`用户 #3123\r\n视频控制栏控件溢出处理 #3085\r\n添加英文文档 #3131 by @maoawa\r\n桌面端画中画记忆窗口位置大小 #2997\r\n收藏夹已满且未收藏时禁用选中 #3113\r\niOS 支持系统 PIP #3160 by @AotianNeo\r\n黑名单屏蔽扩展本地屏蔽，增加过滤搜索、评论\r\n支持按 `Enter` 保存截图 #3101 by @403bug\r\n支持从媒体会话向前/后跳转音视频 #2964 co-by @silverwolf-lv9999\r\n\r\n修复弹幕速度 #3136\r\n修复收藏夹视频跳转 #3137\r\n修复下滑关闭侧栏主页 #3160\r\n修复触控板浏览图片 https://github.com/bggRGjQaUbCoE/PiliPlus/issues/183#issuecomment-5976539299\r\n修复 Windows 26H2 任务栏不在底部时，退出全屏出现窗口偏移 #2901",
-          "downloadURL": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/download/2.1.6/PiliPlus_ios_2.1.6%2B5453.ipa",
-          "size": 24083344,
+          "buildVersion": "5471",
+          "date": "2026-10-10",
+          "localizedDescription": "专栏支持跳转至评论 #3213\r\n其他调整 #3208 by @My-Responsitories\r\n\r\n修复 bug\r\n修复搜索风控验证 #3106\r\n修复窗口大小变化时图片闪烁 #2685\r\n修复安卓视频暂停时画面裁切问题 #3034 by @Hdy08",
+          "downloadURL": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/download/2.1.6.1/PiliPlus_ios_2.1.6%2B5471.ipa",
+          "size": 24353584,
           "minOSVersion": "14.0"
         }
       ]
@@ -792,11 +792,11 @@
       "tintColor": "#50B0F0",
       "versions": [
         {
-          "version": "3.1.18",
-          "date": "2026-10-08",
-          "localizedDescription": "# 纯粹直播 v3.1.18\n|版本|下载地址|\n|---|---|\n|TV版|[pure_live_TV](https://github.com/liuchuancong/pure_live_TV/releases/latest)|\n|Windows/macOS/Android/iOS版|[pure_live](https://github.com/liuchuancong/pure_live/releases/latest)|\n### 🖥️ Windows 版\n- **Portable ZIP**：解压即用，无需安装\n- **EXE 安装包**：适合所有用户\n- **MSIX 包**：现代应用格式，支持干净卸载\n- 适配：Windows 10/11 x64\n### 🍎 macOS 版\n- macOS 桌面版\n- Universal：Apple Silicon + Intel\n- ZIP / DMG\n### 📱 Android 版\n- Android 8.0+（API 26，FFmpegKit 录制依赖要求）\n- ARM64-v8a\n- ARMv7\n- x86_64\n- 统一 SHA256 校验文件：[**ANDROID_SHA256SUM.txt**](https://github.com/liuchuancong/pure_live/releases/download/v3.1.18/ANDROID_SHA256SUM.txt)\n### 🐧 Linux 版\n- Linux x64\n- **DEB 安装包**：适合 Debian/Ubuntu 及其衍生发行版\n- **Portable ZIP / tar.gz**：解压即用，无需安装\n### 🍎 iOS 版\n- unsigned iOS device application\n- TrollStore / ad-hoc IPA\n- ARM64\n### 🔧 Build Metadata\n[**BUILD_METADATA.json**](https://github.com/liuchuancong/pure_live/releases/download/v3.1.18/BUILD_METADATA.json)\n### 📝 本次更新\nversion: 3.1.18\n版本更新：\n- 播放内核：全平台默认 mpv 引擎，采用更安全的硬解默认值，修复 Android 硬解兼容；设置新增\"播放内核一键配置\"、分模块播放指南与 Anime4K 超分辨率，输出/超分参数改完即生效，不再需要重启。\n- 取流与线路：线路自带容器/编码声明，直连还是 FFmpeg 转封装按线路事实决定，旧式 HEVC FLV 改走重封装；带 token 与特殊 CDN（如 Steam 广播）线路走回环中继，代理与 demuxer 按源选择，TwitCasting 这类\"分片为相对地址\"的线路不再打不开。\n- 直播弹幕：AcFun、TwitCasting、LOOK、Chzzk、Bigo、Showroom、Picarto、Panda、FC2、Steam、JD、酷狗、六间房、十七 Live、MissEvan、KilaKila 等 17 站弹幕/聊天引擎全部到齐；新增弹幕设置页；Twitch 订阅/赠送/突袭事件与消息撤回进弹幕区。\n- 录像播放页：改为短视频式布局——倍速/选集分离、±10 秒跳转、可拖进度条、仅音频/截图/小窗/画中画右上角常驻；窄窗口画面在上、列表在下，退出小窗接着播；新增本地录像播放与私有目录提示。\n- 全屏与返回：安卓返回改两段语义——先退全屏、再退页面；竖屏与桌面全屏的控制栏避开刘海与手势条；画中画不再裁圆角，桌面全屏按钮不再消失。\n- 界面与设置：直播间键位收成可测键位表，新增 F 全屏、M 静音（空格暂停、Esc 退出全屏）；小窗控制层 5 秒无操作自动收起；画中画尺寸可调，站点分类平铺，平台选择器统一平台 logo；壁纸/背景覆盖更广，界面文案全部进语言包。\n- 账号与稳定性：新增\"退出所有登录\"统一入口，退出斗鱼同步清理会话；Bigo 支持登录态取流；虎牙/斗鱼连接参数更新，连接更稳。",
-          "downloadURL": "https://github.com/liuchuancong/pure_live/releases/download/v3.1.18/PureLive-3.1.18-4107-ios-arm64-trollstore.ipa",
-          "size": 66861211,
+          "version": "3.1.19",
+          "date": "2026-10-10",
+          "localizedDescription": "# 纯粹直播 v3.1.19\n|版本|下载地址|\n|---|---|\n|TV版|[pure_live_TV](https://github.com/liuchuancong/pure_live_TV/releases/latest)|\n|Windows/macOS/Android/iOS版|[pure_live](https://github.com/liuchuancong/pure_live/releases/latest)|\n### 🖥️ Windows 版\n- **Portable ZIP**：解压即用，无需安装\n- **EXE 安装包**：适合所有用户\n- **MSIX 包**：现代应用格式，支持干净卸载\n- 适配：Windows 10/11 x64\n### 🍎 macOS 版\n- macOS 桌面版\n- Universal：Apple Silicon + Intel\n- ZIP / DMG\n### 📱 Android 版\n- Android 8.0+（API 26，FFmpegKit 录制依赖要求）\n- ARM64-v8a\n- ARMv7\n- x86_64\n- 统一 SHA256 校验文件：[**ANDROID_SHA256SUM.txt**](https://github.com/liuchuancong/pure_live/releases/download/v3.1.19/ANDROID_SHA256SUM.txt)\n### 🐧 Linux 版\n- Linux x64\n- **DEB 安装包**：适合 Debian/Ubuntu 及其衍生发行版\n- **Portable ZIP / tar.gz**：解压即用，无需安装\n### 🍎 iOS 版\n- unsigned iOS device application\n- TrollStore / ad-hoc IPA\n- ARM64\n### 🔧 Build Metadata\n[**BUILD_METADATA.json**](https://github.com/liuchuancong/pure_live/releases/download/v3.1.19/BUILD_METADATA.json)\n### 📝 本次更新\nversion: 3.1.19\n版本更新：\n- 修复部分bug",
+          "downloadURL": "https://github.com/liuchuancong/pure_live/releases/download/v3.1.19/PureLive-3.1.19-4108-ios-arm64-trollstore.ipa",
+          "size": 66858114,
           "minOSVersion": "15.6"
         }
       ]
@@ -889,11 +889,11 @@
       "tintColor": "#708070",
       "versions": [
         {
-          "version": "1.4.14",
-          "date": "2026-08-24",
-          "localizedDescription": "## 修改内容\n\n- 新增帖子本地保存：支持完整楼层和楼中楼离线阅读、媒体下载、搜索、回复更新、存储管理及备份导入导出。\n- 新增内置与自定义阅读字体，并完善首页重复点击刷新。\n- 自动检测账号登录失效，提示后清理当前登录态，同时避免旧请求或网络中断误触发退出。\n- 修复 iOS 16 嵌套搜索布局递归卡死、文字选择与导航手势冲突，并将媒体、字体、语音和存储文件 I/O 移出主线程。\n- 加固本地帖子并发写入、媒体事务崩溃恢复、备份校验与字体目录一致性。\n\n## 验证\n\n- GitHub Actions ci-ok 全部通过，包含单元测试、iOS 16 兼容检查、iPhone/iPad UI 测试和 Release 构建。\n- App 与扩展均为 1.4.14 (58)、arm64、最低 iOS 16.4；IPA 压缩结构正常且未签名。\n- 发帖和回帖夹具 UI 测试通过；本次未改动认证写入路径，因此未重复进行真实账号写入测试。",
-          "downloadURL": "https://github.com/infinityf4p/TiebaPure-iOS/releases/download/v1.4.14/TiebaPure-v1.4.14-unsigned.ipa",
-          "size": 3787516,
+          "version": "1.4.15",
+          "date": "2026-10-10",
+          "localizedDescription": "## What's included\n\n- Stabilizes Home tab reselection and refresh behavior after scrolling.\n- Returning from a thread or search now closes that screen first; the next Home tap refreshes the feed.\n- A Home tap during an in-flight refresh returns to the top without creating a duplicate request.\n- Bumps the app and Open In extension to version `1.4.15` (build `59`).\n\n## Download\n\n`TiebaPure-v1.4.15-unsigned.ipa` is an intentionally unsigned arm64 IPA for local installation/signing.\n\n- Minimum iOS: `16.4`\n- Commit: `5a87225190d6a79b1e3ad3b7d846edd407d416c7`\n- SHA-256: `28fbe31e673b1f2769043456324521afd87d04ade8d92d33832e967c19c31123`\n\nCI `ci-ok` passed on PR #86, including unit tests, iOS compatibility checks, UI smoke tests, iPad layout tests, and the Release build.",
+          "downloadURL": "https://github.com/infinityf4p/TiebaPure-iOS/releases/download/v1.4.15/TiebaPure-v1.4.15-unsigned.ipa",
+          "size": 9347637,
           "minOSVersion": "16.4"
         }
       ]
@@ -1021,6 +1021,61 @@
   ],
   "news": [
     {
+      "appID": "com.naine.doer",
+      "title": "Doer 1.8.6 · 10 Oct 2026",
+      "identifier": "Doer-release-v1.8.6",
+      "caption": "Doer 1.8.6 is available.",
+      "date": "2026-10-10T08:03:04Z",
+      "tintColor": "#4080E0",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Doer/images/news.png",
+      "notify": true,
+      "url": "https://github.com/moliango/doer/releases/tag/v1.8.6"
+    },
+    {
+      "appID": "org.zhaohe.MiniWatts",
+      "title": "MiniWatts 1.5.0 · 10 Oct 2026",
+      "identifier": "MiniWatts-release-v1.5.0",
+      "caption": "MiniWatts 1.5.0 is available.",
+      "date": "2026-10-10T07:18:40Z",
+      "tintColor": "#30E0F0",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/MiniWatts/images/news.png",
+      "notify": true,
+      "url": "https://github.com/ResistanceTo/MiniWatts/releases/tag/v1.5.0"
+    },
+    {
+      "appID": "com.example.piliplus",
+      "title": "PiliPlus 2.1.6 · 10 Oct 2026",
+      "identifier": "PiliPlus-release-2.1.6.1",
+      "caption": "PiliPlus 2.1.6 is available.",
+      "date": "2026-10-10T07:10:30Z",
+      "tintColor": "#73b480",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/PiliPlus/images/news.png",
+      "notify": true,
+      "url": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/tag/2.1.6.1"
+    },
+    {
+      "appID": "dev.infinityf4p.tiebapure",
+      "title": "TiebaPure 1.4.15 · 10 Oct 2026",
+      "identifier": "TiebaPure-release-v1.4.15",
+      "caption": "TiebaPure 1.4.15 is available.",
+      "date": "2026-10-10T06:07:37Z",
+      "tintColor": "#708070",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/TiebaPure/images/news.png",
+      "notify": true,
+      "url": "https://github.com/infinityf4p/TiebaPure-iOS/releases/tag/v1.4.15"
+    },
+    {
+      "appID": "com.mystyle.purelive.liu",
+      "title": "PureLive 3.1.19 · 10 Oct 2026",
+      "identifier": "PureLive-release-v3.1.19",
+      "caption": "PureLive 3.1.19 is available.",
+      "date": "2026-10-10T04:32:55Z",
+      "tintColor": "#50B0F0",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/PureLive/images/news.png",
+      "notify": true,
+      "url": "https://github.com/liuchuancong/pure_live/releases/tag/v3.1.19"
+    },
+    {
       "appID": "com.christianselig.Apollo",
       "title": "Apollo for Reddit - GLASS 3.9.0 · 09 Oct 2026",
       "identifier": "Apollo for Reddit - GLASS-release-v1.15.11_3.9.0",
@@ -1120,17 +1175,6 @@
       "url": "https://github.com/ARMSX2/ARMSX2/releases/tag/nightly-20261008"
     },
     {
-      "appID": "com.mystyle.purelive.liu",
-      "title": "PureLive 3.1.18 · 08 Oct 2026",
-      "identifier": "PureLive-release-v3.1.18",
-      "caption": "PureLive 3.1.18 is available.",
-      "date": "2026-10-08T06:21:08Z",
-      "tintColor": "#50B0F0",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/PureLive/images/news.png",
-      "notify": true,
-      "url": "https://github.com/liuchuancong/pure_live/releases/tag/v3.1.18"
-    },
-    {
       "appID": "ani.baka",
       "title": "AniBaka 5.2.1 · 07 Oct 2026",
       "identifier": "AniBaka-release-5.2.1+1007",
@@ -1162,17 +1206,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Mangayomi/images/news.png",
       "notify": true,
       "url": "https://github.com/kodjodevf/mangayomi/releases/tag/v0.9.8"
-    },
-    {
-      "appID": "com.example.piliplus",
-      "title": "PiliPlus 2.1.6 · 05 Oct 2026",
-      "identifier": "PiliPlus-release-2.1.6",
-      "caption": "PiliPlus 2.1.6 is available.",
-      "date": "2026-10-05T12:36:03Z",
-      "tintColor": "#73b480",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/PiliPlus/images/news.png",
-      "notify": true,
-      "url": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/tag/2.1.6"
     },
     {
       "appID": "com.google.ios.youtube",
@@ -1252,17 +1285,6 @@
       "url": "https://github.com/CyrilPeng/Venera-Next/releases/tag/v1.17.0"
     },
     {
-      "appID": "com.naine.doer",
-      "title": "Doer 1.8.5.3 · 28 Sep 2026",
-      "identifier": "Doer-release-v1.8.5.3",
-      "caption": "Doer 1.8.5.3 is available.",
-      "date": "2026-09-28T04:11:27Z",
-      "tintColor": "#4080E0",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Doer/images/news.png",
-      "notify": true,
-      "url": "https://github.com/moliango/doer/releases/tag/v1.8.5.3"
-    },
-    {
       "appID": "org.animeko.animeko",
       "title": "Animeko 6.2.0 · 26 Sep 2026",
       "identifier": "Animeko-release-v6.2.0",
@@ -1283,17 +1305,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Orchard/images/news.png",
       "notify": true,
       "url": "https://github.com/MakrSas/orchard-ios/releases/tag/v0.2"
-    },
-    {
-      "appID": "org.zhaohe.MiniWatts",
-      "title": "MiniWatts 1.4.1 · 25 Sep 2026",
-      "identifier": "MiniWatts-release-v1.4.1",
-      "caption": "MiniWatts 1.4.1 is available.",
-      "date": "2026-09-25T12:31:59Z",
-      "tintColor": "#30E0F0",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/MiniWatts/images/news.png",
-      "notify": true,
-      "url": "https://github.com/ResistanceTo/MiniWatts/releases/tag/v1.4.1"
     },
     {
       "appID": "app.scenebox.SceneBox",
@@ -1393,17 +1404,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Musly/images/news.png",
       "notify": true,
       "url": "https://github.com/dddevid/Musly/releases/tag/v2.0.2"
-    },
-    {
-      "appID": "dev.infinityf4p.tiebapure",
-      "title": "TiebaPure 1.4.14 · 24 Aug 2026",
-      "identifier": "TiebaPure-release-v1.4.14",
-      "caption": "TiebaPure 1.4.14 is available.",
-      "date": "2026-08-24T01:40:29Z",
-      "tintColor": "#708070",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/TiebaPure/images/news.png",
-      "notify": true,
-      "url": "https://github.com/infinityf4p/TiebaPure-iOS/releases/tag/v1.4.14"
     },
     {
       "appID": "app.ehpanda",
