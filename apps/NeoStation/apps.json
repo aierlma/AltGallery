@@ -21,11 +21,11 @@
       "tintColor": "#01E989",
       "versions": [
         {
-          "version": "0.0.3",
-          "date": "2026-10-09",
-          "localizedDescription": "# NeoStation iOS 0.0.3 — Build 427\n\n**Libretro emulation cores**, also used by RetroArch, are now **embedded directly in NeoStation iOS**. For supported systems, your games launch inside NeoStation without opening the RetroArch app.\n\n- **BIOS files:** open **Files → On My iPhone/iPad → NeoStation → Libretro → System** and add your BIOS files, just as you did in RetroArch’s `system` folder. Keep the filenames and subfolders required by each core. No BIOS files are included.\n- **NeoPlay / AirPlay:** streaming is working. The **NeoPlay 0.8.0** Windows receiver is included with this release. Install it on your PC and connect your iPhone/iPad to the same local network.\n- **NeoSwap:** the swap system is still a work in progress.\n- **Credits and licenses:** notices for all 14 Libretro cores and their support libraries have been added to the license bundle.\n\n## Coming next\n\nMore additions are planned for future updates, including **shader support** to customize how your games look, as in RetroArch, and **skins** to personalize the appearance of the on-screen controls.\n\nThank you to the Libretro and RetroArch teams, all emulator developers, and the NeoStation community for their work, support, and feedback!\n\n## Downloads\n\n- `NeoStation-0.0.3.ipa` — iOS/iPadOS app, internal build 427. Sign it using your usual sideloading tool.\n- `NeoPlay-Setup-0.8.0.exe` — Windows installer.\n- `NeoStation-0.0.3-Licenses-and-Notices.zip` — licenses and credits.\n- `NeoStation-0.0.3-Source-Manifest.md` and the source archives — source and build provenance.\n- `NeoStation-0.0.3-SHA256SUMS.txt` — file checksums.\n\n## Release information\n\nBased on build 427 (`6bfc9dd`). The emulator cores and compiled application code are preserved. The package has been updated to display version 0.0.3 and include the notices, then sealed again with ad hoc signatures. Successful build checks do not establish that every game and core has been tested on an iPhone.\n\nEach component remains subject to its own license. Non-commercial conditions and limitations in tracing the exact sources of precompiled binaries are documented in the accompanying files. Adding these notices is not a certification of legal compliance.",
-          "downloadURL": "https://github.com/TarbleFR/neostation-ios/releases/download/0.0.3/NeoStation-0.0.3.ipa",
-          "size": 205767832,
+          "version": "0.0.4",
+          "date": "2026-10-10",
+          "localizedDescription": "# NeoStation iOS 0.0.4\n\nThis release brings the skin catalog and fixes for PSP and Nintendo 3DS to NeoStation iOS.\n\n## What's new\n\n- **Skin catalog:** browse the **[Provenance Skin Catalog](https://github.com/Provenance-Emu/skins)** for NeoStation's embedded Libretro consoles, install compatible skins, and choose separate portrait and landscape layouts.\n- **PSP:** fixed an issue that prevented games from launching.\n- **Nintendo 3DS:** fixed a crash that occurred when closing a game.\n\nThank you to the emulator developers and the NeoStation community for your work, feedback, and patience!\n\n## Using skins\n\nOpen **Settings → Folders → Embedded consoles**, choose a console, then **Skins**.\nUse **Browse the Provenance catalog** or **Import from Files**, then select\n**Use in portrait**, **Use in landscape** or **Use in both orientations**.\n\nSee the **[skin guide](https://github.com/TarbleFR/neostation-ios/blob/08145438cc907b22b7b860bf190d1b520040fef1/docs/SKINS.md)** for supported archive formats, default skins, game-specific choices and catalog sources.\n\nCatalog credits go to the **Provenance community**, format-reference credits to **Riley Testut and DeltaCore contributors**, and artwork credits to each **skin creator**. Community skins are optional downloads and retain their creators' terms.\n\n## Download\n\nDownload **`NeoStation-0.0.4.ipa`** below and sign it with your usual sideloading tool.\n\n`NeoStation-0.0.4-SHA256SUMS.txt` contains the IPA checksum.\n\n## Release information\n\n- **Release:** 0.0.4\n- **Internal build:** 435\n- **Source commit:** `90a4e513e3a97f642bc45963bfb689f7c4677d46`\n- **Build:** [GitHub Actions run 38072379293](https://github.com/TarbleFR/neostation-ios/actions/runs/38072379293)\n\nThis release distributes the existing Build 435 IPA. Its contents have not been rebuilt or modified; the download filename and GitHub release name use version 0.0.4. The app bundle retains its original marketing version, 0.0.2, and internal build number, 435.",
+          "downloadURL": "https://github.com/TarbleFR/neostation-ios/releases/download/0.0.4/NeoStation-0.0.4.ipa",
+          "size": 205917388,
           "minOSVersion": "18.0"
         }
       ]
@@ -34,14 +34,14 @@
   "news": [
     {
       "appID": "com.neogamelab.neostation",
-      "title": "NeoStation iOS 0.0.3 · 09 Oct 2026",
-      "identifier": "NeoStation iOS-release-0.0.3",
-      "caption": "NeoStation iOS 0.0.3 is available.",
-      "date": "2026-10-09T16:58:04Z",
+      "title": "NeoStation iOS 0.0.4 · 10 Oct 2026",
+      "identifier": "NeoStation iOS-release-0.0.4",
+      "caption": "NeoStation iOS 0.0.4 is available.",
+      "date": "2026-10-10T18:33:34Z",
       "tintColor": "#01E989",
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/NeoStation/images/news.png",
       "notify": true,
-      "url": "https://github.com/TarbleFR/neostation-ios/releases/tag/0.0.3"
+      "url": "https://github.com/TarbleFR/neostation-ios/releases/tag/0.0.4"
     }
   ]
 }
