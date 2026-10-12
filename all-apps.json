@@ -286,11 +286,11 @@
       "tintColor": "#5949E5",
       "versions": [
         {
-          "version": "1.1.0",
-          "date": "2026-10-09",
-          "localizedDescription": "## Game Support\r\n- Grand Theft Auto 5 (unofficial)\r\n\r\n## What's Changed\r\n* fix: support TrollStore by @azyarashi in https://github.com/Leviidev/Husk/pull/68\r\n* feat: downloading tab, direct http or local ip by @Leviidev \r\n\r\n## New Contributors\r\n* @azyarashi made their first contribution in https://github.com/Leviidev/Husk/pull/68\r\n\r\n**Full Changelog**: https://github.com/Leviidev/Husk/compare/1.0.1...1.1.0\r\n\r\n## Links:\r\nDiscord Server: https://discord.gg/xApMHWAzkh\r\nX: https://x.com/leviidev01\r\nDiscord: @leviidev",
-          "downloadURL": "https://github.com/Leviidev/Husk/releases/download/1.1.0/Husk.ipa",
-          "size": 54385494,
+          "version": "2.0",
+          "date": "2026-10-11",
+          "localizedDescription": "## Welcome to Husk 2.0.\r\nI’ve been working hard over the past few days, and I’m glad to say, Husk 2.0 is out! You’ll enjoy it, a lot.\r\n## What’s new?\r\n- Christmas Decoration\r\n- In-app help feature\r\n- Window manager\r\n- New UI\r\n- Removed downloads tab\r\n## New App Support\r\n- Over 150+ games and apps, now running on Husk.\r\n## Notes:\r\nThank you all for the continuous support, It’s been a good few months, and I’m just amazed at how big Husk got. Thank you so much, and enjoy Husk 2.0. There is more to come.\r\n## Links:\r\n- Discord: https://discord.gg/xApMHWAzkh\r\n- X Profile: https://x.com/leviidev01\r\n- Discord User: @leviidev\r\n\r\n**Full Changelog**: https://github.com/Leviidev/Husk/compare/1.1.0...2.0",
+          "downloadURL": "https://github.com/Leviidev/Husk/releases/download/2.0/Husk.ipa",
+          "size": 110921859,
           "minOSVersion": "16.4"
         }
       ]
@@ -984,12 +984,12 @@
       "tintColor": "#FF0000",
       "versions": [
         {
-          "version": "21.40.5",
-          "buildVersion": "21.40.5",
-          "date": "2026-10-05",
+          "version": "21.41.5",
+          "buildVersion": "21.41.5",
+          "date": "2026-10-11",
           "localizedDescription": "### Latest Release, ENJOY!!\r\n> [!NOTE]\r\n> - **YTUHD** is not included. 4K60HDR is available.\r\n> - if you're signed out you can sign in manually. \r\n> - no iSponsorBlock. (unstable in newer builds)\r\n> - for <A15 devices press share button in the arrow down panel and use external player for AV1 videos.\r\n> - downloads are unstable for <A15 devices. some will fail due to no av1 codec. \r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YouSlider` `YTweaks` `YouSpeed` `YouMute` `YouLoop` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` \r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `Gonerino` \r\n\r\n> [!WARNING]\r\n> - 21.34.3+ builds require iOS 17+ now.",
-          "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youproextra-ipa3/YouProExtra_21.40.5_1.3.1.ipa",
-          "size": 129948434,
+          "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youproextra-ipa2/YouProExtra_21.41.5_1.3.1.ipa",
+          "size": 130721602,
           "minOSVersion": "16.0"
         }
       ]
@@ -1020,6 +1020,28 @@
     }
   ],
   "news": [
+    {
+      "appID": "com.google.ios.youtube",
+      "title": "YouProEXTRA 21.41.5 · 11 Oct 2026",
+      "identifier": "YouProEXTRA-release-youproextra-ipa2",
+      "caption": "YouProEXTRA 21.41.5 is available.",
+      "date": "2026-10-11T23:19:12Z",
+      "tintColor": "#FF0000",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/YouProEXTRA/images/news.png",
+      "notify": true,
+      "url": "https://github.com/mrdrvt99/YouProEXTRA/releases/tag/youproextra-ipa2"
+    },
+    {
+      "appID": "com.husk.app",
+      "title": "Husk 2.0 · 11 Oct 2026",
+      "identifier": "Husk-release-2.0",
+      "caption": "Husk 2.0 is available.",
+      "date": "2026-10-11T22:41:49Z",
+      "tintColor": "#5949E5",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Husk/images/news.png",
+      "notify": true,
+      "url": "https://github.com/Leviidev/Husk/releases/tag/2.0"
+    },
     {
       "appID": "com.armsx2.ios",
       "title": "ARMSX2 nightly-20261011 · 11 Oct 2026",
@@ -1142,17 +1164,6 @@
       "url": "https://github.com/Apollo-Reborn/Apollo-Reborn/releases/tag/v1.15.11_3.9.0"
     },
     {
-      "appID": "com.husk.app",
-      "title": "Husk 1.1.0 · 09 Oct 2026",
-      "identifier": "Husk-release-1.1.0",
-      "caption": "Husk 1.1.0 is available.",
-      "date": "2026-10-09T09:47:21Z",
-      "tintColor": "#5949E5",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Husk/images/news.png",
-      "notify": true,
-      "url": "https://github.com/Leviidev/Husk/releases/tag/1.1.0"
-    },
-    {
       "appID": "com.huamu013.ZhihuMinusMinus",
       "title": "ZhihuMinusMinus 0.8.1 · 09 Oct 2026",
       "identifier": "ZhihuMinusMinus-release-v0.8.1",
@@ -1217,17 +1228,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Mangayomi/images/news.png",
       "notify": true,
       "url": "https://github.com/kodjodevf/mangayomi/releases/tag/v0.9.8"
-    },
-    {
-      "appID": "com.google.ios.youtube",
-      "title": "YouProEXTRA 21.40.5 · 05 Oct 2026",
-      "identifier": "YouProEXTRA-release-youproextra-ipa3",
-      "caption": "YouProEXTRA 21.40.5 is available.",
-      "date": "2026-10-05T01:06:37Z",
-      "tintColor": "#FF0000",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/YouProEXTRA/images/news.png",
-      "notify": true,
-      "url": "https://github.com/mrdrvt99/YouProEXTRA/releases/tag/youproextra-ipa3"
     },
     {
       "appID": "com.ligg.anime_flow",
