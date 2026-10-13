@@ -77,7 +77,7 @@ def ensure_progress(data, previous):
     after = data["apps"][0]["versions"][0]
     new_version = tuple(map(int, after["version"].split(".")))
     new_build = int(after["buildVersion"])
-    if new_version < old_version or new_build < old_build:
+    if new_version < old_version or (new_version == old_version and new_build < old_build):
         raise ValueError("Refusing to replace the source with an older IPA")
     if new_version == old_version and new_build == old_build and after["downloadURL"] != before["downloadURL"]:
         raise ValueError("A different IPA URL reuses the same version and build")
