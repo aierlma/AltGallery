@@ -45,21 +45,14 @@ jobs:
           ref: master
           fetch-depth: 0
 
-      - name: Install Rust for the upstream embedded daemon
-        uses: dtolnay/rust-toolchain@stable
-        with:
-          targets: aarch64-apple-ios
-
       - name: Resolve the formal upstream release and immutable source checks
         run: |
           set -euo pipefail
-          args=()
+          args=(--repo leeguooooo/iphone-use --output "$RUNNER_TEMP/iphone-use-upstream.json")
           if [[ -n "${UPSTREAM_TAG:-}" ]]; then
             args+=(--tag "$UPSTREAM_TAG")
           fi
-          python3 apps/iPhoneUse/upstream_release.py \
-            --repo leeguooooo/iphone-use "${args[@]}" \
-            --output "$RUNNER_TEMP/iphone-use-upstream.json"
+          python3 apps/iPhoneUse/upstream_release.py "${args[@]}"
           jq -e '.checks.formal_release and .checks.immutable_commit and .checks.official_build_scripts and .checks.embedded_daemon_path' \
             "$RUNNER_TEMP/iphone-use-upstream.json" >/dev/null
 
@@ -111,6 +104,12 @@ jobs:
             echo "publish=true" >> "$GITHUB_OUTPUT"
           fi
           echo "existing=$existing" >> "$GITHUB_OUTPUT"
+
+      - name: Install Rust for the upstream embedded daemon
+        if: steps.state.outputs.skip != 'true'
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-apple-ios
 
       - name: Build and validate the candidate
         if: steps.state.outputs.skip != 'true'
