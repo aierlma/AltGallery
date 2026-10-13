@@ -1,0 +1,188 @@
+name: Update iPhoneUse Runner candidate
+
+on:
+  schedule:
+    - cron: '41 * * * *'
+  workflow_dispatch:
+    inputs:
+      upstream_tag:
+        description: 'Formal upstream tag to build (blank means latest)'
+        required: false
+        type: string
+      dry_run:
+        description: 'Build and validate, then upload an artifact without creating a release'
+        required: false
+        default: false
+        type: boolean
+      force:
+        description: 'Rebuild even when a matching release already exists (never overwrites it)'
+        required: false
+        default: false
+        type: boolean
+
+concurrency:
+  group: altgallery-iphone-use-upstream
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  candidate:
+    if: github.repository == 'aierlma/AltGallery'
+    runs-on: macos-15
+    timeout-minutes: 90
+    env:
+      GH_TOKEN: ${{ github.token }}
+      UPSTREAM_TAG: ${{ inputs.upstream_tag }}
+      DRY_RUN: ${{ inputs.dry_run || false }}
+      FORCE: ${{ inputs.force || false }}
+    steps:
+      - name: Check out AltGallery
+        uses: actions/checkout@v5
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: Install Rust for the upstream embedded daemon
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-apple-ios
+
+      - name: Resolve the formal upstream release and immutable source checks
+        run: |
+          set -euo pipefail
+          args=()
+          if [[ -n "${UPSTREAM_TAG:-}" ]]; then
+            args+=(--tag "$UPSTREAM_TAG")
+          fi
+          python3 apps/iPhoneUse/upstream_release.py \
+            --repo leeguooooo/iphone-use "${args[@]}" \
+            --output "$RUNNER_TEMP/iphone-use-upstream.json"
+          jq -e '.checks.formal_release and .checks.immutable_commit and .checks.official_build_scripts and .checks.embedded_daemon_path' \
+            "$RUNNER_TEMP/iphone-use-upstream.json" >/dev/null
+
+      - name: Check release idempotency
+        id: state
+        run: |
+          set -euo pipefail
+          metadata="$RUNNER_TEMP/iphone-use-upstream.json"
+          version="$(jq -r .version "$metadata")"
+          upstream_tag="$(jq -r .tag "$metadata")"
+          commit="$(jq -r .commit "$metadata")"
+          if [[ "$version" == "0.17.19" ]]; then
+            package_build=3
+          else
+            package_build=1
+          fi
+          release_tag="iphone-use-${version}-sidestore-b${package_build}"
+          ipa_name="iPhoneUse-Runner-${version}-SideStore-b${package_build}.ipa"
+          echo "release_tag=$release_tag" >> "$GITHUB_OUTPUT"
+          echo "ipa_name=$ipa_name" >> "$GITHUB_OUTPUT"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "package_build=$package_build" >> "$GITHUB_OUTPUT"
+
+          existing=false
+          if gh release view "$release_tag" --repo "$GITHUB_REPOSITORY" --json body,assets >"$RUNNER_TEMP/existing-release.json" 2>/dev/null; then
+            existing=true
+            body="$(jq -r .body "$RUNNER_TEMP/existing-release.json")"
+            has_ipa="$(jq -r --arg name "$ipa_name" '[.assets[] | select(.name == $name)] | length' "$RUNNER_TEMP/existing-release.json")"
+            if [[ "$has_ipa" != 1 ]]; then
+              echo "A release already uses $release_tag but does not contain the expected IPA; refusing to overwrite it." >&2
+              exit 1
+            fi
+            if [[ "$body" != *"$commit"* ]]; then
+              echo "A release already uses $release_tag but points at a different upstream commit; refusing to overwrite it." >&2
+              exit 1
+            fi
+            echo "Existing release $release_tag is pinned to upstream $upstream_tag at $commit."
+          fi
+          if [[ "$existing" == true && "$FORCE" != true && "$DRY_RUN" != true ]]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+          if [[ "$existing" == true ]]; then
+            # A forced build is useful for CI validation, but an existing
+            # release is immutable and must never be overwritten.
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          fi
+          echo "existing=$existing" >> "$GITHUB_OUTPUT"
+
+      - name: Build and validate the candidate
+        if: steps.state.outputs.skip != 'true'
+        run: |
+          set -euo pipefail
+          rm -rf "$RUNNER_TEMP/iphone-use-output"
+          mkdir -p "$RUNNER_TEMP/iphone-use-output"
+          bash apps/iPhoneUse/build_candidate.sh \
+            --metadata "$RUNNER_TEMP/iphone-use-upstream.json" \
+            --work-dir "$RUNNER_TEMP/iphone-use-build" \
+            --output-dir "$RUNNER_TEMP/iphone-use-output" \
+            --build "${{ steps.state.outputs.package_build }}"
+
+      - name: Upload dry-run candidate artifact
+        if: steps.state.outputs.skip != 'true' && env.DRY_RUN == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.state.outputs.release_tag }}-dry-run
+          path: ${{ runner.temp }}/iphone-use-output
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Write release notes
+        if: steps.state.outputs.skip != 'true' && steps.state.outputs.publish == 'true' && env.DRY_RUN != 'true'
+        run: |
+          set -euo pipefail
+          metadata="$RUNNER_TEMP/iphone-use-upstream.json"
+          candidate="$RUNNER_TEMP/iphone-use-output/candidate.json"
+          python3 - "$metadata" "$candidate" "$RUNNER_TEMP/iphone-use-notes.md" <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+
+          upstream = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+          candidate = json.loads(Path(sys.argv[2]).read_text(encoding="utf-8"))
+          package = candidate["package"]
+          archive_digest = upstream["runner_archive"].get("digest") or candidate["upstream"]["runner_archive_sha256"]
+          archive_digest = archive_digest.removeprefix("sha256:")
+          lines = [
+              f"Experimental SideStore compatibility package of iphone-use {upstream['version']}.",
+              "",
+              f"Upstream tag: {upstream['tag']}",
+              f"Upstream commit: {upstream['commit']}",
+              f"Runner archive SHA-256: {archive_digest}",
+              "",
+              f"Package build: {package['build']}",
+              f"IPA SHA-256: {package['ipa_sha256']}",
+              f"IPA size: {package['ipa_size']} bytes",
+              f"Minimum iOS: {package['min_os_version']}",
+              "",
+              "CI validated the official source/build scripts, the embedded on-phone daemon symbols, the unsigned Xcode build, and the ad-hoc SideStore package layout.",
+              "Device installation, launch, and wireless operation are not claimed for this candidate until separately verified.",
+              "",
+              "SideStore must sign and refresh the package. This is not an official upstream release.",
+          ]
+          Path(sys.argv[3]).write_text("\n".join(lines) + "\n", encoding="utf-8")
+          PY
+
+      - name: Publish the validated candidate release
+        if: steps.state.outputs.skip != 'true' && steps.state.outputs.publish == 'true' && env.DRY_RUN != 'true'
+        run: |
+          set -euo pipefail
+          ipa="$RUNNER_TEMP/iphone-use-output/${{ steps.state.outputs.ipa_name }}"
+          candidate="$RUNNER_TEMP/iphone-use-output/candidate.json"
+          gh release create "${{ steps.state.outputs.release_tag }}" \
+            "$ipa" "$candidate" \
+            --repo "$GITHUB_REPOSITORY" \
+            --target master \
+            --title "iPhoneUse Runner ${{ steps.state.outputs.version }} — SideStore candidate (build ${{ steps.state.outputs.package_build }})" \
+            --notes-file "$RUNNER_TEMP/iphone-use-notes.md" \
+            --prerelease
+
+      - name: Trigger the existing source update pipeline
+        if: steps.state.outputs.skip != 'true' && env.DRY_RUN != 'true'
+        run: gh workflow run update.yml --repo "$GITHUB_REPOSITORY" --ref master
