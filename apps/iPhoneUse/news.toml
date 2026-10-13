@@ -1,0 +1,6 @@
+name = "iPhoneUse Runner"
+tagline = "SideStore compatibility candidate\nDevice validation pending"
+[colors]
+tint = "#2563EB"
+tint_alt = "#60A5FA"
+background = "#101B2E"

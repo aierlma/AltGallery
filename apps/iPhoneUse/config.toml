@@ -1,0 +1,40 @@
+[github]
+repo = "aierlma/AltGallery"
+
+[source]
+name = "iPhoneUse Runner"
+subtitle = "iPhoneUse Runner SideStore compatibility build"
+description = "Experimental sideload package of the upstream iPhoneUse XCTest runner"
+icon_url = "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/iPhoneUse/icon.png"
+website = "https://github.com/leeguooooo/iphone-use"
+tint_color = "#2563EB"
+
+[app]
+name = "iPhoneUse Runner"
+# Read back from the packaged IPA; upstream's generic runner identifier.
+bundle_identifier = "com.leeguoo.iphone-use.runner.xctrunner"
+developer_name = "leeguooooo / aierlma packaging"
+subtitle = "SideStore 实验兼容版 · 需 Mac 启动"
+description = "iphone-use 0.17.19 的 XCTest Runner，调整包结构以兼容 SideStore 0.7 的扩展处理。此包由 SideStore 签名、安装并续签，需要开发者模式及 Mac/Xcode 通过配套的预安装启动配置运行。手机安装、启动和无线控制仍待实测；这不是独立运行的 iPhone 应用，也不是官方发行包。"
+icon_url = "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/iPhoneUse/icon.png"
+screenshots = []
+tint_color = "#2563EB"
+min_os_version = "17.0"
+
+[versions]
+strip_v_prefix = true
+# Include only explicitly labelled compatibility candidates, not unrelated assets.
+include_prereleases = true
+max_versions = 1
+asset_pattern = '^iPhoneUse-Runner-\d+\.\d+\.\d+-SideStore-b\d+\.ipa$'
+version_source = "filename"
+version_pattern = '(\d+\.\d+\.\d+)'
+build_version_pattern = '-b(\d+)\.ipa$'
+
+[news]
+title_template = "{name} {version} · compatibility candidate"
+caption_template = "SideStore compatibility candidate; device validation pending."
+image_url = "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/iPhoneUse/images/news.png"
+
+[output]
+path = "apps.json"
