@@ -77,6 +77,9 @@ Run Android apps on iOS — drop in an APK, tap it, and it opens full-screen. Re
 ### <a href="https://github.com/intraducine/iridium"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/Iridium/icon.png" alt="Iridium icon" width="24" align="top"> Iridium</a>
 An experimental iPhone and iPad Windows-game runtime, with a native game library and touch, keyboard, mouse, and controller integration.
 
+### <a href="https://github.com/leeguooooo/iphone-use"><img src="https://raw.githubusercontent.com/aierlma/AltGallery/master/apps/iPhoneUse/icon.png" alt="iPhoneUse Runner icon" width="24" align="top"> iPhoneUse Runner</a>
+SideStore 实验兼容包，由 SideStore 安装和续签；需要开发者模式及配套的 Mac/Xcode 启动。手机安装、启动与无线控制待实测。详见[安装说明](apps/iPhoneUse/README.md)。
+
 ### <a href="https://github.com/XITRIX/iTorrent"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/iTorrent/icon.png" alt="iTorrent icon" width="24" align="top"> iTorrent</a>
 Torrent client for iOS.
 
