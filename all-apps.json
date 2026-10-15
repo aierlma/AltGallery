@@ -305,13 +305,13 @@
       "tintColor": "#2563EB",
       "versions": [
         {
-          "version": "0.17.19",
-          "buildVersion": "3",
-          "date": "2026-10-13",
-          "localizedDescription": "Experimental SideStore compatibility package of iphone-use 0.17.19 (upstream commit 47cf89852a1de8f2a6670ef4ae811708621825f4).\n\nBuild 3 relocates XCTest to Frameworks/iPhoneUse.xctest for SideStore 0.7 compatibility. The runner implementation is unchanged. Personal provisioning profiles and certificate signatures are removed; the upstream license and required notice are included.\n\nThe published IPA has now been installed through SideStore 0.7, appeared in My Apps, and refreshed individually (20% progress then 7 DAYS, no alert). The installed Runner launched using Xcode UseDestinationArtifacts. Direct iPhoneUse screenshot reads and UI operations succeeded over USB and encrypted CoreDevice Wi-Fi after unplugging USB. SideStore and PiliPlus BTR were preserved.\n\nSideStore manages signing and refresh. The configured Mac/Xcode launcher starts the preinstalled Runner only when an Agent requests a session; login and status queries do not start phone control. Opening the phone icon alone does not start the XCTest session. This remains a community compatibility package rather than an official upstream release. Future CI-built versions require separate device validation.\n\nPublished IPA: 10,484,780 bytes\nSHA256: 0a662c21d15774df5178a16a5d9cf01537c3ed56f745f594d49110e23dbc2edf",
-          "downloadURL": "https://github.com/aierlma/AltGallery/releases/download/iphone-use-0.17.19-sidestore-b3/iPhoneUse-Runner-0.17.19-SideStore-b3.ipa",
-          "size": 10484780,
-          "minOSVersion": "17.0"
+          "version": "0.19.0",
+          "buildVersion": "1",
+          "date": "2026-10-15",
+          "localizedDescription": "Experimental SideStore compatibility package of iphone-use 0.19.0.\n\nUpstream tag: v0.19.0\nUpstream commit: 29ca852654650741ba8ee956ff712dee8fd6c2c2\nRunner archive SHA-256: 91363999d96bf24ce7b49ceea587afc66b8f84f8ec8cc7f022af87f542b64b47\n\nPackage build: 1\nIPA SHA-256: 41c9d3e9edd1f8322f9aa16913b176076c1a4968a10ff752f9b39ab4200e73bc\nIPA size: 14842178 bytes\nMinimum iOS: 13.0\n\nCI validated the official source/build scripts, the embedded on-phone daemon symbols, the unsigned Xcode build, and the ad-hoc SideStore package layout.\nDevice installation, launch, and wireless operation are not claimed for this candidate until separately verified.\n\nSideStore must sign and refresh the package. This is not an official upstream release.",
+          "downloadURL": "https://github.com/aierlma/AltGallery/releases/download/iphone-use-0.19.0-sidestore-b1/iPhoneUse-Runner-0.19.0-SideStore-b1.ipa",
+          "size": 14842178,
+          "minOSVersion": "13.0"
         }
       ]
     },
@@ -1041,6 +1041,17 @@
   ],
   "news": [
     {
+      "appID": "com.leeguoo.iphone-use.runner.xctrunner",
+      "title": "iPhoneUse Runner 0.19.0 · compatibility candidate",
+      "identifier": "iPhoneUse Runner-release-iphone-use-0.19.0-sidestore-b1",
+      "caption": "SideStore compatibility candidate; device validation pending.",
+      "date": "2026-10-15T12:08:29Z",
+      "tintColor": "#2563EB",
+      "imageURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/iPhoneUse/images/news.png",
+      "notify": true,
+      "url": "https://github.com/aierlma/AltGallery/releases/tag/iphone-use-0.19.0-sidestore-b1"
+    },
+    {
       "appID": "com.example.piliplus.btr",
       "title": "PiliPlus BTR v2.1.6-btr.5534-a94539670c5c · 14 Oct 2026",
       "identifier": "PiliPlus BTR-release-v2.1.6-btr.5534-a94539670c5c",
@@ -1083,17 +1094,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/NeoStation/images/news.png",
       "notify": true,
       "url": "https://github.com/TarbleFR/neostation-ios/releases/tag/0.0.7"
-    },
-    {
-      "appID": "com.leeguoo.iphone-use.runner.xctrunner",
-      "title": "iPhoneUse Runner 0.17.19 · compatibility candidate",
-      "identifier": "iPhoneUse Runner-release-iphone-use-0.17.19-sidestore-b3",
-      "caption": "SideStore compatibility candidate; device validation pending.",
-      "date": "2026-10-13T18:54:53Z",
-      "tintColor": "#2563EB",
-      "imageURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/iPhoneUse/images/news.png",
-      "notify": true,
-      "url": "https://github.com/aierlma/AltGallery/releases/tag/iphone-use-0.17.19-sidestore-b3"
     },
     {
       "appID": "com.huamu013.ZhihuMinusMinus",
