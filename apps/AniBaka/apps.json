@@ -19,30 +19,8 @@
         "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/AniBaka/images/player.png"
       ],
       "tintColor": "#0077B6",
-      "versions": [
-        {
-          "version": "5.2.3",
-          "buildVersion": "1020",
-          "date": "2026-10-21",
-          "localizedDescription": "- 支持绑定、更换找回邮箱，通过邮箱验证码修改或找回密码；已填写 QQ 的账户可直接使用对应 QQ 邮箱找回。\r\n- 优化自动搜源与换源逻辑，减少重复加载，修复短标题误匹配及历史匹配记录可能关联到其他作品的问题。\r\n- 优化媒体代理、播放鉴权与 HLS 处理，更新部分内置源，改善播放兼容性与去广告处理。\r\n- 优化弹幕加载，减少重复请求，修复部分弹幕颜色解析错误，以及切集后旧弹幕加载结果覆盖当前内容的问题。\r\n- 调整番剧详情、评分、角色、收藏和评论界面，优化桌面播放器侧栏与剧集缩略图展示。\r\n- 公告与置顶评论支持关闭后记住状态，内容更新后再次提示。\r\n- 优化 Bangumi 数据缺失及请求异常的处理，完善网络设置说明。\r\n- 修复 Windows 首次构建可能遗漏原生依赖的问题，并增加发行包依赖校验。\r\n**Full Changelog**: https://github.com/AniBakaBaka/AniBaka/compare/5.2.2+1017...5.2.3+1020",
-          "downloadURL": "https://github.com/AniBakaBaka/AniBaka/releases/download/5.2.3%2B1020/baka-5.2.3%2B1020-ios-unsigned.ipa",
-          "size": 23775885,
-          "minOSVersion": "13.0"
-        }
-      ]
+      "versions": []
     }
   ],
-  "news": [
-    {
-      "appID": "ani.baka",
-      "title": "AniBaka 5.2.3 · 21 Oct 2026",
-      "identifier": "AniBaka-release-5.2.3+1020",
-      "caption": "AniBaka 5.2.3 is available.",
-      "date": "2026-10-21T11:26:14Z",
-      "tintColor": "#0077B6",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/AniBaka/images/news.png",
-      "notify": true,
-      "url": "https://github.com/AniBakaBaka/AniBaka/releases/tag/5.2.3+1020"
-    }
-  ]
+  "news": []
 }

@@ -18,29 +18,8 @@
         "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Husk/images/settings.png"
       ],
       "tintColor": "#5949E5",
-      "versions": [
-        {
-          "version": "3.0",
-          "date": "2026-10-17",
-          "localizedDescription": "## Husk 3.0\r\nThe coolest and biggest Husk release yet. Hundreds of new Android games, PS4 support, and more.\r\n\r\n## What's new?\r\n- Console-style home screen\r\n- New library UI\r\n- Proper first run\r\n    - Contains full setup guide + optional walkthrough\r\n### PS4 Games\r\n- Add a game with the + button. Either a PKG, a folder of PKG's, or an extracted game folder. Updates install with their game.\r\n- Tested: Bloodborne, Minecraft: PlayStation 4 Edition, Sonic Mania\r\n- Shaders are kept inbetween launches with Shader Cache\r\n- If a game requires keyboard input, it'll open the iOS keyboard\r\n### Android\r\n- 366 newly working games - view in compatibility list\r\n- Unofficial ports: Sonic Robo Blast 2, Nethack, PokeWilds and more\r\n- GoDot 4\r\n- Store downloads include OBB files\r\n- Typing works in all games\r\n- Optional language fonts (chinese, japanese, etc)\r\n### Also\r\n- Lots of fixes\r\n- TrollStore JIT fully complete\r\n- iOS 15.5 support\r\n## Known Issues\r\n- Bloodborne runs, but very poorly.\r\n- Some Unity 6 games can render slowly\r\n## Final notes\r\nThank you all. Enjoy ❤️ \r\n\r\nDiscord Server: https://discord.gg/xApMHWAzkh",
-          "downloadURL": "https://github.com/Leviidev/Husk/releases/download/3.0/Husk.ipa",
-          "size": 140126095,
-          "minOSVersion": "16.4"
-        }
-      ]
+      "versions": []
     }
   ],
-  "news": [
-    {
-      "appID": "com.husk.app",
-      "title": "Husk 3.0 · 17 Oct 2026",
-      "identifier": "Husk-release-3.0",
-      "caption": "Husk 3.0 is available.",
-      "date": "2026-10-17T21:34:58Z",
-      "tintColor": "#5949E5",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Husk/images/news.png",
-      "notify": true,
-      "url": "https://github.com/Leviidev/Husk/releases/tag/3.0"
-    }
-  ]
+  "news": []
 }
