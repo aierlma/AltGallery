@@ -21,11 +21,11 @@
       "tintColor": "#01E989",
       "versions": [
         {
-          "version": "0.0.9",
-          "date": "2026-10-24",
-          "localizedDescription": "## What's new\r\n\r\n- Refreshed RewindBox identity, app icon and startup animation, with Liquid Glass surfaces and touch swiping between the main tabs.\r\n- Embedded MeloNX integration: dedicated Switch playlist, game and add-on imports, firmware/key import improvements, save migration and editable touch controls.\r\n- Switch fixes: direct access to the playlist, repaired game deletion, removal of obsolete external MeloNX paths, and clearer startup/JIT requirements.\r\n- Expanded HD texture and system-art catalogues, with clearer distinctions between available downloads and author references.\r\n\r\n## RPCS3 improvements — Build 527\r\n\r\n- Incremental JIT code publication avoids repeatedly processing previously published code ranges.\r\n- Three PPU sum operations now use shorter ARM64/NEON sequences while preserving saturation and endianness.\r\n- Recyclable GPU images now respect the existing 256 MiB / 256-image limits.\r\n- Added bounded diagnostics for guest frame times, JIT preparation, component waits and memory usage.\r\n- Includes the recent save-state restoration, worker shutdown and PPU cache fixes.\r\n\r\nThese changes are validated by native and packaging checks; gameplay FPS and total RAM gains on iPhone are still being measured. The first RPCS3 launch may rebuild affected caches.\r\n\r\n**Download:** `RewindBox-Build527.ipa` below. Sign the IPA with your usual sideloading tool before installing.",
-          "downloadURL": "https://github.com/TarbleFR/RewindBox/releases/download/0.0.9/RewindBox-Build527.ipa",
-          "size": 186673707,
+          "version": "0.0.9-fix.1",
+          "date": "2026-10-25",
+          "localizedDescription": "## RewindBox iOS — fix 0.0.9 (Build 530)\n\nThis hotfix addresses the identified MeloNX crash path on iOS: Vulkan returned ErrorFeatureNotPresent during direct host-memory buffer import after a Nintendo Switch game began rendering. The embedded engine now avoids that unsupported import on iOS and uses its existing GPU buffer/readback fallback.\n\n- Rebuilt and source-verified embedded MeloNX NativeAOT engine.\n- Existing RPCS3 Core and other supported embedded emulators retained.\n- Ad-hoc signed for re-signing with SideStore/AltStore.\n- Automated native/iOS-simulator and packaging checks passed.\n\nPlease test gameplay stability on a physical iPhone. The fix addresses the observed Vulkan API failure, but a successful long game session has not yet been independently verified.\n\nVersion note: IPA build number 530; internal app version remains 0.0.8 because this targeted hotfix retains the previously validated application metadata. The release title is fix 0.0.9.\n\nSource: RewindBox development branch merged into main. No personal firmware, Switch keys or game files are bundled.",
+          "downloadURL": "https://github.com/TarbleFR/RewindBox/releases/download/0.0.9-fix.1/RewindBox-Build530.ipa",
+          "size": 186305438,
           "minOSVersion": "18.0"
         }
       ]
@@ -34,14 +34,14 @@
   "news": [
     {
       "appID": "com.neogamelab.neostation",
-      "title": "NeoStation iOS 0.0.9 · 24 Oct 2026",
-      "identifier": "NeoStation iOS-release-0.0.9",
-      "caption": "NeoStation iOS 0.0.9 is available.",
-      "date": "2026-10-24T22:07:14Z",
+      "title": "NeoStation iOS 0.0.9-fix.1 · 25 Oct 2026",
+      "identifier": "NeoStation iOS-release-0.0.9-fix.1",
+      "caption": "NeoStation iOS 0.0.9-fix.1 is available.",
+      "date": "2026-10-25T03:10:45Z",
       "tintColor": "#01E989",
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/NeoStation/images/news.png",
       "notify": true,
-      "url": "https://github.com/TarbleFR/neostation-ios/releases/tag/0.0.9"
+      "url": "https://github.com/TarbleFR/neostation-ios/releases/tag/0.0.9-fix.1"
     }
   ]
 }
