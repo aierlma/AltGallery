@@ -739,13 +739,13 @@
       "tintColor": "#73b480",
       "versions": [
         {
-          "version": "2.1.5573",
+          "version": "2.1.5631",
           "date": "2026-10-26",
-          "localizedDescription": "PiliPlus BTR **2.1.5573** / build **5573**, based on PiliPlus 2.1.6.\n\n修复海外 Akamai 播放地址的签名处理：直接使用 B 站接口返回的完整 Akamai 地址，保留其专属签名；避免把其他 CDN 地址仅替换域名后交给 Akamai，也避免 BTR 使用之前缓存的测速结果跨域搬用签名。未提供 Akamai 地址时保留原始可用地址。\n\n本版本保留现有 BTR 功能和独立应用标识 `com.example.piliplus.btr`。通过现有 SideStore 订阅更新，无需更换订阅或卸载旧版。最低 iOS 15.0。\n\nValidation:\n- [Unsigned iOS build and focused Flutter tests](https://github.com/aierlma/PiliPlus/actions/runs/40249671258)\n- [Release checks against the same source](https://github.com/aierlma/PiliPlus/actions/runs/40251105576): 60 Flutter tests, 29 maintenance tests and 17 updater checks passed; full static analysis had no errors or warnings (44 informational lints).\n- Live signed video/audio range requests: legacy host rewrite returned 403; fixed direct and BTR paths returned 206 with matching content.\n- Device installation and sustained playback will be tested by the user; this release does not claim to eliminate every possible buffering cause.\n\nSource: fbd3d16a8f9c48ab92f199463fa4776b71183b84\nOfficial PiliPlus upstream: 7312ca186e79c3898d35fbc33b1b8e90856a3cb2\nBTR author upstream: 3988e6d081a26120ca79f1e654fe1a3422b7282f\nIPA SHA-256: `8880e5976abd9f418530e5d9d08d7b55a8ba2d7e7187055f41cef9aba827ee8f`",
-          "downloadURL": "https://github.com/aierlma/PiliPlus/releases/download/v2.1.6-btr.5573-fbd3d16a8f9c/PiliPlus-BTR-ios-2.1.6-btr.5573-unsigned.ipa",
-          "size": 24886008,
+          "localizedDescription": "PiliPlus BTR 2.1.5631（基于 PiliPlus 2.1.6）\n\n- 修复 Akamai 能播放却始终无法测速：BTR 直接测量官方原始签名地址，不再跳过 Akamai，也不把签名搬到其他 CDN。\n- 修复旧 CDN 测速缓存妨碍 Akamai 测速的问题，改正测速失败提示。\n- 合入官方 PiliPlus 和 BTR 作者更新，保留个人 BTR、更新检查和 SideStore 身份。\n- 整合 PR #14 的同步冲突修复及设置重载测试修复；发布后自动关闭已验证覆盖的旧同步失败记录。\n\n完整 Flutter 测试、维护测试、更新检查、静态分析和 iOS 编译通过。Mac 真链接验证中，直连与 BTR 的视频开头、seek 片段和音频字节一致，Akamai 手动测速成功。并发下载不保证在已经很快的节点上继续提速。\n\n继续使用原来的 SideStore 订阅；源同步后在 My Apps 选择 Update，无需卸载。最低 iOS 15.0；IPA 未签名，由 SideStore 签名安装。\n\nBuild source: ffc6d1dcf75bdabf005c8a1d9f2e7b7f6a873c71\nOfficial upstream: affac5334fc41744894618d9fb53b7101db9532a\nBTR author upstream: 97663e3ab5532b37748a6ec4c3567ae209a777d0\nValidation: https://github.com/aierlma/PiliPlus/actions/runs/40254787303\n\n上游 PR 尚未提交；本次是个人 BTR 发布。\n\nIPA SHA-256: 01ae08c2f196024515ed0c35ae8f7abba0d5b6ffadc2d86448b9c43f936dfe1e",
+          "downloadURL": "https://github.com/aierlma/PiliPlus/releases/download/v2.1.6-btr.5631-ffc6d1dcf75b/PiliPlus-BTR-ios-2.1.6-btr.5631-unsigned.ipa",
+          "size": 25002600,
           "minOSVersion": "15.0",
-          "buildVersion": "5573"
+          "buildVersion": "5631"
         }
       ]
     },
@@ -1042,14 +1042,14 @@
   "news": [
     {
       "appID": "com.example.piliplus.btr",
-      "title": "PiliPlus BTR v2.1.6-btr.5573-fbd3d16a8f9c · 26 Oct 2026",
-      "identifier": "PiliPlus BTR-release-v2.1.6-btr.5573-fbd3d16a8f9c",
-      "caption": "PiliPlus BTR v2.1.6-btr.5573-fbd3d16a8f9c is available.",
-      "date": "2026-10-26T00:53:37Z",
+      "title": "PiliPlus BTR v2.1.6-btr.5631-ffc6d1dcf75b · 26 Oct 2026",
+      "identifier": "PiliPlus BTR-release-v2.1.6-btr.5631-ffc6d1dcf75b",
+      "caption": "PiliPlus BTR v2.1.6-btr.5631-ffc6d1dcf75b is available.",
+      "date": "2026-10-26T01:46:37Z",
       "tintColor": "#73b480",
       "imageURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/PiliPlus-BTR/images/news.png",
       "notify": true,
-      "url": "https://github.com/aierlma/PiliPlus/releases/tag/v2.1.6-btr.5573-fbd3d16a8f9c"
+      "url": "https://github.com/aierlma/PiliPlus/releases/tag/v2.1.6-btr.5631-ffc6d1dcf75b"
     },
     {
       "appID": "com.christianselig.Apollo",
