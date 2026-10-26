@@ -739,13 +739,13 @@
       "tintColor": "#73b480",
       "versions": [
         {
-          "version": "2.1.5570",
-          "date": "2026-10-19",
-          "localizedDescription": "PiliPlus BTR 2.1.5570, build 5570\nBased on PiliPlus 2.1.6\n\nSource: 9326afeef7375e2d0c9d2b834e9e17280fb7dab8\nOfficial PiliPlus upstream: 7312ca186e79c3898d35fbc33b1b8e90856a3cb2\nBTR author upstream: 3988e6d081a26120ca79f1e654fe1a3422b7282f\nMinimum iOS: 15.0\nIPA SHA-256: bf964e41a2dffe2ebf0334325573de622579e54b10159c38d457be9dd3d7ac36\n\nBoth source histories are included. BTR tests, static analysis and unsigned iOS build passed. Sideloading is required. The numeric iOS version includes the personal build number so SideStore can offer this package as a source update.",
-          "downloadURL": "https://github.com/aierlma/PiliPlus/releases/download/v2.1.6-btr.5570-9326afeef737/PiliPlus-BTR-ios-2.1.6-btr.5570-unsigned.ipa",
-          "size": 24890099,
+          "version": "2.1.5573",
+          "date": "2026-10-26",
+          "localizedDescription": "PiliPlus BTR **2.1.5573** / build **5573**, based on PiliPlus 2.1.6.\n\n修复海外 Akamai 播放地址的签名处理：直接使用 B 站接口返回的完整 Akamai 地址，保留其专属签名；避免把其他 CDN 地址仅替换域名后交给 Akamai，也避免 BTR 使用之前缓存的测速结果跨域搬用签名。未提供 Akamai 地址时保留原始可用地址。\n\n本版本保留现有 BTR 功能和独立应用标识 `com.example.piliplus.btr`。通过现有 SideStore 订阅更新，无需更换订阅或卸载旧版。最低 iOS 15.0。\n\nValidation:\n- [Unsigned iOS build and focused Flutter tests](https://github.com/aierlma/PiliPlus/actions/runs/40249671258)\n- [Release checks against the same source](https://github.com/aierlma/PiliPlus/actions/runs/40251105576): 60 Flutter tests, 29 maintenance tests and 17 updater checks passed; full static analysis had no errors or warnings (44 informational lints).\n- Live signed video/audio range requests: legacy host rewrite returned 403; fixed direct and BTR paths returned 206 with matching content.\n- Device installation and sustained playback will be tested by the user; this release does not claim to eliminate every possible buffering cause.\n\nSource: fbd3d16a8f9c48ab92f199463fa4776b71183b84\nOfficial PiliPlus upstream: 7312ca186e79c3898d35fbc33b1b8e90856a3cb2\nBTR author upstream: 3988e6d081a26120ca79f1e654fe1a3422b7282f\nIPA SHA-256: `8880e5976abd9f418530e5d9d08d7b55a8ba2d7e7187055f41cef9aba827ee8f`",
+          "downloadURL": "https://github.com/aierlma/PiliPlus/releases/download/v2.1.6-btr.5573-fbd3d16a8f9c/PiliPlus-BTR-ios-2.1.6-btr.5573-unsigned.ipa",
+          "size": 24886008,
           "minOSVersion": "15.0",
-          "buildVersion": "5570"
+          "buildVersion": "5573"
         }
       ]
     },
@@ -1041,6 +1041,17 @@
   ],
   "news": [
     {
+      "appID": "com.example.piliplus.btr",
+      "title": "PiliPlus BTR v2.1.6-btr.5573-fbd3d16a8f9c · 26 Oct 2026",
+      "identifier": "PiliPlus BTR-release-v2.1.6-btr.5573-fbd3d16a8f9c",
+      "caption": "PiliPlus BTR v2.1.6-btr.5573-fbd3d16a8f9c is available.",
+      "date": "2026-10-26T00:53:37Z",
+      "tintColor": "#73b480",
+      "imageURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/PiliPlus-BTR/images/news.png",
+      "notify": true,
+      "url": "https://github.com/aierlma/PiliPlus/releases/tag/v2.1.6-btr.5573-fbd3d16a8f9c"
+    },
+    {
       "appID": "com.christianselig.Apollo",
       "title": "Apollo for Reddit - GLASS 4.0.0 · 25 Oct 2026",
       "identifier": "Apollo for Reddit - GLASS-release-v1.15.11_4.0.0",
@@ -1215,17 +1226,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Novella/images/news.png",
       "notify": true,
       "url": "https://github.com/celia-sh/Novella/releases/tag/v2.6.0"
-    },
-    {
-      "appID": "com.example.piliplus.btr",
-      "title": "PiliPlus BTR v2.1.6-btr.5570-9326afeef737 · 19 Oct 2026",
-      "identifier": "PiliPlus BTR-release-v2.1.6-btr.5570-9326afeef737",
-      "caption": "PiliPlus BTR v2.1.6-btr.5570-9326afeef737 is available.",
-      "date": "2026-10-19T17:43:24Z",
-      "tintColor": "#73b480",
-      "imageURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/PiliPlus-BTR/images/news.png",
-      "notify": true,
-      "url": "https://github.com/aierlma/PiliPlus/releases/tag/v2.1.6-btr.5570-9326afeef737"
     },
     {
       "appID": "org.eu.eslzzyl.Pixiv-SwiftUI",
