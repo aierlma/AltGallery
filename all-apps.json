@@ -305,12 +305,12 @@
       "tintColor": "#2563EB",
       "versions": [
         {
-          "version": "0.24.1",
+          "version": "0.25.3",
           "buildVersion": "1",
           "date": "2026-10-26",
-          "localizedDescription": "Experimental SideStore compatibility package of iphone-use 0.24.1.\n\nUpstream tag: v0.24.1\nUpstream commit: 1531bd5c0ab828884c7e177ecd0b6ce76f8666a2\nRunner archive SHA-256: b1ff1c6862a7a562bf5168385002efa310ca383422aec6ec6a2f56e4bc53777f\n\nPackage build: 1\nIPA SHA-256: 6ae600752d3bf2d828eadad7cc55a4247709f9c6c5da34e77395589356f34c18\nIPA size: 15069221 bytes\nMinimum iOS: 13.0\n\nCI validated the official source/build scripts, the embedded on-phone daemon symbols, the unsigned Xcode build, and the ad-hoc SideStore package layout.\nDevice installation, launch, and wireless operation are not claimed for this candidate until separately verified.\n\nSideStore must sign and refresh the package. This is not an official upstream release.",
-          "downloadURL": "https://github.com/aierlma/AltGallery/releases/download/iphone-use-0.24.1-sidestore-b1/iPhoneUse-Runner-0.24.1-SideStore-b1.ipa",
-          "size": 15069221,
+          "localizedDescription": "Experimental SideStore compatibility package of iphone-use 0.25.3.\n\nUpstream tag: v0.25.3\nUpstream commit: 8ba28b61322a735883427c2309a5ab88367e26f4\nRunner archive SHA-256: 9a258d37f1ee0828f27dcc4bea5e1c20d87af11a76f2c9d79a56de050cb38ba6\n\nPackage build: 1\nIPA SHA-256: 75962a6dbbe146ca98cef41c39f29365a9fa5400be0481b29d5303836e30fdf9\nIPA size: 15111149 bytes\nMinimum iOS: 13.0\n\nCI validated the official source/build scripts, the embedded on-phone daemon symbols, the unsigned Xcode build, and the ad-hoc SideStore package layout.\nDevice installation, launch, and wireless operation are not claimed for this candidate until separately verified.\n\nSideStore must sign and refresh the package. This is not an official upstream release.",
+          "downloadURL": "https://github.com/aierlma/AltGallery/releases/download/iphone-use-0.25.3-sidestore-b1/iPhoneUse-Runner-0.25.3-SideStore-b1.ipa",
+          "size": 15111149,
           "minOSVersion": "13.0"
         }
       ]
@@ -739,13 +739,13 @@
       "tintColor": "#73b480",
       "versions": [
         {
-          "version": "2.1.5631",
+          "version": "2.1.5635",
           "date": "2026-10-26",
-          "localizedDescription": "PiliPlus BTR 2.1.5631（基于 PiliPlus 2.1.6）\n\n- 修复 Akamai 能播放却始终无法测速：BTR 直接测量官方原始签名地址，不再跳过 Akamai，也不把签名搬到其他 CDN。\n- 修复旧 CDN 测速缓存妨碍 Akamai 测速的问题，改正测速失败提示。\n- 合入官方 PiliPlus 和 BTR 作者更新，保留个人 BTR、更新检查和 SideStore 身份。\n- 整合 PR #14 的同步冲突修复及设置重载测试修复；发布后自动关闭已验证覆盖的旧同步失败记录。\n\n完整 Flutter 测试、维护测试、更新检查、静态分析和 iOS 编译通过。Mac 真链接验证中，直连与 BTR 的视频开头、seek 片段和音频字节一致，Akamai 手动测速成功。并发下载不保证在已经很快的节点上继续提速。\n\n继续使用原来的 SideStore 订阅；源同步后在 My Apps 选择 Update，无需卸载。最低 iOS 15.0；IPA 未签名，由 SideStore 签名安装。\n\nBuild source: ffc6d1dcf75bdabf005c8a1d9f2e7b7f6a873c71\nOfficial upstream: affac5334fc41744894618d9fb53b7101db9532a\nBTR author upstream: 97663e3ab5532b37748a6ec4c3567ae209a777d0\nValidation: https://github.com/aierlma/PiliPlus/actions/runs/40254787303\n\n上游 PR 尚未提交；本次是个人 BTR 发布。\n\nIPA SHA-256: 01ae08c2f196024515ed0c35ae8f7abba0d5b6ffadc2d86448b9c43f936dfe1e",
-          "downloadURL": "https://github.com/aierlma/PiliPlus/releases/download/v2.1.6-btr.5631-ffc6d1dcf75b/PiliPlus-BTR-ios-2.1.6-btr.5631-unsigned.ipa",
-          "size": 25002600,
+          "localizedDescription": "PiliPlus BTR 2.1.5635, build 5635\nBased on PiliPlus 2.1.6\n\nSource: a4c80d91d07072487848f9c231af924115ad487b\nOfficial PiliPlus upstream: 72ec31edd6b34883f13ba8caf4e4d76e548ce884\nBTR author upstream: 97663e3ab5532b37748a6ec4c3567ae209a777d0\nMinimum iOS: 15.0\nIPA SHA-256: 7fcaf8435edbf99150c702813a4efd226d684ddf913038e96c98b2bf074b7b3f\n\nBoth source histories are included. BTR tests, static analysis and unsigned iOS build passed. Sideloading is required. The numeric iOS version includes the personal build number so SideStore can offer this package as a source update.",
+          "downloadURL": "https://github.com/aierlma/PiliPlus/releases/download/v2.1.6-btr.5635-a4c80d91d070/PiliPlus-BTR-ios-2.1.6-btr.5635-unsigned.ipa",
+          "size": 25011079,
           "minOSVersion": "15.0",
-          "buildVersion": "5631"
+          "buildVersion": "5635"
         }
       ]
     },
@@ -1041,6 +1041,28 @@
   ],
   "news": [
     {
+      "appID": "com.leeguoo.iphone-use.runner.xctrunner",
+      "title": "iPhoneUse Runner 0.25.3 · compatibility candidate",
+      "identifier": "iPhoneUse Runner-release-iphone-use-0.25.3-sidestore-b1",
+      "caption": "SideStore compatibility candidate; device validation pending.",
+      "date": "2026-10-26T20:13:21Z",
+      "tintColor": "#2563EB",
+      "imageURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/iPhoneUse/images/news.png",
+      "notify": true,
+      "url": "https://github.com/aierlma/AltGallery/releases/tag/iphone-use-0.25.3-sidestore-b1"
+    },
+    {
+      "appID": "com.example.piliplus.btr",
+      "title": "PiliPlus BTR v2.1.6-btr.5635-a4c80d91d070 · 26 Oct 2026",
+      "identifier": "PiliPlus BTR-release-v2.1.6-btr.5635-a4c80d91d070",
+      "caption": "PiliPlus BTR v2.1.6-btr.5635-a4c80d91d070 is available.",
+      "date": "2026-10-26T17:49:15Z",
+      "tintColor": "#73b480",
+      "imageURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/PiliPlus-BTR/images/news.png",
+      "notify": true,
+      "url": "https://github.com/aierlma/PiliPlus/releases/tag/v2.1.6-btr.5635-a4c80d91d070"
+    },
+    {
       "appID": "com.ligg.anime_flow",
       "title": "AnimeFlow 2.6.6 · 26 Oct 2026",
       "identifier": "AnimeFlow-release-v2.6.6",
@@ -1052,17 +1074,6 @@
       "url": "https://github.com/openAnimeFlow/AnimeFlow/releases/tag/v2.6.6"
     },
     {
-      "appID": "com.leeguoo.iphone-use.runner.xctrunner",
-      "title": "iPhoneUse Runner 0.24.1 · compatibility candidate",
-      "identifier": "iPhoneUse Runner-release-iphone-use-0.24.1-sidestore-b1",
-      "caption": "SideStore compatibility candidate; device validation pending.",
-      "date": "2026-10-26T07:04:25Z",
-      "tintColor": "#2563EB",
-      "imageURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/iPhoneUse/images/news.png",
-      "notify": true,
-      "url": "https://github.com/aierlma/AltGallery/releases/tag/iphone-use-0.24.1-sidestore-b1"
-    },
-    {
       "appID": "com.suwayomi.tachideskSorayomi",
       "title": "Tsumiru 1.6.0 · 26 Oct 2026",
       "identifier": "Tsumiru-release-v1.6.0",
@@ -1072,17 +1083,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Suwayomi-Tsumiru/images/news.png",
       "notify": true,
       "url": "https://github.com/Suwayomi/Suwayomi-Tsumiru/releases/tag/v1.6.0"
-    },
-    {
-      "appID": "com.example.piliplus.btr",
-      "title": "PiliPlus BTR v2.1.6-btr.5631-ffc6d1dcf75b · 26 Oct 2026",
-      "identifier": "PiliPlus BTR-release-v2.1.6-btr.5631-ffc6d1dcf75b",
-      "caption": "PiliPlus BTR v2.1.6-btr.5631-ffc6d1dcf75b is available.",
-      "date": "2026-10-26T01:46:37Z",
-      "tintColor": "#73b480",
-      "imageURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/PiliPlus-BTR/images/news.png",
-      "notify": true,
-      "url": "https://github.com/aierlma/PiliPlus/releases/tag/v2.1.6-btr.5631-ffc6d1dcf75b"
     },
     {
       "appID": "com.christianselig.Apollo",
