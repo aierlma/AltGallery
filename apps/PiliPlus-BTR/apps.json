@@ -21,13 +21,13 @@
       "tintColor": "#73b480",
       "versions": [
         {
-          "version": "2.1.5665",
+          "version": "2.1.5668",
           "date": "2026-10-27",
-          "localizedDescription": "PiliPlus BTR 2.1.5665：电视播放时可在手机浏览评论。\n\n- 电视独立显示视频、彩色弹幕与字幕；手机默认收成 64 点播放控制条，腾出详情和评论空间。手机和电视共享同一个播放器的解码画面。\n- 修复电视弹幕文字按低像素密度缓存后被放大而模糊的问题；修复英文字幕出现黄色双下划线的问题。\n- 原生控制页支持暂停、进度跳转、独立弹幕开关和字幕选择；收起控制页后可继续看评论，点手机控制条重新打开。\n\n使用：在视频中点投屏；尚未连接时，从 iOS 控制中心的“屏幕镜像”选择电视。返回 PiliPlus 后点左上角向下箭头即可浏览评论。“更多投屏选项 → 结束投屏”恢复手机视频区，系统镜像可在控制中心停止。离开 PiliPlus 到手机桌面时，电视会回到系统镜像；返回应用后恢复原画面和进度。\n\n验证：iPhone 16 Pro / iOS 27.2 与 Apple TV 4K（第三代）/ tvOS 27，真实视频 BV1a77j62Ekx。已确认电视清晰彩色弹幕和英文 AI 字幕、手机评论滚动时电视持续播放、字幕与弹幕独立开关、暂停/跳转、断开重连和结束恢复。CI 通过 30 项 Python 测试、95 项 Flutter 测试、17 项 BTR 更新检查及 iOS 构建；静态分析无错误或警告（51 项 info）。\n\n本次上传的是已通过 SideStore 安装并验证的同一个未签名 IPA，需要自行侧载。\n\nSource: 357113d51702b7f627dc4f7f23a7253af0bc6fd3\nOfficial PiliPlus upstream: d680e3f95cf777ff20492dd2a23c89264481dca0\nBTR author upstream: 97663e3ab5532b37748a6ec4c3567ae209a777d0\nMinimum iOS: 15.0\nIPA SHA-256: 319e8f592be86aae6944bf75f4a58acd0ad5f8e7816c2845a7757fb0d9ad56e4",
-          "downloadURL": "https://github.com/aierlma/PiliPlus/releases/download/v2.1.6-btr.5665-357113d51702/PiliPlus-BTR-ios-2.1.6-btr.5665-unsigned.ipa",
-          "size": 25110257,
+          "localizedDescription": "PiliPlus BTR 2.1.5668：自动续投、电视字号适配与 iPad 投屏控制区。\n\n- 已连接电视并开启投屏后，切换视频会自动继续投屏；主动结束投屏会清除续投选择。\n- iPad 横屏布局的左上方视频区改为控制区，提供播放/暂停、进度、前后跳转、弹幕开关、字幕和弹幕字号，右侧评论保持可用。\n- 电视弹幕按电视画面比例排版，不再随发送设备屏幕尺寸改变；控制页可调整 50%–250% 字号。\n- 保留完整彩色滚动弹幕与独立字幕、共享同一播放器、手机收成控制条，以及前版的电视文字清晰度修复。\n\n使用：首次仍从 iOS 控制中心的“屏幕镜像”选择电视。保持 PiliPlus 在前台即可在手机浏览评论；切换到另一视频会接续投屏。主动停止可用“更多投屏选项 → 结束投屏”。\n\n验证：此 IPA 已通过 SideStore 安装到 iPhone 16 Pro / iOS 27.2，并在 Apple TV 4K（第三代）/ tvOS 27 验证自动续投、字号变化、完整弹幕和独立英文字幕。iPad 布局与按钮回调已通过组件测试，尚未在实体 iPad 验证。完整 CI 的 Python、Flutter、BTR 检查、静态分析和 iOS 构建通过；分析无错误或警告，保留 51 项 info。\n\n已知限制：本版没有解决完全锁屏或切换到其他 App 后继续输出完整弹幕画面。普通后台、外屏生命周期和画中画探针均观察到系统断开外屏窗口；画中画仍可播放视频，但不能保留电视的独立完整弹幕窗口。不要将本版视作后台投屏修复。\n\nSource: 8b9f8b1e12fda174c0976b15aeaa4b3a8896c406\nOfficial PiliPlus upstream: d680e3f95cf777ff20492dd2a23c89264481dca0\nBTR author upstream: 97663e3ab5532b37748a6ec4c3567ae209a777d0\nMinimum iOS: 15.0\nIPA SHA-256: 085cb76633ae74f03a1ac967268e6ebe196453affa19c49b8a367fc712407be7",
+          "downloadURL": "https://github.com/aierlma/PiliPlus/releases/download/v2.1.6-btr.5668-8b9f8b1e12fd/PiliPlus-BTR-ios-2.1.6-btr.5668-unsigned.ipa",
+          "size": 25130611,
           "minOSVersion": "15.0",
-          "buildVersion": "5665"
+          "buildVersion": "5668"
         }
       ]
     }
@@ -35,14 +35,14 @@
   "news": [
     {
       "appID": "com.example.piliplus.btr",
-      "title": "PiliPlus BTR v2.1.6-btr.5665-357113d51702 · 27 Oct 2026",
-      "identifier": "PiliPlus BTR-release-v2.1.6-btr.5665-357113d51702",
-      "caption": "PiliPlus BTR v2.1.6-btr.5665-357113d51702 is available.",
-      "date": "2026-10-27T17:44:57Z",
+      "title": "PiliPlus BTR v2.1.6-btr.5668-8b9f8b1e12fd · 27 Oct 2026",
+      "identifier": "PiliPlus BTR-release-v2.1.6-btr.5668-8b9f8b1e12fd",
+      "caption": "PiliPlus BTR v2.1.6-btr.5668-8b9f8b1e12fd is available.",
+      "date": "2026-10-27T19:37:00Z",
       "tintColor": "#73b480",
       "imageURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/PiliPlus-BTR/images/news.png",
       "notify": true,
-      "url": "https://github.com/aierlma/PiliPlus/releases/tag/v2.1.6-btr.5665-357113d51702"
+      "url": "https://github.com/aierlma/PiliPlus/releases/tag/v2.1.6-btr.5668-8b9f8b1e12fd"
     }
   ]
 }
