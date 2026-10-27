@@ -21,13 +21,13 @@
       "tintColor": "#73b480",
       "versions": [
         {
-          "version": "2.1.5654",
+          "version": "2.1.5659",
           "date": "2026-10-27",
-          "localizedDescription": "点击视频页的“投屏”会直接进入保留完整弹幕和独立字幕的 AirPlay 模式。原来的 AirPlay 视频直投和 DLNA 收入右上角“更多”菜单。\n\n手机控制页重新排版：视频封面与标题、系统字体和 SF Symbols、醒目的播放/暂停键、前后 15 秒图标、分列的播放时间，以及可以直接选择语言的原生字幕菜单。界面跟随 App 的浅色或深色主题。\n\n首次连接仍需在控制中心的“屏幕镜像”中选择电视；已连接时自动接上。播放期间保持 PiliPlus 在前台。\n\n验证：完整源码测试、静态分析和 Xcode 27 iOS 构建通过；iPhone 16 Pro / iOS 27.2 通过 SideStore 安装并检查手机端入口、封面、菜单与退出。本版未重新测试电视连接场景。\n\n构建验证：[CI 40534768812](https://github.com/aierlma/PiliPlus/actions/runs/40534768812)，30 Python 测试、90 Flutter 测试、17 更新检查；静态分析无 error/warning。\n\nSource: b11c5d7a374312bdeeeed7632e55df67832e18f6\nMinimum iOS: 15.0\nIPA SHA-256: ae55682c30e10748d64ed04e4fca58be30de0b95ee075db7b736609df87aef01",
-          "downloadURL": "https://github.com/aierlma/PiliPlus/releases/download/v2.1.6-btr.5654-b11c5d7a3743/PiliPlus-BTR-ios-2.1.6-btr.5654-unsigned.ipa",
-          "size": 25072232,
+          "localizedDescription": "PiliPlus BTR 2.1.5659, build 5659\nBased on PiliPlus 2.1.6\n\nSource: a1d283ccea81b07cd8c5f46314244d7d98d9036b\nOfficial PiliPlus upstream: d680e3f95cf777ff20492dd2a23c89264481dca0\nBTR author upstream: 97663e3ab5532b37748a6ec4c3567ae209a777d0\nMinimum iOS: 15.0\nIPA SHA-256: af5cb92313bc4fa3b6cb9938224e053c4f1366a8619039c7802596db4351841d\n\nBoth source histories are included. BTR tests, static analysis and unsigned iOS build passed. Sideloading is required. The numeric iOS version includes the personal build number so SideStore can offer this package as a source update.",
+          "downloadURL": "https://github.com/aierlma/PiliPlus/releases/download/v2.1.6-btr.5659-a1d283ccea81/PiliPlus-BTR-ios-2.1.6-btr.5659-unsigned.ipa",
+          "size": 25074187,
           "minOSVersion": "15.0",
-          "buildVersion": "5654"
+          "buildVersion": "5659"
         }
       ]
     }
@@ -35,14 +35,14 @@
   "news": [
     {
       "appID": "com.example.piliplus.btr",
-      "title": "PiliPlus BTR v2.1.6-btr.5654-b11c5d7a3743 · 27 Oct 2026",
-      "identifier": "PiliPlus BTR-release-v2.1.6-btr.5654-b11c5d7a3743",
-      "caption": "PiliPlus BTR v2.1.6-btr.5654-b11c5d7a3743 is available.",
-      "date": "2026-10-27T16:02:55Z",
+      "title": "PiliPlus BTR v2.1.6-btr.5659-a1d283ccea81 · 27 Oct 2026",
+      "identifier": "PiliPlus BTR-release-v2.1.6-btr.5659-a1d283ccea81",
+      "caption": "PiliPlus BTR v2.1.6-btr.5659-a1d283ccea81 is available.",
+      "date": "2026-10-27T16:52:46Z",
       "tintColor": "#73b480",
       "imageURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/PiliPlus-BTR/images/news.png",
       "notify": true,
-      "url": "https://github.com/aierlma/PiliPlus/releases/tag/v2.1.6-btr.5654-b11c5d7a3743"
+      "url": "https://github.com/aierlma/PiliPlus/releases/tag/v2.1.6-btr.5659-a1d283ccea81"
     }
   ]
 }
