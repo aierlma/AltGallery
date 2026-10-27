@@ -739,13 +739,13 @@
       "tintColor": "#73b480",
       "versions": [
         {
-          "version": "2.1.5668",
+          "version": "2.1.5670",
           "date": "2026-10-27",
-          "localizedDescription": "PiliPlus BTR 2.1.5668：自动续投、电视字号适配与 iPad 投屏控制区。\n\n- 已连接电视并开启投屏后，切换视频会自动继续投屏；主动结束投屏会清除续投选择。\n- iPad 横屏布局的左上方视频区改为控制区，提供播放/暂停、进度、前后跳转、弹幕开关、字幕和弹幕字号，右侧评论保持可用。\n- 电视弹幕按电视画面比例排版，不再随发送设备屏幕尺寸改变；控制页可调整 50%–250% 字号。\n- 保留完整彩色滚动弹幕与独立字幕、共享同一播放器、手机收成控制条，以及前版的电视文字清晰度修复。\n\n使用：首次仍从 iOS 控制中心的“屏幕镜像”选择电视。保持 PiliPlus 在前台即可在手机浏览评论；切换到另一视频会接续投屏。主动停止可用“更多投屏选项 → 结束投屏”。\n\n验证：此 IPA 已通过 SideStore 安装到 iPhone 16 Pro / iOS 27.2，并在 Apple TV 4K（第三代）/ tvOS 27 验证自动续投、字号变化、完整弹幕和独立英文字幕。iPad 布局与按钮回调已通过组件测试，尚未在实体 iPad 验证。完整 CI 的 Python、Flutter、BTR 检查、静态分析和 iOS 构建通过；分析无错误或警告，保留 51 项 info。\n\n已知限制：本版没有解决完全锁屏或切换到其他 App 后继续输出完整弹幕画面。普通后台、外屏生命周期和画中画探针均观察到系统断开外屏窗口；画中画仍可播放视频，但不能保留电视的独立完整弹幕窗口。不要将本版视作后台投屏修复。\n\nSource: 8b9f8b1e12fda174c0976b15aeaa4b3a8896c406\nOfficial PiliPlus upstream: d680e3f95cf777ff20492dd2a23c89264481dca0\nBTR author upstream: 97663e3ab5532b37748a6ec4c3567ae209a777d0\nMinimum iOS: 15.0\nIPA SHA-256: 085cb76633ae74f03a1ac967268e6ebe196453affa19c49b8a367fc712407be7",
-          "downloadURL": "https://github.com/aierlma/PiliPlus/releases/download/v2.1.6-btr.5668-8b9f8b1e12fd/PiliPlus-BTR-ios-2.1.6-btr.5668-unsigned.ipa",
-          "size": 25130611,
+          "localizedDescription": "PiliPlus BTR 2.1.5670, build 5670\nBased on PiliPlus 2.1.6\n\nSource: 4366be1c929ab7b86881aaf07c7f8bd105032912\nOfficial PiliPlus upstream: d680e3f95cf777ff20492dd2a23c89264481dca0\nBTR author upstream: 97663e3ab5532b37748a6ec4c3567ae209a777d0\nMinimum iOS: 15.0\nIPA SHA-256: 7d76f8310cbabfcd02bafece56be59afc3c8685846be696da9d641706b278e08\n\nBoth source histories are included. BTR tests, static analysis and unsigned iOS build passed. Sideloading is required. The numeric iOS version includes the personal build number so SideStore can offer this package as a source update.",
+          "downloadURL": "https://github.com/aierlma/PiliPlus/releases/download/v2.1.6-btr.5670-4366be1c929a/PiliPlus-BTR-ios-2.1.6-btr.5670-unsigned.ipa",
+          "size": 25131874,
           "minOSVersion": "15.0",
-          "buildVersion": "5668"
+          "buildVersion": "5670"
         }
       ]
     },
@@ -1042,14 +1042,14 @@
   "news": [
     {
       "appID": "com.example.piliplus.btr",
-      "title": "PiliPlus BTR v2.1.6-btr.5668-8b9f8b1e12fd · 27 Oct 2026",
-      "identifier": "PiliPlus BTR-release-v2.1.6-btr.5668-8b9f8b1e12fd",
-      "caption": "PiliPlus BTR v2.1.6-btr.5668-8b9f8b1e12fd is available.",
-      "date": "2026-10-27T19:37:00Z",
+      "title": "PiliPlus BTR v2.1.6-btr.5670-4366be1c929a · 27 Oct 2026",
+      "identifier": "PiliPlus BTR-release-v2.1.6-btr.5670-4366be1c929a",
+      "caption": "PiliPlus BTR v2.1.6-btr.5670-4366be1c929a is available.",
+      "date": "2026-10-27T21:11:05Z",
       "tintColor": "#73b480",
       "imageURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/PiliPlus-BTR/images/news.png",
       "notify": true,
-      "url": "https://github.com/aierlma/PiliPlus/releases/tag/v2.1.6-btr.5668-8b9f8b1e12fd"
+      "url": "https://github.com/aierlma/PiliPlus/releases/tag/v2.1.6-btr.5670-4366be1c929a"
     },
     {
       "appID": "com.leeguoo.iphone-use.runner.xctrunner",
