@@ -739,13 +739,13 @@
       "tintColor": "#73b480",
       "versions": [
         {
-          "version": "2.1.5635",
-          "date": "2026-10-26",
-          "localizedDescription": "PiliPlus BTR 2.1.5635, build 5635\nBased on PiliPlus 2.1.6\n\nSource: a4c80d91d07072487848f9c231af924115ad487b\nOfficial PiliPlus upstream: 72ec31edd6b34883f13ba8caf4e4d76e548ce884\nBTR author upstream: 97663e3ab5532b37748a6ec4c3567ae209a777d0\nMinimum iOS: 15.0\nIPA SHA-256: 7fcaf8435edbf99150c702813a4efd226d684ddf913038e96c98b2bf074b7b3f\n\nBoth source histories are included. BTR tests, static analysis and unsigned iOS build passed. Sideloading is required. The numeric iOS version includes the personal build number so SideStore can offer this package as a source update.",
-          "downloadURL": "https://github.com/aierlma/PiliPlus/releases/download/v2.1.6-btr.5635-a4c80d91d070/PiliPlus-BTR-ios-2.1.6-btr.5635-unsigned.ipa",
-          "size": 25011079,
+          "version": "2.1.5652",
+          "date": "2026-10-27",
+          "localizedDescription": "新增 AirPlay 投屏与「AirPlay 全屏弹幕」。\n\n使用方法：打开视频 → 投屏 → AirPlay 全屏弹幕，再从 iPhone 控制中心的「屏幕镜像」选择电视。电视使用独立画布，手机保留播放、进度、弹幕和字幕控制；不再把手机竖屏比例复制到电视。\n\n已在 iPhone 16 Pro / iOS 27.2 → Apple TV / tvOS 27.0 实测：1080P 视频源、16:9全屏、多行彩色滚动弹幕和独立 English(AI) 字幕同时显示；关闭弹幕保留字幕；播放/暂停、跳转、后台返回、断开重连及结束后恢复手机画面正常。包含跨六分钟持续播放验证。\n\n全屏弹幕模式需要 App 保持前台。切到后台会暂停视频并恢复普通屏幕镜像，返回 App 后按离开前状态恢复。另保留「AirPlay 视频直投」，由电视播放原视频；它的弹幕仍使用系统字幕轨，存在同时最多两条和系统字幕背景样式的限制，需要完整弹幕及视频字幕时请选择全屏弹幕模式。\n\n验证：30 项 Python 测试、90 项 Flutter 测试、17 项 BTR 更新检查通过；完整分析无 error/warning（51 条 info）；Xcode 27 实际 iOS 编译成功。发布 IPA 为同源本机构建并经 SideStore 安装实测的包，全部1705个源输入哈希与提交一致。\n\n[完整构建记录](https://github.com/aierlma/PiliPlus/actions/runs/40462543477)\n\n---\n\nPiliPlus BTR 2.1.5652, build 5652\nBased on PiliPlus 2.1.6\n\nSource: 0c17e444210b0e8953e9b2d49fa6033aaa811a0c\nOfficial PiliPlus upstream: 72ec31edd6b34883f13ba8caf4e4d76e548ce884\nBTR author upstream: 97663e3ab5532b37748a6ec4c3567ae209a777d0\nMinimum iOS: 15.0\nIPA SHA-256: 853edd62a393af69b9125ade4b3a22f6c82dc247b89157665290aed69373d1f3\n\nBoth source histories are included. BTR tests, static analysis and unsigned iOS build passed. Sideloading is required. The numeric iOS version includes the personal build number so SideStore can offer this package as a source update.",
+          "downloadURL": "https://github.com/aierlma/PiliPlus/releases/download/v2.1.6-btr.5652-0c17e444210b/PiliPlus-BTR-ios-2.1.6-btr.5652-unsigned.ipa",
+          "size": 25064928,
           "minOSVersion": "15.0",
-          "buildVersion": "5635"
+          "buildVersion": "5652"
         }
       ]
     },
@@ -1041,6 +1041,17 @@
   ],
   "news": [
     {
+      "appID": "com.example.piliplus.btr",
+      "title": "PiliPlus BTR v2.1.6-btr.5652-0c17e444210b · 27 Oct 2026",
+      "identifier": "PiliPlus BTR-release-v2.1.6-btr.5652-0c17e444210b",
+      "caption": "PiliPlus BTR v2.1.6-btr.5652-0c17e444210b is available.",
+      "date": "2026-10-27T06:56:41Z",
+      "tintColor": "#73b480",
+      "imageURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/PiliPlus-BTR/images/news.png",
+      "notify": true,
+      "url": "https://github.com/aierlma/PiliPlus/releases/tag/v2.1.6-btr.5652-0c17e444210b"
+    },
+    {
       "appID": "com.leeguoo.iphone-use.runner.xctrunner",
       "title": "iPhoneUse Runner 0.26.0 · compatibility candidate",
       "identifier": "iPhoneUse Runner-release-iphone-use-0.26.0-sidestore-b1",
@@ -1072,17 +1083,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/NeoStation/images/news.png",
       "notify": true,
       "url": "https://github.com/TarbleFR/neostation-ios/releases/tag/0.0.10"
-    },
-    {
-      "appID": "com.example.piliplus.btr",
-      "title": "PiliPlus BTR v2.1.6-btr.5635-a4c80d91d070 · 26 Oct 2026",
-      "identifier": "PiliPlus BTR-release-v2.1.6-btr.5635-a4c80d91d070",
-      "caption": "PiliPlus BTR v2.1.6-btr.5635-a4c80d91d070 is available.",
-      "date": "2026-10-26T17:49:15Z",
-      "tintColor": "#73b480",
-      "imageURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/PiliPlus-BTR/images/news.png",
-      "notify": true,
-      "url": "https://github.com/aierlma/PiliPlus/releases/tag/v2.1.6-btr.5635-a4c80d91d070"
     },
     {
       "appID": "com.ligg.anime_flow",
