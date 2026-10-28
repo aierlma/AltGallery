@@ -16,12 +16,12 @@
       "tintColor": "#2563EB",
       "versions": [
         {
-          "version": "0.27.3",
+          "version": "0.27.4",
           "buildVersion": "1",
-          "date": "2026-10-27",
-          "localizedDescription": "Experimental SideStore compatibility package of iphone-use 0.27.3.\n\nUpstream tag: v0.27.3\nUpstream commit: a76ebc6344bcbf077ae8f44d0fa6d5e128eff20f\nRunner archive SHA-256: 4c6457eac1aa1f135837c589321766d37252a26938ff47fab636f68c514b9574\n\nPackage build: 1\nIPA SHA-256: c5d112eedc487c0880169d6c8503dfc328e59a2da0b67d75123a4ab745d2ce51\nIPA size: 15264057 bytes\nMinimum iOS: 13.0\n\nCI validated the official source/build scripts, the embedded on-phone daemon symbols, the unsigned Xcode build, and the ad-hoc SideStore package layout.\nDevice installation, launch, and wireless operation are not claimed for this candidate until separately verified.\n\nSideStore must sign and refresh the package. This is not an official upstream release.",
-          "downloadURL": "https://github.com/aierlma/AltGallery/releases/download/iphone-use-0.27.3-sidestore-b1/iPhoneUse-Runner-0.27.3-SideStore-b1.ipa",
-          "size": 15264057,
+          "date": "2026-10-28",
+          "localizedDescription": "Experimental SideStore compatibility package of iphone-use 0.27.4.\n\nUpstream tag: v0.27.4\nUpstream commit: a0249c95c4659470091eed3f07fd5dcb3146a567\nRunner archive SHA-256: f76502b48108358cc9f7605d6df558cadc853c1465ba74be6680cbd518abb962\n\nPackage build: 1\nIPA SHA-256: 7cf3a8eadfb4fb1479aa56e368226f76bcadef1950491c6c809fe08bdcbc8983\nIPA size: 15264079 bytes\nMinimum iOS: 13.0\n\nCI validated the official source/build scripts, the embedded on-phone daemon symbols, the unsigned Xcode build, and the ad-hoc SideStore package layout.\nDevice installation, launch, and wireless operation are not claimed for this candidate until separately verified.\n\nSideStore must sign and refresh the package. This is not an official upstream release.",
+          "downloadURL": "https://github.com/aierlma/AltGallery/releases/download/iphone-use-0.27.4-sidestore-b1/iPhoneUse-Runner-0.27.4-SideStore-b1.ipa",
+          "size": 15264079,
           "minOSVersion": "13.0"
         }
       ]
@@ -30,14 +30,14 @@
   "news": [
     {
       "appID": "com.leeguoo.iphone-use.runner.xctrunner",
-      "title": "iPhoneUse Runner 0.27.3 · compatibility candidate",
-      "identifier": "iPhoneUse Runner-release-iphone-use-0.27.3-sidestore-b1",
+      "title": "iPhoneUse Runner 0.27.4 · compatibility candidate",
+      "identifier": "iPhoneUse Runner-release-iphone-use-0.27.4-sidestore-b1",
       "caption": "SideStore compatibility candidate; device validation pending.",
-      "date": "2026-10-27T16:56:58Z",
+      "date": "2026-10-28T00:48:42Z",
       "tintColor": "#2563EB",
       "imageURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/iPhoneUse/images/news.png",
       "notify": true,
-      "url": "https://github.com/aierlma/AltGallery/releases/tag/iphone-use-0.27.3-sidestore-b1"
+      "url": "https://github.com/aierlma/AltGallery/releases/tag/iphone-use-0.27.4-sidestore-b1"
     }
   ]
 }

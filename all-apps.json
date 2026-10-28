@@ -305,12 +305,12 @@
       "tintColor": "#2563EB",
       "versions": [
         {
-          "version": "0.27.3",
+          "version": "0.27.4",
           "buildVersion": "1",
-          "date": "2026-10-27",
-          "localizedDescription": "Experimental SideStore compatibility package of iphone-use 0.27.3.\n\nUpstream tag: v0.27.3\nUpstream commit: a76ebc6344bcbf077ae8f44d0fa6d5e128eff20f\nRunner archive SHA-256: 4c6457eac1aa1f135837c589321766d37252a26938ff47fab636f68c514b9574\n\nPackage build: 1\nIPA SHA-256: c5d112eedc487c0880169d6c8503dfc328e59a2da0b67d75123a4ab745d2ce51\nIPA size: 15264057 bytes\nMinimum iOS: 13.0\n\nCI validated the official source/build scripts, the embedded on-phone daemon symbols, the unsigned Xcode build, and the ad-hoc SideStore package layout.\nDevice installation, launch, and wireless operation are not claimed for this candidate until separately verified.\n\nSideStore must sign and refresh the package. This is not an official upstream release.",
-          "downloadURL": "https://github.com/aierlma/AltGallery/releases/download/iphone-use-0.27.3-sidestore-b1/iPhoneUse-Runner-0.27.3-SideStore-b1.ipa",
-          "size": 15264057,
+          "date": "2026-10-28",
+          "localizedDescription": "Experimental SideStore compatibility package of iphone-use 0.27.4.\n\nUpstream tag: v0.27.4\nUpstream commit: a0249c95c4659470091eed3f07fd5dcb3146a567\nRunner archive SHA-256: f76502b48108358cc9f7605d6df558cadc853c1465ba74be6680cbd518abb962\n\nPackage build: 1\nIPA SHA-256: 7cf3a8eadfb4fb1479aa56e368226f76bcadef1950491c6c809fe08bdcbc8983\nIPA size: 15264079 bytes\nMinimum iOS: 13.0\n\nCI validated the official source/build scripts, the embedded on-phone daemon symbols, the unsigned Xcode build, and the ad-hoc SideStore package layout.\nDevice installation, launch, and wireless operation are not claimed for this candidate until separately verified.\n\nSideStore must sign and refresh the package. This is not an official upstream release.",
+          "downloadURL": "https://github.com/aierlma/AltGallery/releases/download/iphone-use-0.27.4-sidestore-b1/iPhoneUse-Runner-0.27.4-SideStore-b1.ipa",
+          "size": 15264079,
           "minOSVersion": "13.0"
         }
       ]
@@ -739,13 +739,13 @@
       "tintColor": "#73b480",
       "versions": [
         {
-          "version": "2.1.5670",
-          "date": "2026-10-27",
-          "localizedDescription": "PiliPlus BTR 2.1.5670, build 5670\nBased on PiliPlus 2.1.6\n\nSource: 4366be1c929ab7b86881aaf07c7f8bd105032912\nOfficial PiliPlus upstream: d680e3f95cf777ff20492dd2a23c89264481dca0\nBTR author upstream: 97663e3ab5532b37748a6ec4c3567ae209a777d0\nMinimum iOS: 15.0\nIPA SHA-256: 7d76f8310cbabfcd02bafece56be59afc3c8685846be696da9d641706b278e08\n\nBoth source histories are included. BTR tests, static analysis and unsigned iOS build passed. Sideloading is required. The numeric iOS version includes the personal build number so SideStore can offer this package as a source update.\n\n本次更新\n- 修复返回应用主页后打开新视频无法自动续投的问题；相关视频切换继续自动续投，主动结束或系统断开后不会误接回。\n- 补充三种投屏方式的帮助说明：完整滚动弹幕与独立字幕、系统 AirPlay 视频、DLNA。\n- 完整弹幕模式保留手机控制条和 iPad 控制区/评论布局；当前需要保持应用前台。\n\n真机验证\n- iPhone 16 Pro / iOS 27.2 与 iPad Pro 13-inch M4 / iPadOS 27.2，经 SideStore 安装本附件并读回 2.1.5670（5670）。\n- 两台设备均验证新版帮助及真实 Apple TV 4K 电视画面和滚动弹幕；同源码中的续投修复已完成首页/相关视频切换、主动停止、系统断开回归。\n- 完整测试、静态检查和 iOS 构建：https://github.com/aierlma/PiliPlus/actions/runs/40581247188",
-          "downloadURL": "https://github.com/aierlma/PiliPlus/releases/download/v2.1.6-btr.5670-4366be1c929a/PiliPlus-BTR-ios-2.1.6-btr.5670-unsigned.ipa",
-          "size": 25131874,
+          "version": "2.1.5675",
+          "date": "2026-10-28",
+          "localizedDescription": "PiliPlus BTR 2.1.5675, build 5675\nBased on PiliPlus 2.1.6\n\nSource: 83d3a458ac03de19e885fbab03e377b989c2e6d3\nOfficial PiliPlus upstream: d680e3f95cf777ff20492dd2a23c89264481dca0\nBTR author upstream: 97663e3ab5532b37748a6ec4c3567ae209a777d0\nMinimum iOS: 15.0\nIPA SHA-256: a4890ae72128d0baf595c1f0870c0ec835c430219ed0979d10d211c7fa41b7c6\n\nBoth source histories are included. BTR tests, static analysis and unsigned iOS build passed. Sideloading is required. The numeric iOS version includes the personal build number so SideStore can offer this package as a source update.",
+          "downloadURL": "https://github.com/aierlma/PiliPlus/releases/download/v2.1.6-btr.5675-83d3a458ac03/PiliPlus-BTR-ios-2.1.6-btr.5675-unsigned.ipa",
+          "size": 24623429,
           "minOSVersion": "15.0",
-          "buildVersion": "5670"
+          "buildVersion": "5675"
         }
       ]
     },
@@ -1041,6 +1041,28 @@
   ],
   "news": [
     {
+      "appID": "com.example.piliplus.btr",
+      "title": "PiliPlus BTR v2.1.6-btr.5675-83d3a458ac03 · 28 Oct 2026",
+      "identifier": "PiliPlus BTR-release-v2.1.6-btr.5675-83d3a458ac03",
+      "caption": "PiliPlus BTR v2.1.6-btr.5675-83d3a458ac03 is available.",
+      "date": "2026-10-28T00:49:17Z",
+      "tintColor": "#73b480",
+      "imageURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/PiliPlus-BTR/images/news.png",
+      "notify": true,
+      "url": "https://github.com/aierlma/PiliPlus/releases/tag/v2.1.6-btr.5675-83d3a458ac03"
+    },
+    {
+      "appID": "com.leeguoo.iphone-use.runner.xctrunner",
+      "title": "iPhoneUse Runner 0.27.4 · compatibility candidate",
+      "identifier": "iPhoneUse Runner-release-iphone-use-0.27.4-sidestore-b1",
+      "caption": "SideStore compatibility candidate; device validation pending.",
+      "date": "2026-10-28T00:48:42Z",
+      "tintColor": "#2563EB",
+      "imageURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/iPhoneUse/images/news.png",
+      "notify": true,
+      "url": "https://github.com/aierlma/AltGallery/releases/tag/iphone-use-0.27.4-sidestore-b1"
+    },
+    {
       "appID": "com.husk.app",
       "title": "Husk 3.1 · 27 Oct 2026",
       "identifier": "Husk-release-3.1",
@@ -1063,17 +1085,6 @@
       "url": "https://github.com/mrdrvt99/YouProEXTRA/releases/tag/youproextra-ipa2"
     },
     {
-      "appID": "com.example.piliplus.btr",
-      "title": "PiliPlus BTR v2.1.6-btr.5670-4366be1c929a · 27 Oct 2026",
-      "identifier": "PiliPlus BTR-release-v2.1.6-btr.5670-4366be1c929a",
-      "caption": "PiliPlus BTR v2.1.6-btr.5670-4366be1c929a is available.",
-      "date": "2026-10-27T21:11:05Z",
-      "tintColor": "#73b480",
-      "imageURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/PiliPlus-BTR/images/news.png",
-      "notify": true,
-      "url": "https://github.com/aierlma/PiliPlus/releases/tag/v2.1.6-btr.5670-4366be1c929a"
-    },
-    {
       "appID": "sb.moe.kumone",
       "title": "Kumone 0.3.23 · 27 Oct 2026",
       "identifier": "Kumone-release-v0.3.23",
@@ -1083,17 +1094,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Kumone/images/news.png",
       "notify": true,
       "url": "https://github.com/missuo/kumone/releases/tag/v0.3.23"
-    },
-    {
-      "appID": "com.leeguoo.iphone-use.runner.xctrunner",
-      "title": "iPhoneUse Runner 0.27.3 · compatibility candidate",
-      "identifier": "iPhoneUse Runner-release-iphone-use-0.27.3-sidestore-b1",
-      "caption": "SideStore compatibility candidate; device validation pending.",
-      "date": "2026-10-27T16:56:58Z",
-      "tintColor": "#2563EB",
-      "imageURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/iPhoneUse/images/news.png",
-      "notify": true,
-      "url": "https://github.com/aierlma/AltGallery/releases/tag/iphone-use-0.27.3-sidestore-b1"
     },
     {
       "appID": "com.suwayomi.tachideskSorayomi",
