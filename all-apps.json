@@ -305,12 +305,12 @@
       "tintColor": "#2563EB",
       "versions": [
         {
-          "version": "0.27.7",
+          "version": "0.27.10",
           "buildVersion": "1",
-          "date": "2026-10-29",
-          "localizedDescription": "Experimental SideStore compatibility package of iphone-use 0.27.7.\n\nUpstream tag: v0.27.7\nUpstream commit: 2e449f2915165ca6a25acda04386472ad210afe0\nRunner archive SHA-256: 37738ab63bfcae4c0299486e7cebb6399aff1e52991b32decebd8e08506bc4bf\n\nPackage build: 1\nIPA SHA-256: 170739b472d8f419cac7ea15762eca7822d97773d77b06a8594da7c376d466bc\nIPA size: 15369654 bytes\nMinimum iOS: 13.0\n\nCI validated the official source/build scripts, the embedded on-phone daemon symbols, the unsigned Xcode build, and the ad-hoc SideStore package layout.\nDevice installation, launch, and wireless operation are not claimed for this candidate until separately verified.\n\nSideStore must sign and refresh the package. This is not an official upstream release.",
-          "downloadURL": "https://github.com/aierlma/AltGallery/releases/download/iphone-use-0.27.7-sidestore-b1/iPhoneUse-Runner-0.27.7-SideStore-b1.ipa",
-          "size": 15369654,
+          "date": "2026-10-30",
+          "localizedDescription": "Experimental SideStore compatibility package of iphone-use 0.27.10.\n\nUpstream tag: v0.27.10\nUpstream commit: 4b56255ae7ef8397952795f6941ec4fa3f7af887\nRunner archive SHA-256: b3f8a25beb65ecff0ddf0a353fb2962f8bcac79a595beeaf024433f3ee29a6f5\n\nPackage build: 1\nIPA SHA-256: e13cedcaf67be885f085b8cc6305e275333d19d88773d396f29e7dcdf257a9ae\nIPA size: 15416466 bytes\nMinimum iOS: 13.0\n\nCI validated the official source/build scripts, the embedded on-phone daemon symbols, the unsigned Xcode build, and the ad-hoc SideStore package layout.\nDevice installation, launch, and wireless operation are not claimed for this candidate until separately verified.\n\nSideStore must sign and refresh the package. This is not an official upstream release.",
+          "downloadURL": "https://github.com/aierlma/AltGallery/releases/download/iphone-use-0.27.10-sidestore-b1/iPhoneUse-Runner-0.27.10-SideStore-b1.ipa",
+          "size": 15416466,
           "minOSVersion": "13.0"
         }
       ]
@@ -572,11 +572,11 @@
       "tintColor": "#8050F0",
       "versions": [
         {
-          "version": "1.2.6",
-          "date": "2026-10-23",
-          "localizedDescription": "MoviePilot Release\n\n- Version: 1.2.6\n- Build Date: 2026-10-23\n- Android: Signed universal APK\n- Android: Signed arm64-v8a APK\n- iOS: Unsigned IPA\n\niOS 安装说明：\n- IPA 为未签名包\n- 请使用自己的 Apple Developer 账号通过 AltStore、Sideloadly 或 Xcode 进行签名安装\n\n\n## What's Changed\n* fix(player): 视频播放时保持屏幕常亮 by @singleton-altman in https://github.com/singleton-altman/MoviePilotLite/pull/112\n* feat: 音乐库多分区首页；fix: 播放器常亮与缓存管理误报请求失败(200) by @singleton-altman in https://github.com/singleton-altman/MoviePilotLite/pull/113\n* fix(cache): 修复缓存管理页误报请求失败(200) by @singleton-altman in https://github.com/singleton-altman/MoviePilotLite/pull/114\n* feat: 音乐库多分区首页与全量功能更新 by @singleton-altman in https://github.com/singleton-altman/MoviePilotLite/pull/111\n* chore(version): update version to 1.2.6+37 by @singleton-altman in https://github.com/singleton-altman/MoviePilotLite/pull/115\n* Dev by @singleton-altman in https://github.com/singleton-altman/MoviePilotLite/pull/116\n\n\n**Full Changelog**: https://github.com/singleton-altman/MoviePilotLite/compare/release-v1.2.5-2026-10-09...release-v1.2.6-2026-10-23",
-          "downloadURL": "https://github.com/singleton-altman/MoviePilotLite/releases/download/release-v1.2.6-2026-10-23/ios-v1.2.6-2026-10-23.ipa",
-          "size": 37329880,
+          "version": "1.2.7",
+          "date": "2026-10-30",
+          "localizedDescription": "MoviePilot Release\n\n- Version: 1.2.7\n- Build Date: 2026-10-30\n- Android: Signed universal APK\n- Android: Signed arm64-v8a APK\n- iOS: Unsigned IPA\n\niOS 安装说明：\n- IPA 为未签名包\n- 请使用自己的 Apple Developer 账号通过 AltStore、Sideloadly 或 Xcode 进行签名安装\n\n\n## What's Changed\n* fix(dashboard): 收敛最新入库海报卡片阴影避免粘连 by @singleton-altman in https://github.com/singleton-altman/MoviePilotLite/pull/119\n* feat: 仪表板捷径/快捷操作/近期整理等看板组件与弹层控制器生命周期修复 by @singleton-altman in https://github.com/singleton-altman/MoviePilotLite/pull/120\n* fix(search): 搜索页按账号权限收敛入口与建议列表（#74） by @singleton-altman in https://github.com/singleton-altman/MoviePilotLite/pull/121\n* feat: 对齐 MoviePilot v3 契约（MFA 登录/微信机器人/订阅活动日志）并优化 401/403 提示（#122 #123 #124 #126） by @singleton-altman in https://github.com/singleton-altman/MoviePilotLite/pull/125\n* fix(image): 修复图片加载缓慢与 Cookie 外泄（#128） by @singleton-altman in https://github.com/singleton-altman/MoviePilotLite/pull/129\n* feat(image): CachedImage 加载态改为微光占位并移除逐字节重建（#130） by @singleton-altman in https://github.com/singleton-altman/MoviePilotLite/pull/131\n* feat(ui): Dashboard 与 Recommend 补齐首屏骨架 by @singleton-altman in https://github.com/singleton-altman/MoviePilotLite/pull/134\n* fix(recommend): 首个推荐请求等待 Cookie 就绪再发出 by @singleton-altman in https://github.com/singleton-altman/MoviePilotLite/pull/137\n* fix(music): 音乐搜索补齐艺人检索并始终代理境外音乐封面 by @singleton-altman in https://github.com/singleton-altman/MoviePilotLite/pull/138\n* feat(update): 自更新支持选择与自定义加速源 by @singleton-altman in https://github.com/singleton-altman/MoviePilotLite/pull/140\n* feat(music): 对齐 v3 单曲详情页，搜索与曲目列表可打开单曲 by @singleton-altman in https://github.com/singleton-altman/MoviePilotLite/pull/132\n* fix(subscribe): 补齐更多页订阅卡封面并修复弹层预热 401 by @singleton-altman in https://github.com/singleton-altman/MoviePilotLite/pull/142\n* chore(release): dev → master (2026-10-23) by @singleton-altman in https://github.com/singleton-altman/MoviePilotLite/pull/144\n* fix(dynamic-form): APPLitePush 测试路径跟随插件标识，避免 404 by @singleton-altman in https://github.com/singleton-altman/MoviePilotLite/pull/148\n* 播放器:修复杜比 P5 偏绿、进出播放页旋转叠影、弹幕开关不持久化 by @anlan-home in https://github.com/singleton-altman/MoviePilotLite/pull/150\n* 修复媒体库合集(BoxSet)打开方式:不再进入 MP 详情页,成员列表透传宿主钩子 by @anlan-home in https://github.com/singleton-altman/MoviePilotLite/pull/152\n* release: v1.2.7 by @singleton-altman in https://github.com/singleton-altman/MoviePilotLite/pull/155\n\n\n**Full Changelog**: https://github.com/singleton-altman/MoviePilotLite/compare/release-v1.2.6-2026-10-23...release-v1.2.7-2026-10-30",
+          "downloadURL": "https://github.com/singleton-altman/MoviePilotLite/releases/download/release-v1.2.7-2026-10-30/ios-v1.2.7-2026-10-30.ipa",
+          "size": 37456569,
           "minOSVersion": "15.0"
         }
       ]
@@ -932,11 +932,11 @@
       "tintColor": "#7c7bff",
       "versions": [
         {
-          "version": "1.6.2",
-          "date": "2026-10-28",
-          "localizedDescription": "A manga and webtoon reader for your [Suwayomi](https://suwayomi.org/) server.\n\n### 🚀 Improvements\n\n- Added back the chapter grid view on the series page, saved per series (@aaronbamblett)\n- Added the reason and a **Cancel** option to failed downloads (@aaronbamblett)\n- Renamed the macOS download to `…-macos-universal.zip` to make clear it runs natively on Apple Silicon and Intel (@aaronbamblett)\n\n### 🧩 Fixes\n\n- Fixed one failing chapter pausing every download and showing the app as offline on a working connection (@aaronbamblett)\n- Fixed the **Filter** button covering the selection bar when selecting titles in a source (@aaronbamblett)\n- Fixed the **Reset** and **Filter** buttons being cut off in the source filter sheet (@aaronbamblett)\n\n*Thanks to our Weblate translators Andrei Stepanov, Constantin Piber and Kisnov for the Catalan, German and Russian updates.*\n\n## Install\n\nYou'll need a running Suwayomi server. See [Getting started](https://tsumiru.app/docs/guides/getting-started).\n\n### Mobile\n\n**Android:** download the universal APK below and open it to install. Smaller APKs for specific chip types are also attached.\n\n**iOS:** the `…-ios.ipa` below is unsigned and has to be sideloaded. Add `https://tsumiru.app/apps.json` as a source in [SideStore](https://sidestore.io/) or [AltStore](https://altstore.io/) to install it and get later releases as updates.\n\n<details>\n<summary>Which sideloading tool should I use?</summary>\n\n- **[SideStore](https://sidestore.io/)** signs and refreshes the app on the device itself, with no computer needed after setup. Best for most people.\n- **[AltStore](https://altstore.io/)** expires every 7 days and only refreshes while a computer running AltServer is switched on and on the same Wi-Fi as your phone.\n- **[TrollStore](https://ios.cfw.guide/installing-trollstore/)** installs permanently with no expiry, but only works on older iPhones and iOS versions with the required vulnerability.\n\nWith SideStore or AltStore the app is re-signed periodically, which those tools automate. There is no App Store build.\n</details>\n\n### Desktop\n\n**Windows:** download `…-windows-x64.zip`, extract it anywhere, and run `tsumiru.exe`.\n\n**macOS:** download `…-macos-universal.zip`, extract it, and move the app to Applications. If macOS blocks the first launch, approve it under System Settings → Privacy & Security.\n\n**Linux:** the Flatpak is recommended and auto-updates.\n\n```sh\nflatpak remote-add --if-not-exists tsumiru https://flatpak.tsumiru.app/index.flatpakrepo\nflatpak install tsumiru app.tsumiru.Tsumiru\n```\n\nExisting Flatpak installs keep receiving updates under `io.github.aaronbamblett.tsumiru`; no data, settings or logins move. AppImage/deb also keep that ID.\n\nFor a portable option, download `…-linux-x86_64.AppImage`, mark it executable with `chmod +x`, and run it.\n\n### Web\n\nDownload `…-web.zip` and serve its contents with any static web server.\n\n[Full documentation](https://tsumiru.app/)",
-          "downloadURL": "https://github.com/Suwayomi/Suwayomi-Tsumiru/releases/download/v1.6.2/tsumiru-v1.6.2-ios.ipa",
-          "size": 18312147,
+          "version": "1.6.3",
+          "date": "2026-10-30",
+          "localizedDescription": "A manga and webtoon reader for your [Suwayomi](https://suwayomi.org/) server.\n\n### ⚙️ Changes\n\n- Changed the Android signing key, and updates still install without a reinstall (@aaronbamblett)\n- Added a weekly reminder to switch away from Basic Auth, which is deprecated (@aaronbamblett)\n\n### 🚀 Improvements\n\n- Added support for AVIF images on Linux (@aaronbamblett)\n- Made **Custom brightness** in the reader work on desktop and web (@aaronbamblett)\n- Moved the sign-in, **Incognito mode** and **Updating library…** banners beside the sidebar on wide screens, so they no longer push it down (@aaronbamblett)\n- Removed the Flatpak's NetworkManager permission by reading network status from the desktop portal (@aaronbamblett)\n\n### 🧩 Fixes\n\n- Fixed the source toolbar missing the first time you open a source on desktop (@aaronbamblett)\n- Fixed the macOS app crashing while you resize the window (@aaronbamblett)\n- Fixed banners covering the top bar on macOS (@aaronbamblett)\n- Fixed Library showing **No visible categories** and an empty top bar after your session expires (@aaronbamblett)\n- Fixed a fresh install showing **Session expired. Sign in again.** before setup is finished (@aaronbamblett)\n- Fixed empty screens running past the bottom in landscape when a banner and the keyboard are showing (@aaronbamblett)\n- Fixed setup rejecting Basic Auth servers running a current Suwayomi preview (@aaronbamblett)\n\n## Install\n\nYou'll need a running Suwayomi server. See [Getting started](https://tsumiru.app/docs/guides/getting-started).\n\n### Mobile\n\n**Android:** download the universal APK below and open it to install. Smaller APKs for specific chip types are also attached.\n\n**iOS:** the `…-ios.ipa` below is unsigned and has to be sideloaded. Add `https://tsumiru.app/apps.json` as a source in [SideStore](https://sidestore.io/) or [AltStore](https://altstore.io/) to install it and get later releases as updates.\n\n<details>\n<summary>Which sideloading tool should I use?</summary>\n\n- **[SideStore](https://sidestore.io/)** signs and refreshes the app on the device itself, with no computer needed after setup. Best for most people.\n- **[AltStore](https://altstore.io/)** expires every 7 days and only refreshes while a computer running AltServer is switched on and on the same Wi-Fi as your phone.\n- **[TrollStore](https://ios.cfw.guide/installing-trollstore/)** installs permanently with no expiry, but only works on older iPhones and iOS versions with the required vulnerability.\n\nWith SideStore or AltStore the app is re-signed periodically, which those tools automate. There is no App Store build.\n</details>\n\n### Desktop\n\n**Windows:** download `…-windows-x64.zip`, extract it anywhere, and run `tsumiru.exe`.\n\n**macOS:** download `…-macos-universal.zip`, extract it, and move the app to Applications. If macOS blocks the first launch, approve it under System Settings → Privacy & Security.\n\n**Linux:** the Flatpak is recommended and auto-updates.\n\n```sh\nflatpak remote-add --if-not-exists tsumiru https://flatpak.tsumiru.app/index.flatpakrepo\nflatpak install tsumiru app.tsumiru.Tsumiru\n```\n\nExisting Flatpak installs keep receiving updates under `io.github.aaronbamblett.tsumiru`; no data, settings or logins move. AppImage/deb also keep that ID.\n\nFor a portable option, download `…-linux-x86_64.AppImage`, mark it executable with `chmod +x`, and run it.\n\n### Web\n\nDownload `…-web.zip` and serve its contents with any static web server.\n\n[Full documentation](https://tsumiru.app/)",
+          "downloadURL": "https://github.com/Suwayomi/Suwayomi-Tsumiru/releases/download/v1.6.3/tsumiru-v1.6.3-ios.ipa",
+          "size": 18404468,
           "minOSVersion": "14.0"
         }
       ]
@@ -1041,6 +1041,39 @@
   ],
   "news": [
     {
+      "appID": "com.leeguoo.iphone-use.runner.xctrunner",
+      "title": "iPhoneUse Runner 0.27.10 · compatibility candidate",
+      "identifier": "iPhoneUse Runner-release-iphone-use-0.27.10-sidestore-b1",
+      "caption": "SideStore compatibility candidate; device validation pending.",
+      "date": "2026-10-30T06:30:35Z",
+      "tintColor": "#2563EB",
+      "imageURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/iPhoneUse/images/news.png",
+      "notify": true,
+      "url": "https://github.com/aierlma/AltGallery/releases/tag/iphone-use-0.27.10-sidestore-b1"
+    },
+    {
+      "appID": "com.suwayomi.tachideskSorayomi",
+      "title": "Tsumiru 1.6.3 · 30 Oct 2026",
+      "identifier": "Tsumiru-release-v1.6.3",
+      "caption": "Tsumiru 1.6.3 is available.",
+      "date": "2026-10-30T05:42:54Z",
+      "tintColor": "#7c7bff",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Suwayomi-Tsumiru/images/news.png",
+      "notify": true,
+      "url": "https://github.com/Suwayomi/Suwayomi-Tsumiru/releases/tag/v1.6.3"
+    },
+    {
+      "appID": "com.altman.moviepilot",
+      "title": "MoviePilotLite 1.2.7 · 30 Oct 2026",
+      "identifier": "MoviePilotLite-release-release-v1.2.7-2026-10-30",
+      "caption": "MoviePilotLite 1.2.7 is available.",
+      "date": "2026-10-30T04:40:22Z",
+      "tintColor": "#8050F0",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/MoviePilotLite/images/news.png",
+      "notify": true,
+      "url": "https://github.com/singleton-altman/MoviePilotLite/releases/tag/release-v1.2.7-2026-10-30"
+    },
+    {
       "appID": "com.christianselig.Apollo",
       "title": "Apollo for Reddit - GLASS 4.0.1 · 30 Oct 2026",
       "identifier": "Apollo for Reddit - GLASS-release-v1.15.11_4.0.1",
@@ -1063,17 +1096,6 @@
       "url": "https://github.com/aierlma/PiliPlus/releases/tag/v2.1.6-btr.5685-c0e52422faec"
     },
     {
-      "appID": "com.leeguoo.iphone-use.runner.xctrunner",
-      "title": "iPhoneUse Runner 0.27.7 · compatibility candidate",
-      "identifier": "iPhoneUse Runner-release-iphone-use-0.27.7-sidestore-b1",
-      "caption": "SideStore compatibility candidate; device validation pending.",
-      "date": "2026-10-29T13:47:57Z",
-      "tintColor": "#2563EB",
-      "imageURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/iPhoneUse/images/news.png",
-      "notify": true,
-      "url": "https://github.com/aierlma/AltGallery/releases/tag/iphone-use-0.27.7-sidestore-b1"
-    },
-    {
       "appID": "com.armsx2.ios",
       "title": "ARMSX2 nightly-20261029 · 29 Oct 2026",
       "identifier": "ARMSX2-release-nightly-20261029",
@@ -1094,17 +1116,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Kumone/images/news.png",
       "notify": true,
       "url": "https://github.com/missuo/kumone/releases/tag/v0.3.24"
-    },
-    {
-      "appID": "com.suwayomi.tachideskSorayomi",
-      "title": "Tsumiru 1.6.2 · 28 Oct 2026",
-      "identifier": "Tsumiru-release-v1.6.2",
-      "caption": "Tsumiru 1.6.2 is available.",
-      "date": "2026-10-28T02:29:20Z",
-      "tintColor": "#7c7bff",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Suwayomi-Tsumiru/images/news.png",
-      "notify": true,
-      "url": "https://github.com/Suwayomi/Suwayomi-Tsumiru/releases/tag/v1.6.2"
     },
     {
       "appID": "com.husk.app",
@@ -1215,17 +1226,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/SpotiFLAC/images/news.png",
       "notify": true,
       "url": "https://github.com/spotiflacapp/SpotiFLAC-Mobile/releases/tag/v5.2.6"
-    },
-    {
-      "appID": "com.altman.moviepilot",
-      "title": "MoviePilotLite 1.2.6 · 23 Oct 2026",
-      "identifier": "MoviePilotLite-release-release-v1.2.6-2026-10-23",
-      "caption": "MoviePilotLite 1.2.6 is available.",
-      "date": "2026-10-23T03:39:58Z",
-      "tintColor": "#8050F0",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/MoviePilotLite/images/news.png",
-      "notify": true,
-      "url": "https://github.com/singleton-altman/MoviePilotLite/releases/tag/release-v1.2.6-2026-10-23"
     },
     {
       "appID": "ani.baka",
