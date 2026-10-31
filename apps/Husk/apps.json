@@ -20,11 +20,11 @@
       "tintColor": "#5949E5",
       "versions": [
         {
-          "version": "3.2",
+          "version": "3.2.1",
           "date": "2026-10-31",
-          "localizedDescription": "## What's new?\r\n\r\nPlay without JIT: Most translation-layer games run with no debugger and no StikJIT. Turn it on in Settings -> Play without JIT.\r\n\r\n- Import the certificate SideStore or AltStore installed Husk with, or a `.p12`\r\n- The first time you open a game, Husk converts its libraries. After that it starts like normal\r\n- StikJIT is still there if you want it\r\n\r\n### Games\r\n\r\n- Unity 6 games get further (Flying Gorilla, Deep Rock Galactic Survivor, and others)\r\n- Games that ask for OpenGL ES 3.1 don't fall over on launch\r\n- Unity games that load Firebase / extra plugins through `UnityPlayer.loadLibrary` start\r\n- Minecraft's huge libraries load\r\n- Python-for-Android games convert their bundled libraries too\r\n- Games that try to JIT their own code (LuaJIT, PCRE2) fall back the way they do on a phone, instead of needing Husk's JIT\r\n\r\n### Also\r\n\r\n- Starting full Android makes you wait five seconds on the warning. It's still the emulator. Don't use it for games\r\n- Compatibility reports wait if the site is down, then send\r\n- Certificate passwords (including empty ones) actually work\r\n- Lots of fixes under Play without JIT so Unity and C++ games don't die on the first exception\r\n\r\n## Known Issues\r\n\r\n- Some games still need JIT (ones that generate code at runtime, including a few with their own anti-tamper)\r\n- Hollow Knight and Cuphead still have no sound\r\n- Some games (Disco Elysium, Muse Dash) don't take touch input\r\n- 32-bit only apps don't run\r\n- The first convert of a big game can take a while and some disk\r\n- Full Android is still slow and crashy. Use Play without JIT / the translation layer for games\r\n\r\n## Final notes\r\n\r\nThank you all for your repeated support over the past few weeks with Husk ❤️ . I hope you like this new JIT-less release <3\r\n\r\n## Links:\r\n\r\n- Website: https://itslevii.dev\r\n- Discord: https://itslevii.dev/discord\r\n- X Profile: https://x.com/leviidev01\r\n- Discord User: @Leviidev\r\n\r\nFull Changelog: https://github.com/Leviidev/Husk/compare/3.1...main",
-          "downloadURL": "https://github.com/Leviidev/Husk/releases/download/3.2/Husk.ipa",
-          "size": 140692009,
+          "localizedDescription": "Fixed certificate importing bug for 3.2 JIT-less",
+          "downloadURL": "https://github.com/Leviidev/Husk/releases/download/3.2.1/Husk.ipa",
+          "size": 140697147,
           "minOSVersion": "16.4"
         }
       ]
@@ -33,14 +33,14 @@
   "news": [
     {
       "appID": "com.husk.app",
-      "title": "Husk 3.2 · 31 Oct 2026",
-      "identifier": "Husk-release-3.2",
-      "caption": "Husk 3.2 is available.",
-      "date": "2026-10-31T01:00:44Z",
+      "title": "Husk 3.2.1 · 31 Oct 2026",
+      "identifier": "Husk-release-3.2.1",
+      "caption": "Husk 3.2.1 is available.",
+      "date": "2026-10-31T02:58:46Z",
       "tintColor": "#5949E5",
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Husk/images/news.png",
       "notify": true,
-      "url": "https://github.com/Leviidev/Husk/releases/tag/3.2"
+      "url": "https://github.com/Leviidev/Husk/releases/tag/3.2.1"
     }
   ]
 }
