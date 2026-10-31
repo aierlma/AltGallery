@@ -20,11 +20,11 @@
       "tintColor": "#5949E5",
       "versions": [
         {
-          "version": "3.1",
-          "date": "2026-10-27",
-          "localizedDescription": "## What's new?\r\n- New UI, all over\r\n    - New Home, Library, Store and game pages\r\n    - Every screen, Settings included, uses the same navy look\r\n- Husk accounts\r\n    - Sign in from the top of Settings\r\n    - Your profile, playtime and library sync with itslevii.dev\r\n- New Import screen: APK, split APKs (.xapk, .apkm, .apks), OBBs and PS4 game folders. On iPad you can drag files onto it.\r\n- Small icon size for the library\r\n- Chinese (Simplified) for all of Husk. The language you pick in setup is used by Husk and your apps.\r\n### Store\r\n- New app page\r\n    - Proper descriptions (bold, lists, links)\r\n    - Short counts, like 1B+ downloads and 37M reviews\r\n    - Tap screenshots to view them full screen, with zoom\r\n    - Trailers, What's New, Highlights, tags and developer links\r\n- Store downloads can be stopped, and show in Downloads\r\n### Android\r\n- Keyboard button for apps and games. Typing works even when there's no text box.\r\n- In-app file picker: when an app asks for a file, the iOS file picker opens\r\n- Fullscreen games are centered and use the whole screen (Plants vs. Zombies and more)\r\n- Cocos Creator games start\r\n- Godot 4.7 games can save\r\n- Flutter apps find their fonts\r\n- .NET apps run much further\r\n- Apps protected with Dex2C work\r\n- Android system pop-ups (Bluetooth, NFC…) don't break apps anymore\r\n- XAPKs with OBB files inside install correctly\r\n- Battery, 24-hour clock, time zone and language follow your phone\r\n### Also\r\n- TrollStore and Dopamine on iOS 15–16 get JIT even when iOS refuses the usual way\r\n- The TrollStore build opens on devices it didn't before\r\n- Built-in StikJIT finds the pairing port by itself\r\n- Crash reports tell you when iOS closed Husk for using too much memory\r\n- Compatibility list and accounts moved to https://itslevii.dev\r\n- Lots of fixes\r\n\r\n## What's Changed\r\n* fix: Bypass W^X restrictions by @azyarashi in https://github.com/Leviidev/Husk/pull/74\r\n* Fix base APK selection using split manifests by @TakatoSey in https://github.com/Leviidev/Husk/pull/106\r\n* Cocos Creator games start: V8 runs without its JIT (--jitless) by @stellar099 in https://github.com/Leviidev/Husk/pull/113\r\n* Godot 4.7: answer the directory/file handlers for the objects the engine holds by @xinerqu in https://github.com/Leviidev/Husk/pull/151\r\n* fix: discover the dynamic RemotePairing port for Built-in StikJIT by @cklsit in https://github.com/Leviidev/Husk/pull/153\r\n* Fix Flutter font discovery under the Java Android root by @muzhi1991 in https://github.com/Leviidev/Husk/pull/179\r\n* Reserve aligned compressed-heap space before JIT prewarming by @muzhi1991 in https://github.com/Leviidev/Husk/pull/180\r\n\r\n## New Contributors\r\n* @TakatoSey made their first contribution in https://github.com/Leviidev/Husk/pull/106\r\n* @stellar099 made their first contribution in https://github.com/Leviidev/Husk/pull/113\r\n* @xinerqu made their first contribution in https://github.com/Leviidev/Husk/pull/151\r\n* @cklsit made their first contribution in https://github.com/Leviidev/Husk/pull/153\r\n* @muzhi1991 made their first contribution in https://github.com/Leviidev/Husk/pull/179\r\n\r\n## Known Issues\r\n- Hollow Knight and Cuphead have no sound\r\n- Some games (Disco Elysium, Muse Dash) don't take touch input\r\n- 32-bit only apps don't run\r\n\r\n## Final notes\r\nThank you all, especially everyone who sent a PR this time. Enjoy ❤️\r\n\r\n## Links:\r\n- Website: https://itslevii.dev\r\n- Discord: https://itslevii.dev/discord\r\n- X Profile: https://x.com/leviidev01\r\n- Discord User: @leviidev\r\n\r\n**Full Changelog**: https://github.com/Leviidev/Husk/compare/3.0...3.1",
-          "downloadURL": "https://github.com/Leviidev/Husk/releases/download/3.1/Husk.ipa",
-          "size": 140540013,
+          "version": "3.2",
+          "date": "2026-10-31",
+          "localizedDescription": "## What's new?\r\n\r\nPlay without JIT: Most translation-layer games run with no debugger and no StikJIT. Turn it on in Settings -> Play without JIT.\r\n\r\n- Import the certificate SideStore or AltStore installed Husk with, or a `.p12`\r\n- The first time you open a game, Husk converts its libraries. After that it starts like normal\r\n- StikJIT is still there if you want it\r\n\r\n### Games\r\n\r\n- Unity 6 games get further (Flying Gorilla, Deep Rock Galactic Survivor, and others)\r\n- Games that ask for OpenGL ES 3.1 don't fall over on launch\r\n- Unity games that load Firebase / extra plugins through `UnityPlayer.loadLibrary` start\r\n- Minecraft's huge libraries load\r\n- Python-for-Android games convert their bundled libraries too\r\n- Games that try to JIT their own code (LuaJIT, PCRE2) fall back the way they do on a phone, instead of needing Husk's JIT\r\n\r\n### Also\r\n\r\n- Starting full Android makes you wait five seconds on the warning. It's still the emulator. Don't use it for games\r\n- Compatibility reports wait if the site is down, then send\r\n- Certificate passwords (including empty ones) actually work\r\n- Lots of fixes under Play without JIT so Unity and C++ games don't die on the first exception\r\n\r\n## Known Issues\r\n\r\n- Some games still need JIT (ones that generate code at runtime, including a few with their own anti-tamper)\r\n- Hollow Knight and Cuphead still have no sound\r\n- Some games (Disco Elysium, Muse Dash) don't take touch input\r\n- 32-bit only apps don't run\r\n- The first convert of a big game can take a while and some disk\r\n- Full Android is still slow and crashy. Use Play without JIT / the translation layer for games\r\n\r\n## Final notes\r\n\r\nThank you all for your repeated support over the past few weeks with Husk ❤️ . I hope you like this new JIT-less release <3\r\n\r\n## Links:\r\n\r\n- Website: https://itslevii.dev\r\n- Discord: https://itslevii.dev/discord\r\n- X Profile: https://x.com/leviidev01\r\n- Discord User: @Leviidev\r\n\r\nFull Changelog: https://github.com/Leviidev/Husk/compare/3.1...main",
+          "downloadURL": "https://github.com/Leviidev/Husk/releases/download/3.2/Husk.ipa",
+          "size": 140692009,
           "minOSVersion": "16.4"
         }
       ]
@@ -33,14 +33,14 @@
   "news": [
     {
       "appID": "com.husk.app",
-      "title": "Husk 3.1 · 27 Oct 2026",
-      "identifier": "Husk-release-3.1",
-      "caption": "Husk 3.1 is available.",
-      "date": "2026-10-27T21:36:06Z",
+      "title": "Husk 3.2 · 31 Oct 2026",
+      "identifier": "Husk-release-3.2",
+      "caption": "Husk 3.2 is available.",
+      "date": "2026-10-31T01:00:44Z",
       "tintColor": "#5949E5",
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Husk/images/news.png",
       "notify": true,
-      "url": "https://github.com/Leviidev/Husk/releases/tag/3.1"
+      "url": "https://github.com/Leviidev/Husk/releases/tag/3.2"
     }
   ]
 }
