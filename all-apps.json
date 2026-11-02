@@ -523,11 +523,11 @@
       "tintColor": "#F02040",
       "versions": [
         {
-          "version": "2.0.1",
-          "date": "2026-09-18",
-          "localizedDescription": "- Added WonderSwan support\r\n- Added NAOMI, Atomiswave, and System SP arcade support\r\n- Added Flash support\r\n  · Skin button binding\r\n  · Hardware keyboard input\r\n  · Software keyboard input\r\n  · Touch input\r\n- Built-in, self-contained JIT — no external debugger required\r\n- Added Slow Motion\r\n- Improved GameCube and Wii performance\r\n- GameCube now supports multi-disc games\r\n- Improved Wii motion controls\r\n- Simulate the Wii IR pointer by touch\r\n- Add games from other emulators via a link\r\n- Fixed some arcade systems that wouldn’t run\r\n- Fixed Dreamcast games running too fast\r\n- Fixed PSP crashes\r\n- Added NDS lid open/close\r\n- Improved rotation: with orientation lock on in Control Center, the app no longer snaps back to portrait\r\n- In-game shortcut tips can now be turned off\r\n- Landscape library can disable carousel style\r\n- Smoother landscape carousel scrolling\r\n- MultiDisc Helper supports more formats\r\n- Hardware keyboard input for Symbian, Amiga, and C64\r\n- Added RomM support\r\n  · LAN self-hosted servers only\r\n  · Sync only for games imported from RomM\r\n  · Manual sync only, from the service card’s long-press menu\r\n  · Pull ROMs, covers, metadata, manuals, and game saves\r\n- Fixed a launch timeout that could quit the app on older devices\r\n- N64 now supports ROMs larger than 64 MB",
-          "downloadURL": "https://github.com/Manic-EMU/ManicEMU/releases/download/v2.0.1/ManicEMU.v2.0.1.SideloadJIT.ipa",
-          "size": 288525117,
+          "version": "2.0.2",
+          "date": "2026-11-02",
+          "localizedDescription": "- Improved 3DS performance\r\n- Nimbus in Artic Base now supports the latest Pretendo\r\n- Improved Home Menu performance on the Azahar core\r\n- Fixed Wii pointer behavior for affected users\r\n- Added MeloCafe Link support\r\n- iPad now supports windowed apps\r\n- Redesigned the SNES skin\r\n- Added skin fallback: iPad can use iPhone skins\r\n- Support for iPhone Duo\r\n- Fixed AirPlay not working on iOS 27 or later\r\n- Added BitBop, a new sister app to Manic EMU for retro game music\r\n- Other bug fixes and improvements",
+          "downloadURL": "https://github.com/Manic-EMU/ManicEMU/releases/download/v2.0.2/ManicEMU.v2.0.2.SideloadJIT.ipa",
+          "size": 293317769,
           "minOSVersion": "15.0"
         }
       ]
@@ -715,11 +715,11 @@
       "versions": [
         {
           "version": "2.2.0",
-          "buildVersion": "5580",
-          "date": "2026-11-01",
-          "localizedDescription": "设置选项调整\r\n支持切换`番剧`/`剧集` PV\r\npgc/pugv api 迁移至 ogv\r\n`我的订阅`详情默认倒序显示\r\n相关推荐过滤屏蔽黑名单 #3276\r\n用户主页支持显示粉丝勋章 #3202\r\n键盘方向键支持长按持续回退 #3379\r\n同步空降助手新片段类型`惊吓` #3368\r\n桌面端进度条支持鼠标悬停预览视频画面\r\n增加桌面端视频底栏时长字体大小 #3372\r\n增加滚轮调节音量开关 #3340 by @Hdy08\r\n侧边栏支持隐藏文字 #3343 by @illumiat\r\n支持`,`/`.`键逐档切换倍速 #3294 by @lzblack\r\n重构 Linux 内嵌 WebView #3423 by @moluopro\r\nLinux 构建依赖调整 #3277 by @Tobiichi-Origuchi\r\nLinux 支持多媒体控制 #3355 by @Tobiichi-Origuchi\r\nLinux 支持检测网络类型 #3164 #3374 by @Tobiichi-Origuchi\r\n`我的`页面支持显示`观看记录`、`稍后再看`、`我的订阅`\r\n支持自定义`buvid` #3253 #3349 co-by @My-Responsitories\r\n缓存面板支持选择音质，修复音质选取问题 #3309 co-by @azkbzxf\r\n支持导出/导入所有数据到压缩包 #3248 by @nlsdt #3313 by @My-Responsitories\r\n其他调整 #3349 by @My-Responsitories\r\n构建脚本不再改写用户的全局 Git 配置 #3360 by @AmCh-Q\r\n\r\n适配更多专栏类型\r\n支持显示 UP 专栏文集 #3316\r\n\r\n首页直播置顶分类标签 #3363\r\n增加全屏 SC 是否显示/不透明度/缩放设置\r\n直播与视频的缓冲区大小区分开 #3308 by @azkbzxf\r\n\r\n支持查看折叠评论 #2391\r\n动态/视频评论 Scheme 改为跳转源页面后定位评论\r\n增加过滤复制视频介绍评论选项 #3312 by @My-Responsitories\r\n增加屏蔽`@`类型评论选项 #2808 #3241 co-by @My-Responsitories\r\n\r\n修复 bug\r\n修复 #3323 #3385\r\n修复专栏跳转评论后内容倒序显示 #3289\r\n修复长用户名被截断 #3359 by @ChenPeeer\r\n修复安卓启动时状态栏颜色 #3332 by @EX3124\r\n修复 Wayland 硬解黑屏 #3261 by @FeiLiuEM\r\n修复 pgc/pugv 分享链接 #3291 by @Starfallan\r\n修复安卓 17 投屏 #2897 #3365 by @TG-Twilight\r\n修复迁移托盘依赖 Linux 菜单显示问题 #3263 by @FeiLiuEM\r\n修复保留 Akamai 原始播放链接及签名参数 #3380 by @aierlma\r\n修复 OriginOS(vivo) 音量条无法二次按下自动收起 #3373 by @SekiBankiYa",
-          "downloadURL": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/download/2.2.0/PiliPlus_ios_2.2.0%2B5580.ipa",
-          "size": 24921912,
+          "buildVersion": "5590",
+          "date": "2026-11-02",
+          "localizedDescription": "修复 bug\r\n修复无法播放 drm 番剧 #3449\r\n修复匿名账号搜索被风控 #3411\r\n修复安卓(vivo)音量调节 #3442 by @numb747\r\n修复 Linux MPRIS 未设置 DesktopEntry 与 Identity #3438 by @Infinifar",
+          "downloadURL": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/download/2.2.0.1/PiliPlus_ios_2.2.0%2B5590.ipa",
+          "size": 24914746,
           "minOSVersion": "14.0"
         }
       ]
@@ -932,11 +932,11 @@
       "tintColor": "#7c7bff",
       "versions": [
         {
-          "version": "1.6.3",
-          "date": "2026-10-30",
-          "localizedDescription": "A manga and webtoon reader for your [Suwayomi](https://suwayomi.org/) server.\n\n### ⚙️ Changes\n\n- Changed the Android signing key, and updates still install without a reinstall (@aaronbamblett)\n- Added a weekly reminder to switch away from Basic Auth, which is deprecated (@aaronbamblett)\n\n### 🚀 Improvements\n\n- Added support for AVIF images on Linux (@aaronbamblett)\n- Made **Custom brightness** in the reader work on desktop and web (@aaronbamblett)\n- Moved the sign-in, **Incognito mode** and **Updating library…** banners beside the sidebar on wide screens, so they no longer push it down (@aaronbamblett)\n- Removed the Flatpak's NetworkManager permission by reading network status from the desktop portal (@aaronbamblett)\n\n### 🧩 Fixes\n\n- Fixed the source toolbar missing the first time you open a source on desktop (@aaronbamblett)\n- Fixed the macOS app crashing while you resize the window (@aaronbamblett)\n- Fixed banners covering the top bar on macOS (@aaronbamblett)\n- Fixed Library showing **No visible categories** and an empty top bar after your session expires (@aaronbamblett)\n- Fixed a fresh install showing **Session expired. Sign in again.** before setup is finished (@aaronbamblett)\n- Fixed empty screens running past the bottom in landscape when a banner and the keyboard are showing (@aaronbamblett)\n- Fixed setup rejecting Basic Auth servers running a current Suwayomi preview (@aaronbamblett)\n\n## Install\n\nYou'll need a running Suwayomi server. See [Getting started](https://tsumiru.app/docs/guides/getting-started).\n\n### Mobile\n\n**Android:** download the universal APK below and open it to install. Smaller APKs for specific chip types are also attached.\n\n**iOS:** the `…-ios.ipa` below is unsigned and has to be sideloaded. Add `https://tsumiru.app/apps.json` as a source in [SideStore](https://sidestore.io/) or [AltStore](https://altstore.io/) to install it and get later releases as updates.\n\n<details>\n<summary>Which sideloading tool should I use?</summary>\n\n- **[SideStore](https://sidestore.io/)** signs and refreshes the app on the device itself, with no computer needed after setup. Best for most people.\n- **[AltStore](https://altstore.io/)** expires every 7 days and only refreshes while a computer running AltServer is switched on and on the same Wi-Fi as your phone.\n- **[TrollStore](https://ios.cfw.guide/installing-trollstore/)** installs permanently with no expiry, but only works on older iPhones and iOS versions with the required vulnerability.\n\nWith SideStore or AltStore the app is re-signed periodically, which those tools automate. There is no App Store build.\n</details>\n\n### Desktop\n\n**Windows:** download `…-windows-x64.zip`, extract it anywhere, and run `tsumiru.exe`.\n\n**macOS:** download `…-macos-universal.zip`, extract it, and move the app to Applications. If macOS blocks the first launch, approve it under System Settings → Privacy & Security.\n\n**Linux:** the Flatpak is recommended and auto-updates.\n\n```sh\nflatpak remote-add --if-not-exists tsumiru https://flatpak.tsumiru.app/index.flatpakrepo\nflatpak install tsumiru app.tsumiru.Tsumiru\n```\n\nExisting Flatpak installs keep receiving updates under `io.github.aaronbamblett.tsumiru`; no data, settings or logins move. AppImage/deb also keep that ID.\n\nFor a portable option, download `…-linux-x86_64.AppImage`, mark it executable with `chmod +x`, and run it.\n\n### Web\n\nDownload `…-web.zip` and serve its contents with any static web server.\n\n[Full documentation](https://tsumiru.app/)",
-          "downloadURL": "https://github.com/Suwayomi/Suwayomi-Tsumiru/releases/download/v1.6.3/tsumiru-v1.6.3-ios.ipa",
-          "size": 18404468,
+          "version": "1.6.4",
+          "date": "2026-11-02",
+          "localizedDescription": "A manga and webtoon reader for your [Suwayomi](https://suwayomi.org/) server.\n\n### ✨ New Features\n\n- Added MangaBaka tracking for servers that support it (@aaronbamblett)\n- Let Linux windows shrink to phone size, switching to the phone layout (@aaronbamblett)\n\n### 🚀 Improvements\n\n- Showed the number of extension updates on the **Extensions** tab (@aaronbamblett)\n- Gave desktop pages one consistent layout, with a single row top bar and content clear of the scrollbar (@aaronbamblett)\n- Gave Linux windows rounded corners and GNOME style window buttons (@aaronbamblett)\n- Showed the full sidebar from 1000 pixels wide and gave its toggle a panel icon (@aaronbamblett)\n- Made **Manga Grid Size** set the smallest a cover can be, so the grid fits as many columns as the window allows (@aaronbamblett)\n- Gave source names their own row on desktop Browse cards and fit the cards to narrow windows (@aaronbamblett)\n- Collapsed the Library sort, filter and display buttons into one button in narrow desktop windows (@aaronbamblett)\n- Cleaned up onboarding on desktop so the logo shows once and Skip and Next stay in place (@aaronbamblett)\n\n### 🧩 Fixes\n\n- Fixed chapters with a single page never being marked read (@aaronbamblett)\n- Fixed **Simple Login** sign-in on the latest Suwayomi server (@aaronbamblett)\n- Fixed restoring a backup or installing an extension from a file with **Basic Auth** on the latest Suwayomi server (@aaronbamblett)\n- Fixed reader pages not loading on macOS (@aaronbamblett)\n- Fixed the Mac app signing you out after a denied or missed keychain prompt (@aaronbamblett)\n- Fixed **Restore Backup** greying out backup files on Android (@aaronbamblett)\n- Fixed tracker sign-in in the web app, including when it is hosted under a subpath (@aaronbamblett)\n- Fixed MyAnimeList, Bangumi and MangaUpdates series landing in the wrong groups with **By track status** (@aaronbamblett)\n- Fixed long press page actions not opening in paged reading modes, including **Save spread** in double page view (@aaronbamblett)\n- Stopped long strip marking the previous chapter read when it loads above the current one (@aaronbamblett)\n- Stopped opening a read chapter resetting its saved page (@aaronbamblett)\n- Showed a loading indicator on long strip pages and stopped pages jumping while they load (@aaronbamblett)\n- Fixed double page view jumping back a page when a wide page loads (@aaronbamblett)\n- Fixed hidden categories missing from the library category filter (@aaronbamblett)\n- Stopped mouse drags switching Library categories and tabs on desktop (@aaronbamblett)\n- Stopped the Updates and History scrollbar jumping while scrolling on desktop (@aaronbamblett)\n- Stopped desktop toolbars overflowing in narrow windows (@aaronbamblett)\n- Hid **Lock to portrait** on devices where it can't work (@aaronbamblett)\n\n*Thanks to our Weblate translators: Constantin Piber for German, Kisnov for Catalan and Andrei Stepanov for Russian.*\n\n## Install\n\nYou'll need a running Suwayomi server. See [Getting started](https://tsumiru.app/docs/guides/getting-started).\n\n### Mobile\n\n**Android:** download the universal APK below and open it to install. Smaller APKs for specific chip types are also attached.\n\n**iOS:** the `…-ios.ipa` below is unsigned and has to be sideloaded. Add `https://tsumiru.app/apps.json` as a source in [SideStore](https://sidestore.io/) or [AltStore](https://altstore.io/) to install it and get later releases as updates.\n\n<details>\n<summary>Which sideloading tool should I use?</summary>\n\n- **[SideStore](https://sidestore.io/)** signs and refreshes the app on the device itself, with no computer needed after setup. Best for most people.\n- **[AltStore](https://altstore.io/)** expires every 7 days and only refreshes while a computer running AltServer is switched on and on the same Wi-Fi as your phone.\n- **[TrollStore](https://ios.cfw.guide/installing-trollstore/)** installs permanently with no expiry, but only works on older iPhones and iOS versions with the required vulnerability.\n\nWith SideStore or AltStore the app is re-signed periodically, which those tools automate. There is no App Store build.\n</details>\n\n### Desktop\n\n**Windows:** download `…-windows-x64.zip`, extract it anywhere, and run `tsumiru.exe`.\n\n**macOS:** download `…-macos-universal.zip`, extract it, and move the app to Applications. If macOS blocks the first launch, approve it under System Settings → Privacy & Security.\n\n**Linux:** the Flatpak is recommended and auto-updates.\n\n```sh\nflatpak remote-add --if-not-exists tsumiru https://flatpak.tsumiru.app/index.flatpakrepo\nflatpak install tsumiru app.tsumiru.Tsumiru\n```\n\nExisting Flatpak installs keep receiving updates under `io.github.aaronbamblett.tsumiru`; no data, settings or logins move. AppImage/deb also keep that ID.\n\nFor a portable option, download `…-linux-x86_64.AppImage`, mark it executable with `chmod +x`, and run it.\n\n### Web\n\nDownload `…-web.zip` and serve its contents with any static web server.\n\n[Full documentation](https://tsumiru.app/)",
+          "downloadURL": "https://github.com/Suwayomi/Suwayomi-Tsumiru/releases/download/v1.6.4/tsumiru-v1.6.4-ios.ipa",
+          "size": 17154795,
           "minOSVersion": "14.0"
         }
       ]
@@ -1041,6 +1041,39 @@
   ],
   "news": [
     {
+      "appID": "com.example.piliplus",
+      "title": "PiliPlus 2.2.0 · 02 Nov 2026",
+      "identifier": "PiliPlus-release-2.2.0.1",
+      "caption": "PiliPlus 2.2.0 is available.",
+      "date": "2026-11-02T12:28:28Z",
+      "tintColor": "#73b480",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/PiliPlus/images/news.png",
+      "notify": true,
+      "url": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/tag/2.2.0.1"
+    },
+    {
+      "appID": "com.aoshuang.manicemu",
+      "title": "ManicEMU 2.0.2 · 02 Nov 2026",
+      "identifier": "ManicEMU-release-v2.0.2",
+      "caption": "ManicEMU 2.0.2 is available.",
+      "date": "2026-11-02T08:03:58Z",
+      "tintColor": "#F02040",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/ManicEMU/images/news.png",
+      "notify": true,
+      "url": "https://github.com/Manic-EMU/ManicEMU/releases/tag/v2.0.2"
+    },
+    {
+      "appID": "com.suwayomi.tachideskSorayomi",
+      "title": "Tsumiru 1.6.4 · 02 Nov 2026",
+      "identifier": "Tsumiru-release-v1.6.4",
+      "caption": "Tsumiru 1.6.4 is available.",
+      "date": "2026-11-02T05:46:16Z",
+      "tintColor": "#7c7bff",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Suwayomi-Tsumiru/images/news.png",
+      "notify": true,
+      "url": "https://github.com/Suwayomi/Suwayomi-Tsumiru/releases/tag/v1.6.4"
+    },
+    {
       "appID": "com.leeguoo.iphone-use.runner.xctrunner",
       "title": "iPhoneUse Runner 0.27.34 · compatibility candidate",
       "identifier": "iPhoneUse Runner-release-iphone-use-0.27.34-sidestore-b1",
@@ -1096,17 +1129,6 @@
       "url": "https://github.com/spotiflacapp/SpotiFLAC-Mobile/releases/tag/v5.3.0"
     },
     {
-      "appID": "com.example.piliplus",
-      "title": "PiliPlus 2.2.0 · 01 Nov 2026",
-      "identifier": "PiliPlus-release-2.2.0",
-      "caption": "PiliPlus 2.2.0 is available.",
-      "date": "2026-11-01T07:33:43Z",
-      "tintColor": "#73b480",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/PiliPlus/images/news.png",
-      "notify": true,
-      "url": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/tag/2.2.0"
-    },
-    {
       "appID": "com.github.cyrilpeng.veneranext",
       "title": "VeneraNext 1.18.2 · 01 Nov 2026",
       "identifier": "VeneraNext-release-v1.18.2",
@@ -1149,17 +1171,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/MoviePilotLite/images/news.png",
       "notify": true,
       "url": "https://github.com/singleton-altman/MoviePilotLite/releases/tag/release-v1.3.0-2026-10-30"
-    },
-    {
-      "appID": "com.suwayomi.tachideskSorayomi",
-      "title": "Tsumiru 1.6.3 · 30 Oct 2026",
-      "identifier": "Tsumiru-release-v1.6.3",
-      "caption": "Tsumiru 1.6.3 is available.",
-      "date": "2026-10-30T05:42:54Z",
-      "tintColor": "#7c7bff",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Suwayomi-Tsumiru/images/news.png",
-      "notify": true,
-      "url": "https://github.com/Suwayomi/Suwayomi-Tsumiru/releases/tag/v1.6.3"
     },
     {
       "appID": "com.christianselig.Apollo",
@@ -1413,17 +1424,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/SceneBox/images/news.png",
       "notify": true,
       "url": "https://github.com/donbytyqi/scenebox/releases/tag/v1.0.4"
-    },
-    {
-      "appID": "com.aoshuang.manicemu",
-      "title": "ManicEMU 2.0.1 · 18 Sep 2026",
-      "identifier": "ManicEMU-release-v2.0.1",
-      "caption": "ManicEMU 2.0.1 is available.",
-      "date": "2026-09-18T09:29:42Z",
-      "tintColor": "#F02040",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/ManicEMU/images/news.png",
-      "notify": true,
-      "url": "https://github.com/Manic-EMU/ManicEMU/releases/tag/v2.0.1"
     },
     {
       "appID": "com.verback.YTLite",
