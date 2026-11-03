@@ -305,12 +305,12 @@
       "tintColor": "#2563EB",
       "versions": [
         {
-          "version": "0.27.34",
+          "version": "0.27.35",
           "buildVersion": "1",
-          "date": "2026-11-01",
-          "localizedDescription": "Experimental SideStore compatibility package of iphone-use 0.27.34.\n\nUpstream tag: v0.27.34\nUpstream commit: c0a76097faa4daeb84eb0bca49967142233cb188\nRunner archive SHA-256: 8bf5cbd1bb8620b61261515be8c986564e1c819daeaed0013f236f7fd9515aec\n\nPackage build: 1\nIPA SHA-256: eabcd2c8552923354a777a2f3b72341e1bd61b2dacf7f0d74f66e94a7bfbcab6\nIPA size: 15924453 bytes\nMinimum iOS: 13.0\n\nCI validated the official source/build scripts, the embedded on-phone daemon symbols, the unsigned Xcode build, and the ad-hoc SideStore package layout.\nDevice installation, launch, and wireless operation are not claimed for this candidate until separately verified.\n\nSideStore must sign and refresh the package. This is not an official upstream release.",
-          "downloadURL": "https://github.com/aierlma/AltGallery/releases/download/iphone-use-0.27.34-sidestore-b1/iPhoneUse-Runner-0.27.34-SideStore-b1.ipa",
-          "size": 15924453,
+          "date": "2026-11-03",
+          "localizedDescription": "Experimental SideStore compatibility package of iphone-use 0.27.35.\n\nUpstream tag: v0.27.35\nUpstream commit: 7421a90e3a00d55073b481a6b7b0c88c9a6ab567\nRunner archive SHA-256: 2ce353f9415795057cfa9ae687b22fe4171351bdc8e5c8093207934efd20d1b3\n\nPackage build: 1\nIPA SHA-256: 4825b33569b35d2d67fb0f63667529454aff9133cfba0ac6cf22f8d0b106e028\nIPA size: 15968066 bytes\nMinimum iOS: 13.0\n\nCI validated the official source/build scripts, the embedded on-phone daemon symbols, the unsigned Xcode build, and the ad-hoc SideStore package layout.\nDevice installation, launch, and wireless operation are not claimed for this candidate until separately verified.\n\nSideStore must sign and refresh the package. This is not an official upstream release.",
+          "downloadURL": "https://github.com/aierlma/AltGallery/releases/download/iphone-use-0.27.35-sidestore-b1/iPhoneUse-Runner-0.27.35-SideStore-b1.ipa",
+          "size": 15968066,
           "minOSVersion": "13.0"
         }
       ]
@@ -428,11 +428,11 @@
       "tintColor": "#F0D060",
       "versions": [
         {
-          "version": "0.3.24",
-          "date": "2026-10-28",
-          "localizedDescription": "### Fixed\n\n- **iOS**: the mini player briefly lost its layout after leaving the Now Playing screen — the accessory placement reads nil for a few seconds while the zoom transition returns it to the tab bar, and the last reported placement is now kept through that interval.\n\n### Improved\n\n- **iOS + macOS**: every request is now routed through NetEase's eapi as the desktop client, as mygo-cloudmusic does; phone-number login and following an artist answer -460 (检测到您的网络环境存在风险) through the eapi, so those calls and the SMS code go through the plain web API, and the QR login uses type 3 with the /nuser/account/get account lookup, as the desktop client does.\n\n---\n\n### 修复\n\n- **iOS**：从正在播放页面返回后，迷你播放器会短暂丢失布局——缩放过渡回到标签栏的几秒内 accessory 位置读取为 nil，现在这段时间内保留上一次上报的位置。\n\n### 改进\n\n- **iOS + macOS**：所有请求改走网易云的 eapi 并以桌面客户端身份发送，参照 mygo-cloudmusic 的做法；手机号登录和关注歌手在 eapi 下返回 -460（检测到您的网络环境存在风险），这几个调用和短信验证码改走普通 Web API，扫码登录改用 type 3 并通过 /nuser/account/get 查询账号，与桌面客户端一致。",
-          "downloadURL": "https://github.com/missuo/kumone/releases/download/v0.3.24/Kumone-iOS-0.3.24.ipa",
-          "size": 8727909,
+          "version": "0.3.26",
+          "date": "2026-11-03",
+          "localizedDescription": "### Added\n\n- **macOS**: desktop lyrics now sing along — with 逐字歌词（卡拉OK） on, the floating line lights up character by character from the song's word timings, the same wipe as the now-playing page; it freezes while paused and keeps running with the main window hidden (#174).\n\n### Improved\n\n- **macOS**: the About window credits MOE AI LLC.\n\n---\n\n### 新增\n\n- **macOS**：桌面歌词支持逐字卡拉 OK——开启「逐字歌词（卡拉OK）」后，悬浮歌词按歌曲的逐字时间逐个亮起，与播放页同一套扫光；暂停时停住，主窗口隐藏时照常运行（#174）。\n\n### 改进\n\n- **macOS**：关于窗口的版权署名改为 MOE AI LLC。",
+          "downloadURL": "https://github.com/missuo/kumone/releases/download/v0.3.26/Kumone-iOS-0.3.26.ipa",
+          "size": 4001101,
           "minOSVersion": "16.0"
         }
       ]
@@ -715,11 +715,11 @@
       "versions": [
         {
           "version": "2.2.0",
-          "buildVersion": "5590",
-          "date": "2026-11-02",
-          "localizedDescription": "修复 bug\r\n修复无法播放 drm 番剧 #3449\r\n修复匿名账号搜索被风控 #3411\r\n修复安卓(vivo)音量调节 #3442 by @numb747\r\n修复 Linux MPRIS 未设置 DesktopEntry 与 Identity #3438 by @Infinifar",
-          "downloadURL": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/download/2.2.0.1/PiliPlus_ios_2.2.0%2B5590.ipa",
-          "size": 24914746,
+          "buildVersion": "5598",
+          "date": "2026-11-03",
+          "localizedDescription": "更新投屏依赖 https://github.com/bggRGjQaUbCoE/PiliPlus/issues/2680#issuecomment-6597938908\r\n修复部分视频评论显示不全 #3458\r\n修复播放课堂视频 #3454 by @ucxn\r\n修复 macOS 关闭系统标题栏后无法拖动 #3453 by @NalCol\r\n修复点赞弹幕跳转未留提前量，导致跳转到弹幕时无法加载 #3459 by @Rim-World\r\nChromeOS(ARC) 上不再主动请求屏幕方向，由系统决定窗口方向 #3406 co-by @selcarpa",
+          "downloadURL": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/download/2.2.0.2/PiliPlus_ios_2.2.0%2B5598.ipa",
+          "size": 24933082,
           "minOSVersion": "14.0"
         }
       ]
@@ -1041,6 +1041,39 @@
   ],
   "news": [
     {
+      "appID": "com.leeguoo.iphone-use.runner.xctrunner",
+      "title": "iPhoneUse Runner 0.27.35 · compatibility candidate",
+      "identifier": "iPhoneUse Runner-release-iphone-use-0.27.35-sidestore-b1",
+      "caption": "SideStore compatibility candidate; device validation pending.",
+      "date": "2026-11-03T11:30:09Z",
+      "tintColor": "#2563EB",
+      "imageURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/iPhoneUse/images/news.png",
+      "notify": true,
+      "url": "https://github.com/aierlma/AltGallery/releases/tag/iphone-use-0.27.35-sidestore-b1"
+    },
+    {
+      "appID": "sb.moe.kumone",
+      "title": "Kumone 0.3.26 · 03 Nov 2026",
+      "identifier": "Kumone-release-v0.3.26",
+      "caption": "Kumone 0.3.26 is available.",
+      "date": "2026-11-03T11:01:25Z",
+      "tintColor": "#F0D060",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Kumone/images/news.png",
+      "notify": true,
+      "url": "https://github.com/missuo/kumone/releases/tag/v0.3.26"
+    },
+    {
+      "appID": "com.example.piliplus",
+      "title": "PiliPlus 2.2.0 · 03 Nov 2026",
+      "identifier": "PiliPlus-release-2.2.0.2",
+      "caption": "PiliPlus 2.2.0 is available.",
+      "date": "2026-11-03T07:43:02Z",
+      "tintColor": "#73b480",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/PiliPlus/images/news.png",
+      "notify": true,
+      "url": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/tag/2.2.0.2"
+    },
+    {
       "appID": "com.example.piliplus.btr",
       "title": "PiliPlus BTR v2.2.0-btr.5715-7d89e397d373 · 02 Nov 2026",
       "identifier": "PiliPlus BTR-release-v2.2.0-btr.5715-7d89e397d373",
@@ -1063,17 +1096,6 @@
       "url": "https://github.com/openAnimeFlow/AnimeFlow/releases/tag/v2.6.7"
     },
     {
-      "appID": "com.example.piliplus",
-      "title": "PiliPlus 2.2.0 · 02 Nov 2026",
-      "identifier": "PiliPlus-release-2.2.0.1",
-      "caption": "PiliPlus 2.2.0 is available.",
-      "date": "2026-11-02T12:28:28Z",
-      "tintColor": "#73b480",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/PiliPlus/images/news.png",
-      "notify": true,
-      "url": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/tag/2.2.0.1"
-    },
-    {
       "appID": "com.aoshuang.manicemu",
       "title": "ManicEMU 2.0.2 · 02 Nov 2026",
       "identifier": "ManicEMU-release-v2.0.2",
@@ -1094,17 +1116,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Suwayomi-Tsumiru/images/news.png",
       "notify": true,
       "url": "https://github.com/Suwayomi/Suwayomi-Tsumiru/releases/tag/v1.6.4"
-    },
-    {
-      "appID": "com.leeguoo.iphone-use.runner.xctrunner",
-      "title": "iPhoneUse Runner 0.27.34 · compatibility candidate",
-      "identifier": "iPhoneUse Runner-release-iphone-use-0.27.34-sidestore-b1",
-      "caption": "SideStore compatibility candidate; device validation pending.",
-      "date": "2026-11-01T23:08:49Z",
-      "tintColor": "#2563EB",
-      "imageURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/iPhoneUse/images/news.png",
-      "notify": true,
-      "url": "https://github.com/aierlma/AltGallery/releases/tag/iphone-use-0.27.34-sidestore-b1"
     },
     {
       "appID": "com.kodjodevf.mangayomi",
@@ -1204,17 +1215,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/ARMSX2/images/news.png",
       "notify": true,
       "url": "https://github.com/ARMSX2/ARMSX2/releases/tag/nightly-20261029"
-    },
-    {
-      "appID": "sb.moe.kumone",
-      "title": "Kumone 0.3.24 · 28 Oct 2026",
-      "identifier": "Kumone-release-v0.3.24",
-      "caption": "Kumone 0.3.24 is available.",
-      "date": "2026-10-28T12:22:49Z",
-      "tintColor": "#F0D060",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Kumone/images/news.png",
-      "notify": true,
-      "url": "https://github.com/missuo/kumone/releases/tag/v0.3.24"
     },
     {
       "appID": "com.google.ios.youtube",
