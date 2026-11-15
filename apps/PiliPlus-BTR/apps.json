@@ -21,13 +21,13 @@
       "tintColor": "#73b480",
       "versions": [
         {
-          "version": "2.2.5768",
-          "date": "2026-11-09",
-          "localizedDescription": "PiliPlus BTR 2.2.5768, build 5768\nBased on PiliPlus 2.2.0\n\nSource: fde9eeaa61c6cb4cb121f904873e07df0a10c045\nOfficial PiliPlus upstream: f52160af0a026adfefaa4f9f99f0702b2cab0200\nBTR author upstream: 97663e3ab5532b37748a6ec4c3567ae209a777d0\nMinimum iOS: 15.0\nIPA SHA-256: f94b9a9019d49555ecf5fb658af311ae7e06ad108097c3b83170dda73176b95a\n\nBoth source histories are included. BTR tests, static analysis and unsigned iOS build passed. Sideloading is required. The numeric iOS version includes the personal build number so SideStore can offer this package as a source update.",
-          "downloadURL": "https://github.com/aierlma/PiliPlus/releases/download/v2.2.0-btr.5768-fde9eeaa61c6/PiliPlus-BTR-ios-2.2.0-btr.5768-unsigned.ipa",
-          "size": 24983294,
+          "version": "2.2.5793",
+          "date": "2026-11-15",
+          "localizedDescription": "PiliPlus BTR 2.2.5793, build 5793\nBased on PiliPlus 2.2.1\n\nSource: 5132b4ab984e82da5d59b1283dc8b31eeedfea9d\nOfficial PiliPlus upstream: 217fb54f51f6764176319bbdedab2a7522d75401\nBTR author upstream: e133cd90fe3a518aa986e58145912d21bfe8706f\nMinimum iOS: 15.0\nIPA SHA-256: 8c1aeef03c215e694674bbe2cf373a8f3aeffc2074fe1c296a5ce2021f386c46\n\nBoth source histories are included. BTR tests, static analysis and unsigned iOS build passed. Sideloading is required. The numeric iOS version includes the personal build number so SideStore can offer this package as a source update.",
+          "downloadURL": "https://github.com/aierlma/PiliPlus/releases/download/v2.2.1-btr.5793-5132b4ab984e/PiliPlus-BTR-ios-2.2.1-btr.5793-unsigned.ipa",
+          "size": 25054095,
           "minOSVersion": "15.0",
-          "buildVersion": "5768"
+          "buildVersion": "5793"
         }
       ]
     }
@@ -35,14 +35,14 @@
   "news": [
     {
       "appID": "com.example.piliplus.btr",
-      "title": "PiliPlus BTR v2.2.0-btr.5768-fde9eeaa61c6 · 09 Nov 2026",
-      "identifier": "PiliPlus BTR-release-v2.2.0-btr.5768-fde9eeaa61c6",
-      "caption": "PiliPlus BTR v2.2.0-btr.5768-fde9eeaa61c6 is available.",
-      "date": "2026-11-09T21:43:02Z",
+      "title": "PiliPlus BTR v2.2.1-btr.5793-5132b4ab984e · 15 Nov 2026",
+      "identifier": "PiliPlus BTR-release-v2.2.1-btr.5793-5132b4ab984e",
+      "caption": "PiliPlus BTR v2.2.1-btr.5793-5132b4ab984e is available.",
+      "date": "2026-11-15T18:03:19Z",
       "tintColor": "#73b480",
       "imageURL": "https://raw.githubusercontent.com/aierlma/AltGallery/refs/heads/master/apps/PiliPlus-BTR/images/news.png",
       "notify": true,
-      "url": "https://github.com/aierlma/PiliPlus/releases/tag/v2.2.0-btr.5768-fde9eeaa61c6"
+      "url": "https://github.com/aierlma/PiliPlus/releases/tag/v2.2.1-btr.5793-5132b4ab984e"
     }
   ]
 }
