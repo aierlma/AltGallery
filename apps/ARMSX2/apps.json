@@ -21,11 +21,11 @@
       "tintColor": "#3CAEFF",
       "versions": [
         {
-          "version": "nightly-20261113",
-          "date": "2026-11-13T04:53:50Z",
-          "localizedDescription": "Automated nightly build for community testing (unsigned).\n\nEvery download is named `ARMSX2-nightly-DATE-COMMIT-PLATFORM`, so builds\nfrom different nights stay distinguishable after you have downloaded them.\n\n- macOS arm64: macOS-arm64.tar.xz\n- Linux arm64: Linux-arm64-4K-pages.AppImage on most distros, or the 16K one on Asahi Linux and other Apple Silicon kernels (run getconf PAGESIZE if unsure)\n- Windows arm64: Windows-arm64.zip\n- RetroArch on Linux arm64: Linux-arm64-libretro-core.tar.zst, a 4K-page build\n- Bare-display kmsdrm handhelds: Linux-arm64-SDL-handheld.tar.zst, a 4K-page build (Rocknix and Batocera run compositors, so use the Qt AppImage there instead)\n- Android: Android-arm64.apk (installs as ARMSX2 Nightly, alongside the stable app)\n- iOS: iOS-arm64.ipa, unsigned, sideload it (installs as ARMSX2 Nightly, alongside the stable app)\n\nComing from an old nightly? Nightlies are now a separate app, ARMSX2 Nightly, next to stable.\n\n- Android: stable cannot install over an old nightly. Back up your saves and memory cards, uninstall the old nightly, then install the stable APK.\n- iOS: your old nightly is the ARMSX2 iOS app and still has your saves. Copy them into ARMSX2 Nightly with the Files app.\n\n## What's new\n- microVU0: compute the VU1 register window's address at run time\n- Tests: a persisted VU0 program that uses the window onto VU1's registers\n- Android: link the core with emulated TLS when the minimum API is below 29\n- iOS: give the layout editor and the manifest skin their own views\n- iOS: split the patch and skin library stores by their own sections\n- iOS: split navigation and gameplay views into one file per view\n- iOS: split the controls and skin files along their types\n- iOS: split the dynamic backgrounds into one file per background\n\nFull changelog: https://github.com/ARMSX2/ARMSX2/compare/nightly-20261112...37ed35b88fe9a0164369c8042f2c9aa707e33667",
-          "downloadURL": "https://github.com/ARMSX2/ARMSX2/releases/download/nightly-20261113/ARMSX2-nightly-20261113-37ed35b88f-iOS-arm64.ipa",
-          "size": 40715589,
+          "version": "nightly-20261121",
+          "date": "2026-11-21T16:45:32Z",
+          "localizedDescription": "Automated nightly build for community testing (unsigned).\n\nEvery download is named `ARMSX2-nightly-DATE-COMMIT-PLATFORM`, so builds\nfrom different nights stay distinguishable after you have downloaded them.\n\n- macOS arm64: macOS-arm64.tar.xz\n- Linux arm64: Linux-arm64-4K-pages.AppImage on most distros, or the 16K one on Asahi Linux and other Apple Silicon kernels (run getconf PAGESIZE if unsure)\n- Windows arm64: Windows-arm64.zip\n- RetroArch on Linux arm64: Linux-arm64-libretro-core.tar.zst, a 4K-page build\n- Bare-display kmsdrm handhelds: Linux-arm64-SDL-handheld.tar.zst, a 4K-page build (Rocknix and Batocera run compositors, so use the Qt AppImage there instead)\n- Android: Android-arm64.apk (installs as ARMSX2 Nightly, alongside the stable app)\n- iOS: iOS-arm64.ipa, unsigned, sideload it (installs as ARMSX2 Nightly, alongside the stable app)\n\nComing from an old nightly? Nightlies are now a separate app, ARMSX2 Nightly, next to stable.\n\n- Android: stable cannot install over an old nightly. Back up your saves and memory cards, uninstall the old nightly, then install the stable APK.\n- iOS: your old nightly is the ARMSX2 iOS app and still has your saves. Copy them into ARMSX2 Nightly with the Files app.\n\n## What's new\n- iOS: split the menu controller input router\n- iOS: split the controller accessibility navigation file\n- iOS: split the orb field file and move the theme tables to Appearance\n- iOS: localize the Report a Problem screens in nine languages\n- iOS: offer a report after a session that ended badly\n- iOS: report a problem from the pause menu with the paused frame\n- iOS: add Settings Diagnostics with the report sheet\n- iOS: carry the paused frame, a photo and crash files in the report\n- iOS: build a redacted problem report zip from the session logs\n- iOS: read how each session ended from its log markers\n- iOS: keep each launch's logs in a session folder with markers\n\nFull changelog: https://github.com/ARMSX2/ARMSX2/compare/nightly-20261120...8bee9fff99b2063ecb032af45a313c4cee5d8f6b",
+          "downloadURL": "https://github.com/ARMSX2/ARMSX2/releases/download/nightly-20261121/ARMSX2-nightly-20261121-8bee9fff99-iOS-arm64.ipa",
+          "size": 40743520,
           "minOSVersion": "17.0"
         }
       ]
@@ -34,14 +34,14 @@
   "news": [
     {
       "appID": "com.armsx2.ios",
-      "title": "ARMSX2 nightly-20261113 · 13 Nov 2026",
-      "identifier": "ARMSX2-release-nightly-20261113",
-      "caption": "ARMSX2 nightly-20261113 is available.",
-      "date": "2026-11-13T04:53:50Z",
+      "title": "ARMSX2 nightly-20261121 · 21 Nov 2026",
+      "identifier": "ARMSX2-release-nightly-20261121",
+      "caption": "ARMSX2 nightly-20261121 is available.",
+      "date": "2026-11-21T16:45:32Z",
       "tintColor": "#3CAEFF",
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/ARMSX2/images/news.png",
       "notify": true,
-      "url": "https://github.com/ARMSX2/ARMSX2/releases/tag/nightly-20261113"
+      "url": "https://github.com/ARMSX2/ARMSX2/releases/tag/nightly-20261121"
     }
   ]
 }
