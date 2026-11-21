@@ -63,12 +63,12 @@ failures follow the existing per-app failure policy and preserve prior output.
 of sync, and never hand-edit `apps.json`.**
 
 `.github/workflows/update.yml` regenerates and commits `apps.json` and
-`all-apps.json` on every push to `master`, every 6 hours, and on manual
+`all-apps.json` on every push to `master`, daily at 12:17 UTC, and on manual
 `workflow_dispatch`. (Both files are tracked despite `.gitignore`, so leave
 any local regenerated changes for the workflow to commit.)
 
-`.github/workflows/source-sync.yml` checks `assets/source-watch.toml` every
-hour at minute 23. `tools/source_sync.py watch` compares a producer's formal
+`.github/workflows/source-sync.yml` checks `assets/source-watch.toml` daily
+at 04:23 and 20:23 UTC. `tools/source_sync.py watch` compares a producer's formal
 release metadata with both sources and invokes the existing single-app
 generator only when needed. Full updates also run `watch` to catch a release
 published during generation; `verify` performs a read-only convergence check.

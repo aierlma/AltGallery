@@ -2,7 +2,7 @@ name: Update iPhoneUse Runner candidate
 
 on:
   schedule:
-    - cron: '41 * * * *'
+    - cron: '41 13 * * *'
   workflow_dispatch:
     inputs:
       upstream_tag:

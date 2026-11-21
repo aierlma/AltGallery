@@ -199,12 +199,12 @@ directory.
 
 `apps/<AppName>/apps.json` and `all-apps.json` are gitignored and are not
 committed by contributors. The `Update all-apps.json` GitHub Actions workflow
-regenerates and commits them on every push to `master`, every 6 hours, or on
+regenerates and commits them on every push to `master`, daily at 12:17 UTC, or on
 manual "Run workflow". Re-rendered `images/news.png` files stay in the working
 tree for you to review and commit.
 
 `Sync watched release sources` checks the producers declared in
-`assets/source-watch.toml` hourly at minute 23. It compares actual IPA metadata
+`assets/source-watch.toml` daily at 04:23 and 20:23 UTC. It compares actual IPA metadata
 from a formal release with the standalone and aggregate sources, regenerating
 only a stale watched app through the existing validated generator. No-change
 checks do not download an IPA or create a commit. Both workflows serialize

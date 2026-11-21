@@ -8,7 +8,7 @@ SideStore 0.7 models `.appex` entries in `appExtensions`, while its resign/insta
 
 ## Automated updates
 
-`.github/workflows/iphone-use-update.yml` checks the latest formal upstream release hourly and on manual dispatch. It resolves the tag to a full commit SHA, reads the upstream `runner/build.sh`, `runner/ci-check.sh`, and `scripts/build-ios-embed.sh` at that commit, verifies the official runner archive checksum, builds `libipu_embed.a` through the upstream script, and runs the upstream unsigned `build-for-testing` path. `package_runner.py` then makes an ad-hoc signed IPA and validates its metadata, code seal, archive CRC, and relocated XCTest bundle.
+`.github/workflows/iphone-use-update.yml` checks the latest formal upstream release daily at 13:41 UTC and on manual dispatch. It resolves the tag to a full commit SHA, reads the upstream `runner/build.sh`, `runner/ci-check.sh`, and `scripts/build-ios-embed.sh` at that commit, verifies the official runner archive checksum, builds `libipu_embed.a` through the upstream script, and runs the upstream unsigned `build-for-testing` path. `package_runner.py` then makes an ad-hoc signed IPA and validates its metadata, code seal, archive CRC, and relocated XCTest bundle.
 
 The workflow publishes a prerelease only after every check succeeds, with the upstream tag and commit recorded in both the release notes and `candidate.json`. A failed check never changes or replaces the last working release. Successful publication dispatches the existing `update.yml` source generator. Device installation, launch, and wireless operation are not claimed for future candidates until separately verified.
 
