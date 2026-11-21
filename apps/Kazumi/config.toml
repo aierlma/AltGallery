@@ -29,7 +29,7 @@ screenshots = [
   "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Kazumi/images/rules_edit.jpg",
 ]
 tint_color = "#4CAF50"
-min_os_version = "13.0"
+min_os_version = "15.0"
 
 [versions]
 strip_v_prefix = true
