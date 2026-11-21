@@ -380,12 +380,12 @@
       "tintColor": "#4CAF50",
       "versions": [
         {
-          "version": "2.4.4",
-          "date": "2026-11-12T10:27:44Z",
-          "localizedDescription": "- 适配 flutter 3.50",
-          "downloadURL": "https://github.com/Predidit/Kazumi/releases/download/2.4.4/Kazumi_ios_2.4.4_no_sign.ipa",
-          "size": 30341213,
-          "minOSVersion": "13.0"
+          "version": "2.4.5",
+          "date": "2026-11-21T05:56:21Z",
+          "localizedDescription": "- 重新设计播放页的选集与评论面板\r\n- 番剧详情页的评分编辑在窄屏上改为底部面板\r\n- 追番页头部随列表滚动，竖屏可显示更多内容 (#2859)\r\n- 优化 Material 3 Expressive 组件的选中配色与过渡动画\r\n- 精简各页面的说明文案\r\n- 修复 Linux 下部分 NVIDIA 设备画面偏移到左下角的问题 (#2838)\r\n- 修复 Windows 启动后画面偶发拉伸的问题",
+          "downloadURL": "https://github.com/Predidit/Kazumi/releases/download/2.4.5/Kazumi_ios_2.4.5_no_sign.ipa",
+          "size": 30370674,
+          "minOSVersion": "15.0"
         }
       ]
     },
@@ -628,21 +628,6 @@
           "minOSVersion": "18.0"
         }
       ]
-    },
-    {
-      "name": "Novella",
-      "bundleIdentifier": "sh.celia.novella",
-      "developerName": "CELIA",
-      "subtitle": "轻书架第三方客户端",
-      "localizedDescription": "使用 React Native 构建的轻书架第三方客户端，面向 iOS、iPadOS。",
-      "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Novella/icon.png",
-      "screenshots": [
-        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Novella/images/home.png",
-        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Novella/images/shelf.png",
-        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Novella/images/detail.png"
-      ],
-      "tintColor": "#2E2E2E",
-      "versions": []
     },
     {
       "name": "Opaline",
@@ -1032,6 +1017,17 @@
   ],
   "news": [
     {
+      "appID": "com.example.kazumi",
+      "title": "Kazumi 2.4.5 · 21 Nov 2026",
+      "identifier": "Kazumi-release-2.4.5",
+      "caption": "Kazumi 2.4.5 is available.",
+      "date": "2026-11-21T05:56:21Z",
+      "tintColor": "#4CAF50",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Kazumi/images/news.png",
+      "notify": true,
+      "url": "https://github.com/Predidit/Kazumi/releases/tag/2.4.5"
+    },
+    {
       "appID": "com.example.piliplus.btr",
       "title": "PiliPlus BTR v2.2.1-btr.5793-5132b4ab984e · 15 Nov 2026",
       "identifier": "PiliPlus BTR-release-v2.2.1-btr.5793-5132b4ab984e",
@@ -1085,17 +1081,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/MoviePilotLite/images/news.png",
       "notify": true,
       "url": "https://github.com/singleton-altman/MoviePilotLite/releases/tag/release-v1.3.3-2026-11-13"
-    },
-    {
-      "appID": "com.example.kazumi",
-      "title": "Kazumi 2.4.4 · 12 Nov 2026",
-      "identifier": "Kazumi-release-2.4.4",
-      "caption": "Kazumi 2.4.4 is available.",
-      "date": "2026-11-12T10:27:44Z",
-      "tintColor": "#4CAF50",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Kazumi/images/news.png",
-      "notify": true,
-      "url": "https://github.com/Predidit/Kazumi/releases/tag/2.4.4"
     },
     {
       "appID": "com.neogamelab.neostation",
