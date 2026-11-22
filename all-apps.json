@@ -94,11 +94,11 @@
       "tintColor": "#124EB3",
       "versions": [
         {
-          "version": "2.6.8",
-          "date": "2026-11-13T20:37:13Z",
-          "localizedDescription": "### 🔄 更新内容\n\n## 2.6.8 更新\n\n## 新增\n\n- 壁纸页面支持关键词筛选、支持收藏壁纸集合(登录后)、我的页面右上角打开收藏集合\n- 重构视频资源下载模块，下载功能完全和播放页解耦不在需要等待内容解析完成后才能看到下载菜单，可以在番剧详情剧集弹窗和播放页剧集区域进入下载页面\n- 排行榜页面加载动画替换成骨架屏\n- 壁纸页面加载动画替换成骨架屏\n- 播放页的番剧详情信息展示方式从原来的内嵌路由替换成抽屉方式展示\n-  Linux 支持 Nix 安装(详情在仓库README下载项查看) #128 (@yebei199)\n\n## 优化\n\n- 优化更新信息页面布局\n- 优化大屏设置侧边栏效果(开启磨砂玻璃ui)\n- 优化推荐、排行榜页面开始磨砂玻璃时的页面顶部状态效果\n- 离开社区页面10秒后取消实时数据更新订阅减小服务器压力\n- 优化animeflow服务器网络请求延迟(可能有用)\n\n## 修复\n\n- 修复部分数据源线路名称文字ui溢出问题\n- 修复宽屏设备打开壁纸详情页时切换tabview时的异常问题\n- 修复在切换视频播放源时没有自动保持播放进度问题\n- 修复 Linux 客户端窗口问题 #129 (@lyndon0na)\n\n---\n\n### 📦 下载\n- 每个设备的安装包后缀: ``苹果手机(.ipa)、 安卓手机(.apk)、windows电脑(.zip或.exe)、mac电脑(.dmg)、linux电脑(.tar.gz或.deb)``\n- android分多个包: ``v7a(32位架构旧手机或TV)、arm64(新手机,推荐用这个)、x86(模拟器) ``\n- windows分多个包: ``.zip(解压直接使用)、.exe(安装后使用，推荐用这个) ``",
-          "downloadURL": "https://github.com/openAnimeFlow/AnimeFlow/releases/download/v2.6.8/AnimeFlow-ios-2.6.8.ipa",
-          "size": 29518672,
+          "version": "2.7.0",
+          "date": "2026-11-22T04:50:04Z",
+          "localizedDescription": "### 🔄 更新内容\n\n## 2.7.0 更新\n\n## 新增\n\n- 在数据源弹窗右上角点击文件按钮支持导入播放本地视频进行播放\n- android(ExoPlayer)、ios(AVPlayer)原生播放器支持超分辨效率挡\n- 字体库支持多线路下载资源\n\n## 优化\n\n- 优化播放器亮度、音量调节ui效果\n\n## 修复\n\n- 修复切换播放源时没有立即结束当前正在播放的视频\n- 修复播放器亮度、音量调节ui抖动问题\n- 修复Linux平台在NVIDIA上窗口画面偏移问题\n\n---\n\n### 📦 下载\n- 每个设备的安装包后缀: ``苹果手机(.ipa)、 安卓手机(.apk)、windows电脑(.zip或.exe)、mac电脑(.dmg)、linux电脑(.tar.gz或.deb)``\n- android分多个包: ``v7a(32位架构旧手机或TV)、arm64(新手机,推荐用这个)、x86(模拟器) ``\n- windows分多个包: ``.zip(解压直接使用)、.exe(安装后使用，推荐用这个) ``",
+          "downloadURL": "https://github.com/openAnimeFlow/AnimeFlow/releases/download/v2.7.0/AnimeFlow-ios-2.7.0.ipa",
+          "size": 29735422,
           "minOSVersion": "13.0"
         }
       ]
@@ -167,11 +167,11 @@
       "tintColor": "#3CAEFF",
       "versions": [
         {
-          "version": "nightly-20261121",
-          "date": "2026-11-21T16:45:32Z",
-          "localizedDescription": "Automated nightly build for community testing (unsigned).\n\nEvery download is named `ARMSX2-nightly-DATE-COMMIT-PLATFORM`, so builds\nfrom different nights stay distinguishable after you have downloaded them.\n\n- macOS arm64: macOS-arm64.tar.xz\n- Linux arm64: Linux-arm64-4K-pages.AppImage on most distros, or the 16K one on Asahi Linux and other Apple Silicon kernels (run getconf PAGESIZE if unsure)\n- Windows arm64: Windows-arm64.zip\n- RetroArch on Linux arm64: Linux-arm64-libretro-core.tar.zst, a 4K-page build\n- Bare-display kmsdrm handhelds: Linux-arm64-SDL-handheld.tar.zst, a 4K-page build (Rocknix and Batocera run compositors, so use the Qt AppImage there instead)\n- Android: Android-arm64.apk (installs as ARMSX2 Nightly, alongside the stable app)\n- iOS: iOS-arm64.ipa, unsigned, sideload it (installs as ARMSX2 Nightly, alongside the stable app)\n\nComing from an old nightly? Nightlies are now a separate app, ARMSX2 Nightly, next to stable.\n\n- Android: stable cannot install over an old nightly. Back up your saves and memory cards, uninstall the old nightly, then install the stable APK.\n- iOS: your old nightly is the ARMSX2 iOS app and still has your saves. Copy them into ARMSX2 Nightly with the Files app.\n\n## What's new\n- iOS: split the menu controller input router\n- iOS: split the controller accessibility navigation file\n- iOS: split the orb field file and move the theme tables to Appearance\n- iOS: localize the Report a Problem screens in nine languages\n- iOS: offer a report after a session that ended badly\n- iOS: report a problem from the pause menu with the paused frame\n- iOS: add Settings Diagnostics with the report sheet\n- iOS: carry the paused frame, a photo and crash files in the report\n- iOS: build a redacted problem report zip from the session logs\n- iOS: read how each session ended from its log markers\n- iOS: keep each launch's logs in a session folder with markers\n\nFull changelog: https://github.com/ARMSX2/ARMSX2/compare/nightly-20261120...8bee9fff99b2063ecb032af45a313c4cee5d8f6b",
-          "downloadURL": "https://github.com/ARMSX2/ARMSX2/releases/download/nightly-20261121/ARMSX2-nightly-20261121-8bee9fff99-iOS-arm64.ipa",
-          "size": 40743520,
+          "version": "nightly-20261122",
+          "date": "2026-11-22T06:28:24Z",
+          "localizedDescription": "Automated nightly build for community testing (unsigned).\n\nEvery download is named `ARMSX2-nightly-DATE-COMMIT-PLATFORM`, so builds\nfrom different nights stay distinguishable after you have downloaded them.\n\n- macOS arm64: macOS-arm64.tar.xz\n- Linux arm64: Linux-arm64-4K-pages.AppImage on most distros, or the 16K one on Asahi Linux and other Apple Silicon kernels (run getconf PAGESIZE if unsure)\n- Windows arm64: Windows-arm64.zip\n- RetroArch on Linux arm64: Linux-arm64-libretro-core.tar.zst, a 4K-page build\n- Bare-display kmsdrm handhelds: Linux-arm64-SDL-handheld.tar.zst, a 4K-page build (Rocknix and Batocera run compositors, so use the Qt AppImage there instead)\n- Android: Android-arm64.apk (installs as ARMSX2 Nightly, alongside the stable app)\n- iOS: iOS-arm64.ipa, unsigned, sideload it (installs as ARMSX2 Nightly, alongside the stable app)\n\nComing from an old nightly? Nightlies are now a separate app, ARMSX2 Nightly, next to stable.\n\n- Android: stable cannot install over an old nightly. Back up your saves and memory cards, uninstall the old nightly, then install the stable APK.\n- iOS: your old nightly is the ARMSX2 iOS app and still has your saves. Copy them into ARMSX2 Nightly with the Files app.\n\n## What's new\n- GameDB: VU1 clamp mode Extra for Tales of Destiny\n- GS/Vulkan: run program off on Qualcomm's driver\n- Comments: drop pointers to notes that are not in this tree\n- eerunner: --gamedb runs a no-disc savestate under a game's serial and CRC\n- eerunner: --dump-config loads --savestate first\n- eerunner: --nodisc boots with the tray empty and loads the savestate\n- Android: remove the live GS apply queue, which nothing calls\n- Android: queue settings applies on the CPU thread instead of waiting for them\n- Android: drop a trigger's duplicate key event whenever its axis moves (#674)\n- arm64: drop the blank line at the end of BaseblockEx-arm64.h\n- gsrunner: -panvk-bifrost puts PanVK's Bifrost paths on any Vulkan device\n- GS/Vulkan: neither load nor store a stencil-one temporary on PanVK with a Bifrost GPU\n- GS: keep stencil-one DATE on a temporary when its primitives overlap\n- GS: DATE without a depth buffer reads the target on PanVK with a Bifrost GPU\n- GS/Vulkan: keep game depth without stencil on PanVK with a Bifrost GPU\n- GS/Vulkan: open render passes over their draws on PanVK with a Bifrost GPU\n- arm64: the IOP recompiler uses the per-page block index\n- arm64: FindByHostPc's comment says again that the walk only reads, takes no locks and allocates nothing\n- arm64: BlockPageIndex header carries the ARMSX2 Contributors copyright line\n- EE arm64: reduce JIT block-index insertion stalls\n- GS: the fused-layout comments name the layouts and counts that are there now\n- tests: the {RGBAQ, XYZF2} pair through Transfer, draw buffering, the mid-record resume and a draw start\n- tests: the NOP-padded {ST, RGBAQ, XYZ2} triple under a moving environment and at a draw start\n- GS: Fuse {RGBAQ, XYZF2} packed tags in the vertex kernel\n- GS: Fuse NOP-padded ST/RGBAQ/XYZ2 triangle strips\n- FullscreenUI: show AM or PM on the 12-hour clock in locales without AM/PM text\n- FullscreenUI: regenerate the translation string block\n- FullscreenUI: add a clock format setting for the menu clocks\n- Android: ignore cluster_cpus_list in the app's cpuinfo copy when the cluster id is unknown\n- 3rdparty/cpuinfo: ignore cluster_cpus_list when the cluster id is unknown\n- libretro: apply the Multitap option at startup only\n- libretro: add a Multitap option\n- libretro: send rumble to the pad's libretro port\n- libretro: read input from every controller port\n- GS: force-inline three lambdas with the attribute, not __forceinline\n- Android: offer the newest ARMSX2 GPU driver once after each app update\n- iOS: drop the launch trigger that builds a report\n- iOS: drop the perf telemetry and simulator no-JIT switches\n- vtlb: drop the iPSX2_FORCE_NO_FASTMEM switch\n- iOS: build the runtime with ARC\n- iOS: split SceneDelegate.mm into the VM thread and AirPlay files\n- iOS: rename ios_main.mm to IOSRuntime.mm and split out three files\n- iOS: split GamepadHaptics.mm by concern\n- iOS: take the settings lock in the runtime and honour Haptic Feedback\n- USB: Scale Trance Vibrator intensity to 0-1\n- SDL frontend: turn the picture for a panel mounted sideways on bare KMS\n- Android: regenerate the PGO profile on the release source, with one game on the software renderer\n- vtlb: reserve a guard after the fastmem window and backpatch faults in it\n- tests: EE fastmem fault reported at the end of the 4 GB window\n- common: a syscall a seccomp filter traps returns ENOSYS instead of killing the process\n- tests: the IOP thread under a seccomp filter that traps membarrier\n- tests: the short-run texture model hands an open group to the ordinary calls at a flush\n- GS/Vulkan: recording the waiting run groups leaves set 1 as the device says\n- GS/Vulkan: a short run pushes only the textures its groups read\n- msvc: list the pad script and the new GS headers\n- GS/Vulkan: the run emitter's copyright line matches the other files\n- GS/Vulkan: remove the run emitter's process-wide counters\n- GS: remove the row and vertex-fact records nothing writes\n- GS/HW: a device loss closes the row run\n- GS/Vulkan: a texture leaving the device records the waiting run groups first\n- GS/Vulkan: a grown vertex ring records the waiting run groups before it is bound\n- tests: after a device loss a GPU palette read uses only the new device's textures\n- GS: a device loss releases everything the renderer holds from the old device\n- tests: after a device loss the new device is handed only objects it created\n- GS/Vulkan: a draw that declares its own feedback loop is not a run group\n- GS/Vulkan: a run of one or two groups takes the ordinary calls\n- GS/Vulkan: held twins join the driver's run entry\n- GS/Vulkan: hand runs of TFX draws to the driver's run entry where it has one\n- GS/Vulkan: on the Adreno 650 under Turnip a run group samples at most four textures through the sampler\n- tests: run rows on the Adreno 650 under Turnip are bounded on the sampler and fetch when small\n- GS/Vulkan: run streak classes take the targets by their sizes, not their addresses\n- tests: a run streak's class does not depend on where the host put the targets\n- GS/Vulkan: an in-pass readback kick begins the open pass again on the same targets\n- GS/Vulkan: the row emitter's decisions do not depend on the in-pass kick\n- GS/HW: copy runs: cheaper per-copy checks\n- GS/HW: copy runs, a palette block copy that continues the last one skips Draw()\n- GS: a class opens its group at the first row when its own streaks predict break-even\n- GS: tests of a class's opening length predicted from its own streaks, failing\n- GS/Vulkan: a row that changes nothing about its group skips the group's checks\n- GS/Vulkan: held twins recorded back to back bind only what differs\n- GS: tests of what a raw-recorded draw must bind after the one before it, failing\n- GS/Vulkan: the emitter classifies a row only when a group is open or would open\n- GS/Vulkan: a group that replaces one ended at a ring or the texture cap needs its own program\n- GS/Vulkan: the emitter asks RowIsPlain once a row, and smaller fixes\n- GS: each side of the emitter remembers its own streak lengths\n- GS: a surface request returns parked textures even with nothing deferred\n- GS: test that a texture parked for a recorded group comes back to the pool, failing\n- GS/Vulkan: a compiled row emitter replaces the per-draw run machine\n- GS: the row emitter's order, and the streak rule that opens a group\n- GS: tests of the row emitter's order and its streak rule, failing\n- GS: a twin base is a draw that discards no pixel its depth test passed\n- GS: a base that blends in a second pass or uses a logic op waits for held twins\n- GS: remove the pass compiler\n- GS: hold only twins in the row queue\n- GS: build a queued row's record in place\n- GS: mark a queued row's textures instead of keeping a list to scan\n- GS: a twin may differ from its base in the depth floor\n- GS: row queue tests for copies, depth clears, invalidations and recycles\n- GS/Vulkan: rows wait in the queue whether or not the run machine exists\n- GS: queue only rows the twin sort can move\n\nFull changelog: https://github.com/ARMSX2/ARMSX2/compare/nightly-20261121...c9b6e89f34779cd6e0d47a919cde54a161f8b525",
+          "downloadURL": "https://github.com/ARMSX2/ARMSX2/releases/download/nightly-20261122/ARMSX2-nightly-20261122-c9b6e89f34-iOS-arm64.ipa",
+          "size": 40934970,
           "minOSVersion": "17.0"
         }
       ]
@@ -380,11 +380,11 @@
       "tintColor": "#4CAF50",
       "versions": [
         {
-          "version": "2.4.5",
-          "date": "2026-11-21T05:56:21Z",
-          "localizedDescription": "- 重新设计播放页的选集与评论面板\r\n- 番剧详情页的评分编辑在窄屏上改为底部面板\r\n- 追番页头部随列表滚动，竖屏可显示更多内容 (#2859)\r\n- 优化 Material 3 Expressive 组件的选中配色与过渡动画\r\n- 精简各页面的说明文案\r\n- 修复 Linux 下部分 NVIDIA 设备画面偏移到左下角的问题 (#2838)\r\n- 修复 Windows 启动后画面偶发拉伸的问题",
-          "downloadURL": "https://github.com/Predidit/Kazumi/releases/download/2.4.5/Kazumi_ios_2.4.5_no_sign.ipa",
-          "size": 30370674,
+          "version": "2.4.6",
+          "date": "2026-11-22T05:42:23Z",
+          "localizedDescription": "- 修复 Bangumi 同步无法使用的问题",
+          "downloadURL": "https://github.com/Predidit/Kazumi/releases/download/2.4.6/Kazumi_ios_2.4.6_no_sign.ipa",
+          "size": 30369553,
           "minOSVersion": "15.0"
         }
       ]
@@ -428,11 +428,11 @@
       "tintColor": "#F0D060",
       "versions": [
         {
-          "version": "0.3.37",
-          "date": "2026-11-14T11:23:41Z",
-          "localizedDescription": "![分享评论 · Share a comment](https://raw.githubusercontent.com/missuo/kumone/v0.3.37/docs/releases/0.3.37-comment-share.png)\n\n![macOS 播放页评论 · Comments on the macOS now-playing page](https://raw.githubusercontent.com/missuo/kumone/v0.3.37/docs/releases/0.3.37-macos-comments.png)\n\n### Added\n\n- **Comments**: long-press a comment (right-click on macOS) to share it as a picture — the comment and who wrote it, with the song's title, artist and cover, over the cover's colours — then share it or save it to Photos (copy it on macOS). Copy Comment copies its text.\n- **Comments**: on macOS (and iPad), a Lyrics | Comments switch above the now-playing lyrics shows the playing song's comments in their place; songs without lyrics but with comments now get the column too.\n\n### Fixed\n\n- **iOS 17**: tapping the mini player no longer freezes the app with the now-playing page never appearing; the cause has been found and fixed. Swiping from the lyrics to the comments is back on iOS 16/17 (#213).\n- **Now playing**: on iPhone, the volume panel now closes when you tap anywhere else on the page, not only the speaker button again.\n\n---\n\n### 新增\n\n- **评论**：长按一条评论（macOS 上右键）即可把它分享成一张图片：评论内容和评论者，配上歌名、歌手和专辑封面，底色取自封面；可以直接分享或保存到相册（macOS 上为拷贝图片）。「复制评论」可复制评论文字。\n- **评论**：macOS（以及 iPad）播放页的歌词上方新增「歌词 | 评论」切换，可在歌词的位置查看正在播放歌曲的评论；没有歌词但有评论的歌曲也会显示这一栏。\n\n### 修复\n\n- **iOS 17**：点击迷你播放条后应用卡死、播放页一直出不来的问题已找到原因并修复；iOS 16/17 上也恢复了歌词左滑查看评论（#213）。\n- **播放页**：iPhone 上打开音量面板后，点页面其他任意位置即可关闭，不必再点一次喇叭按钮。",
-          "downloadURL": "https://github.com/missuo/kumone/releases/download/v0.3.37/Kumone-iOS-0.3.37.ipa",
-          "size": 4407346,
+          "version": "0.3.38",
+          "date": "2026-11-22T15:28:06Z",
+          "localizedDescription": "### Added\n\n- **macOS**: an Add to Playlist button next to the heart in the player bar saves the playing song to one of your playlists in one click (#232, thanks @WillowBranch127).\n- **iOS**: a Swipe Left from Lyrics for Comments switch in Settings turns the swipe off for anyone who triggers it by accident; View Comments stays in the now-playing menu (#225).\n\n### Fixed\n\n- **iOS**: skipping to another song now stops the previous one straight away, instead of letting it play on for a few seconds under the new song's title and lyrics (#221).\n- **Now playing**: after a relaunch, the restored song's lyrics load right away instead of spinning until you press play (#219).\n- **macOS 26**: with Liquid Glass, the page no longer covers part of the floating sidebar; a gap now runs between them, also with the window inactive (#229).\n- **macOS**: opening Roam with a song loaded no longer pushes the sidebar up under the window buttons (#227).\n- **macOS**: dragging the desktop lyrics no longer brings a minimized or hidden main window back to the front (#187).\n- **Comments**: shared comment pictures no longer have a thin white line along the bottom.\n\n---\n\n### 新增\n\n- **macOS**：播放条爱心旁新增「收藏到歌单」按钮，一键把正在播放的歌收藏到歌单（#232，感谢 @WillowBranch127）。\n- **iOS**：设置中新增「左滑歌词查看评论」开关，容易误触的话可以关掉；关掉后播放页菜单中的「查看评论」仍然可用（#225）。\n\n### 修复\n\n- **iOS**：切歌时会立刻停掉上一首，不会再在新歌的歌名和歌词下继续播放上一首几秒（#221）。\n- **播放页**：重新打开应用后，恢复的歌曲会直接加载歌词，不用等按下播放才出来（#219）。\n- **macOS 26**：开启液态玻璃时，主界面不会再盖住悬浮侧边栏的一部分，两者之间留出间距，窗口失去焦点时也一样（#229）。\n- **macOS**：有歌曲时打开「漫游」，侧边栏不会再被顶到窗口按钮下面（#227）。\n- **macOS**：拖动桌面歌词时，不会再把已最小化或隐藏的主窗口带回前台（#187）。\n- **评论**：分享的评论图片底部不会再有一条细白线。",
+          "downloadURL": "https://github.com/missuo/kumone/releases/download/v0.3.38/Kumone-iOS-0.3.38.ipa",
+          "size": 4420454,
           "minOSVersion": "16.0"
         }
       ]
@@ -1017,26 +1017,48 @@
   ],
   "news": [
     {
+      "appID": "sb.moe.kumone",
+      "title": "Kumone 0.3.38 · 22 Nov 2026",
+      "identifier": "Kumone-release-v0.3.38",
+      "caption": "Kumone 0.3.38 is available.",
+      "date": "2026-11-22T15:28:06Z",
+      "tintColor": "#F0D060",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Kumone/images/news.png",
+      "notify": true,
+      "url": "https://github.com/missuo/kumone/releases/tag/v0.3.38"
+    },
+    {
       "appID": "com.armsx2.ios",
-      "title": "ARMSX2 nightly-20261121 · 21 Nov 2026",
-      "identifier": "ARMSX2-release-nightly-20261121",
-      "caption": "ARMSX2 nightly-20261121 is available.",
-      "date": "2026-11-21T16:45:32Z",
+      "title": "ARMSX2 nightly-20261122 · 22 Nov 2026",
+      "identifier": "ARMSX2-release-nightly-20261122",
+      "caption": "ARMSX2 nightly-20261122 is available.",
+      "date": "2026-11-22T06:28:24Z",
       "tintColor": "#3CAEFF",
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/ARMSX2/images/news.png",
       "notify": true,
-      "url": "https://github.com/ARMSX2/ARMSX2/releases/tag/nightly-20261121"
+      "url": "https://github.com/ARMSX2/ARMSX2/releases/tag/nightly-20261122"
     },
     {
       "appID": "com.example.kazumi",
-      "title": "Kazumi 2.4.5 · 21 Nov 2026",
-      "identifier": "Kazumi-release-2.4.5",
-      "caption": "Kazumi 2.4.5 is available.",
-      "date": "2026-11-21T05:56:21Z",
+      "title": "Kazumi 2.4.6 · 22 Nov 2026",
+      "identifier": "Kazumi-release-2.4.6",
+      "caption": "Kazumi 2.4.6 is available.",
+      "date": "2026-11-22T05:42:23Z",
       "tintColor": "#4CAF50",
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Kazumi/images/news.png",
       "notify": true,
-      "url": "https://github.com/Predidit/Kazumi/releases/tag/2.4.5"
+      "url": "https://github.com/Predidit/Kazumi/releases/tag/2.4.6"
+    },
+    {
+      "appID": "com.ligg.anime_flow",
+      "title": "AnimeFlow 2.7.0 · 22 Nov 2026",
+      "identifier": "AnimeFlow-release-v2.7.0",
+      "caption": "AnimeFlow 2.7.0 is available.",
+      "date": "2026-11-22T04:50:04Z",
+      "tintColor": "#124EB3",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/AnimeFlow/images/news.png",
+      "notify": true,
+      "url": "https://github.com/openAnimeFlow/AnimeFlow/releases/tag/v2.7.0"
     },
     {
       "appID": "com.huamu013.ZhihuMinusMinus",
@@ -1149,17 +1171,6 @@
       "url": "https://github.com/aierlma/PiliPlus/releases/tag/v2.2.1-btr.5793-5132b4ab984e"
     },
     {
-      "appID": "sb.moe.kumone",
-      "title": "Kumone 0.3.37 · 14 Nov 2026",
-      "identifier": "Kumone-release-v0.3.37",
-      "caption": "Kumone 0.3.37 is available.",
-      "date": "2026-11-14T11:23:41Z",
-      "tintColor": "#F0D060",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Kumone/images/news.png",
-      "notify": true,
-      "url": "https://github.com/missuo/kumone/releases/tag/v0.3.37"
-    },
-    {
       "appID": "com.example.piliplus",
       "title": "PiliPlus 2.2.1 · 14 Nov 2026",
       "identifier": "PiliPlus-release-2.2.1",
@@ -1180,17 +1191,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Apollo-Reborn/images/news.png",
       "notify": true,
       "url": "https://github.com/Apollo-Reborn/Apollo-Reborn/releases/tag/v1.15.11_4.1.0"
-    },
-    {
-      "appID": "com.ligg.anime_flow",
-      "title": "AnimeFlow 2.6.8 · 13 Nov 2026",
-      "identifier": "AnimeFlow-release-v2.6.8",
-      "caption": "AnimeFlow 2.6.8 is available.",
-      "date": "2026-11-13T20:37:13Z",
-      "tintColor": "#124EB3",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/AnimeFlow/images/news.png",
-      "notify": true,
-      "url": "https://github.com/openAnimeFlow/AnimeFlow/releases/tag/v2.6.8"
     },
     {
       "appID": "com.neogamelab.neostation",
